@@ -1,5 +1,6 @@
 #include "rf24.h"
 #include "rf24_internals.h"
+#include "wait.h"
 uint8_t temp0, temp1;
 
 void RF24_initialize()
@@ -8,9 +9,10 @@ void RF24_initialize()
     CSN_TRIS = 0; // CSN as output
     CE = 1;
     CSN = 1;
-    __delay_ms(10);
+    waitMillis(10);
+
     RF24_powerUp(1);
-    // __delay_ms(10); //
+    // waitMillis(10); //
 
     temp0 = readStatus();
     writeRegister(REG_STATUSS, temp0);
@@ -250,7 +252,7 @@ uint8_t RF24_write(uint8_t *buffer, uint8_t length)
     CSN = 1;
     // generate a pulse of min 10us on CE
     CE = 1;
-    __delay_ms(15);
+    waitMillis(15);
     CE = 0;
     while (!((temp0 = readStatus()) & 0x30)) // aka stop on fail or success
         ;
@@ -291,10 +293,10 @@ void RF24_powerUp(uint8_t upOrDown)
     else
         bitclr(temp0, 1);
     writeRegister(REG_CONFIG, temp0);
-    __delay_ms(10);
+    waitMillis(10);
 
-    //  __delay_ms(5);
-    // __delay_ms(2);
+    //  waitMillis(5);
+    // waitMillis(2);
 }
 
 void RF24_setPayloadWidth(RF24DataPipe pipe, uint8_t width)

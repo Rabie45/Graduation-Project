@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "spi_master.h"
 #include "wait.h"
-
+#define _XTAL_FREQ 16000000
 /******************************************************************************/
 // NRF24L01 Constants.
 /******************************************************************************/
@@ -73,42 +73,37 @@ typedef enum
  * @param[in]	mode NRF24L01 Tx/Rx Operation Mode
  *
  */
-void RF24_setMode(RF24Mode mode);
+void RF24_startListening();
+void RF24_stopListening();
 
 /**
  * @brief  Set NRF24L01 RF Channel Frequency
  *
  * @param[in]	rf_channel NRF24L01 RF channel - radio frequency channel, value from 0 to 127
- * 
+ *
  * @Note: NRF24L01 frequency will be (2400 + rf_channel)GHz
  *
  */
 void RF24_initialize();
 void RF24_setChannel(uint8_t rf_channel);
-
 void RF24_setDataRate(RF24DataRate rate);
 void RF24_setOutputPower(RF24OutputPower power);
 void RF24_setDataRate(RF24DataRate rate);
-void RF24_openDataPipe(RF24DataPipe pipe); //
 void RF24_closeDataPipe(RF24DataPipe pipe);
-uint8_t RF24_setTransmittingAddress(uint8_t address); //Openwriting data pipe
-void RF24_setFullTransmittingAddress(uint8_t *addressBytes); //
-void RF24_setReceivingAddress(RF24DataPipe pipe, uint8_t address);
-void RF24_setFullReceivingAddress(RF24DataPipe pipe, uint8_t *addressBytes);
+void RF24_openWritingPipe(uint8_t *addressBytes); //
+void RF24_openReadingPipe(RF24DataPipe pipe, uint8_t *addressBytes); // open reading
 void RF24_enableDynamicPayloadLength(RF24DataPipe pipe);
 void RF24_disableDynamicPayloadLength(RF24DataPipe pipe);
 uint8_t RF24_available(RF24DataPipe *pipeNo);
 uint8_t RF24_getDynamicPayloadSize();
 uint8_t RF24_isChipConnected();
-void RF24_readPayload(uint8_t *buffer, uint8_t length);
-uint8_t RF24_sendPayload(uint8_t *buffer, uint8_t length);
+void RF24_read(uint8_t *buffer, uint8_t length);
+uint8_t RF24_write(uint8_t *buffer, uint8_t length);
 void RF24_setCRCEncoding(RF24CRCEncoding encoding);
 void RF24_setAutoAck(RF24DataPipe pipe, uint8_t enabledOrDisabled);
-void RF24_powerUp(uint8_t upOrDown);// 0 for power down 1 for power up 
+void RF24_powerUp(uint8_t upOrDown); // 0 for power down 1 for power up
 void RF24_setPayloadWidth(RF24DataPipe pipe, uint8_t width);
 inline uint8_t RF24_isCarierDetected();
-void RF24_stopListening();
-void RF24_startListening();
 void RF24_flashTX();
 void RF24_flashRX();
 void RF24_debug();
