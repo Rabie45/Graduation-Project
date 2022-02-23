@@ -1,0 +1,45 @@
+ TRISB = 0xFF; // PORTB as Input
+    nRBPU = 0;
+
+    SPI_initialize();
+    Serial_begin(9600);
+    logline_println("Start");
+    if (!RF24_isChipConnected())
+    {
+     
+        logline_println("chip not connected");
+    while (1)
+    {
+        ;/* code */
+    }
+    
+    }
+    uint8_t state = RF24_begin();
+    logline_prop_status("RF24=", state);
+
+    //  RF24_begin();
+    RF24_setChannel(115);
+    logline_println("Donky1");
+
+    network_pipe[0] = 0x02;
+    RF24_openReadingPipe(0, network_pipe);
+    logline_println("Donky2");
+    RF24_openWritingPipe(network_pipe);
+    logline_println("Donky3");
+    RF24_setAddressWidth(5);
+    RF24_enableDynamicPayloads();
+    RF24_setDataRate(RF24_1MBPS);
+    RF24_setCRCLength(RF24_CRC_8);
+
+    RF24_setAutoAck(1);
+    RF24_setPALevel(RF24_PA_MAX);
+    RF24_setPayloadSize(32);
+
+    while (1)
+    {
+        __delay_ms(1000);
+        RF24_printDetails();
+        logline_println("before send");
+        logline_prop_status("WRITE", RF24_write(buffer, 32));
+        logline_println("after send");
+    }

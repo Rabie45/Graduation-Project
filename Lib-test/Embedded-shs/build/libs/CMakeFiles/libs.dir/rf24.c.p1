@@ -1,0 +1,1765 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"2763 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2763: extern volatile __bit RD3 __attribute__((address(0x43)));
+[v _RD3 `Vb ~T0 @X0 0 e@67 ]
+"7 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h: 7: uint8_t SPI_exchangeByte(uint8_t byte);
+[v _SPI_exchangeByte `(uc ~T0 @X0 0 ef1`uc ]
+"2994 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2994: extern volatile __bit TRISD2 __attribute__((address(0x442)));
+[v _TRISD2 `Vb ~T0 @X0 0 e@1090 ]
+"2997
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2997: extern volatile __bit TRISD3 __attribute__((address(0x443)));
+[v _TRISD3 `Vb ~T0 @X0 0 e@1091 ]
+"2760
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2760: extern volatile __bit RD2 __attribute__((address(0x42)));
+[v _RD2 `Vb ~T0 @X0 0 e@66 ]
+[v F36 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.35\pic\include\builtins.h
+[v __delay `JF36 ~T0 @X0 0 e ]
+[p i __delay ]
+"107 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 107: void RF24_setRetries(uint8_t delay, uint8_t count);
+[v _RF24_setRetries `(v ~T0 @X0 0 ef2`uc`uc ]
+"151
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 151: void RF24_setPALevel(uint8_t level);
+[v _RF24_setPALevel `(v ~T0 @X0 0 ef1`uc ]
+"85 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 85:     RF24_setPALevel(RF24_PA_MAX);
+[c E892 0 1 2 3 4 .. ]
+[n E892 . RF24_PA_MIN RF24_PA_LOW RF24_PA_HIGH RF24_PA_MAX RF24_PA_ERROR  ]
+"86
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 86:     RF24_setDataRate(RF24_1MBPS);
+[c E899 0 1 2 .. ]
+[n E899 . RF24_1MBPS RF24_2MBPS RF24_250KBPS  ]
+"152 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 152: void RF24_setDataRate(rf24_datarate_e rate);
+[v _RF24_setDataRate `(v ~T0 @X0 0 ef1`E899 ]
+"139
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 139: void RF24_setPayloadSize(uint8_t size);
+[v _RF24_setPayloadSize `(v ~T0 @X0 0 ef1`uc ]
+"108
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 108: void RF24_setAddressWidth(uint8_t w);
+[v _RF24_setAddressWidth `(v ~T0 @X0 0 ef1`uc ]
+"102
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 102: void RF24_setChannel(uint8_t channel);
+[v _RF24_setChannel `(v ~T0 @X0 0 ef1`uc ]
+"100
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 100: void RF24_flush_rx();
+[v _RF24_flush_rx `(v ~T0 @X0 0 e? ]
+"99
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 99: void RF24_flush_tx();
+[v _RF24_flush_tx `(v ~T0 @X0 0 e? ]
+"121
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 121: void RF24_powerUp(void);
+[v _RF24_powerUp `(v ~T0 @X0 0 ef ]
+"361 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 361:         en_aa |= BV(pipe);
+[v _BV `(i ~T0 @X0 0 e? ]
+"411
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 411: void RF24_setCRCLength(rf24_crclength_e length)
+[c E904 0 1 2 .. ]
+[n E904 . RF24_CRC_DISABLED RF24_CRC_8 RF24_CRC_16  ]
+"56 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 56: void _$_logline_str(char *string);
+[v __$_logline_str `(v ~T0 @X0 0 ef1`*uc ]
+"10 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\Serial.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\Serial.h: 10: void Serial_write(uint8_t data);
+[v _Serial_write `(v ~T0 @X0 0 ef1`uc ]
+"58 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 58: void _$_logline_bin(uint8_t v);
+[v __$_logline_bin `(v ~T0 @X0 0 ef1`uc ]
+"57
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 57: void _$_logline_int(uint8_t v);
+[v __$_logline_int `(v ~T0 @X0 0 ef1`uc ]
+"60
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 60: void _$_logline_n_hex(uint8_t *ptr, uint8_t n);
+[v __$_logline_n_hex `(v ~T0 @X0 0 ef2`*uc`uc ]
+"59
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 59: void _$_logline_hex(uint8_t v);
+[v __$_logline_hex `(v ~T0 @X0 0 ef1`uc ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"219
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 219: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"281
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 281: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"343
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 343: __asm("PORTD equ 08h");
+[; <" PORTD equ 08h ;# ">
+"405
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 405: __asm("PORTE equ 09h");
+[; <" PORTE equ 09h ;# ">
+"437
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 437: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"457
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 457: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"535
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 535: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"597
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 597: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"637
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 637: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"644
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 644: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"651
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 651: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"658
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 658: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"733
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 733: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"740
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 740: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"811
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 811: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"818
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 818: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"888
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 888: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"895
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 895: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"902
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 902: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"909
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 909: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"967
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 967: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"1062
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1062: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"1069
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1069: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"1076
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1076: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"1083
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1083: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"1090
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1090: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"1097
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1097: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1155
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1155: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1162
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1162: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1258
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1258: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1328
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1328: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1378
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1378: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1440
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1440: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1502
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1502: __asm("TRISD equ 088h");
+[; <" TRISD equ 088h ;# ">
+"1564
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1564: __asm("TRISE equ 089h");
+[; <" TRISE equ 089h ;# ">
+"1621
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1621: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1683
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1683: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1723
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1723: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1757
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1757: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"1819
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1819: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1826
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1826: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"1833
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 1833: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"2002
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2002: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"2083
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2083: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"2090
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2090: __asm("CMCON equ 09Ch");
+[; <" CMCON equ 09Ch ;# ">
+"2160
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2160: __asm("CVRCON equ 09Dh");
+[; <" CVRCON equ 09Dh ;# ">
+"2225
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2225: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2232
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2232: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"2291
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2291: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"2298
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2298: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"2305
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2305: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"2312
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2312: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"2319
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2319: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"2364
+[; ;C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h: 2364: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"96 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 96: uint8_t RF24_attr_status;
+[v _RF24_attr_status `uc ~T0 @X0 1 e ]
+"97
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\rf24.h: 97: uint8_t RF24_attr_config;
+[v _RF24_attr_config `uc ~T0 @X0 1 e ]
+"16 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 16: const char LOGLINE_OK[] = "OK";
+[v _LOGLINE_OK `Cuc ~T0 @X0 -> 3 `i e ]
+[i _LOGLINE_OK
+:U ..
+-> 79 `c
+-> 75 `c
+-> 0 `c
+..
+]
+"17
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\logline.h: 17: const char LOGLINE_FAIL[] = "FAIL";
+[v _LOGLINE_FAIL `Cuc ~T0 @X0 -> 5 `i e ]
+[i _LOGLINE_FAIL
+:U ..
+-> 70 `c
+-> 65 `c
+-> 73 `c
+-> 76 `c
+-> 0 `c
+..
+]
+"7 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 7: uint8_t RF24_read_n_register(uint8_t mnemonic_addr, uint8_t *buf, uint8_t len)
+[v _RF24_read_n_register `(uc ~T0 @X0 1 ef3`uc`*uc`uc ]
+"8
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 8: {
+{
+[e :U _RF24_read_n_register ]
+"7
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 7: uint8_t RF24_read_n_register(uint8_t mnemonic_addr, uint8_t *buf, uint8_t len)
+[v _mnemonic_addr `uc ~T0 @X0 1 r1 ]
+[v _buf `*uc ~T0 @X0 1 r2 ]
+[v _len `uc ~T0 @X0 1 r3 ]
+"8
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 8: {
+[f ]
+"9
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 9:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"10
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 10:     RF24_attr_status = SPI_exchangeByte(0x00 | mnemonic_addr);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> | -> 0 `i -> _mnemonic_addr `i `uc ]
+"11
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 11:     while (len--)
+[e $U 96  ]
+[e :U 97 ]
+"12
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 12:     {
+{
+"13
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 13:         *buf++ = SPI_exchangeByte(0xFF);
+[e = *U ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x ( _SPI_exchangeByte (1 -> -> 255 `i `uc ]
+"14
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 14:     }
+}
+[e :U 96 ]
+"11
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 11:     while (len--)
+[e $ != -> -- _len -> -> 1 `i `uc `i -> 0 `i 97  ]
+[e :U 98 ]
+"15
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 15:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"16
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 16: }
+[e :UE 95 ]
+}
+"18
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 18: uint8_t RF24_read_register(uint8_t mnemonic_addr)
+[v _RF24_read_register `(uc ~T0 @X0 1 ef1`uc ]
+"19
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 19: {
+{
+[e :U _RF24_read_register ]
+"18
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 18: uint8_t RF24_read_register(uint8_t mnemonic_addr)
+[v _mnemonic_addr `uc ~T0 @X0 1 r1 ]
+"19
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 19: {
+[f ]
+"20
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 20:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"21
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 21:     uint8_t result;
+[v _result `uc ~T0 @X0 1 a ]
+"22
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 22:     RF24_attr_status = SPI_exchangeByte(0x00 | mnemonic_addr);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> | -> 0 `i -> _mnemonic_addr `i `uc ]
+"23
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 23:     result = SPI_exchangeByte(0xFF);
+[e = _result ( _SPI_exchangeByte (1 -> -> 255 `i `uc ]
+"24
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 24:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"26
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 26:     return result;
+[e ) _result ]
+[e $UE 99  ]
+"27
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 27: }
+[e :UE 99 ]
+}
+"29
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 29: void RF24_write_n_register(uint8_t mnemonic_addr, uint8_t *buffer, uint8_t length)
+[v _RF24_write_n_register `(v ~T0 @X0 1 ef3`uc`*uc`uc ]
+"30
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 30: {
+{
+[e :U _RF24_write_n_register ]
+"29
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 29: void RF24_write_n_register(uint8_t mnemonic_addr, uint8_t *buffer, uint8_t length)
+[v _mnemonic_addr `uc ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+[v _length `uc ~T0 @X0 1 r3 ]
+"30
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 30: {
+[f ]
+"31
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 31:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"32
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 32:     RF24_attr_status = SPI_exchangeByte(0x20 | mnemonic_addr);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> | -> 32 `i -> _mnemonic_addr `i `uc ]
+"33
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 33:     while (length)
+[e $U 101  ]
+[e :U 102 ]
+"34
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 34:     {
+{
+"35
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 35:         SPI_exchangeByte(*buffer++);
+[e ( _SPI_exchangeByte (1 *U ++ _buffer * -> -> 1 `i `x -> -> # *U _buffer `i `x ]
+"36
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 36:         length--;
+[e -- _length -> -> 1 `i `uc ]
+"37
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 37:     }
+}
+[e :U 101 ]
+"33
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 33:     while (length)
+[e $ != -> _length `i -> 0 `i 102  ]
+[e :U 103 ]
+"38
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 38:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"39
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 39: }
+[e :UE 100 ]
+}
+"42
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 42: void RF24_write_register(uint8_t mnemonic_addr, uint8_t value)
+[v _RF24_write_register `(v ~T0 @X0 1 ef2`uc`uc ]
+"43
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 43: {
+{
+[e :U _RF24_write_register ]
+"42
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 42: void RF24_write_register(uint8_t mnemonic_addr, uint8_t value)
+[v _mnemonic_addr `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+"43
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 43: {
+[f ]
+"45
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 45:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"46
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 46:     RF24_attr_status = SPI_exchangeByte(0x20 | mnemonic_addr);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> | -> 32 `i -> _mnemonic_addr `i `uc ]
+"47
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 47:     SPI_exchangeByte(value);
+[e ( _SPI_exchangeByte (1 _value ]
+"48
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 48:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"49
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 49: }
+[e :UE 104 ]
+}
+"51
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 51: uint8_t RF24_get_status()
+[v _RF24_get_status `(uc ~T0 @X0 1 ef ]
+"52
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 52: {
+{
+[e :U _RF24_get_status ]
+[f ]
+"53
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 53:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"54
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 54:     RF24_attr_status = SPI_exchangeByte(0xFF);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> -> 255 `i `uc ]
+"55
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 55:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"56
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 56:     return RF24_attr_status;
+[e ) _RF24_attr_status ]
+[e $UE 105  ]
+"57
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 57: }
+[e :UE 105 ]
+}
+"59
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 59: uint8_t RF24_begin()
+[v _RF24_begin `(uc ~T0 @X0 1 ef ]
+"60
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 60: {
+{
+[e :U _RF24_begin ]
+[f ]
+"62
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 62:     TRISD2 = 0;
+[e = _TRISD2 -> -> 0 `i `b ]
+"63
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 63:     TRISD3 = 0;
+[e = _TRISD3 -> -> 0 `i `b ]
+"64
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 64:     RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"65
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 65:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"66
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 66:     _delay((unsigned long)((100)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"76
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 76:     _delay((unsigned long)((5)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"80
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 80:     RF24_setRetries(5, 15);
+[e ( _RF24_setRetries (2 , -> -> 5 `i `uc -> -> 15 `i `uc ]
+"85
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 85:     RF24_setPALevel(RF24_PA_MAX);
+[e ( _RF24_setPALevel (1 -> . `E892 3 `uc ]
+"86
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 86:     RF24_setDataRate(RF24_1MBPS);
+[e ( _RF24_setDataRate (1 . `E899 0 ]
+"89
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 89:     RF24_write_register(0x1D, 0);
+[e ( _RF24_write_register (2 , -> -> 29 `i `uc -> -> 0 `i `uc ]
+"90
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 90:     RF24_write_register(0x1C, 0);
+[e ( _RF24_write_register (2 , -> -> 28 `i `uc -> -> 0 `i `uc ]
+"91
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 91:     RF24_write_register(0x01, 0x3F);
+[e ( _RF24_write_register (2 , -> -> 1 `i `uc -> -> 63 `i `uc ]
+"92
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 92:     RF24_write_register(0x02, 3);
+[e ( _RF24_write_register (2 , -> -> 2 `i `uc -> -> 3 `i `uc ]
+"93
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 93:     RF24_setPayloadSize(32);
+[e ( _RF24_setPayloadSize (1 -> -> 32 `i `uc ]
+"94
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 94:     RF24_setAddressWidth(5);
+[e ( _RF24_setAddressWidth (1 -> -> 5 `i `uc ]
+"99
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 99:     RF24_setChannel(76);
+[e ( _RF24_setChannel (1 -> -> 76 `i `uc ]
+"103
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 103:     RF24_write_register(0x07, (1 << (6)) | (1 << (5)) | (1 << (4)));
+[e ( _RF24_write_register (2 , -> -> 7 `i `uc -> | | << -> 1 `i -> 6 `i << -> 1 `i -> 5 `i << -> 1 `i -> 4 `i `uc ]
+"106
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 106:     RF24_flush_rx();
+[e ( _RF24_flush_rx ..  ]
+"107
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 107:     RF24_flush_tx();
+[e ( _RF24_flush_tx ..  ]
+"116
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 116:     RF24_write_register(0x00, ((1 << (3)) | (1 << (2))));
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc -> | << -> 1 `i -> 3 `i << -> 1 `i -> 2 `i `uc ]
+"117
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 117:     RF24_powerUp();
+[e ( _RF24_powerUp ..  ]
+"118
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 118:     RF24_attr_config = RF24_read_register(0x00);
+[e = _RF24_attr_config ( _RF24_read_register (1 -> -> 0 `i `uc ]
+"119
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 119:     return RF24_attr_config == ((1 << (3)) | (1 << (2)) | (1 << (1)));
+[e ) -> -> == -> _RF24_attr_config `i | | << -> 1 `i -> 3 `i << -> 1 `i -> 2 `i << -> 1 `i -> 1 `i `i `uc ]
+[e $UE 106  ]
+"120
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 120: }
+[e :UE 106 ]
+}
+"122
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 122: void RF24_setPALevel(uint8_t level)
+[v _RF24_setPALevel `(v ~T0 @X0 1 ef1`uc ]
+"123
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 123: {
+{
+[e :U _RF24_setPALevel ]
+"122
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 122: void RF24_setPALevel(uint8_t level)
+[v _level `uc ~T0 @X0 1 r1 ]
+"123
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 123: {
+[f ]
+"124
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 124:     uint8_t setup = RF24_read_register(0x06) & 0xF8;
+[v _setup `uc ~T0 @X0 1 a ]
+[e = _setup -> & -> ( _RF24_read_register (1 -> -> 6 `i `uc `i -> 248 `i `uc ]
+"125
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 125:     setup |= (level > RF24_PA_MAX ? RF24_PA_MAX : level) << 1;
+[e =| _setup -> << ? > -> _level `i -> . `E892 3 `i : . `E892 3 -> _level `i -> 1 `i `uc ]
+"126
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 126:     RF24_write_register(0x06, setup);
+[e ( _RF24_write_register (2 , -> -> 6 `i `uc _setup ]
+"127
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 127: }
+[e :UE 107 ]
+}
+"129
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 129: uint8_t RF24_isChipConnected()
+[v _RF24_isChipConnected `(uc ~T0 @X0 1 ef ]
+"130
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 130: {
+{
+[e :U _RF24_isChipConnected ]
+[f ]
+"131
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 131:     uint8_t width = RF24_read_register(0x03) & 0b11;
+[v _width `uc ~T0 @X0 1 a ]
+[e = _width -> & -> ( _RF24_read_register (1 -> -> 3 `i `uc `i -> 3 `i `uc ]
+"132
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 132:     if (width > 0 && width < 4)
+[e $ ! && > -> _width `i -> 0 `i < -> _width `i -> 4 `i 109  ]
+"133
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 133:     {
+{
+"134
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 134:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 108  ]
+"135
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 135:     }
+}
+[e :U 109 ]
+"136
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 136:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 108  ]
+"137
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 137: }
+[e :UE 108 ]
+}
+"139
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 139: void RF24_startListening(void)
+[v _RF24_startListening `(v ~T0 @X0 1 ef ]
+"140
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 140: {
+{
+[e :U _RF24_startListening ]
+[f ]
+"141
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 141:     RF24_write_register(0x00, RF24_read_register(0x00) | (1 << (0)));
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc -> | -> ( _RF24_read_register (1 -> -> 0 `i `uc `i << -> 1 `i -> 0 `i `uc ]
+"142
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 142:     RF24_write_register(0x07, (1 << (6)) | (1 << (5)) | (1 << (4)));
+[e ( _RF24_write_register (2 , -> -> 7 `i `uc -> | | << -> 1 `i -> 6 `i << -> 1 `i -> 5 `i << -> 1 `i -> 4 `i `uc ]
+"143
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 143:     RD2 = 1;
+[e = _RD2 -> -> 1 `i `b ]
+"154
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 154: }
+[e :UE 110 ]
+}
+"156
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 156: void RF24_stopListening(void)
+[v _RF24_stopListening `(v ~T0 @X0 1 ef ]
+"157
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 157: {
+{
+[e :U _RF24_stopListening ]
+[f ]
+"158
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 158:     RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"165
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 165:     RF24_write_register(0x00, RF24_read_register(0x00) & ~(1 << (0)));
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc -> & -> ( _RF24_read_register (1 -> -> 0 `i `uc `i ~ << -> 1 `i -> 0 `i `uc ]
+"166
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 166:     RF24_write_register(0x02, RF24_read_register(0x02) | 1);
+[e ( _RF24_write_register (2 , -> -> 2 `i `uc -> | -> ( _RF24_read_register (1 -> -> 2 `i `uc `i -> 1 `i `uc ]
+"167
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 167:     _delay((unsigned long)((130)*(16000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 130 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"168
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 168: }
+[e :UE 111 ]
+}
+"170
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 170: void RF24_powerDown(void)
+[v _RF24_powerDown `(v ~T0 @X0 1 ef ]
+"171
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 171: {
+{
+[e :U _RF24_powerDown ]
+[f ]
+"172
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 172:     RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"173
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 173:     RF24_write_register(0x00, RF24_read_register(0x00) & ~(1 << (1)));
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc -> & -> ( _RF24_read_register (1 -> -> 0 `i `uc `i ~ << -> 1 `i -> 1 `i `uc ]
+"174
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 174: }
+[e :UE 112 ]
+}
+"177
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 177: void RF24_powerUp(void)
+[v _RF24_powerUp `(v ~T0 @X0 1 ef ]
+"178
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 178: {
+{
+[e :U _RF24_powerUp ]
+[f ]
+"179
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 179:     RF24_write_register(0x00, RF24_read_register(0x00) | (1 << (1)));
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc -> | -> ( _RF24_read_register (1 -> -> 0 `i `uc `i << -> 1 `i -> 1 `i `uc ]
+"180
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 180:     _delay((unsigned long)((5)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"181
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 181: }
+[e :UE 113 ]
+}
+"183
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 183: void RF24_setPayloadSize(uint8_t size)
+[v _RF24_setPayloadSize `(v ~T0 @X0 1 ef1`uc ]
+"184
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 184: {
+{
+[e :U _RF24_setPayloadSize ]
+"183
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 183: void RF24_setPayloadSize(uint8_t size)
+[v _size `uc ~T0 @X0 1 r1 ]
+"184
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 184: {
+[f ]
+"185
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 185:     RF24_write_register(0x11, size);
+[e ( _RF24_write_register (2 , -> -> 17 `i `uc _size ]
+"186
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 186:     RF24_write_register(0x12, size);
+[e ( _RF24_write_register (2 , -> -> 18 `i `uc _size ]
+"187
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 187:     RF24_write_register(0x13, size);
+[e ( _RF24_write_register (2 , -> -> 19 `i `uc _size ]
+"188
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 188:     RF24_write_register(0x14, size);
+[e ( _RF24_write_register (2 , -> -> 20 `i `uc _size ]
+"189
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 189:     RF24_write_register(0x15, size);
+[e ( _RF24_write_register (2 , -> -> 21 `i `uc _size ]
+"190
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 190:     RF24_write_register(0x16, size);
+[e ( _RF24_write_register (2 , -> -> 22 `i `uc _size ]
+"191
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 191: }
+[e :UE 114 ]
+}
+"193
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 193: uint8_t RF24_getPayloadSize(void)
+[v _RF24_getPayloadSize `(uc ~T0 @X0 1 ef ]
+"194
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 194: {
+{
+[e :U _RF24_getPayloadSize ]
+[f ]
+"195
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 195:     return RF24_read_register(0x11);
+[e ) ( _RF24_read_register (1 -> -> 17 `i `uc ]
+[e $UE 115  ]
+"196
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 196: }
+[e :UE 115 ]
+}
+"198
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 198: uint8_t RF24_write(void *buf, uint8_t len)
+[v _RF24_write `(uc ~T0 @X0 1 ef2`*v`uc ]
+"199
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 199: {
+{
+[e :U _RF24_write ]
+"198
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 198: uint8_t RF24_write(void *buf, uint8_t len)
+[v _buf `*v ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"199
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 199: {
+[f ]
+"202
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 202:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"203
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 203:     RF24_attr_status = SPI_exchangeByte(0xA0);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> -> 160 `i `uc ]
+"204
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 204:     while (len--)
+[e $U 117  ]
+[e :U 118 ]
+"205
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 205:     {
+{
+"206
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 206:         SPI_exchangeByte(*(uint8_t *)buf++);
+[e ( _SPI_exchangeByte (1 *U -> ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x `*uc ]
+"207
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 207:     }
+}
+[e :U 117 ]
+"204
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 204:     while (len--)
+[e $ != -> -- _len -> -> 1 `i `uc `i -> 0 `i 118  ]
+[e :U 119 ]
+"208
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 208:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"210
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 210:     RD2 = 1;
+[e = _RD2 -> -> 1 `i `b ]
+"211
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 211:     while (!(RF24_get_status() & ((1 << (5)) | (1 << (4)))))
+[e $U 120  ]
+[e :U 121 ]
+"212
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 212:     {
+{
+"214
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 214:     }
+}
+[e :U 120 ]
+"211
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 211:     while (!(RF24_get_status() & ((1 << (5)) | (1 << (4)))))
+[e $ ! != & -> ( _RF24_get_status ..  `i | << -> 1 `i -> 5 `i << -> 1 `i -> 4 `i -> 0 `i 121  ]
+[e :U 122 ]
+"216
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 216:     RD2 = 0;
+[e = _RD2 -> -> 0 `i `b ]
+"217
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 217:     RF24_write_register(0x07, (1 << (6)) | (1 << (5)) | (1 << (4)));
+[e ( _RF24_write_register (2 , -> -> 7 `i `uc -> | | << -> 1 `i -> 6 `i << -> 1 `i -> 5 `i << -> 1 `i -> 4 `i `uc ]
+"220
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 220:     if (RF24_attr_status & (1 << (4)))
+[e $ ! != & -> _RF24_attr_status `i << -> 1 `i -> 4 `i -> 0 `i 123  ]
+"221
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 221:     {
+{
+"222
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 222:         RF24_flush_tx();
+[e ( _RF24_flush_tx ..  ]
+"223
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 223:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 116  ]
+"224
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 224:     }
+}
+[e :U 123 ]
+"225
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 225:     return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 116  ]
+"226
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 226: }
+[e :UE 116 ]
+}
+"228
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 228: uint8_t RF24_writeFast(void *buf, uint8_t len)
+[v _RF24_writeFast `(uc ~T0 @X0 1 ef2`*v`uc ]
+"229
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 229: {
+{
+[e :U _RF24_writeFast ]
+"228
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 228: uint8_t RF24_writeFast(void *buf, uint8_t len)
+[v _buf `*v ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"229
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 229: {
+[f ]
+"232
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 232:     while ((RF24_get_status() & (1 << (0))))
+[e $U 125  ]
+[e :U 126 ]
+"233
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 233:     {
+{
+"234
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 234:         if (RF24_attr_status & (1 << (4)))
+[e $ ! != & -> _RF24_attr_status `i << -> 1 `i -> 4 `i -> 0 `i 128  ]
+"235
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 235:         {
+{
+"236
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 236:             return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 124  ]
+"237
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 237:         }
+}
+[e :U 128 ]
+"238
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 238:     }
+}
+[e :U 125 ]
+"232
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 232:     while ((RF24_get_status() & (1 << (0))))
+[e $ != & -> ( _RF24_get_status ..  `i << -> 1 `i -> 0 `i -> 0 `i 126  ]
+[e :U 127 ]
+"240
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 240:     RD3 = 0;
+[e = _RD3 -> -> 0 `i `b ]
+"241
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 241:     RF24_attr_status = SPI_exchangeByte(0xA0);
+[e = _RF24_attr_status ( _SPI_exchangeByte (1 -> -> 160 `i `uc ]
+"242
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 242:     while (len)
+[e $U 129  ]
+[e :U 130 ]
+"243
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 243:     {
+{
+"244
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 244:         SPI_exchangeByte(*(uint8_t *)buf);
+[e ( _SPI_exchangeByte (1 *U -> _buf `*uc ]
+"245
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 245:         len--;
+[e -- _len -> -> 1 `i `uc ]
+"246
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 246:         buf++;
+[e ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x ]
+"247
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 247:     }
+}
+[e :U 129 ]
+"242
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 242:     while (len)
+[e $ != -> _len `i -> 0 `i 130  ]
+[e :U 131 ]
+"248
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 248:     RD3 = 1;
+[e = _RD3 -> -> 1 `i `b ]
+"250
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 250:     RD2 = 1;
+[e = _RD2 -> -> 1 `i `b ]
+"251
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 251:     return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 124  ]
+"252
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 252: }
+[e :UE 124 ]
+}
+"256
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 256: void RF24_maskIRQ(uint8_t tx, uint8_t fail, uint8_t rx)
+[v _RF24_maskIRQ `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+"257
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 257: {
+{
+[e :U _RF24_maskIRQ ]
+"256
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 256: void RF24_maskIRQ(uint8_t tx, uint8_t fail, uint8_t rx)
+[v _tx `uc ~T0 @X0 1 r1 ]
+[v _fail `uc ~T0 @X0 1 r2 ]
+[v _rx `uc ~T0 @X0 1 r3 ]
+"257
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 257: {
+[f ]
+"259
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 259:     RF24_attr_config &= ~((1 << (4)) | (1 << (5)) | (1 << (6)));
+[e =& _RF24_attr_config -> ~ | | << -> 1 `i -> 4 `i << -> 1 `i -> 5 `i << -> 1 `i -> 6 `i `uc ]
+"260
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 260:     RF24_attr_config |= (1 << (4)) | (1 << (5)) | (1 << (6));
+[e =| _RF24_attr_config -> | | << -> 1 `i -> 4 `i << -> 1 `i -> 5 `i << -> 1 `i -> 6 `i `uc ]
+"261
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 261:     RF24_write_register(0x00, RF24_attr_config);
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc _RF24_attr_config ]
+"262
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 262: }
+[e :UE 132 ]
+}
+"264
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 264: uint8_t RF24_getDynamicPayloadSize(void)
+[v _RF24_getDynamicPayloadSize `(uc ~T0 @X0 1 ef ]
+"265
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 265: {
+{
+[e :U _RF24_getDynamicPayloadSize ]
+[f ]
+"266
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 266:     uint8_t result = RF24_read_register(0x60);
+[v _result `uc ~T0 @X0 1 a ]
+[e = _result ( _RF24_read_register (1 -> -> 96 `i `uc ]
+"268
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 268:     if (result > 32)
+[e $ ! > -> _result `i -> 32 `i 134  ]
+"269
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 269:     {
+{
+"270
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 270:         RF24_flush_rx();
+[e ( _RF24_flush_rx ..  ]
+"271
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 271:         _delay((unsigned long)((2)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"272
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 272:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 133  ]
+"273
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 273:     }
+}
+[e :U 134 ]
+"274
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 274:     return result;
+[e ) _result ]
+[e $UE 133  ]
+"275
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 275: }
+[e :UE 133 ]
+}
+"277
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 277: uint8_t RF24_available(void)
+[v _RF24_available `(uc ~T0 @X0 1 ef ]
+"278
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 278: {
+{
+[e :U _RF24_available ]
+[f ]
+"280
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 280:     uint8_t pipe = (RF24_get_status() >> 1) & 0x07;
+[v _pipe `uc ~T0 @X0 1 a ]
+[e = _pipe -> & >> -> ( _RF24_get_status ..  `i -> 1 `i -> 7 `i `uc ]
+"281
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 281:     if (pipe > 5)
+[e $ ! > -> _pipe `i -> 5 `i 136  ]
+"282
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 282:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 135  ]
+[e :U 136 ]
+"288
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 288:     return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 135  ]
+"289
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 289: }
+[e :UE 135 ]
+}
+"291
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 291: void RF24_read(void *buf, uint8_t len)
+[v _RF24_read `(v ~T0 @X0 1 ef2`*v`uc ]
+"292
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 292: {
+{
+[e :U _RF24_read ]
+"291
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 291: void RF24_read(void *buf, uint8_t len)
+[v _buf `*v ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+"292
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 292: {
+[f ]
+"295
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 295:     RF24_read_n_register(0x61, (uint8_t *)buf, len);
+[e ( _RF24_read_n_register (3 , , -> -> 97 `i `uc -> _buf `*uc _len ]
+"297
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 297:     RF24_write_register(0x07, (1 << (6)));
+[e ( _RF24_write_register (2 , -> -> 7 `i `uc -> << -> 1 `i -> 6 `i `uc ]
+"298
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 298: }
+[e :UE 137 ]
+}
+"312
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 312: void RF24_openReadingPipe(uint8_t child, uint8_t *address)
+[v _RF24_openReadingPipe `(v ~T0 @X0 1 ef2`uc`*uc ]
+"313
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 313: {
+{
+[e :U _RF24_openReadingPipe ]
+"312
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 312: void RF24_openReadingPipe(uint8_t child, uint8_t *address)
+[v _child `uc ~T0 @X0 1 r1 ]
+[v _address `*uc ~T0 @X0 1 r2 ]
+"313
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 313: {
+[f ]
+"314
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 314:     if (child < 2)
+[e $ ! < -> _child `i -> 2 `i 139  ]
+"315
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 315:     {
+{
+"316
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 316:         RF24_write_n_register(0x0A + child, address, 5);
+[e ( _RF24_write_n_register (3 , , -> + -> 10 `i -> _child `i `uc _address -> -> 5 `i `uc ]
+"317
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 317:     }
+}
+[e $U 140  ]
+"318
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 318:     else
+[e :U 139 ]
+"319
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 319:     {
+{
+"320
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 320:         RF24_write_register(0x0A + child, *address);
+[e ( _RF24_write_register (2 , -> + -> 10 `i -> _child `i `uc *U _address ]
+"321
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 321:     }
+}
+[e :U 140 ]
+"322
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 322:     RF24_write_register(0x02, RF24_read_register(0x02) | (1 << (0 + child)));
+[e ( _RF24_write_register (2 , -> -> 2 `i `uc -> | -> ( _RF24_read_register (1 -> -> 2 `i `uc `i << -> 1 `i + -> 0 `i -> _child `i `uc ]
+"323
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 323: }
+[e :UE 138 ]
+}
+"325
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 325: void RF24_closeReadingPipe(uint8_t pipe)
+[v _RF24_closeReadingPipe `(v ~T0 @X0 1 ef1`uc ]
+"326
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 326: {
+{
+[e :U _RF24_closeReadingPipe ]
+"325
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 325: void RF24_closeReadingPipe(uint8_t pipe)
+[v _pipe `uc ~T0 @X0 1 r1 ]
+"326
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 326: {
+[f ]
+"327
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 327:     RF24_write_register(0x02, RF24_read_register(0x02) & ~(1 << (0 + pipe)));
+[e ( _RF24_write_register (2 , -> -> 2 `i `uc -> & -> ( _RF24_read_register (1 -> -> 2 `i `uc `i ~ << -> 1 `i + -> 0 `i -> _pipe `i `uc ]
+"328
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 328: }
+[e :UE 141 ]
+}
+"330
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 330: void RF24_enableDynamicPayloads(void)
+[v _RF24_enableDynamicPayloads `(v ~T0 @X0 1 ef ]
+"331
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 331: {
+{
+[e :U _RF24_enableDynamicPayloads ]
+[f ]
+"332
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 332:     RF24_write_register(0x1D, RF24_read_register(0x1D) | (1 << (2)));
+[e ( _RF24_write_register (2 , -> -> 29 `i `uc -> | -> ( _RF24_read_register (1 -> -> 29 `i `uc `i << -> 1 `i -> 2 `i `uc ]
+"333
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 333:     RF24_write_register(0x1C, RF24_read_register(0x1C) | (1 << (5)) | (1 << (4)) | (1 << (3)) | (1 << (2)) | (1 << (1)) | (1 << (0)));
+[e ( _RF24_write_register (2 , -> -> 28 `i `uc -> | | | | | | -> ( _RF24_read_register (1 -> -> 28 `i `uc `i << -> 1 `i -> 5 `i << -> 1 `i -> 4 `i << -> 1 `i -> 3 `i << -> 1 `i -> 2 `i << -> 1 `i -> 1 `i << -> 1 `i -> 0 `i `uc ]
+"334
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 334: }
+[e :UE 142 ]
+}
+"336
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 336: void RF24_disableDynamicPayloads(void)
+[v _RF24_disableDynamicPayloads `(v ~T0 @X0 1 ef ]
+"337
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 337: {
+{
+[e :U _RF24_disableDynamicPayloads ]
+[f ]
+"338
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 338:     RF24_write_register(0x1D, 0);
+[e ( _RF24_write_register (2 , -> -> 29 `i `uc -> -> 0 `i `uc ]
+"339
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 339:     RF24_write_register(0x1C, 0);
+[e ( _RF24_write_register (2 , -> -> 28 `i `uc -> -> 0 `i `uc ]
+"340
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 340: }
+[e :UE 143 ]
+}
+"342
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 342: void RF24_setAutoAck(uint8_t enable)
+[v _RF24_setAutoAck `(v ~T0 @X0 1 ef1`uc ]
+"343
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 343: {
+{
+[e :U _RF24_setAutoAck ]
+"342
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 342: void RF24_setAutoAck(uint8_t enable)
+[v _enable `uc ~T0 @X0 1 r1 ]
+"343
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 343: {
+[f ]
+"344
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 344:     if (enable)
+[e $ ! != -> _enable `i -> 0 `i 145  ]
+"345
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 345:     {
+{
+"346
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 346:         RF24_write_register(0x01, 0x3F);
+[e ( _RF24_write_register (2 , -> -> 1 `i `uc -> -> 63 `i `uc ]
+"347
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 347:     }
+}
+[e $U 146  ]
+"348
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 348:     else
+[e :U 145 ]
+"349
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 349:     {
+{
+"350
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 350:         RF24_write_register(0x01, 0);
+[e ( _RF24_write_register (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"351
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 351:     }
+}
+[e :U 146 ]
+"352
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 352: }
+[e :UE 144 ]
+}
+"356
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 356: void RF24_setAutoAck2(uint8_t pipe, uint8_t enable)
+[v _RF24_setAutoAck2 `(v ~T0 @X0 1 ef2`uc`uc ]
+"357
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 357: {
+{
+[e :U _RF24_setAutoAck2 ]
+"356
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 356: void RF24_setAutoAck2(uint8_t pipe, uint8_t enable)
+[v _pipe `uc ~T0 @X0 1 r1 ]
+[v _enable `uc ~T0 @X0 1 r2 ]
+"357
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 357: {
+[f ]
+"358
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 358:     uint8_t en_aa = RF24_read_register(0x01);
+[v _en_aa `uc ~T0 @X0 1 a ]
+[e = _en_aa ( _RF24_read_register (1 -> -> 1 `i `uc ]
+"359
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 359:     if (enable)
+[e $ ! != -> _enable `i -> 0 `i 148  ]
+"360
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 360:     {
+{
+"361
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 361:         en_aa |= BV(pipe);
+[e =| _en_aa -> ( _BV -> _pipe `i `uc ]
+"362
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 362:     }
+}
+[e $U 149  ]
+"363
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 363:     else
+[e :U 148 ]
+"364
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 364:     {
+{
+"365
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 365:         en_aa &= ~(1 << (pipe));
+[e =& _en_aa -> ~ << -> 1 `i -> _pipe `i `uc ]
+"366
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 366:     }
+}
+[e :U 149 ]
+"367
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 367:     RF24_write_register(0x01, en_aa);
+[e ( _RF24_write_register (2 , -> -> 1 `i `uc _en_aa ]
+"368
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 368: }
+[e :UE 147 ]
+}
+"370
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 370: void RF24_setDataRate(rf24_datarate_e speed)
+[v _RF24_setDataRate `(v ~T0 @X0 1 ef1`E899 ]
+"371
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 371: {
+{
+[e :U _RF24_setDataRate ]
+"370
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 370: void RF24_setDataRate(rf24_datarate_e speed)
+[v _speed `E899 ~T0 @X0 1 r1 ]
+"371
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 371: {
+[f ]
+"372
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 372:     uint8_t setup = RF24_read_register(0x06);
+[v _setup `uc ~T0 @X0 1 a ]
+[e = _setup ( _RF24_read_register (1 -> -> 6 `i `uc ]
+"374
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 374:     setup = setup & ~((1 << (5)) | (1 << (3)));
+[e = _setup -> & -> _setup `i ~ | << -> 1 `i -> 5 `i << -> 1 `i -> 3 `i `uc ]
+"375
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 375:     if (speed == RF24_250KBPS)
+[e $ ! == -> _speed `ui -> . `E899 2 `ui 151  ]
+"376
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 376:     {
+{
+"377
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 377:         setup |= (1 << (5));
+[e =| _setup -> << -> 1 `i -> 5 `i `uc ]
+"378
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 378:     }
+}
+[e $U 152  ]
+"379
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 379:     else if (speed == RF24_2MBPS)
+[e :U 151 ]
+[e $ ! == -> _speed `ui -> . `E899 1 `ui 153  ]
+"380
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 380:     {
+{
+"381
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 381:         setup |= (1 << (3));
+[e =| _setup -> << -> 1 `i -> 3 `i `uc ]
+"382
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 382:     }
+}
+[e :U 153 ]
+[e :U 152 ]
+"383
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 383:     RF24_write_register(0x06, setup);
+[e ( _RF24_write_register (2 , -> -> 6 `i `uc _setup ]
+"384
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 384: }
+[e :UE 150 ]
+}
+"386
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 386: rf24_datarate_e RF24_getDataRate(void)
+[v _RF24_getDataRate `(E899 ~T0 @X0 1 ef ]
+"387
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 387: {
+{
+[e :U _RF24_getDataRate ]
+[f ]
+"388
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 388:     rf24_datarate_e result;
+[v _result `E899 ~T0 @X0 1 a ]
+"389
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 389:     uint8_t dr = RF24_read_register(0x06) & ((1 << (5)) | (1 << (3)));
+[v _dr `uc ~T0 @X0 1 a ]
+[e = _dr -> & -> ( _RF24_read_register (1 -> -> 6 `i `uc `i | << -> 1 `i -> 5 `i << -> 1 `i -> 3 `i `uc ]
+"393
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 393:     if (dr == (1 << (5)))
+[e $ ! == -> _dr `i << -> 1 `i -> 5 `i 155  ]
+"394
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 394:     {
+{
+"396
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 396:         result = RF24_250KBPS;
+[e = _result . `E899 2 ]
+"397
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 397:     }
+}
+[e $U 156  ]
+"398
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 398:     else if (dr == (1 << (3)))
+[e :U 155 ]
+[e $ ! == -> _dr `i << -> 1 `i -> 3 `i 157  ]
+"399
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 399:     {
+{
+"401
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 401:         result = RF24_2MBPS;
+[e = _result . `E899 1 ]
+"402
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 402:     }
+}
+[e $U 158  ]
+"403
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 403:     else
+[e :U 157 ]
+"404
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 404:     {
+{
+"406
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 406:         result = RF24_1MBPS;
+[e = _result . `E899 0 ]
+"407
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 407:     }
+}
+[e :U 158 ]
+[e :U 156 ]
+"408
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 408:     return result;
+[e ) _result ]
+[e $UE 154  ]
+"409
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 409: }
+[e :UE 154 ]
+}
+"411
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 411: void RF24_setCRCLength(rf24_crclength_e length)
+[v _RF24_setCRCLength `(v ~T0 @X0 1 ef1`E904 ]
+"412
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 412: {
+{
+[e :U _RF24_setCRCLength ]
+"411
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 411: void RF24_setCRCLength(rf24_crclength_e length)
+[v _length `E904 ~T0 @X0 1 r1 ]
+"412
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 412: {
+[f ]
+"413
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 413:     RF24_attr_config = RF24_attr_config & ~((1 << (2)) | (1 << (3)));
+[e = _RF24_attr_config -> & -> _RF24_attr_config `i ~ | << -> 1 `i -> 2 `i << -> 1 `i -> 3 `i `uc ]
+"416
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 416:     if (length == RF24_CRC_DISABLED)
+[e $ ! == -> _length `ui -> . `E904 0 `ui 160  ]
+"417
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 417:     {
+{
+"419
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 419:     }
+}
+[e $U 161  ]
+"420
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 420:     else if (length == RF24_CRC_8)
+[e :U 160 ]
+[e $ ! == -> _length `ui -> . `E904 1 `ui 162  ]
+"421
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 421:     {
+{
+"422
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 422:         RF24_attr_config |= (1 << (3));
+[e =| _RF24_attr_config -> << -> 1 `i -> 3 `i `uc ]
+"423
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 423:     }
+}
+[e $U 163  ]
+"424
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 424:     else
+[e :U 162 ]
+"425
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 425:     {
+{
+"426
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 426:         RF24_attr_config |= (1 << (3));
+[e =| _RF24_attr_config -> << -> 1 `i -> 3 `i `uc ]
+"427
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 427:         RF24_attr_config |= (1 << (2));
+[e =| _RF24_attr_config -> << -> 1 `i -> 2 `i `uc ]
+"428
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 428:     }
+}
+[e :U 163 ]
+[e :U 161 ]
+"429
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 429:     RF24_write_register(0x00, RF24_attr_config);
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc _RF24_attr_config ]
+"430
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 430: }
+[e :UE 159 ]
+}
+"431
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 431: void RF24_disableCRC(void)
+[v _RF24_disableCRC `(v ~T0 @X0 1 ef ]
+"432
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 432: {
+{
+[e :U _RF24_disableCRC ]
+[f ]
+"433
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 433:     RF24_attr_config = RF24_attr_config & ~(1 << (3));
+[e = _RF24_attr_config -> & -> _RF24_attr_config `i ~ << -> 1 `i -> 3 `i `uc ]
+"434
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 434:     RF24_write_register(0x00, RF24_attr_config);
+[e ( _RF24_write_register (2 , -> -> 0 `i `uc _RF24_attr_config ]
+"435
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 435: }
+[e :UE 164 ]
+}
+"437
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 437: void RF24_flush_tx()
+[v _RF24_flush_tx `(v ~T0 @X0 1 ef ]
+"438
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 438: {
+{
+[e :U _RF24_flush_tx ]
+[f ]
+"439
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 439:     RF24_write_register(0xE1, 0xFF);
+[e ( _RF24_write_register (2 , -> -> 225 `i `uc -> -> 255 `i `uc ]
+"440
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 440: }
+[e :UE 165 ]
+}
+"441
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 441: void RF24_flush_rx()
+[v _RF24_flush_rx `(v ~T0 @X0 1 ef ]
+"442
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 442: {
+{
+[e :U _RF24_flush_rx ]
+[f ]
+"443
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 443:     RF24_write_register(0xE2, 0xFF);
+[e ( _RF24_write_register (2 , -> -> 226 `i `uc -> -> 255 `i `uc ]
+"444
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 444: }
+[e :UE 166 ]
+}
+"445
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 445: uint8_t RF24_rxFifoFull()
+[v _RF24_rxFifoFull `(uc ~T0 @X0 1 ef ]
+"446
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 446: {
+{
+[e :U _RF24_rxFifoFull ]
+[f ]
+"447
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 447:     return (RF24_read_register(0x17) & (1 << (1)));
+[e ) -> & -> ( _RF24_read_register (1 -> -> 23 `i `uc `i << -> 1 `i -> 1 `i `uc ]
+[e $UE 167  ]
+"448
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 448: }
+[e :UE 167 ]
+}
+"449
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 449: void RF24_setChannel(uint8_t channel)
+[v _RF24_setChannel `(v ~T0 @X0 1 ef1`uc ]
+"450
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 450: {
+{
+[e :U _RF24_setChannel ]
+"449
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 449: void RF24_setChannel(uint8_t channel)
+[v _channel `uc ~T0 @X0 1 r1 ]
+"450
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 450: {
+[f ]
+"451
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 451:     RF24_write_register(0x05, channel);
+[e ( _RF24_write_register (2 , -> -> 5 `i `uc _channel ]
+"452
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 452: }
+[e :UE 168 ]
+}
+"453
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 453: uint8_t RF24_getChannel()
+[v _RF24_getChannel `(uc ~T0 @X0 1 ef ]
+"454
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 454: {
+{
+[e :U _RF24_getChannel ]
+[f ]
+"455
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 455:     return RF24_read_register(0x05);
+[e ) ( _RF24_read_register (1 -> -> 5 `i `uc ]
+[e $UE 169  ]
+"456
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 456: }
+[e :UE 169 ]
+}
+"457
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 457: void RF24_openWritingPipe(uint8_t *address)
+[v _RF24_openWritingPipe `(v ~T0 @X0 1 ef1`*uc ]
+"458
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 458: {
+{
+[e :U _RF24_openWritingPipe ]
+"457
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 457: void RF24_openWritingPipe(uint8_t *address)
+[v _address `*uc ~T0 @X0 1 r1 ]
+"458
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 458: {
+[f ]
+"459
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 459:     RF24_write_n_register(0x10, address, 5);
+[e ( _RF24_write_n_register (3 , , -> -> 16 `i `uc _address -> -> 5 `i `uc ]
+"460
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 460: }
+[e :UE 170 ]
+}
+"461
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 461: uint8_t RF24_getARC()
+[v _RF24_getARC `(uc ~T0 @X0 1 ef ]
+"462
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 462: {
+{
+[e :U _RF24_getARC ]
+[f ]
+"463
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 463:     return (RF24_read_register(0x08) & 0x0F);
+[e ) -> & -> ( _RF24_read_register (1 -> -> 8 `i `uc `i -> 15 `i `uc ]
+[e $UE 171  ]
+"464
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 464: }
+[e :UE 171 ]
+}
+"465
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 465: uint8_t RF24_getPALevel()
+[v _RF24_getPALevel `(uc ~T0 @X0 1 ef ]
+"466
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 466: {
+{
+[e :U _RF24_getPALevel ]
+[f ]
+"467
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 467:     return ((RF24_read_register(0x06) & ((1 << (1)) | (1 << (2)))) >> 1);
+[e ) -> >> & -> ( _RF24_read_register (1 -> -> 6 `i `uc `i | << -> 1 `i -> 1 `i << -> 1 `i -> 2 `i -> 1 `i `uc ]
+[e $UE 172  ]
+"468
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 468: }
+[e :UE 172 ]
+}
+"469
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 469: void RF24_setRetries(uint8_t delay, uint8_t count)
+[v _RF24_setRetries `(v ~T0 @X0 1 ef2`uc`uc ]
+"470
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 470: {
+{
+[e :U _RF24_setRetries ]
+"469
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 469: void RF24_setRetries(uint8_t delay, uint8_t count)
+[v _delay `uc ~T0 @X0 1 r1 ]
+[v _count `uc ~T0 @X0 1 r2 ]
+"470
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 470: {
+[f ]
+"471
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 471:     RF24_write_register(0x04, ((delay & 0x0f) << 4) | (count & 0x0f));
+[e ( _RF24_write_register (2 , -> -> 4 `i `uc -> | << & -> _delay `i -> 15 `i -> 4 `i & -> _count `i -> 15 `i `uc ]
+"472
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 472: }
+[e :UE 173 ]
+}
+"473
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 473: void RF24_setAddressWidth(uint8_t w)
+[v _RF24_setAddressWidth `(v ~T0 @X0 1 ef1`uc ]
+"474
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 474: {
+{
+[e :U _RF24_setAddressWidth ]
+"473
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 473: void RF24_setAddressWidth(uint8_t w)
+[v _w `uc ~T0 @X0 1 r1 ]
+"474
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 474: {
+[f ]
+"475
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 475:     RF24_write_register(0x03, (w - 2) & 0b11);
+[e ( _RF24_write_register (2 , -> -> 3 `i `uc -> & - -> _w `i -> 2 `i -> 3 `i `uc ]
+"476
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 476: }
+[e :UE 174 ]
+}
+"487
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 487: void RF24_printDetails()
+[v _RF24_printDetails `(v ~T0 @X0 1 ef ]
+"488
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 488: {
+{
+[e :U _RF24_printDetails ]
+[f ]
+"489
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 489:     uint8_t buffer[5];
+[v _buffer `uc ~T0 @X0 -> 5 `i a ]
+"490
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 490:     _$_logline_str((char *)"===START OF DETAILS==="); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 1C ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"491
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 491:     _$_logline_str((char *)"CONFIG"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x00)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 2C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 0 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"492
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 492:     _$_logline_str((char *)"EN_AA"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x01)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 3C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 1 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"493
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 493:     _$_logline_str((char *)"EN_RXADDR"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x02)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 4C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 2 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"494
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 494:     _$_logline_str((char *)"SETUP_AW"); Serial_write((uint8_t)'='); _$_logline_int((uint8_t)RF24_read_register(0x03)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 5C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_int (1 ( _RF24_read_register (1 -> -> 3 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"495
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 495:     _$_logline_str((char *)"SETUP_RETR"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x04)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 6C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 4 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"496
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 496:     _$_logline_str((char *)"RF_CH"); Serial_write((uint8_t)'='); _$_logline_int((uint8_t)RF24_read_register(0x05)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 7C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_int (1 ( _RF24_read_register (1 -> -> 5 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"497
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 497:     _$_logline_str((char *)"RF_SETUP"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x06)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 8C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 6 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"498
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 498:     _$_logline_str((char *)"STATUS"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x07)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 9C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 7 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"499
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 499:     _$_logline_str((char *)"OBSERVE_TX"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_bin((uint8_t)RF24_read_register(0x08)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 10C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_bin (1 ( _RF24_read_register (1 -> -> 8 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"500
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 500:     RF24_read_n_register(0x0A, buffer, 5);
+[e ( _RF24_read_n_register (3 , , -> -> 10 `i `uc &U _buffer -> -> 5 `i `uc ]
+"501
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 501:     _$_logline_str((char *)"RX_P0"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_n_hex((uint8_t *)buffer, 5); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 11C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_n_hex (2 , &U _buffer -> -> 5 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"502
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 502:     RF24_read_n_register(0x0B, buffer, 5);
+[e ( _RF24_read_n_register (3 , , -> -> 11 `i `uc &U _buffer -> -> 5 `i `uc ]
+"503
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 503:     _$_logline_str((char *)"RX_P1"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_n_hex((uint8_t *)buffer, 5); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 12C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_n_hex (2 , &U _buffer -> -> 5 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"504
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 504:     _$_logline_str((char *)"RX_P2"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_hex((uint8_t)RF24_read_register(0x0C)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 13C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_hex (1 ( _RF24_read_register (1 -> -> 12 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"505
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 505:     _$_logline_str((char *)"RX_P3"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_hex((uint8_t)RF24_read_register(0x0D)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 14C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_hex (1 ( _RF24_read_register (1 -> -> 13 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"506
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 506:     _$_logline_str((char *)"RX_P4"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_hex((uint8_t)RF24_read_register(0x0E)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 15C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_hex (1 ( _RF24_read_register (1 -> -> 14 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"507
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 507:     _$_logline_str((char *)"RX_P5"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_hex((uint8_t)RF24_read_register(0x0F)); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 16C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_hex (1 ( _RF24_read_register (1 -> -> 15 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"508
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 508:     RF24_read_n_register(0x10, buffer, 5);
+[e ( _RF24_read_n_register (3 , , -> -> 16 `i `uc &U _buffer -> -> 5 `i `uc ]
+"509
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 509:     _$_logline_str((char *)"TX"); Serial_write((uint8_t)(uint8_t)'='); _$_logline_n_hex((uint8_t *)buffer, 5); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 17C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_n_hex (2 , &U _buffer -> -> 5 `i `uc ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"510
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 510:     _$_logline_str((char *)"====END OF DETAILS===="); Serial_write((uint8_t)'\n');
+[e ( __$_logline_str (1 :s 18C ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"511
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c: 511: }
+[e :UE 175 ]
+}
+[a 10C 79 66 83 69 82 86 69 95 84 88 0 ]
+[a 17C 84 88 0 ]
+[a 5C 83 69 84 85 80 95 65 87 0 ]
+[a 9C 83 84 65 84 85 83 0 ]
+[a 6C 83 69 84 85 80 95 82 69 84 82 0 ]
+[a 4C 69 78 95 82 88 65 68 68 82 0 ]
+[a 8C 82 70 95 83 69 84 85 80 0 ]
+[a 7C 82 70 95 67 72 0 ]
+[a 2C 67 79 78 70 73 71 0 ]
+[a 3C 69 78 95 65 65 0 ]
+[a 1C 61 61 61 83 84 65 82 84 32 79 70 32 68 69 84 65 73 76 83 61 61 61 0 ]
+[a 18C 61 61 61 61 69 78 68 32 79 70 32 68 69 84 65 73 76 83 61 61 61 61 0 ]
+[a 16C 82 88 95 80 53 0 ]
+[a 15C 82 88 95 80 52 0 ]
+[a 14C 82 88 95 80 51 0 ]
+[a 13C 82 88 95 80 50 0 ]
+[a 12C 82 88 95 80 49 0 ]
+[a 11C 82 88 95 80 48 0 ]

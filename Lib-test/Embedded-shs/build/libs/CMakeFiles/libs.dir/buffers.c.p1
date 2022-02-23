@@ -1,0 +1,7 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"6 C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c: 6: uint8_t buffer_tx[32];
+[v _buffer_tx `uc ~T0 @X0 -> 32 `i e ]
+"7
+[; ;C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c: 7: uint8_t buffer_rx[32];
+[v _buffer_rx `uc ~T0 @X0 -> 32 `i e ]

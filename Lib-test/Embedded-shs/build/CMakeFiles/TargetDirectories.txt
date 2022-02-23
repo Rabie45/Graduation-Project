@@ -1,0 +1,8 @@
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles/edit_cache.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles/rebuild_cache.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/app/CMakeFiles/app.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/app/CMakeFiles/edit_cache.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/app/CMakeFiles/rebuild_cache.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/edit_cache.dir
+C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/rebuild_cache.dir

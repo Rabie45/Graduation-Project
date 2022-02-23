@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "name": "Windows",
+      "includePath": [
+        
+        "${workspaceFolder}",
+        "C:\\Program Files\\Microchip\\xc8\\v2.35/pic/include/*",
+        "${workspaceFolder}\\libs\\include\\*"
+      ],
+      "forcedInclude": [
+        "C:\\Program Files\\Microchip\\xc8\\v2.35/pic/include/proc/pic16f877a.h"
+      ],
+      "defines": [],
+      "intelliSenseMode": "clang-x64",
+      "browse": {
+        "path": [
+          "${workspaceFolder}",
+          "C:\\Program Files\\Microchip\\xc8\\v2.35/pic/include/*",
+          "C:\\Program Files\\Microchip\\xc8\\v2.35/pic/include/legacy/*"
+        ],
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "cStandard": "c99",
+      "cStandard": "c++17"
+    }
+  ],
+  "version": 4
+}
