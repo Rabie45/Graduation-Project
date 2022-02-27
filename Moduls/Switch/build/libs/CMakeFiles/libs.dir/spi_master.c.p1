@@ -1,0 +1,205 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"2823 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[v _SSPEN `Vb ~T0 @X0 0 e@165 ]
+"1831
+[v _SSPSTAT `Vuc ~T0 @X0 0 e@148 ]
+"2979
+[v _TRISC5 `Vb ~T0 @X0 0 e@1085 ]
+"2976
+[v _TRISC4 `Vb ~T0 @X0 0 e@1084 ]
+"2973
+[v _TRISC3 `Vb ~T0 @X0 0 e@1083 ]
+"816
+[v _SSPCON `Vuc ~T0 @X0 0 e@20 ]
+"809
+[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
+"2829
+[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[; <" INDF equ 00h ;# ">
+"62
+[; <" TMR0 equ 01h ;# ">
+"69
+[; <" PCL equ 02h ;# ">
+"76
+[; <" STATUS equ 03h ;# ">
+"162
+[; <" FSR equ 04h ;# ">
+"169
+[; <" PORTA equ 05h ;# ">
+"219
+[; <" PORTB equ 06h ;# ">
+"281
+[; <" PORTC equ 07h ;# ">
+"343
+[; <" PORTD equ 08h ;# ">
+"405
+[; <" PORTE equ 09h ;# ">
+"437
+[; <" PCLATH equ 0Ah ;# ">
+"457
+[; <" INTCON equ 0Bh ;# ">
+"535
+[; <" PIR1 equ 0Ch ;# ">
+"597
+[; <" PIR2 equ 0Dh ;# ">
+"637
+[; <" TMR1 equ 0Eh ;# ">
+"644
+[; <" TMR1L equ 0Eh ;# ">
+"651
+[; <" TMR1H equ 0Fh ;# ">
+"658
+[; <" T1CON equ 010h ;# ">
+"733
+[; <" TMR2 equ 011h ;# ">
+"740
+[; <" T2CON equ 012h ;# ">
+"811
+[; <" SSPBUF equ 013h ;# ">
+"818
+[; <" SSPCON equ 014h ;# ">
+"888
+[; <" CCPR1 equ 015h ;# ">
+"895
+[; <" CCPR1L equ 015h ;# ">
+"902
+[; <" CCPR1H equ 016h ;# ">
+"909
+[; <" CCP1CON equ 017h ;# ">
+"967
+[; <" RCSTA equ 018h ;# ">
+"1062
+[; <" TXREG equ 019h ;# ">
+"1069
+[; <" RCREG equ 01Ah ;# ">
+"1076
+[; <" CCPR2 equ 01Bh ;# ">
+"1083
+[; <" CCPR2L equ 01Bh ;# ">
+"1090
+[; <" CCPR2H equ 01Ch ;# ">
+"1097
+[; <" CCP2CON equ 01Dh ;# ">
+"1155
+[; <" ADRESH equ 01Eh ;# ">
+"1162
+[; <" ADCON0 equ 01Fh ;# ">
+"1258
+[; <" OPTION_REG equ 081h ;# ">
+"1328
+[; <" TRISA equ 085h ;# ">
+"1378
+[; <" TRISB equ 086h ;# ">
+"1440
+[; <" TRISC equ 087h ;# ">
+"1502
+[; <" TRISD equ 088h ;# ">
+"1564
+[; <" TRISE equ 089h ;# ">
+"1621
+[; <" PIE1 equ 08Ch ;# ">
+"1683
+[; <" PIE2 equ 08Dh ;# ">
+"1723
+[; <" PCON equ 08Eh ;# ">
+"1757
+[; <" SSPCON2 equ 091h ;# ">
+"1819
+[; <" PR2 equ 092h ;# ">
+"1826
+[; <" SSPADD equ 093h ;# ">
+"1833
+[; <" SSPSTAT equ 094h ;# ">
+"2002
+[; <" TXSTA equ 098h ;# ">
+"2083
+[; <" SPBRG equ 099h ;# ">
+"2090
+[; <" CMCON equ 09Ch ;# ">
+"2160
+[; <" CVRCON equ 09Dh ;# ">
+"2225
+[; <" ADRESL equ 09Eh ;# ">
+"2232
+[; <" ADCON1 equ 09Fh ;# ">
+"2291
+[; <" EEDATA equ 010Ch ;# ">
+"2298
+[; <" EEADR equ 010Dh ;# ">
+"2305
+[; <" EEDATH equ 010Eh ;# ">
+"2312
+[; <" EEADRH equ 010Fh ;# ">
+"2319
+[; <" EECON1 equ 018Ch ;# ">
+"2364
+[; <" EECON2 equ 018Dh ;# ">
+"16 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h
+[v _LOGLINE_OK `Cuc ~T0 @X0 -> 3 `i e ]
+[i _LOGLINE_OK
+:U ..
+-> 79 `c
+-> 75 `c
+-> 0 `c
+..
+]
+"17
+[v _LOGLINE_FAIL `Cuc ~T0 @X0 -> 5 `i e ]
+[i _LOGLINE_FAIL
+:U ..
+-> 70 `c
+-> 65 `c
+-> 73 `c
+-> 76 `c
+-> 0 `c
+..
+]
+"3 F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.c
+[v _SPI_initialize `(v ~T0 @X0 1 ef ]
+"4
+{
+[e :U _SPI_initialize ]
+[f ]
+"5
+[e = _SSPEN -> -> 1 `i `b ]
+"6
+[e = _SSPSTAT -> -> 64 `i `uc ]
+"7
+[e = _TRISC5 -> -> 0 `i `b ]
+"8
+[e = _TRISC4 -> -> 1 `i `b ]
+"9
+[e = _TRISC3 -> -> 0 `i `b ]
+"10
+[e = _SSPCON -> | & -> _SSPCON `i -> 240 `i -> 2 `i `uc ]
+"11
+[e :UE 95 ]
+}
+"13
+[v _SPI_exchangeByte `(uc ~T0 @X0 1 ef1`uc ]
+"14
+{
+[e :U _SPI_exchangeByte ]
+"13
+[v _byte `uc ~T0 @X0 1 r1 ]
+"14
+[f ]
+"16
+[e = _SSPBUF _byte ]
+"18
+[e $U 97  ]
+[e :U 98 ]
+"19
+[e :U 97 ]
+"18
+[e $ == -> _SSPIF `i -> 0 `i 98  ]
+[e :U 99 ]
+"20
+[e = _SSPIF -> -> 0 `i `b ]
+"21
+[e ) _SSPBUF ]
+[e $UE 96  ]
+"22
+[e :UE 96 ]
+}

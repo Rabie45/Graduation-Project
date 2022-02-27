@@ -15,7 +15,7 @@ void waitMicros(uint32_t microSeconds)
 
 void waitMillis(uint8_t microSeconds)
 {
-    uint32_t stopTime = micros() + (microSeconds * (uint16_t)1000);
+    uint32_t stopTime = micros() + (microSeconds * 1000);
     while (micros() < (stopTime))
     {
     }

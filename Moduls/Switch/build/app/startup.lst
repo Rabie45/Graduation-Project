@@ -1,0 +1,91 @@
+
+
+Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
+                                                                                                           Sun Feb 27 11:01:12 2022
+
+
+     1                           	processor	16F877A
+     2                           	pagewidth 132
+     3                           	psect	code,global,class=CODE,delta=2
+     4                           	psect	powerup,global,class=CODE,delta=2
+     5                           	psect	reset_vec,global,class=CODE,delta=2
+     6                           	psect	maintext,global,class=CODE,delta=2
+     7                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+     8                           	psect	intentry,global,class=CODE,delta=2
+     9                           	psect	functab,global,class=ENTRY,delta=2
+    10                           	psect	init,global,class=CODE,delta=2
+    11                           	psect	cinit,global,class=CODE,delta=2
+    12                           	psect	text,global,class=CODE,delta=2
+    13                           	psect	end_init,global,class=CODE,delta=2
+    14                           	psect	clrtext,global,class=CODE,delta=2
+    15                           	psect	strings,global,reloc=256,class=CODE,delta=2
+    16                           	psect	stack,global,class=STACK,space=2,delta=1,noexec
+    17                           	psect	common,global,class=COMMON,space=1,delta=1
+    18                           	psect	bank0,global,class=BANK0,space=1,delta=1
+    19                           	psect	bank1,global,class=BANK1,space=1,delta=1
+    20                           	psect	bank2,global,class=BANK2,space=1,delta=1
+    21                           	psect	bank3,global,class=BANK3,space=1,delta=1
+    22                           	psect	ram,global,class=RAM,space=1,delta=1
+    23                           	psect	abs1,global,class=ABS1,space=1,delta=1
+    24                           	psect	sfr0,global,class=SFR0,space=1,delta=1
+    25                           	psect	sfr1,global,class=SFR1,space=1,delta=1
+    26                           	psect	sfr2,global,class=SFR2,space=1,delta=1
+    27                           	psect	sfr3,global,class=SFR3,space=1,delta=1
+    28                           
+    29                           	psect	reset_vec
+    30  0000                     reset_vec:
+    31                           
+    32                           ; No powerup routine
+    33                           ; jump to start
+    34  0000  120A  118A  280C   	goto	(start& (0+2047))| (reset_vec& (0+-2048))
+    35                           
+    36                           	psect	maintext
+    37                           
+    38                           ; Microchip MPLAB XC8 C Compiler V2.35
+    39                           ; Copyright (C) 2021 Microchip Technology Inc.
+    40                           ; Auto-generated runtime startup code for final link stage.
+    41                           ;
+    42                           ; Compiler options:
+    43                           ;
+    44                           ; -q --opt=none --chip=16f877a --std=c99 --nofallback --strict \
+    45                           ; CMakeFiles/app.dir/src/main.c.p1 ../libs/liblibs.a -oapp \
+    46                           ; --callgraph=none --warn=-3 --errformat=%f:%l:%c: error: (%n) %s \
+    47                           ; --warnformat=%f:%l:%c: warning: (%n) %s \
+    48                           ; --msgformat=%f:%l:%c: advisory: (%n) %s
+    49                           ;
+    50  0000                     C	set	0
+    51  0002                     Z	set	2
+    52  0002                     PCL	set	2
+    53  0000                     INDF	set	0
+    54  000A                     
+    55                           	psect	functab
+    56  0000                     intlevel0:
+    57  0000                     intlevel1:
+    58  0000                     intlevel2:
+    59  0000                     intlevel3:
+    60  0000                     intlevel4:
+    61  0000                     intlevel5:
+    62                           
+    63                           	psect	init
+    64  000C                     start:
+    65                           
+    66                           	psect	end_init
+    67  000C  120A  118A  280F   	ljmp	start_initialization	;jump to C runtime clear & initialization
+    68                           
+    69                           	psect	clrtext
+    70  0004                     FSR	set	4
+    71                           
+    72                           	psect	strings
+    73  0000                     
+    74                           	psect	stack
+    75  0000                     ___sp:
+    76  0000                     ___int_sp:
+
+
+Microchip Technology PIC Macro Assembler V2.35 build 20211206165544 
+Symbol Table                                                                                               Sun Feb 27 11:01:12 2022
+
+               ___sp 0000                 _main 0170                 start 000C  start_initialization 000F  
+          ___stackhi 0000            ___stacklo 0000             ___int_sp 0000             intlevel0 0000  
+           intlevel1 0000             intlevel2 0000             intlevel3 0000             intlevel4 0000  
+           intlevel5 0000             reset_vec 0000  

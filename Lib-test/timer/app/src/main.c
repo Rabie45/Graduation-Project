@@ -9,7 +9,7 @@ int main()
     while (1)
     {
         RB1 = 1;
-        waitMillis(30);
+        waitMicros(30);
         RB1 = 0;
         __delay_ms(30);
     }

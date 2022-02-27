@@ -1,0 +1,8 @@
+F:/GitHub/Graduation-Project/Moduls/Switch/build/CMakeFiles/edit_cache.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/CMakeFiles/rebuild_cache.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/app/CMakeFiles/app.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/app/CMakeFiles/edit_cache.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/app/CMakeFiles/rebuild_cache.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/libs/CMakeFiles/libs.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/libs/CMakeFiles/edit_cache.dir
+F:/GitHub/Graduation-Project/Moduls/Switch/build/libs/CMakeFiles/rebuild_cache.dir
