@@ -8,13 +8,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/Serial.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/Serial.c.p1"
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/buffers.c.p1"
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/internet.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/internet.c.p1"
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/logline.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/logline.c.p1"
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/rf24.c.p1"
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/spi_master.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/spi_master.c.p1"
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/transport.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/transport.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/Serial.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/Serial.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/buffers.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/buffers.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/internet.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/internet.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/logline.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/logline.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/rf24.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/spi_master.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/spi_master.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/time.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/time.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/transport.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/transport.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/wait.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/wait.c.p1"
   )
 set(CMAKE_C_COMPILER_ID "XC8-CC")
 

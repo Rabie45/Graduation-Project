@@ -156,12 +156,6 @@ void RF24_startListening(void)
 void RF24_stopListening(void)
 {
     RF24_CE = 0;
-    // TODO
-    // if (ack_payloads_enabled)
-    // {
-    //     flush_tx();
-    // }
-    // config_reg = static_cast<uint8_t>(config_reg & ~_BV(PRIM_RX));
     RF24_write_register(NRF_CONFIG, RF24_read_register(NRF_CONFIG) & ~_BV(PRIM_RX));
     RF24_write_register(EN_RXADDR, RF24_read_register(EN_RXADDR) | 1); // Enable RX on pipe0
     __delay_us(130);
@@ -290,7 +284,6 @@ uint8_t RF24_available(void)
 
 void RF24_read(void *buf, uint8_t len)
 {
-
     // Fetch the payload
     RF24_read_n_register(R_RX_PAYLOAD, (uint8_t *)buf, len);
     // Clear the only applicable interrupt flags

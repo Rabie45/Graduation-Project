@@ -57,10 +57,10 @@ RM = F:/cmake-3.23.0-rc1-windows-x86_64/cmake-3.23.0-rc1-windows-x86_64/bin/cmak
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs
+CMAKE_SOURCE_DIR = F:/GitHub/Graduation-Project/Lib-test/Embedded-shs
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build
+CMAKE_BINARY_DIR = F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(CMAKE_COMMAND) -E cmake_progress_start C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs//CMakeFiles/progress.marks
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles 0
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(CMAKE_COMMAND) -E cmake_progress_start F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/CMakeFiles F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs//CMakeFiles/progress.marks
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/all
+	$(CMAKE_COMMAND) -E cmake_progress_start F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clean
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/CMakeFiles/libs.dir/rule:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/CMakeFiles/libs.dir/rule
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/CMakeFiles/libs.dir/rule
 .PHONY : libs/CMakeFiles/libs.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ libs: libs/CMakeFiles/libs.dir/rule
 
 # fast build rule for target.
 libs/fast:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/build
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/build
 .PHONY : libs/fast
 
 Serial.p1: Serial.c.p1
@@ -135,7 +135,7 @@ Serial.p1: Serial.c.p1
 
 # target to build an object file
 Serial.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.p1
 .PHONY : Serial.c.p1
 
 Serial.i: Serial.c.i
@@ -143,7 +143,7 @@ Serial.i: Serial.c.i
 
 # target to preprocess a source file
 Serial.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.i
 .PHONY : Serial.c.i
 
 Serial.s: Serial.c.s
@@ -151,7 +151,7 @@ Serial.s: Serial.c.s
 
 # target to generate assembly for a file
 Serial.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.s
 .PHONY : Serial.c.s
 
 buffers.p1: buffers.c.p1
@@ -159,7 +159,7 @@ buffers.p1: buffers.c.p1
 
 # target to build an object file
 buffers.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/buffers.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/buffers.c.p1
 .PHONY : buffers.c.p1
 
 buffers.i: buffers.c.i
@@ -167,7 +167,7 @@ buffers.i: buffers.c.i
 
 # target to preprocess a source file
 buffers.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/buffers.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/buffers.c.i
 .PHONY : buffers.c.i
 
 buffers.s: buffers.c.s
@@ -175,7 +175,7 @@ buffers.s: buffers.c.s
 
 # target to generate assembly for a file
 buffers.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/buffers.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/buffers.c.s
 .PHONY : buffers.c.s
 
 internet.p1: internet.c.p1
@@ -183,7 +183,7 @@ internet.p1: internet.c.p1
 
 # target to build an object file
 internet.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.p1
 .PHONY : internet.c.p1
 
 internet.i: internet.c.i
@@ -191,7 +191,7 @@ internet.i: internet.c.i
 
 # target to preprocess a source file
 internet.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.i
 .PHONY : internet.c.i
 
 internet.s: internet.c.s
@@ -199,7 +199,7 @@ internet.s: internet.c.s
 
 # target to generate assembly for a file
 internet.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.s
 .PHONY : internet.c.s
 
 logline.p1: logline.c.p1
@@ -207,7 +207,7 @@ logline.p1: logline.c.p1
 
 # target to build an object file
 logline.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.p1
 .PHONY : logline.c.p1
 
 logline.i: logline.c.i
@@ -215,7 +215,7 @@ logline.i: logline.c.i
 
 # target to preprocess a source file
 logline.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.i
 .PHONY : logline.c.i
 
 logline.s: logline.c.s
@@ -223,7 +223,7 @@ logline.s: logline.c.s
 
 # target to generate assembly for a file
 logline.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.s
 .PHONY : logline.c.s
 
 rf24.p1: rf24.c.p1
@@ -231,7 +231,7 @@ rf24.p1: rf24.c.p1
 
 # target to build an object file
 rf24.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/rf24.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/rf24.c.p1
 .PHONY : rf24.c.p1
 
 rf24.i: rf24.c.i
@@ -239,7 +239,7 @@ rf24.i: rf24.c.i
 
 # target to preprocess a source file
 rf24.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/rf24.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/rf24.c.i
 .PHONY : rf24.c.i
 
 rf24.s: rf24.c.s
@@ -247,7 +247,7 @@ rf24.s: rf24.c.s
 
 # target to generate assembly for a file
 rf24.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/rf24.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/rf24.c.s
 .PHONY : rf24.c.s
 
 spi_master.p1: spi_master.c.p1
@@ -255,7 +255,7 @@ spi_master.p1: spi_master.c.p1
 
 # target to build an object file
 spi_master.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/spi_master.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/spi_master.c.p1
 .PHONY : spi_master.c.p1
 
 spi_master.i: spi_master.c.i
@@ -263,7 +263,7 @@ spi_master.i: spi_master.c.i
 
 # target to preprocess a source file
 spi_master.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/spi_master.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/spi_master.c.i
 .PHONY : spi_master.c.i
 
 spi_master.s: spi_master.c.s
@@ -271,15 +271,39 @@ spi_master.s: spi_master.c.s
 
 # target to generate assembly for a file
 spi_master.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/spi_master.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/spi_master.c.s
 .PHONY : spi_master.c.s
+
+time.p1: time.c.p1
+.PHONY : time.p1
+
+# target to build an object file
+time.c.p1:
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/time.c.p1
+.PHONY : time.c.p1
+
+time.i: time.c.i
+.PHONY : time.i
+
+# target to preprocess a source file
+time.c.i:
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/time.c.i
+.PHONY : time.c.i
+
+time.s: time.c.s
+.PHONY : time.s
+
+# target to generate assembly for a file
+time.c.s:
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/time.c.s
+.PHONY : time.c.s
 
 transport.p1: transport.c.p1
 .PHONY : transport.p1
 
 # target to build an object file
 transport.c.p1:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/transport.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/transport.c.p1
 .PHONY : transport.c.p1
 
 transport.i: transport.c.i
@@ -287,7 +311,7 @@ transport.i: transport.c.i
 
 # target to preprocess a source file
 transport.c.i:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/transport.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/transport.c.i
 .PHONY : transport.c.i
 
 transport.s: transport.c.s
@@ -295,8 +319,32 @@ transport.s: transport.c.s
 
 # target to generate assembly for a file
 transport.c.s:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/transport.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/transport.c.s
 .PHONY : transport.c.s
+
+wait.p1: wait.c.p1
+.PHONY : wait.p1
+
+# target to build an object file
+wait.c.p1:
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.p1
+.PHONY : wait.c.p1
+
+wait.i: wait.c.i
+.PHONY : wait.i
+
+# target to preprocess a source file
+wait.c.i:
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.i
+.PHONY : wait.c.i
+
+wait.s: wait.c.s
+.PHONY : wait.s
+
+# target to generate assembly for a file
+wait.c.s:
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.s
+.PHONY : wait.c.s
 
 # Help Target
 help:
@@ -325,9 +373,15 @@ help:
 	@echo "... spi_master.p1"
 	@echo "... spi_master.i"
 	@echo "... spi_master.s"
+	@echo "... time.p1"
+	@echo "... time.i"
+	@echo "... time.s"
 	@echo "... transport.p1"
 	@echo "... transport.i"
 	@echo "... transport.s"
+	@echo "... wait.p1"
+	@echo "... wait.i"
+	@echo "... wait.s"
 .PHONY : help
 
 
@@ -339,6 +393,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

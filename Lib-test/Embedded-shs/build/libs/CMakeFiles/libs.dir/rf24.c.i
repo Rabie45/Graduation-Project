@@ -1,4 +1,4 @@
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c"
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c" 2
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 1
 
 
 
@@ -144,13 +144,13 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/spi_master.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/spi_master.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\xc.h" 3
@@ -1871,38 +1871,38 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\xc.h" 2 3
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/spi_master.h" 2
 
 
 void SPI_initialize(void);
 uint8_t SPI_exchangeByte(uint8_t byte);
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/wait.h" 1
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/wait.h" 2
-
-
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/time.h" 1
-
-
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/wait.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/time.h" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/wait.h" 2
+
+
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/time.h" 1
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/time.h" 2
 
 void timerInit(uint8_t);
 __attribute__((inline)) uint32_t micros();
 void timeISR();
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/wait.h" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/wait.h" 2
 
 void wait_init(uint8_t );
 void waitMicros(uint32_t );
 void waitMillis(uint8_t);
-# 6 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 2
-# 20 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 6 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 2
+# 20 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 typedef enum
 {
 
@@ -1938,7 +1938,7 @@ typedef enum
 
     RF24_PA_ERROR
 } rf24_pa_dbm_e;
-# 65 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 65 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 typedef enum
 {
 
@@ -1948,7 +1948,7 @@ typedef enum
 
     RF24_250KBPS
 } rf24_datarate_e;
-# 86 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 86 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 typedef enum
 {
 
@@ -1985,7 +1985,7 @@ uint8_t RF24_writeFast(void *buffer, uint8_t length);
 void RF24_openReadingPipe(uint8_t pipe, uint8_t *address);
 void RF24_powerDown(void);
 void RF24_powerUp(void);
-# 138 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 138 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 void RF24_closeReadingPipe(uint8_t pipe);
 void RF24_setPayloadSize(uint8_t size);
 uint8_t RF24_getPayloadSize(void);
@@ -2013,18 +2013,18 @@ void RF24_maskIRQ(uint8_t tx_ok, uint8_t tx_fail, uint8_t rx_ready);
 uint8_t RF24_isCarierDetected(void);
 
 void RF24_printDetails(void);
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\nRF24l01.h" 1
-# 2 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\nRF24l01.h" 1
+# 2 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h" 1
-# 14 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h"
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\Serial.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h" 1
+# 14 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h"
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\Serial.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\Serial.h" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\Serial.h" 2
 
 
 
@@ -2033,21 +2033,21 @@ uint8_t Serial_begin(const long int baudrate);
 uint8_t Serial_available();
 uint8_t Serial_read();
 void Serial_write(uint8_t data);
-# 14 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h" 2
+# 14 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h" 2
 
 
 const char LOGLINE_OK[] = "OK";
 const char LOGLINE_FAIL[] = "FAIL";
-# 56 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h"
+# 56 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h"
 void _$_logline_str(char *string);
 void _$_logline_int(uint8_t v);
 void _$_logline_bin(uint8_t v);
 void _$_logline_hex(uint8_t v);
 void _$_logline_n_hex(uint8_t *ptr, uint8_t n);
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\bitwise.h" 1
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\bitwise.h" 1
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c" 2
 
 
 
@@ -2111,7 +2111,7 @@ uint8_t RF24_begin()
     RD2 = 0;
     RD3 = 1;
     _delay((unsigned long)((100)*(16000000/4000.0)));
-# 76 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c"
+# 76 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c"
     _delay((unsigned long)((5)*(16000000/4000.0)));
 
 
@@ -2144,7 +2144,7 @@ uint8_t RF24_begin()
 
     RF24_flush_rx();
     RF24_flush_tx();
-# 116 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c"
+# 116 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c"
     RF24_write_register(0x00, ((1 << (3)) | (1 << (2))));
     RF24_powerUp();
     RF24_attr_config = RF24_read_register(0x00);
@@ -2173,18 +2173,12 @@ void RF24_startListening(void)
     RF24_write_register(0x00, RF24_read_register(0x00) | (1 << (0)));
     RF24_write_register(0x07, (1 << (6)) | (1 << (5)) | (1 << (4)));
     RD2 = 1;
-# 154 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c"
+# 154 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c"
 }
 
 void RF24_stopListening(void)
 {
     RD2 = 0;
-
-
-
-
-
-
     RF24_write_register(0x00, RF24_read_register(0x00) & ~(1 << (0)));
     RF24_write_register(0x02, RF24_read_register(0x02) | 1);
     _delay((unsigned long)((130)*(16000000/4000000.0)));
@@ -2314,12 +2308,11 @@ uint8_t RF24_available(void)
 void RF24_read(void *buf, uint8_t len)
 {
 
-
     RF24_read_n_register(0x61, (uint8_t *)buf, len);
 
     RF24_write_register(0x07, (1 << (6)));
 }
-# 312 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c"
+# 305 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c"
 void RF24_openReadingPipe(uint8_t child, uint8_t *address)
 {
     if (child < 2)
@@ -2485,7 +2478,7 @@ void RF24_setAddressWidth(uint8_t w)
 {
     RF24_write_register(0x03, (w - 2) & 0b11);
 }
-# 487 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.c"
+# 480 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c"
 void RF24_printDetails()
 {
     uint8_t buffer[5];

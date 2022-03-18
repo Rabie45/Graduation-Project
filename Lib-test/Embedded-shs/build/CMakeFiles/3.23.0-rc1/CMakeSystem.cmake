@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Windows")
 set(CMAKE_HOST_SYSTEM_VERSION "10.0.19042")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "AMD64")
 
-include("C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/external/cmake-microchip/toolchain.cmake")
+include("F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/external/cmake-microchip/toolchain.cmake")
 
 set(CMAKE_SYSTEM "MicrochipMCU")
 set(CMAKE_SYSTEM_NAME "MicrochipMCU")

@@ -7,6 +7,50 @@
 #include <buffers.h>
 #include <string.h>
 #include <packets.h>
+#include <wait.h>
+#include <time.h>
+#define OXP_GET_REQUEST 0
+#define OXP_POST_REQUEST 1
+#define OXP_RESPONSE 2
+#define OXP_CHANGE_EVENT 3
+#define SW1 RD0
+uint32_t stopTime = 0, startTime;
+
+typedef struct
+{
+    uint8_t id;
+    uint8_t value;
+
+} OXProperty;
+enum val
+{
+    FALSE,
+    TRUE
+};
+typedef struct
+{
+    uint8_t value;
+} Property;
+
+Property prop[2] = {
+    {FALSE},
+    {FALSE},
+};
+typedef struct
+{
+    struct UDPPacket udpHeader;
+    uint8_t type;
+    uint8_t length;
+    OXProperty object[12];
+
+} OXPacket;
+typedef struct
+{
+    long nextMills;
+    uint8_t wasPressed;
+} Button;
+Button btn1;
+
 // BEGIN CONFIG
 #pragma config FOSC = HS   // Oscillator Selection bits (HS oscillator)
 #pragma config WDTE = OFF  // Watchdog Timer Enable bit (WDT enabled)
@@ -19,35 +63,74 @@
 //  * | | TTL 1-byte | protocol 4-bit  | src 1-byte | dst 1-byte | payload 28-byte |
 
 uint8_t network_pipe[] = {0x00, 0xfc, 0xb0, 0xe8, 0xf5};
-
+uint8_t checkButton(Button *btn, uint8_t pinState)
+{
+    uint8_t isPressed = (!(btn->wasPressed) && pinState && micros() > btn->nextMills);
+    if (isPressed)
+    {
+        btn->nextMills = micros() + 1000;
+    }
+    btn->wasPressed = pinState;
+    return isPressed;
+}
 // END CONFIG
 void main()
 {
     TRISB = 0xFF; // PORTB as Input
     TRISD1 = 0;
     nRBPU = 0;
-
+    TRISD0 = 1;
     Serial_begin(9600);
+    wait_init(16);
     SPI_initialize();
     Network_begin();
     internet_setChannel(115);
     internet_setNetworkPipe(network_pipe);
     internet_setAddress(2);
-    memcpy(buffer_tx + sizeof(struct UDPPacket), "hi", 3);
     while (1)
     {
-        while (!RF24_isChipConnected())
+        logline_println("================START =============================");
+        /*while (!RF24_isChipConnected())
         {
+            logline_println("Chip not connected");
+
             RD1 = ~RD1;
             __delay_ms(1000);
-        }
-        transport_udp_tx(buffer_tx, sizeof(struct UDPPacket) + 3, 1, 3, 6); // send pay load
-        __delay_ms(1000);
+        }*/
         internet_process();
+
+        startTime = micros();
+
+        if (startTime - stopTime > 150)
+        {
+            stopTime = startTime;
+            RD1 = prop[0].value;
+        }
+        uint8_t var1 = checkButton(&btn1, SW1);
+
+        if (var1 == 1)
+        {
+            logline_println("Switch pressed");
+
+            prop[0].value = ~prop[0].value;
+            OXPacket *const packet = (OXPacket *)buffer_tx;
+            packet->object[0].id = 0;
+            packet->object[0].value = prop[0].value;
+            packet->length = 1;
+            packet->type = OXP_CHANGE_EVENT;
+            transport_udp_tx(packet, 32, 1, 6, 6);
+        }
+       
+
+        {
+            logline_println("Switch Not pressed");
+
+            prop[0].value = prop[0].value;
+        }
     }
 }
 
-void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
+/*void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
 {
     uint8_t *data = buffer_rx + sizeof(struct UDPPacket);
     if (*data == 'h')
@@ -61,4 +144,38 @@ void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
     logline_println("=========RX========");
     logline_prop_int("RX_SIZE", size);
     logline_prop_int("RX_PORT", port);
+}*/
+void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
+{
+    logline_println("Recived Data");
+
+    OXPacket const *packet = (OXPacket *)payload;
+    logline_println("Recived Data =");
+    logline_print("data =");
+
+    PROCESS(port, 6, {
+        if (packet->type == OXP_GET_REQUEST)
+        {
+        }
+        else if (packet->type == OXP_POST_REQUEST)
+        {
+            OXProperty *ppnt = packet->object;
+            logline_prop_int("id", ppnt->id);
+            logline_prop_int("value", ppnt->value);
+            uint8_t count = packet->length;
+            while (count--)
+            {
+                prop[ppnt->id].value = ppnt->value;
+                ppnt++;
+            }
+        }
+    });
+    PROCESS(port, 6, { // get
+        memcpy(buffer_tx + sizeof(struct UDPPacket), prop, sizeof(prop));
+        // transport_udp_tx(buffer_tx, 32, 1, 7, load->sourcePort);
+    });
+}
+void __interrupt() ISR(void)
+{
+    timeISR();
 }

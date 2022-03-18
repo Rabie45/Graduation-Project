@@ -1,25 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"28 F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c
-[s S99 `uc 1 ]
-[n S99 . value ]
-"32
-[c E1126 0 1 .. ]
-[n E1126 val FALSE TRUE  ]
-"37
-[s S100 `l 1 `uc 1 ]
-[n S100 . nextMills wasPressed ]
-[v F884 `(ul ~T0 @X0 1 tf ]
-"7 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\time.h
-[v _micros `TF884 ~T0 @X0 0 e ]
+"39 F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c
+[s S101 `uc 1 ]
+[n S101 . value ]
+"43
+[c E1155 0 1 .. ]
+[n E1155 val FALSE TRUE  ]
+"48
+[s S102 `l 1 `uc 1 ]
+[n S102 . nextMills wasPressed ]
 [p mainexit ]
 "2991 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
 [v _TRISD1 `Vb ~T0 @X0 0 e@1089 ]
+"341
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"3084
+[v _nRBPU `Vb ~T0 @X0 0 e@1039 ]
 "2946
 [v _TRISB2 `Vb ~T0 @X0 0 e@1074 ]
 "2949
 [v _TRISB3 `Vb ~T0 @X0 0 e@1075 ]
-"6 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\wait.h
+"6 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/wait.h
 [v _wait_init `(v ~T0 @X0 0 ef1`uc ]
+"7 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\Serial.h
+[v _Serial_begin `(uc ~T0 @X0 0 ef1`Cl ]
 "6 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/spi_master.h
 [v _SPI_initialize `(v ~T0 @X0 0 ef ]
 "15 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
@@ -30,6 +33,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _internet_setNetworkPipe `(v ~T0 @X0 0 ef1`*uc ]
 "44
 [v _internet_setAddress `(v ~T0 @X0 0 ef1`uc ]
+"56 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h
+[v __$_logline_str `(v ~T0 @X0 0 ef1`*uc ]
 "2757 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
 [v _RD1 `Vb ~T0 @X0 0 e@65 ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
@@ -47,18 +52,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S96 UDPPacket ttl protocol source destination sourcePort destinationPort ]
 "20 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
 [v _internet_process `(v ~T0 @X0 0 e? ]
-"2682 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
-[v _RB1 `Vb ~T0 @X0 0 e@49 ]
-"2685
-[v _RB2 `Vb ~T0 @X0 0 e@50 ]
+[v F903 `(ul ~T0 @X0 1 tf ]
+"7 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/time.h
+[v _micros `TF903 ~T0 @X0 0 e ]
+"11 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\OXPacket.h
+[s S99 `uc 1 `uc 1 ]
+[n S99 . id value ]
+"17
+[s S100 `*S96 1 `uc 1 `uc 1 `S99 -> 12 `i ]
+[n S100 . udpHeader type length object ]
 "5 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\buffers.h
 [v _buffer_rx `uc ~T0 @X0 -> 0 `x e ]
 "14 C:\Program Files\Microchip\xc8\v2.35\pic\include\c90\string.h
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-"8 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\time.h
-[v _timeISR `(v ~T0 @X0 0 e? ]
 "55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
 [; <" INDF equ 00h ;# ">
 "62
@@ -179,6 +187,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" EECON1 equ 018Ch ;# ">
 "2364
 [; <" EECON2 equ 018Dh ;# ">
+"16 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h
+[v _LOGLINE_OK `Cuc ~T0 @X0 -> 3 `i e ]
+[i _LOGLINE_OK
+:U ..
+-> 79 `c
+-> 75 `c
+-> 0 `c
+..
+]
+"17
+[v _LOGLINE_FAIL `Cuc ~T0 @X0 -> 5 `i e ]
+[i _LOGLINE_FAIL
+:U ..
+-> 70 `c
+-> 65 `c
+-> 73 `c
+-> 76 `c
+-> 0 `c
+..
+]
 "96 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/rf24.h
 [v _RF24_attr_status `uc ~T0 @X0 1 e ]
 "97
@@ -206,7 +234,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "3 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\config.h
-[p x FOSC  =  XT         ]
+[p x FOSC  =  HS         ]
 "4
 [p x WDTE  =  OFF        ]
 "5
@@ -221,7 +249,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRT  =  OFF         ]
 "10
 [p x CP  =  OFF          ]
-"20 F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c
+"31 F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c
 [v _network_pipe `uc ~T0 @X0 -> 5 `i e ]
 [i _network_pipe
 :U ..
@@ -232,191 +260,172 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 245 `i `uc
 ..
 ]
-"32
-[v _prop `S99 ~T0 @X0 -> 2 `i e ]
+"43
+[v _prop `S101 ~T0 @X0 -> 2 `i e ]
 [i _prop
 :U ..
 :U ..
--> . `E1126 0 `uc
+-> . `E1155 0 `uc
 ..
 :U ..
--> . `E1126 0 `uc
+-> . `E1155 0 `uc
 ..
 ..
 ]
-"43
-[v _checkButton `(uc ~T0 @X0 1 ef2`*S100`uc ]
-"44
-{
-[e :U _checkButton ]
-"43
-[v _btn `*S100 ~T0 @X0 1 r1 ]
-[v _pinState `uc ~T0 @X0 1 r2 ]
-"44
-[f ]
-"45
-[v _isPressed `uc ~T0 @X0 1 a ]
-[e = _isPressed -> -> && && ! != -> . *U _btn 1 `i -> 0 `i != -> _pinState `i -> 0 `i > ( _micros ..  -> . *U _btn 0 `ul `i `uc ]
-"46
-[e $ ! != -> _isPressed `i -> 0 `i 102  ]
-"47
-{
-"48
-[e = . *U _btn 0 -> + ( _micros ..  -> -> -> 1000 `i `l `ul `l ]
-"49
-}
-[e :U 102 ]
-"50
-[e = . *U _btn 1 _pinState ]
-"51
-[e ) _isPressed ]
-[e $UE 101  ]
-"52
-[e :UE 101 ]
-}
-"54
-[v _btn1 `S100 ~T0 @X0 1 e ]
+"65
+[v _btn1 `S102 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"55
+"66
 [v _main `(v ~T0 @X0 1 ef ]
-"56
+"67
 {
 [e :U _main ]
 [f ]
-"58
-[e = _TRISD1 -> -> 0 `i `b ]
-"60
-[e = _TRISB2 -> -> 0 `i `b ]
-"61
-[e = _TRISB3 -> -> 1 `i `b ]
-"62
-[e ( _wait_init (1 -> -> 16 `i `uc ]
-"64
-[e ( _SPI_initialize ..  ]
-"65
-[e ( _Network_begin ..  ]
-"66
-[e ( _internet_setChannel (1 -> -> 115 `i `uc ]
-"67
-[e ( _internet_setNetworkPipe (1 &U _network_pipe ]
-"68
-[e ( _internet_setAddress (1 -> -> 2 `i `uc ]
 "69
+[e = _TRISD1 -> -> 0 `i `b ]
+"71
+[e = _PORTD -> -> 0 `i `uc ]
+"72
+[e = _nRBPU -> -> 0 `i `b ]
+"73
+[e = _TRISB2 -> -> 0 `i `b ]
+"74
+[e = _TRISB3 -> -> 1 `i `b ]
+"75
+[e ( _wait_init (1 -> -> 16 `i `uc ]
+"76
+[e ( _Serial_begin (1 -> -> 9600 `i `l ]
+"77
+[e ( _SPI_initialize ..  ]
+"78
+[e ( _Network_begin ..  ]
+"79
+[e ( _internet_setChannel (1 -> -> 115 `i `uc ]
+"80
+[e ( _internet_setNetworkPipe (1 &U _network_pipe ]
+"81
+[e ( _internet_setAddress (1 -> -> 2 `i `uc ]
+"82
 [v _stopTime `ul ~T0 @X0 1 a ]
 [e = _stopTime -> -> -> 0 `i `l `ul ]
 [v _startTime `ul ~T0 @X0 1 a ]
-"72
+"85
 [e :U 105 ]
-"73
+"86
 {
-"74
+"87
+[e ( __$_logline_str (1 :s 1C ]
+"88
 [e $U 107  ]
 [e :U 108 ]
-"75
+"89
 {
-"76
+"90
 [e = _RD1 -> ~ -> _RD1 `ui `b ]
-"77
+"91
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"78
+"92
 }
 [e :U 107 ]
-"74
+"88
 [e $ ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 108  ]
 [e :U 109 ]
-"79
+"93
 [e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S96 `ui -> -> 3 `i `ui `uc -> -> 1 `i `uc -> -> 3 `i `uc -> -> 6 `i `uc ]
-"80
+"94
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"81
+"95
 [e ( _internet_process ..  ]
-"82
+"96
 [e = _startTime ( _micros ..  ]
-"84
-[e $ ! > - _startTime _stopTime -> -> -> 150 `i `l `ul 110  ]
-"85
+"103
+[v _var1 `uc ~T0 @X0 1 a ]
+[e = _var1 -> -> 1 `i `uc ]
+"104
+[e $ ! != -> _var1 `i -> 0 `i 110  ]
+"105
 {
-"86
-[e = _stopTime _startTime ]
-"87
-[e = _RB1 -> . *U + &U _prop * -> -> -> 0 `i `ui `ux -> -> # *U &U _prop `ui `ux 0 `b ]
-"88
+"106
+[e = . *U + &U _prop * -> -> -> 0 `i `ui `ux -> -> # *U &U _prop `ui `ux 0 -> ~ -> . *U + &U _prop * -> -> -> 0 `i `ui `ux -> -> # *U &U _prop `ui `ux 0 `i `uc ]
+"107
+[v _packet `*S100 ~T0 @X0 1 a ]
+[e = _packet -> &U _buffer_tx `*S100 ]
+"108
+[e = . *U + &U . *U _packet 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _packet 3 `ui `ux 0 -> -> 0 `i `uc ]
+"109
+[e = . *U + &U . *U _packet 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _packet 3 `ui `ux 1 . *U + &U _prop * -> -> -> 0 `i `ui `ux -> -> # *U &U _prop `ui `ux 0 ]
+"110
+[e = . *U _packet 2 -> -> 1 `i `uc ]
+"111
+[e = . *U _packet 1 -> -> 3 `i `uc ]
+"112
+[e ( _transport_udp_tx (4 , , , , -> _packet `*uc -> -> 32 `i `uc -> -> 1 `i `uc -> -> 6 `i `uc -> -> 6 `i `uc ]
+"113
 }
 [e :U 110 ]
-"89
-[v _var1 `uc ~T0 @X0 1 a ]
-[e = _var1 ( _checkButton (2 , &U _btn1 -> _RB2 `uc ]
-"90
-[e $ ! != -> _var1 `i -> 0 `i 111  ]
-"91
-{
-"92
-[e = . *U + &U _prop * -> -> -> 0 `i `ui `ux -> -> # *U &U _prop `ui `ux 0 -> ~ -> . *U + &U _prop * -> -> -> 0 `i `ui `ux -> -> # *U &U _prop `ui `ux 0 `i `uc ]
-"93
-}
-[e :U 111 ]
-"94
+"114
 }
 [e :U 104 ]
 [e $U 105  ]
 [e :U 106 ]
-"95
+"115
 [e :UE 103 ]
 }
-"97
+"117
 [v _transport_udp_process `(v ~T0 @X0 1 ef3`*uc`uc`uc ]
-"98
+"118
 {
 [e :U _transport_udp_process ]
-"97
+"117
 [v _payload `*uc ~T0 @X0 1 r1 ]
 [v _size `uc ~T0 @X0 1 r2 ]
 [v _port `uc ~T0 @X0 1 r3 ]
-"98
+"118
 [f ]
-"99
+"120
 [v _load `*CS96 ~T0 @X0 1 a ]
 [e = _load -> _payload `*CS96 ]
-"101
+"121
 [v _data `*uc ~T0 @X0 1 a ]
 [e = _data + &U _buffer_rx * -> -> # `S96 `ui `ux -> -> # *U &U _buffer_rx `ui `ux ]
-"102
+"123
 [v _id `uc ~T0 @X0 1 a ]
 [e = _id *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x ]
-"103
+"124
 [v _value `uc ~T0 @X0 1 a ]
 [e = _value *U + _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
-"105
-[e $ ! == -> _port `i -> 6 `i 113  ]
+"126
+[e $ ! == -> _port `i -> 6 `i 112  ]
 {
 {
 [e = . *U + &U _prop * -> _id `ux -> -> # *U &U _prop `ui `ux 0 _value ]
+[v _packet `*CS100 ~T0 @X0 1 a ]
+[e = _packet -> -> &U _buffer_rx `*S100 `*CS100 ]
 }
-[e $UE 112  ]
+[e $UE 111  ]
 }
-[e :U 113 ]
-"110
-[e $ ! == -> _port `i -> 7 `i 114  ]
+[e :U 112 ]
+"131
+[e $ ! == -> _port `i -> 6 `i 113  ]
 {
 {
 [e ( _memcpy (3 , , -> + &U _buffer_tx * -> -> # `S96 `ui `ux -> -> # *U &U _buffer_tx `ui `ux `*v -> &U _prop `*Cv -> # _prop `ui ]
 [e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> -> 32 `i `uc -> -> 1 `i `uc -> -> 7 `i `uc . *U _load 4 ]
 }
-[e $UE 112  ]
+[e $UE 111  ]
 }
-[e :U 114 ]
-"114
-[e :UE 112 ]
+[e :U 113 ]
+"135
+[e :UE 111 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"116
+"137
 [v _ISR `(v ~T1 @X0 1 ef ]
-"117
+"138
 {
 [e :U _ISR ]
 [f ]
-"118
-[e ( _timeISR ..  ]
-"119
-[e :UE 115 ]
+"140
+[e :UE 114 ]
 }
+[a 1C 104 105 105 105 105 105 0 ]

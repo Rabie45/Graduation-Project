@@ -4,9 +4,9 @@ internet.c
 # protocols.c
 rf24.c
 spi_master.c
-# time.c
+time.c
 transport.c
-# wait.c
+wait.c
 Serial.c
 logline.c
 buffers.c

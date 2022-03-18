@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/app/CMakeFiles/app.dir/src/main.c.p1"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/app/CMakeFiles/app.dir/src/main.c.p1"
   )
 set(CMAKE_C_COMPILER_ID "XC8-CC")
 
@@ -29,7 +29,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/CMakeFiles/libs.dir/DependInfo.cmake"
+  "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/CMakeFiles/libs.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

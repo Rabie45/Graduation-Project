@@ -1,6 +1,6 @@
 
 // CONFIG
-#pragma config FOSC = XT        // Oscillator Selection bits (XT oscillator)
+#pragma config FOSC = HS        // Oscillator Selection bits (XT oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
 #pragma config PWRTE = ON       // Power-up Timer Enable bit (PWRT enabled)
 #pragma config BOREN = ON       // Brown-out Reset Enable bit (BOR enabled)

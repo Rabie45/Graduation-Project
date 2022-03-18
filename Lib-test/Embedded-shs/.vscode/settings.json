@@ -10,11 +10,9 @@
     "spi_master.h": "c",
     "rf24.h": "c",
     "logline.h": "c",
-    "nrf24l01.h": "c"
-},
-"C_Cpp.errorSquiggles": "Disabled",
-"cSpell.words": [
-    "printlnx",
-    "printx"
-]
+    "nrf24l01.h": "c",
+    "oxpacket.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "Disabled",
+  "cSpell.words": ["printlnx", "printx"]
 }

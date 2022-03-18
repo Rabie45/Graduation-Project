@@ -14,6 +14,8 @@ xc.h
 pic16f877a.h
 -
 
+../libs/include/bitwise.h
+
 ../libs/include/buffers.h
 stdint.h
 -
@@ -38,6 +40,8 @@ spi_master.h
 Serial.h
 -
 
+../libs/include/nRF24l01.h
+
 ../libs/include/packets.h
 stdint.h
 -
@@ -51,10 +55,6 @@ spi_master.h
 ../libs/include/spi_master.h
 wait.h
 ../libs/include/wait.h
-
-../libs/include/rf24_internals.h
-stdint.h
--
 
 ../libs/include/spi_master.h
 stdint.h
@@ -107,12 +107,18 @@ logline.h
 F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c
 rf24.h
 F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.h
-rf24_internals.h
-F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24_internals.h
+nRF24l01.h
+-
+logline.h
+-
+bitwise.h
+-
 
 F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.c
 spi_master.h
 F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.h
+logline.h
+F:/GitHub/Graduation-Project/Moduls/Switch/libs/logline.h
 
 F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c
 time.h

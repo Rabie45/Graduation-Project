@@ -82,7 +82,7 @@ xc.h
 time.h
 ../libs/include/time.h
 
-C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c
 xc.h
 -
 pic16f877a.h
@@ -100,5 +100,9 @@ buffers.h
 string.h
 -
 packets.h
+-
+wait.h
+-
+time.h
 -
 

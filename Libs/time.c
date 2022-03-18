@@ -22,7 +22,17 @@ void timerInit(uint8_t mhz)
     T1CKPS0 = (prescaler & 1);  // prescale bit 0
     TMR1ON = 1;                 // enable TMR 1
     TMR1 = 0;                   // set TMR1 value to zero
-#else
+#elif defined(_16F1824)
+
+    PEIE = 1;                   // enable peripheral interrupts
+    GIE = 1;                    // enable global interrupts
+    TMR1IE = 1;                 // enable TMR 1 interupt
+    TMR1CS = 0;                 // TMR 1 with inernal source
+    T1OSCEN = 1;                // enable timer Oscillator
+    T1CKPS1 = (prescaler >> 1); // prescale bit 1
+    T1CKPS0 = (prescaler & 1);  // prescale bit 0
+    TMR1ON = 1;                 // enable TMR 1
+    TMR1 = 0;                   // set TMR1 value to zero
 #error time.h library doesn't support the current chip!
 #endif
 }

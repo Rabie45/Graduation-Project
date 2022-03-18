@@ -1,4 +1,4 @@
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c"
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/buffers.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/buffers.c" 2
 
 
 
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\buffers.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\buffers.h" 1
 
 
 
@@ -148,11 +148,11 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\buffers.h" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\buffers.h" 2
 
 extern uint8_t buffer_rx[32];
 extern uint8_t buffer_tx[32];
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/buffers.c" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/buffers.c" 2
 
 uint8_t buffer_tx[32];
 uint8_t buffer_rx[32];

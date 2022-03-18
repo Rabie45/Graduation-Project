@@ -1,4 +1,6 @@
 #include <xc.h>
+// CONFIG
+
 #include <pic16f877a.h>
 // #include <Serial.h>
 // #include <logline.h>
@@ -7,10 +9,19 @@
 #include <buffers.h>
 #include <string.h>
 #include <packets.h>
+#include <OXPacket.h>
 #include <wait.h>
 #include <time.h>
 #include <config.h>
 #include <stdint.h>
+
+/*typedef struct Model
+{
+   char modelName[8];
+   char type[8];
+
+};*/
+
 // BEGIN CONFIG
 #define CONNECTE_LED RD1
 #define LED RB1
@@ -90,24 +101,31 @@ void main()
         if (var1)
         {
             prop[0].value = ~prop[0].value;
+            OXPacket *packet = (OXPacket *)buffer_tx;
+            packet->object[0].id = 0;
+            packet->object[0].value = prop[0].value;
+            packet->length = 1;
+            packet->type = OXP_CHANGE_EVENT;
+            transport_udp_tx(packet, 32, 1, 6, 6);
         }
     }
 }
 
 void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
 {
-    const struct UDPPacket *load = payload;
 
+    const struct UDPPacket *load = payload;
     uint8_t *data = buffer_rx + sizeof(struct UDPPacket);
+    // property
     uint8_t id = data[0];
     uint8_t value = data[1];
 
     PROCESS(port, 6, {
         prop[id].value = value;
-        // 6post
-        /* do something*/
+
+        const OXPacket *packet = (OXPacket *)buffer_rx;
     });
-    PROCESS(port, 7, { // get
+    PROCESS(port, 6, { // get
         memcpy(buffer_tx + sizeof(struct UDPPacket), prop, sizeof(prop));
         transport_udp_tx(buffer_tx, 32, 1, 7, load->sourcePort);
     });

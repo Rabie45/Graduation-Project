@@ -39,6 +39,9 @@ libs/CMakeFiles/libs.dir/spi_master.c.p1: \
  ../libs/include/logline.h \
  ../libs/include/spi_master.h \
  ../libs/spi_master.c
+libs/CMakeFiles/libs.dir/time.c.p1: \
+ ../libs/include/time.h \
+ ../libs/time.c
 libs/CMakeFiles/libs.dir/transport.c.p1: \
  ../libs/include/buffers.h \
  ../libs/include/internet.h \
@@ -50,3 +53,7 @@ libs/CMakeFiles/libs.dir/transport.c.p1: \
  ../libs/include/transport.h \
  ../libs/include/wait.h \
  ../libs/transport.c
+libs/CMakeFiles/libs.dir/wait.c.p1: \
+ ../libs/include/time.h \
+ ../libs/include/wait.h \
+ ../libs/wait.c

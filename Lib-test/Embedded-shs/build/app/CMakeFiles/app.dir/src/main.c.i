@@ -1,4 +1,4 @@
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c"
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1858,14 +1858,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\xc.h" 2 3
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
 
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\Serial.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\Serial.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\Serial.h" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\Serial.h" 2
 
 
 
@@ -1874,64 +1874,64 @@ uint8_t Serial_begin(const long int baudrate);
 uint8_t Serial_available();
 uint8_t Serial_read();
 void Serial_write(uint8_t data);
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h" 1
-# 16 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h"
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h" 1
+# 16 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h"
 const char LOGLINE_OK[] = "OK";
 const char LOGLINE_FAIL[] = "FAIL";
-# 56 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\logline.h"
+# 56 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\logline.h"
 void _$_logline_str(char *string);
 void _$_logline_int(uint8_t v);
 void _$_logline_bin(uint8_t v);
 void _$_logline_hex(uint8_t v);
 void _$_logline_n_hex(uint8_t *ptr, uint8_t n);
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 1
 
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 2
-
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/spi_master.h" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 2
+
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/spi_master.h" 1
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/spi_master.h" 2
 
 
 
 void SPI_initialize(void);
 uint8_t SPI_exchangeByte(uint8_t byte);
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/wait.h" 1
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/wait.h" 2
-
-
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/time.h" 1
-
-
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/wait.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/time.h" 2
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/wait.h" 2
+
+
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/time.h" 1
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/time.h" 2
 
 void timerInit(uint8_t);
 __attribute__((inline)) uint32_t micros();
 void timeISR();
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/wait.h" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/wait.h" 2
 
 void wait_init(uint8_t );
 void waitMicros(uint32_t );
 void waitMillis(uint8_t);
-# 6 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h" 2
-# 20 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 6 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h" 2
+# 20 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 typedef enum
 {
 
@@ -1967,7 +1967,7 @@ typedef enum
 
     RF24_PA_ERROR
 } rf24_pa_dbm_e;
-# 65 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 65 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 typedef enum
 {
 
@@ -1977,7 +1977,7 @@ typedef enum
 
     RF24_250KBPS
 } rf24_datarate_e;
-# 86 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 86 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 typedef enum
 {
 
@@ -2014,7 +2014,7 @@ uint8_t RF24_writeFast(void *buffer, uint8_t length);
 void RF24_openReadingPipe(uint8_t pipe, uint8_t *address);
 void RF24_powerDown(void);
 void RF24_powerUp(void);
-# 138 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\rf24.h"
+# 138 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\rf24.h"
 void RF24_closeReadingPipe(uint8_t pipe);
 void RF24_setPayloadSize(uint8_t size);
 uint8_t RF24_getPayloadSize(void);
@@ -2042,20 +2042,20 @@ void RF24_maskIRQ(uint8_t tx_ok, uint8_t tx_fail, uint8_t rx_ready);
 uint8_t RF24_isCarierDetected(void);
 
 void RF24_printDetails(void);
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\internet.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\internet.h" 1
 
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\internet.h" 2
-
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/packets.h" 1
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 3 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/packets.h" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\internet.h" 2
+
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/packets.h" 1
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
+# 3 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/packets.h" 2
 
 struct Packet
 {
@@ -2074,36 +2074,36 @@ struct UDPPacket
     uint8_t sourcePort : 4;
     uint8_t destinationPort : 4;
 };
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\internet.h" 2
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\internet.h" 2
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/transport.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/transport.h" 1
 
 
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/protocols.h" 1
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/transport.h" 2
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/protocols.h" 1
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/transport.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 5 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/transport.h" 2
-# 14 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/transport.h"
+# 5 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/transport.h" 2
+# 14 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/transport.h"
 void transport_udp_tx(uint8_t *payload, uint8_t size, uint8_t destination, uint8_t sourcePort, uint8_t destinationPort);
 void transport_udp_rx(uint8_t *payload, uint8_t size);
 void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port);
-# 6 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\internet.h" 2
+# 6 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\internet.h" 2
 
 
 
 
-# 1 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/buffers.h" 1
+# 1 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/buffers.h" 1
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\stdint.h" 1 3
-# 4 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include/buffers.h" 2
+# 4 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include/buffers.h" 2
 
 extern uint8_t buffer_rx[32];
 extern uint8_t buffer_tx[32];
-# 10 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/include\\internet.h" 2
+# 10 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/include\\internet.h" 2
 
 
 
@@ -2141,7 +2141,7 @@ uint8_t internet_calculateMask(uint8_t address);
 void internet_setAddress(uint8_t address);
 uint8_t internet_hasChild(uint8_t address);
 void log_tx();
-# 6 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 6 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.35\\pic\\include\\c90\\string.h" 1 3
@@ -2195,8 +2195,44 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 8 "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/app/src/main.c" 2
+# 8 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c" 2
+# 17 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c"
+uint32_t stopTime = 0, startTime;
 
+typedef struct
+{
+    uint8_t id;
+    uint8_t value;
+
+} OXProperty;
+enum val
+{
+    FALSE,
+    TRUE
+};
+typedef struct
+{
+    uint8_t value;
+} Property;
+
+Property prop[2] = {
+    {FALSE},
+    {FALSE},
+};
+typedef struct
+{
+    struct UDPPacket udpHeader;
+    uint8_t type;
+    uint8_t length;
+    OXProperty object[12];
+
+} OXPacket;
+typedef struct
+{
+    long nextMills;
+    uint8_t wasPressed;
+} Button;
+Button btn1;
 
 
 #pragma config FOSC = HS
@@ -2210,46 +2246,89 @@ extern char * strrichr(const char *, int);
 
 
 uint8_t network_pipe[] = {0x00, 0xfc, 0xb0, 0xe8, 0xf5};
-
+uint8_t checkButton(Button *btn, uint8_t pinState)
+{
+    uint8_t isPressed = (!(btn->wasPressed) && pinState && micros() > btn->nextMills);
+    if (isPressed)
+    {
+        btn->nextMills = micros() + 1000;
+    }
+    btn->wasPressed = pinState;
+    return isPressed;
+}
 
 void main()
 {
     TRISB = 0xFF;
     TRISD1 = 0;
     nRBPU = 0;
-
+    TRISD0 = 1;
     Serial_begin(9600);
+    wait_init(16);
     SPI_initialize();
     Network_begin();
     internet_setChannel(115);
     internet_setNetworkPipe(network_pipe);
     internet_setAddress(2);
-    memcpy(buffer_tx + sizeof(struct UDPPacket), "hi", 3);
     while (1)
     {
-        while (!RF24_isChipConnected())
-        {
-            RD1 = ~RD1;
-            _delay((unsigned long)((1000)*(16000000/4000.0)));
-        }
-        transport_udp_tx(buffer_tx, sizeof(struct UDPPacket) + 3, 1, 3, 6);
-        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        _$_logline_str((char *)"================START ============================="); Serial_write((uint8_t)'\n');
+
+
+
+
+
+
+
         internet_process();
+
+        startTime = micros();
+
+        if (startTime - stopTime > 150)
+        {
+            stopTime = startTime;
+            RD1 = prop[0].value;
+        }
+        uint8_t var1 = checkButton(&btn1, RD0);
+
+        if (var1 == 1)
+        {
+            _$_logline_str((char *)"Switch pressed"); Serial_write((uint8_t)'\n');
+
+            prop[0].value = ~prop[0].value;
+            OXPacket *const packet = (OXPacket *)buffer_tx;
+            packet->object[0].id = 0;
+            packet->object[0].value = prop[0].value;
+            packet->length = 1;
+            packet->type = 3;
+            transport_udp_tx(packet, 32, 1, 6, 6);
+        }
+
+
+        {
+            _$_logline_str((char *)"Switch Not pressed"); Serial_write((uint8_t)'\n');
+
+            prop[0].value = prop[0].value;
+        }
     }
 }
-
+# 148 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c"
 void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
 {
-    uint8_t *data = buffer_rx + sizeof(struct UDPPacket);
-    if (*data == 'h')
-    {
-        RD1 = ~RD1;
-        _delay((unsigned long)((500)*(16000000/4000.0)));
-    }
-    _$_logline_str((char *)"data =");
-    _$_logline_str((char *)data); Serial_write((uint8_t)'\n');
+    _$_logline_str((char *)"Recived Data"); Serial_write((uint8_t)'\n');
 
-    _$_logline_str((char *)"=========RX========"); Serial_write((uint8_t)'\n');
-    _$_logline_str((char *)"RX_SIZE"); Serial_write((uint8_t)'='); _$_logline_int((uint8_t)size); Serial_write((uint8_t)'\n');
-    _$_logline_str((char *)"RX_PORT"); Serial_write((uint8_t)'='); _$_logline_int((uint8_t)port); Serial_write((uint8_t)'\n');
+    OXPacket const *packet = (OXPacket *)payload;
+    _$_logline_str((char *)"Recived Data ="); Serial_write((uint8_t)'\n');
+    _$_logline_str((char *)"data =");
+
+    if (port == 6) { { if (packet->type == 0) { } else if (packet->type == 1) { OXProperty *ppnt = packet->object; _$_logline_str((char *)"id"); Serial_write((uint8_t)'='); _$_logline_int((uint8_t)ppnt->id); Serial_write((uint8_t)'\n'); _$_logline_str((char *)"value"); Serial_write((uint8_t)'='); _$_logline_int((uint8_t)ppnt->value); Serial_write((uint8_t)'\n'); uint8_t count = packet->length; while (count--) { prop[ppnt->id].value = ppnt->value; ppnt++; } } }; return; };
+# 173 "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/app/src/main.c"
+    if (port == 6) { { memcpy(buffer_tx + sizeof(struct UDPPacket), prop, sizeof(prop)); }; return; };
+
+
+
+}
+void __attribute__((picinterrupt(("")))) ISR(void)
+{
+    timeISR();
 }

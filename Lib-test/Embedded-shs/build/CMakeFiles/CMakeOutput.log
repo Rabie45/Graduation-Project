@@ -8,15 +8,15 @@ Searching for Microchip tool 'xc8' (MICROCHIP_XC8_PATH):
   Chose: C:/Program Files/Microchip/xc8/v2.35
 
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles/CMakeTmp
+Change Dir: F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/ProgramData/chocolatey/bin/make.exe -f Makefile cmTC_e8227/fast && C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe  -f CMakeFiles/cmTC_e8227.dir/build.make CMakeFiles/cmTC_e8227.dir/build
-make[1]: Entering directory 'C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e8227.dir/testCCompiler.c.p1
-"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback      -oCMakeFiles/cmTC_e8227.dir/testCCompiler.c.p1   -c C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Run Build Command(s):C:/ProgramData/chocolatey/bin/make.exe -f Makefile cmTC_875e8/fast && C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe  -f CMakeFiles/cmTC_875e8.dir/build.make CMakeFiles/cmTC_875e8.dir/build
+make[1]: Entering directory 'F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_875e8.dir/testCCompiler.c.p1
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback      -oCMakeFiles/cmTC_875e8.dir/testCCompiler.c.p1   -c F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/CMakeFiles/CMakeTmp/testCCompiler.c
 ::: advisory: (2049) C99 compliant libraries are currently not available for baseline or mid-range devices, or for enhanced mid-range devices using a reentrant stack; using C90 libraries
-Linking C executable cmTC_e8227
-"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback    "CMakeFiles/cmTC_e8227.dir/testCCompiler.c.p1"      -ocmTC_e8227
+Linking C executable cmTC_875e8
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback    "CMakeFiles/cmTC_875e8.dir/testCCompiler.c.p1"      -ocmTC_875e8
 ::: advisory: (2049) C99 compliant libraries are currently not available for baseline or mid-range devices, or for enhanced mid-range devices using a reentrant stack; using C90 libraries
 
 Memory Summary:
@@ -26,7 +26,7 @@ Memory Summary:
     Configuration bits   used     0h (     0) of     1h word    (  0.0%)
     ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
 
-make[1]: Leaving directory 'C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory 'F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/CMakeFiles/CMakeTmp'
 
 
 

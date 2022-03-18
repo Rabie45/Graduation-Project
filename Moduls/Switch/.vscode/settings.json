@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "packets.h": "c",
+    "logline.h": "c",
+    "config.h": "c"
+  }
+}

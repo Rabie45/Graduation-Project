@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs
+# Install script for directory: F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

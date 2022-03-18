@@ -14,6 +14,8 @@ xc.h
 pic16f877a.h
 -
 
+../libs/include/bitwise.h
+
 ../libs/include/buffers.h
 stdint.h
 -
@@ -39,6 +41,8 @@ buffers.h
 ../libs/include/logline.h
 Serial.h
 -
+
+../libs/include/nRF24l01.h
 
 ../libs/include/packets.h
 stdint.h
@@ -82,13 +86,55 @@ xc.h
 time.h
 ../libs/include/time.h
 
-C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/internet.c
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/Serial.c
+Serial.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/Serial.h
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/buffers.c
+buffers.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/buffers.h
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/internet.c
 internet.h
-C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/internet.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/internet.h
 rf24.h
-C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/rf24.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.h
 string.h
 -
 logline.h
-C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/libs/logline.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/logline.h
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/logline.c
+logline.h
+-
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.c
+rf24.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/rf24.h
+nRF24l01.h
+-
+logline.h
+-
+bitwise.h
+-
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/spi_master.c
+spi_master.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/spi_master.h
+logline.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/logline.h
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/time.c
+time.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/time.h
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/transport.c
+transport.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/transport.h
+internet.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/internet.h
+
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/wait.c
+wait.h
+F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/libs/wait.h
 

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs
+# Install script for directory: F:/GitHub/Graduation-Project/Lib-test/Embedded-shs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/app/cmake_install.cmake")
-  include("C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/libs/cmake_install.cmake")
+  include("F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/app/cmake_install.cmake")
+  include("F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/libs/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/abdal/Desktop/Embedded-shs/Embedded-shs/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/GitHub/Graduation-Project/Lib-test/Embedded-shs/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

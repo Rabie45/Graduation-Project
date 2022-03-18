@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                                           Wed Feb 23 10:45:54 2022
+                                                                                                           Fri Mar 18 16:05:42 2022
 
 
      1                           	processor	16F877A
@@ -35,56 +35,57 @@ Microchip MPLAB XC8 Assembler V2.35 build 20211206165544
     29                           	psect	reset_vec
     30  0000                     reset_vec:
     31                           
-    32                           	psect	maintext
-    33                           
-    34                           ; Microchip MPLAB XC8 C Compiler V2.35
-    35                           ; Copyright (C) 2021 Microchip Technology Inc.
-    36                           ; Auto-generated runtime startup code for final link stage.
-    37                           ;
-    38                           ; Compiler options:
-    39                           ;
-    40                           ; -q --opt=none --chip=16f877a --std=c99 --nofallback --strict \
-    41                           ; --ASMLIST CMakeFiles/app.dir/src/main.c.p1 ../libs/liblibs.a -oapp \
-    42                           ; --callgraph=none --warn=-3 --errformat=%f:%l:%c: error: (%n) %s \
-    43                           ; --warnformat=%f:%l:%c: warning: (%n) %s \
-    44                           ; --msgformat=%f:%l:%c: advisory: (%n) %s
-    45                           ;
-    46  0000                     C	set	0
-    47  0002                     Z	set	2
-    48  0002                     PCL	set	2
-    49  0000                     INDF	set	0
-    50  000A                     
-    51                           	psect	functab
-    52  0000                     intlevel0:
-    53  0000                     intlevel1:
-    54  0000                     intlevel2:
-    55  0000                     intlevel3:
-    56  0000                     intlevel4:
-    57  0000                     intlevel5:
-    58                           
-    59                           	psect	init
-    60  0000                     start:	
-    61                           ; No powerup routine
-    62                           ; No interrupt routine
-    63                           
-    64                           
-    65                           	psect	end_init
-    66  0000  120A  118A  2FCD   	ljmp	start_initialization	;jump to C runtime clear & initialization
-    67                           
-    68                           	psect	clrtext
-    69  0004                     FSR	set	4
-    70                           
-    71                           	psect	strings
-    72  0000                     
-    73                           	psect	stack
-    74  0000                     ___sp:
-    75  0000                     ___int_sp:
+    32                           ; No powerup routine
+    33                           ; jump to start
+    34  0000  120A  118A  280C   	goto	(start& (0+2047))| (reset_vec& (0+-2048))
+    35                           
+    36                           	psect	maintext
+    37                           
+    38                           ; Microchip MPLAB XC8 C Compiler V2.35
+    39                           ; Copyright (C) 2021 Microchip Technology Inc.
+    40                           ; Auto-generated runtime startup code for final link stage.
+    41                           ;
+    42                           ; Compiler options:
+    43                           ;
+    44                           ; -q --opt=none --chip=16f877a --std=c99 --nofallback --strict \
+    45                           ; --ASMLIST CMakeFiles/app.dir/src/main.c.p1 ../libs/liblibs.a -oapp \
+    46                           ; --callgraph=none --warn=-3 --errformat=%f:%l:%c: error: (%n) %s \
+    47                           ; --warnformat=%f:%l:%c: warning: (%n) %s \
+    48                           ; --msgformat=%f:%l:%c: advisory: (%n) %s
+    49                           ;
+    50  0000                     C	set	0
+    51  0002                     Z	set	2
+    52  0002                     PCL	set	2
+    53  0000                     INDF	set	0
+    54  000A                     
+    55                           	psect	functab
+    56  0000                     intlevel0:
+    57  0000                     intlevel1:
+    58  0000                     intlevel2:
+    59  0000                     intlevel3:
+    60  0000                     intlevel4:
+    61  0000                     intlevel5:
+    62                           
+    63                           	psect	init
+    64  000C                     start:
+    65                           
+    66                           	psect	end_init
+    67  000C  120A  118A  280F   	ljmp	start_initialization	;jump to C runtime clear & initialization
+    68                           
+    69                           	psect	clrtext
+    70  0004                     FSR	set	4
+    71                           
+    72                           	psect	strings
+    73  0000                     
+    74                           	psect	stack
+    75  0000                     ___sp:
+    76  0000                     ___int_sp:
 
 
 Microchip Technology PIC Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                               Wed Feb 23 10:45:54 2022
+Symbol Table                                                                                               Fri Mar 18 16:05:42 2022
 
-               ___sp 0000                 _main 0438                 start 0000  start_initialization 07CD  
+               ___sp 0000                 _main 025F                 start 000C  start_initialization 000F  
           ___stackhi 0000            ___stacklo 0000             ___int_sp 0000             intlevel0 0000  
            intlevel1 0000             intlevel2 0000             intlevel3 0000             intlevel4 0000  
            intlevel5 0000             reset_vec 0000  
