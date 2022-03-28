@@ -1,0 +1,32 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/ProgramData/chocolatey/bin/make.exe -f Makefile cmTC_21bf2/fast && C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe  -f CMakeFiles/cmTC_21bf2.dir/build.make CMakeFiles/cmTC_21bf2.dir/build
+make[1]: Entering directory 'F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_21bf2.dir/CMakeCCompilerABI.c.p1
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback      -oCMakeFiles/cmTC_21bf2.dir/CMakeCCompilerABI.c.p1   -c F:/cmake-3.23.0-rc1-windows-x86_64/cmake-3.23.0-rc1-windows-x86_64/share/cmake-3.23/Modules/CMakeCCompilerABI.c
+::: advisory: (2049) C99 compliant libraries are currently not available for baseline or mid-range devices, or for enhanced mid-range devices using a reentrant stack; using C90 libraries
+Linking C executable cmTC_21bf2
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback    "CMakeFiles/cmTC_21bf2.dir/CMakeCCompilerABI.c.p1"      -ocmTC_21bf2
+::: advisory: (2049) C99 compliant libraries are currently not available for baseline or mid-range devices, or for enhanced mid-range devices using a reentrant stack; using C90 libraries
+
+Memory Summary:
+    Program space        used    A3h (   163) of  2000h words   (  2.0%)
+    Data space           used     Ah (    10) of   170h bytes   (  2.7%)
+    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
+    Configuration bits   used     0h (     0) of     1h word    (  0.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+
+make[1]: Leaving directory 'F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/CMakeTmp'
+
+
+Cannot copy output executable
+  ''
+to destination specified by COPY_FILE:
+  'F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/3.23.0-rc1/CMakeDetermineCompilerABI_C.bin'
+Unable to find the executable at any of:
+  F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/CMakeTmp/cmTC_21bf2
+  F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/CMakeTmp/Debug/cmTC_21bf2
+  F:/GitHub/Graduation-Project/Moduls/Door/build/CMakeFiles/CMakeTmp/Development/cmTC_21bf2
+
+

@@ -1,0 +1,229 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"2634 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[v _PEIE `Vb ~T0 @X0 0 e@94 ]
+"2574
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"2892
+[v _TMR1IE `Vb ~T0 @X0 0 e@1120 ]
+"2889
+[v _TMR1CS `Vb ~T0 @X0 0 e@129 ]
+"2871
+[v _T1OSCEN `Vb ~T0 @X0 0 e@131 ]
+"2865
+[v _T1CKPS1 `Vb ~T0 @X0 0 e@133 ]
+"2862
+[v _T1CKPS0 `Vb ~T0 @X0 0 e@132 ]
+"2898
+[v _TMR1ON `Vb ~T0 @X0 0 e@128 ]
+"635
+[v _TMR1 `Vus ~T0 @X0 0 e@14 ]
+"2895
+[v _TMR1IF `Vb ~T0 @X0 0 e@96 ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[; <" INDF equ 00h ;# ">
+"62
+[; <" TMR0 equ 01h ;# ">
+"69
+[; <" PCL equ 02h ;# ">
+"76
+[; <" STATUS equ 03h ;# ">
+"162
+[; <" FSR equ 04h ;# ">
+"169
+[; <" PORTA equ 05h ;# ">
+"219
+[; <" PORTB equ 06h ;# ">
+"281
+[; <" PORTC equ 07h ;# ">
+"343
+[; <" PORTD equ 08h ;# ">
+"405
+[; <" PORTE equ 09h ;# ">
+"437
+[; <" PCLATH equ 0Ah ;# ">
+"457
+[; <" INTCON equ 0Bh ;# ">
+"535
+[; <" PIR1 equ 0Ch ;# ">
+"597
+[; <" PIR2 equ 0Dh ;# ">
+"637
+[; <" TMR1 equ 0Eh ;# ">
+"644
+[; <" TMR1L equ 0Eh ;# ">
+"651
+[; <" TMR1H equ 0Fh ;# ">
+"658
+[; <" T1CON equ 010h ;# ">
+"733
+[; <" TMR2 equ 011h ;# ">
+"740
+[; <" T2CON equ 012h ;# ">
+"811
+[; <" SSPBUF equ 013h ;# ">
+"818
+[; <" SSPCON equ 014h ;# ">
+"888
+[; <" CCPR1 equ 015h ;# ">
+"895
+[; <" CCPR1L equ 015h ;# ">
+"902
+[; <" CCPR1H equ 016h ;# ">
+"909
+[; <" CCP1CON equ 017h ;# ">
+"967
+[; <" RCSTA equ 018h ;# ">
+"1062
+[; <" TXREG equ 019h ;# ">
+"1069
+[; <" RCREG equ 01Ah ;# ">
+"1076
+[; <" CCPR2 equ 01Bh ;# ">
+"1083
+[; <" CCPR2L equ 01Bh ;# ">
+"1090
+[; <" CCPR2H equ 01Ch ;# ">
+"1097
+[; <" CCP2CON equ 01Dh ;# ">
+"1155
+[; <" ADRESH equ 01Eh ;# ">
+"1162
+[; <" ADCON0 equ 01Fh ;# ">
+"1258
+[; <" OPTION_REG equ 081h ;# ">
+"1328
+[; <" TRISA equ 085h ;# ">
+"1378
+[; <" TRISB equ 086h ;# ">
+"1440
+[; <" TRISC equ 087h ;# ">
+"1502
+[; <" TRISD equ 088h ;# ">
+"1564
+[; <" TRISE equ 089h ;# ">
+"1621
+[; <" PIE1 equ 08Ch ;# ">
+"1683
+[; <" PIE2 equ 08Dh ;# ">
+"1723
+[; <" PCON equ 08Eh ;# ">
+"1757
+[; <" SSPCON2 equ 091h ;# ">
+"1819
+[; <" PR2 equ 092h ;# ">
+"1826
+[; <" SSPADD equ 093h ;# ">
+"1833
+[; <" SSPSTAT equ 094h ;# ">
+"2002
+[; <" TXSTA equ 098h ;# ">
+"2083
+[; <" SPBRG equ 099h ;# ">
+"2090
+[; <" CMCON equ 09Ch ;# ">
+"2160
+[; <" CVRCON equ 09Dh ;# ">
+"2225
+[; <" ADRESL equ 09Eh ;# ">
+"2232
+[; <" ADCON1 equ 09Fh ;# ">
+"2291
+[; <" EEDATA equ 010Ch ;# ">
+"2298
+[; <" EEADR equ 010Dh ;# ">
+"2305
+[; <" EEDATH equ 010Eh ;# ">
+"2312
+[; <" EEADRH equ 010Fh ;# ">
+"2319
+[; <" EECON1 equ 018Ch ;# ">
+"2364
+[; <" EECON2 equ 018Dh ;# ">
+"2 F:/GitHub/Graduation-Project/Moduls/CriticalSensor/libs/time.c
+[v __microsMSB `ul ~T0 @X0 1 e ]
+[i __microsMSB
+-> -> -> 0 `i `l `ul
+]
+"3
+[v _timerInit `(v ~T0 @X0 1 ef1`uc ]
+"4
+{
+[e :U _timerInit ]
+"3
+[v _mhz `uc ~T0 @X0 1 r1 ]
+"4
+[f ]
+"5
+[e =>> _mhz -> -> 2 `i `uc ]
+"6
+[v _prescaler `uc ~T0 @X0 1 a ]
+[e = _prescaler -> -> 0 `i `uc ]
+"7
+[e $U 96  ]
+[e :U 97 ]
+"8
+{
+"9
+[e ++ _prescaler -> -> 1 `i `uc ]
+"10
+[e =>> _mhz -> -> 1 `i `uc ]
+"12
+}
+[e :U 96 ]
+"7
+[e $ && != -> _mhz `i -> 0 `i ! != & -> _mhz `i -> 1 `i -> 0 `i 97  ]
+[e :U 98 ]
+"16
+[e = _PEIE -> -> 1 `i `b ]
+"17
+[e = _GIE -> -> 1 `i `b ]
+"18
+[e = _TMR1IE -> -> 1 `i `b ]
+"19
+[e = _TMR1CS -> -> 0 `i `b ]
+"20
+[e = _T1OSCEN -> -> 1 `i `b ]
+"21
+[e = _T1CKPS1 -> >> -> _prescaler `i -> 1 `i `b ]
+"22
+[e = _T1CKPS0 -> & -> _prescaler `i -> 1 `i `b ]
+"23
+[e = _TMR1ON -> -> 1 `i `b ]
+"24
+[e = _TMR1 -> -> 0 `i `us ]
+"28
+[e :UE 95 ]
+}
+[v F888 `(ul ~T0 @X0 1 tf ]
+"30
+[v _micros `TF888 ~T0 @X0 1 e ]
+"31
+{
+[e :U _micros ]
+[f ]
+"32
+[e ) | __microsMSB -> _TMR1 `ul ]
+[e $UE 99  ]
+"33
+[e :UE 99 ]
+}
+"35
+[v _timeISR `(v ~T0 @X0 1 ef ]
+"36
+{
+[e :U _timeISR ]
+[f ]
+"37
+[e $ ! _TMR1IF 101  ]
+"38
+{
+"39
+[e =+ __microsMSB -> -> 65536 `l `ul ]
+"40
+[e = _TMR1IF -> -> 0 `i `b ]
+"41
+}
+[e :U 101 ]
+"42
+[e :UE 100 ]
+}

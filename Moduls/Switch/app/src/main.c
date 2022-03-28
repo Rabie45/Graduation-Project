@@ -68,8 +68,10 @@ void main()
     // TRISB = 0xFF; // PORTB as Input
     TRISD1 = 0;
     // nRBPU = 0;
-    TRISB2 = 0;
-    TRISB3 = 1;
+    TRISB1 = 0;
+    LED = 0;
+    TRISB2 = 1;
+
     wait_init(16);
     // Serial_begin(9600);
     SPI_initialize();
@@ -95,7 +97,7 @@ void main()
         if (startTime - stopTime > 150)
         {
             stopTime = startTime;
-            RB1 = prop[0].value;
+            LED = prop[0].value;
         }
         uint8_t var1 = checkButton(&btn1, SW1);
         if (var1)
@@ -106,7 +108,7 @@ void main()
             packet->object[0].value = prop[0].value;
             packet->length = 1;
             packet->type = OXP_CHANGE_EVENT;
-            transport_udp_tx(packet, 32, 1, 6, 6);
+            // transport_udp_tx(packet, 32, 1, 6, 6);
         }
     }
 }

@@ -1,0 +1,278 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"35 F:/GitHub/Graduation-Project/Moduls/Door/app/src/main.c
+[s S101 `uc 1 ]
+[n S101 . value ]
+"39
+[c E1135 0 1 .. ]
+[n E1135 val FALSE TRUE  ]
+[p mainexit ]
+"2943 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[v _TRISB1 `Vb ~T0 @X0 0 e@1073 ]
+"2682
+[v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"2988
+[v _TRISD0 `Vb ~T0 @X0 0 e@1088 ]
+"6 F:/GitHub/Graduation-Project/Moduls/Door/libs/include/wait.h
+[v _wait_init `(v ~T0 @X0 0 ef1`uc ]
+"2754 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[v _RD0 `Vb ~T0 @X0 0 e@64 ]
+"13 F:/GitHub/Graduation-Project/Moduls/Door/libs/include\packets.h
+[s S96 `uc 1 `uc 1 `uc 1 `uc 1 :4 `uc 1 :4 `uc 1 ]
+[n S96 UDPPacket ttl protocol source destination sourcePort destinationPort ]
+"11 F:/GitHub/Graduation-Project/Moduls/Door/libs/include\OXPacket.h
+[s S99 `uc 1 `uc 1 ]
+[n S99 . id value ]
+"17
+[s S100 `*S96 1 `uc 1 `uc 1 `S99 -> 12 `i ]
+[n S100 . udpHeader type length object ]
+"6 F:/GitHub/Graduation-Project/Moduls/Door/libs/include\buffers.h
+[v _buffer_tx `uc ~T0 @X0 -> 0 `x e ]
+"14 F:/GitHub/Graduation-Project/Moduls/Door/libs/include/transport.h
+[v _transport_udp_tx `(v ~T0 @X0 0 ef5`*uc`uc`uc`uc`uc ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"8 F:/GitHub/Graduation-Project/Moduls/Door/libs/include\time.h
+[v _timeISR `(v ~T0 @X0 0 e? ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[; <" INDF equ 00h ;# ">
+"62
+[; <" TMR0 equ 01h ;# ">
+"69
+[; <" PCL equ 02h ;# ">
+"76
+[; <" STATUS equ 03h ;# ">
+"162
+[; <" FSR equ 04h ;# ">
+"169
+[; <" PORTA equ 05h ;# ">
+"219
+[; <" PORTB equ 06h ;# ">
+"281
+[; <" PORTC equ 07h ;# ">
+"343
+[; <" PORTD equ 08h ;# ">
+"405
+[; <" PORTE equ 09h ;# ">
+"437
+[; <" PCLATH equ 0Ah ;# ">
+"457
+[; <" INTCON equ 0Bh ;# ">
+"535
+[; <" PIR1 equ 0Ch ;# ">
+"597
+[; <" PIR2 equ 0Dh ;# ">
+"637
+[; <" TMR1 equ 0Eh ;# ">
+"644
+[; <" TMR1L equ 0Eh ;# ">
+"651
+[; <" TMR1H equ 0Fh ;# ">
+"658
+[; <" T1CON equ 010h ;# ">
+"733
+[; <" TMR2 equ 011h ;# ">
+"740
+[; <" T2CON equ 012h ;# ">
+"811
+[; <" SSPBUF equ 013h ;# ">
+"818
+[; <" SSPCON equ 014h ;# ">
+"888
+[; <" CCPR1 equ 015h ;# ">
+"895
+[; <" CCPR1L equ 015h ;# ">
+"902
+[; <" CCPR1H equ 016h ;# ">
+"909
+[; <" CCP1CON equ 017h ;# ">
+"967
+[; <" RCSTA equ 018h ;# ">
+"1062
+[; <" TXREG equ 019h ;# ">
+"1069
+[; <" RCREG equ 01Ah ;# ">
+"1076
+[; <" CCPR2 equ 01Bh ;# ">
+"1083
+[; <" CCPR2L equ 01Bh ;# ">
+"1090
+[; <" CCPR2H equ 01Ch ;# ">
+"1097
+[; <" CCP2CON equ 01Dh ;# ">
+"1155
+[; <" ADRESH equ 01Eh ;# ">
+"1162
+[; <" ADCON0 equ 01Fh ;# ">
+"1258
+[; <" OPTION_REG equ 081h ;# ">
+"1328
+[; <" TRISA equ 085h ;# ">
+"1378
+[; <" TRISB equ 086h ;# ">
+"1440
+[; <" TRISC equ 087h ;# ">
+"1502
+[; <" TRISD equ 088h ;# ">
+"1564
+[; <" TRISE equ 089h ;# ">
+"1621
+[; <" PIE1 equ 08Ch ;# ">
+"1683
+[; <" PIE2 equ 08Dh ;# ">
+"1723
+[; <" PCON equ 08Eh ;# ">
+"1757
+[; <" SSPCON2 equ 091h ;# ">
+"1819
+[; <" PR2 equ 092h ;# ">
+"1826
+[; <" SSPADD equ 093h ;# ">
+"1833
+[; <" SSPSTAT equ 094h ;# ">
+"2002
+[; <" TXSTA equ 098h ;# ">
+"2083
+[; <" SPBRG equ 099h ;# ">
+"2090
+[; <" CMCON equ 09Ch ;# ">
+"2160
+[; <" CVRCON equ 09Dh ;# ">
+"2225
+[; <" ADRESL equ 09Eh ;# ">
+"2232
+[; <" ADCON1 equ 09Fh ;# ">
+"2291
+[; <" EEDATA equ 010Ch ;# ">
+"2298
+[; <" EEADR equ 010Dh ;# ">
+"2305
+[; <" EEDATH equ 010Eh ;# ">
+"2312
+[; <" EEADRH equ 010Fh ;# ">
+"2319
+[; <" EECON1 equ 018Ch ;# ">
+"2364
+[; <" EECON2 equ 018Dh ;# ">
+"98 F:/GitHub/Graduation-Project/Moduls/Door/libs/include/rf24.h
+[v _RF24_attr_status `uc ~T0 @X0 1 e ]
+"99
+[v _RF24_attr_config `uc ~T0 @X0 1 e ]
+"13 F:/GitHub/Graduation-Project/Moduls/Door/libs/include\internet.h
+[v _BASE_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
+[i _BASE_PIPE
+:U ..
+-> -> 89 `i `uc
+-> -> 236 `i `uc
+-> -> 173 `i `uc
+-> -> 252 `i `uc
+-> -> 132 `i `uc
+..
+]
+"14
+[v _BROADCAST_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
+[i _BROADCAST_PIPE
+:U ..
+-> -> 249 `i `uc
+-> -> 54 `i `uc
+-> -> 205 `i `uc
+-> -> 172 `i `uc
+-> -> 231 `i `uc
+..
+]
+"16 F:/GitHub/Graduation-Project/Moduls/Door/app/src/main.c
+[p x FOSC  =  HS   ]
+"17
+[p x WDTE  =  OFF  ]
+"18
+[p x PWRTE  =  ON  ]
+"19
+[p x BOREN  =  ON  ]
+"20
+[p x LVP  =  OFF   ]
+"21
+[p x CPD  =  OFF   ]
+"22
+[p x WRT  =  OFF   ]
+"23
+[p x CP  =  OFF    ]
+"39
+[v _prop `S101 ~T0 @X0 1 e ]
+[i _prop
+:U ..
+:U ..
+-> . `E1135 0 `uc
+..
+..
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"40
+[v _main `(i ~T0 @X0 1 ef ]
+"41
+{
+[e :U _main ]
+[f ]
+"42
+[e = _TRISB1 -> -> 0 `i `b ]
+"43
+[e = _RB1 -> -> 0 `i `b ]
+"44
+[e = _TRISD0 -> -> 1 `i `b ]
+"45
+[e ( _wait_init (1 -> -> 16 `i `uc ]
+"46
+[v _stopTime `ul ~T0 @X0 1 a ]
+[e = _stopTime -> -> -> 0 `i `l `ul ]
+[v _startTime `ul ~T0 @X0 1 a ]
+"48
+[e :U 104 ]
+"49
+{
+"50
+[e $ ! _RD0 106  ]
+"51
+{
+"52
+[e = . _prop 0 -> -> 1 `i `uc ]
+"53
+[e = _RB1 -> . _prop 0 `b ]
+"54
+[v _packet `*S100 ~T0 @X0 1 a ]
+[e = _packet -> &U _buffer_tx `*S100 ]
+"55
+[e = . *U + &U . *U _packet 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _packet 3 `ui `ux 0 -> -> 0 `i `uc ]
+"56
+[e = . *U + &U . *U _packet 3 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _packet 3 `ui `ux 1 . _prop 0 ]
+"57
+[e = . *U _packet 2 -> -> 1 `i `uc ]
+"58
+[e = . *U _packet 1 -> -> 3 `i `uc ]
+"59
+[e ( _transport_udp_tx (4 , , , , -> _packet `*uc -> -> 32 `i `uc -> -> 1 `i `uc -> -> 6 `i `uc -> -> 6 `i `uc ]
+"60
+}
+[e $U 107  ]
+"61
+[e :U 106 ]
+"62
+[e = . _prop 0 -> -> 0 `i `uc ]
+[e :U 107 ]
+"65
+}
+[e :U 103 ]
+[e $U 104  ]
+[e :U 105 ]
+"66
+[e :UE 102 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"67
+[v _ISR `(v ~T1 @X0 1 ef ]
+"68
+{
+[e :U _ISR ]
+[f ]
+"69
+[e ( _timeISR ..  ]
+"70
+[e :UE 108 ]
+}

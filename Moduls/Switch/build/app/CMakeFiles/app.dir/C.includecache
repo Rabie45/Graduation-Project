@@ -12,14 +12,6 @@ stdint.h
 packets.h
 -
 
-../libs/include/Serial.h
-stdint.h
--
-xc.h
--
-pic16f877a.h
--
-
 ../libs/include/buffers.h
 stdint.h
 -
@@ -47,10 +39,6 @@ spi_master.h
 ../libs/include/spi_master.h
 buffers.h
 ../libs/include/buffers.h
-
-../libs/include/logline.h
-Serial.h
--
 
 ../libs/include/packets.h
 stdint.h
@@ -99,10 +87,6 @@ xc.h
 -
 pic16f877a.h
 -
-Serial.h
--
-logline.h
--
 rf24.h
 -
 internet.h
@@ -114,6 +98,8 @@ string.h
 packets.h
 -
 OXPacket.h
+-
+wait.h
 -
 time.h
 -

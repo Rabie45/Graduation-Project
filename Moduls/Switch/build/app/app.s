@@ -1297,8 +1297,7 @@ EECON2 equ 018Dh ;#
 	FNCALL	_main,_Network_begin
 	FNCALL	_main,_RF24_isChipConnected
 	FNCALL	_main,_SPI_initialize
-	FNCALL	_main,_Serial_begin
-	FNCALL	_main,__$_logline_str
+	FNCALL	_main,_checkButton
 	FNCALL	_main,_internet_process
 	FNCALL	_main,_internet_setAddress
 	FNCALL	_main,_internet_setChannel
@@ -1347,7 +1346,7 @@ EECON2 equ 018Dh ;#
 	FNCALL	_RF24_getDynamicPayloadSize,_RF24_read_register
 	FNCALL	_RF24_available,_RF24_get_status
 	FNCALL	_RF24_get_status,_SPI_exchangeByte
-	FNCALL	_Serial_begin,___aldiv
+	FNCALL	_checkButton,_micros
 	FNCALL	_RF24_isChipConnected,_RF24_read_register
 	FNCALL	_Network_begin,_RF24_begin
 	FNCALL	_Network_begin,_RF24_enableDynamicPayloads
@@ -1396,6 +1395,7 @@ EECON2 equ 018Dh ;#
 	FNCALL	_RF24_flush_rx,_RF24_write_register
 	FNCALL	_RF24_write_register,_SPI_exchangeByte
 	FNROOT	_main
+	FNCALL	_ISR,_timeISR
 	FNCALL	intlevel1,_ISR
 	global	intlevel1
 	FNROOT	intlevel1
@@ -1463,17 +1463,6 @@ _LOGLINE_CONVERSION_TABLE:
 	global __end_of_LOGLINE_CONVERSION_TABLE
 __end_of_LOGLINE_CONVERSION_TABLE:
 psect	strings
-	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h"
-	line	14
-_BROADCAST_PIPE:
-	retlw	0F9h
-	retlw	036h
-	retlw	0CDh
-	retlw	0ACh
-	retlw	0E7h
-	global __end_of_BROADCAST_PIPE
-__end_of_BROADCAST_PIPE:
-psect	strings
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h"
 	line	17
 _LOGLINE_FAIL:
@@ -1484,6 +1473,17 @@ _LOGLINE_FAIL:
 	retlw	low(0)
 	global __end_of_LOGLINE_FAIL
 __end_of_LOGLINE_FAIL:
+psect	strings
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h"
+	line	14
+_BROADCAST_PIPE:
+	retlw	0F9h
+	retlw	036h
+	retlw	0CDh
+	retlw	0ACh
+	retlw	0E7h
+	global __end_of_BROADCAST_PIPE
+__end_of_BROADCAST_PIPE:
 psect	strings
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h"
 	line	16
@@ -1508,10 +1508,12 @@ __end_of_BASE_PIPE:
 	global	_BASE_PIPE
 	global	_RF24_attr_config
 	global	_node
+	global	__microsMSB
 	global	_RF24_attr_status
-	global	_prop
 	global	_buffer_tx
 	global	_networkInfo
+	global	_btn1
+	global	_prop
 	global	_buffer_rx
 	global	_TMR1
 _TMR1	set	0xE
@@ -1521,12 +1523,8 @@ _TXREG	set	0x19
 _SSPBUF	set	0x13
 	global	_SSPCON
 _SSPCON	set	0x14
-	global	_PORTD
-_PORTD	set	0x8
-	global	_CREN
-_CREN	set	0xC4
-	global	_SPEN
-_SPEN	set	0xC7
+	global	_TMR1IF
+_TMR1IF	set	0x60
 	global	_TMR1ON
 _TMR1ON	set	0x80
 	global	_T1CKPS0
@@ -1549,24 +1547,16 @@ _SSPEN	set	0xA5
 _RD2	set	0x42
 	global	_RD3
 _RD3	set	0x43
+	global	_RB2
+_RB2	set	0x32
 	global	_RD1
 _RD1	set	0x41
-	global	_SPBRG
-_SPBRG	set	0x99
+	global	_RB1
+_RB1	set	0x31
 	global	_SSPSTAT
 _SSPSTAT	set	0x94
 	global	_TRMT
 _TRMT	set	0x4C1
-	global	_TXEN
-_TXEN	set	0x4C5
-	global	_TRISC6
-_TRISC6	set	0x43E
-	global	_TRISC7
-_TRISC7	set	0x43F
-	global	_SYNC
-_SYNC	set	0x4C4
-	global	_BRGH
-_BRGH	set	0x4C2
 	global	_TMR1IE
 _TMR1IE	set	0x460
 	global	_TRISC3
@@ -1579,16 +1569,14 @@ _TRISC5	set	0x43D
 _TRISD3	set	0x443
 	global	_TRISD2
 _TRISD2	set	0x442
-	global	_TRISB3
-_TRISB3	set	0x433
 	global	_TRISB2
 _TRISB2	set	0x432
-	global	_nRBPU
-_nRBPU	set	0x40F
+	global	_TRISB1
+_TRISB1	set	0x431
 	global	_TRISD1
 _TRISD1	set	0x441
 	
-STR_20:	
+STR_19:	
 	retlw	61	;'='
 	retlw	61	;'='
 	retlw	61	;'='
@@ -1614,7 +1602,7 @@ STR_20:
 	retlw	0
 psect	strings
 	
-STR_3:	
+STR_2:	
 	retlw	61	;'='
 	retlw	61	;'='
 	retlw	61	;'='
@@ -1640,7 +1628,7 @@ STR_3:
 	retlw	0
 psect	strings
 	
-STR_8:	
+STR_7:	
 	retlw	83	;'S'
 	retlw	69	;'E'
 	retlw	84	;'T'
@@ -1654,7 +1642,7 @@ STR_8:
 	retlw	0
 psect	strings
 	
-STR_12:	
+STR_11:	
 	retlw	79	;'O'
 	retlw	66	;'B'
 	retlw	83	;'S'
@@ -1668,7 +1656,7 @@ STR_12:
 	retlw	0
 psect	strings
 	
-STR_6:	
+STR_5:	
 	retlw	69	;'E'
 	retlw	78	;'N'
 	retlw	95	;'_'
@@ -1681,7 +1669,7 @@ STR_6:
 	retlw	0
 psect	strings
 	
-STR_2:	
+STR_1:	
 	retlw	112	;'p'
 	retlw	97	;'a'
 	retlw	121	;'y'
@@ -1694,7 +1682,7 @@ STR_2:
 	retlw	0
 psect	strings
 	
-STR_10:	
+STR_9:	
 	retlw	82	;'R'
 	retlw	70	;'F'
 	retlw	95	;'_'
@@ -1706,7 +1694,7 @@ STR_10:
 	retlw	0
 psect	strings
 	
-STR_7:	
+STR_6:	
 	retlw	83	;'S'
 	retlw	69	;'E'
 	retlw	84	;'T'
@@ -1718,7 +1706,7 @@ STR_7:
 	retlw	0
 psect	strings
 	
-STR_4:	
+STR_3:	
 	retlw	67	;'C'
 	retlw	79	;'O'
 	retlw	78	;'N'
@@ -1728,7 +1716,7 @@ STR_4:
 	retlw	0
 psect	strings
 	
-STR_11:	
+STR_10:	
 	retlw	83	;'S'
 	retlw	84	;'T'
 	retlw	65	;'A'
@@ -1738,17 +1726,7 @@ STR_11:
 	retlw	0
 psect	strings
 	
-STR_1:	
-	retlw	104	;'h'
-	retlw	105	;'i'
-	retlw	105	;'i'
-	retlw	105	;'i'
-	retlw	105	;'i'
-	retlw	105	;'i'
-	retlw	0
-psect	strings
-	
-STR_13:	
+STR_12:	
 	retlw	82	;'R'
 	retlw	88	;'X'
 	retlw	95	;'_'
@@ -1757,7 +1735,7 @@ STR_13:
 	retlw	0
 psect	strings
 	
-STR_14:	
+STR_13:	
 	retlw	82	;'R'
 	retlw	88	;'X'
 	retlw	95	;'_'
@@ -1766,7 +1744,7 @@ STR_14:
 	retlw	0
 psect	strings
 	
-STR_15:	
+STR_14:	
 	retlw	82	;'R'
 	retlw	88	;'X'
 	retlw	95	;'_'
@@ -1775,7 +1753,7 @@ STR_15:
 	retlw	0
 psect	strings
 	
-STR_16:	
+STR_15:	
 	retlw	82	;'R'
 	retlw	88	;'X'
 	retlw	95	;'_'
@@ -1784,7 +1762,7 @@ STR_16:
 	retlw	0
 psect	strings
 	
-STR_17:	
+STR_16:	
 	retlw	82	;'R'
 	retlw	88	;'X'
 	retlw	95	;'_'
@@ -1793,7 +1771,7 @@ STR_17:
 	retlw	0
 psect	strings
 	
-STR_18:	
+STR_17:	
 	retlw	82	;'R'
 	retlw	88	;'X'
 	retlw	95	;'_'
@@ -1802,7 +1780,7 @@ STR_18:
 	retlw	0
 psect	strings
 	
-STR_5:	
+STR_4:	
 	retlw	69	;'E'
 	retlw	78	;'N'
 	retlw	95	;'_'
@@ -1811,7 +1789,7 @@ STR_5:
 	retlw	0
 psect	strings
 	
-STR_9:	
+STR_8:	
 	retlw	82	;'R'
 	retlw	70	;'F'
 	retlw	95	;'_'
@@ -1819,7 +1797,7 @@ STR_9:
 	retlw	72	;'H'
 	retlw	0
 psect	strings
-STR_19	equ	STR_12+8
+STR_18	equ	STR_11+8
 ; #config settings
 	config pad_punits      = on
 	config apply_mask      = off
@@ -1854,26 +1832,26 @@ __pbssBANK0:
 _node:
        ds      5
 
+__microsMSB:
+       ds      4
+
 _RF24_attr_status:
        ds      1
-
-_prop:
-       ds      2
 
 psect	bssBANK1,class=BANK1,space=1,noexec
 global __pbssBANK1
 __pbssBANK1:
-_btn1:
-       ds      5
-
-__microsMSB:
-       ds      4
-
 _buffer_tx:
        ds      32
 
 _networkInfo:
        ds      6
+
+_btn1:
+       ds      5
+
+_prop:
+       ds      2
 
 psect	dataBANK1,class=BANK1,space=1,noexec
 global __pdataBANK1
@@ -1934,13 +1912,13 @@ psect cinit,class=CODE,delta=2,merge=1
 	bcf	status, 7	;select IRP bank0
 	movlw	low(__pbssBANK1)
 	movwf	fsr
-	movlw	low((__pbssBANK1)+02Fh)
+	movlw	low((__pbssBANK1)+02Dh)
 	fcall	clear_ram0
 ; Clear objects allocated to BANK0
 psect cinit,class=CODE,delta=2,merge=1
 	movlw	low(__pbssBANK0)
 	movwf	fsr
-	movlw	low((__pbssBANK0)+08h)
+	movlw	low((__pbssBANK0)+0Ah)
 	fcall	clear_ram0
 ; Clear objects allocated to COMMON
 psect cinit,class=CODE,delta=2,merge=1
@@ -1965,6 +1943,8 @@ __pcstackCOMMON:
 ?_internet_setAddress:	; 1 bytes @ 0x0
 ?_RF24_isChipConnected:	; 1 bytes @ 0x0
 ?_internet_process:	; 1 bytes @ 0x0
+?_timeISR:	; 1 bytes @ 0x0
+??_timeISR:	; 1 bytes @ 0x0
 ?_RF24_setChannel:	; 1 bytes @ 0x0
 ?_RF24_getDynamicPayloadSize:	; 1 bytes @ 0x0
 ?_RF24_available:	; 1 bytes @ 0x0
@@ -2002,8 +1982,6 @@ __pcstackCOMMON:
 ??_timerInit:	; 1 bytes @ 0x2
 	global	?_micros
 ?_micros:	; 4 bytes @ 0x2
-	global	?___aldiv
-?___aldiv:	; 4 bytes @ 0x2
 	global	internet_calculateMask@address
 internet_calculateMask@address:	; 1 bytes @ 0x2
 	global	SPI_exchangeByte@byte
@@ -2012,8 +1990,6 @@ SPI_exchangeByte@byte:	; 1 bytes @ 0x2
 Serial_write@data:	; 1 bytes @ 0x2
 	global	memcpy@s1
 memcpy@s1:	; 1 bytes @ 0x2
-	global	___aldiv@divisor
-___aldiv@divisor:	; 4 bytes @ 0x2
 	ds	1
 ?__$_logline_str:	; 1 bytes @ 0x3
 ?_RF24_read_n_register:	; 1 bytes @ 0x3
@@ -2042,8 +2018,8 @@ RF24_read_register@mnemonic_addr:	; 1 bytes @ 0x4
 timerInit@prescaler:	; 1 bytes @ 0x4
 	ds	1
 ??_wait_init:	; 1 bytes @ 0x5
-??__$_logline_str:	; 1 bytes @ 0x5
 ??_memcpy:	; 1 bytes @ 0x5
+??__$_logline_str:	; 1 bytes @ 0x5
 	global	RF24_read_n_register@len
 RF24_read_n_register@len:	; 1 bytes @ 0x5
 	global	RF24_read_register@result
@@ -2053,8 +2029,8 @@ RF24_write_n_register@length:	; 1 bytes @ 0x5
 	global	wait_init@megaHertez
 wait_init@megaHertez:	; 1 bytes @ 0x5
 	ds	1
-??_RF24_isChipConnected:	; 1 bytes @ 0x6
 ??_micros:	; 1 bytes @ 0x6
+??_RF24_isChipConnected:	; 1 bytes @ 0x6
 	global	?_RF24_getPALevel
 ?_RF24_getPALevel:	; 1 bytes @ 0x6
 ??_RF24_read_n_register:	; 1 bytes @ 0x6
@@ -2068,8 +2044,6 @@ RF24_available@pipe:	; 1 bytes @ 0x6
 __$_logline_str@limit:	; 1 bytes @ 0x6
 	global	memcpy@tmp
 memcpy@tmp:	; 1 bytes @ 0x6
-	global	___aldiv@dividend
-___aldiv@dividend:	; 4 bytes @ 0x6
 	ds	1
 ??_RF24_getPALevel:	; 1 bytes @ 0x7
 ??_RF24_write_register:	; 1 bytes @ 0x7
@@ -2117,7 +2091,9 @@ RF24_openReadingPipe@address:	; 2 bytes @ 0x9
 	ds	1
 ??_RF24_read:	; 1 bytes @ 0xA
 ??_RF24_write:	; 1 bytes @ 0xA
-??___aldiv:	; 1 bytes @ 0xA
+?_checkButton:	; 1 bytes @ 0xA
+	global	checkButton@pinState
+checkButton@pinState:	; 1 bytes @ 0xA
 	global	RF24_setPayloadSize@size
 RF24_setPayloadSize@size:	; 1 bytes @ 0xA
 	global	RF24_getDynamicPayloadSize@result
@@ -2141,6 +2117,7 @@ __pcstackBANK0:
 ??_RF24_openReadingPipe:	; 1 bytes @ 0x0
 ?_RF24_write:	; 1 bytes @ 0x0
 ??_RF24_setRetries:	; 1 bytes @ 0x0
+??_checkButton:	; 1 bytes @ 0x0
 	global	internet_setChannel@channel
 internet_setChannel@channel:	; 1 bytes @ 0x0
 	global	RF24_setPALevel@setup
@@ -2149,17 +2126,13 @@ RF24_setPALevel@setup:	; 1 bytes @ 0x0
 RF24_read@buf:	; 1 bytes @ 0x0
 	global	RF24_setDataRate@speed
 RF24_setDataRate@speed:	; 1 bytes @ 0x0
-	global	___aldiv@counter
-___aldiv@counter:	; 1 bytes @ 0x0
 	global	RF24_write@buf
 RF24_write@buf:	; 2 bytes @ 0x0
 	ds	1
-	global	_RF24_setPALevel$650
-_RF24_setPALevel$650:	; 1 bytes @ 0x1
+	global	_RF24_setPALevel$653
+_RF24_setPALevel$653:	; 1 bytes @ 0x1
 	global	RF24_setDataRate@setup
 RF24_setDataRate@setup:	; 1 bytes @ 0x1
-	global	___aldiv@sign
-___aldiv@sign:	; 1 bytes @ 0x1
 	ds	1
 	global	RF24_setPALevel@level
 RF24_setPALevel@level:	; 1 bytes @ 0x2
@@ -2167,8 +2140,6 @@ RF24_setPALevel@level:	; 1 bytes @ 0x2
 RF24_write@len:	; 1 bytes @ 0x2
 	global	RF24_openReadingPipe@child
 RF24_openReadingPipe@child:	; 1 bytes @ 0x2
-	global	___aldiv@quotient
-___aldiv@quotient:	; 4 bytes @ 0x2
 	ds	1
 ??_internet_setNetworkPipe:	; 1 bytes @ 0x3
 ?_internet_relay:	; 1 bytes @ 0x3
@@ -2176,18 +2147,21 @@ ___aldiv@quotient:	; 4 bytes @ 0x2
 	global	internet_relay@payload
 internet_relay@payload:	; 2 bytes @ 0x3
 	ds	1
+	global	_checkButton$133
+_checkButton$133:	; 1 bytes @ 0x4
 	global	internet_setNetworkPipe@pipe
 internet_setNetworkPipe@pipe:	; 1 bytes @ 0x4
 	ds	1
 ??_internet_setAddress:	; 1 bytes @ 0x5
+	global	checkButton@isPressed
+checkButton@isPressed:	; 1 bytes @ 0x5
 	global	internet_relay@size
 internet_relay@size:	; 1 bytes @ 0x5
 	ds	1
-?_Serial_begin:	; 1 bytes @ 0x6
 ??_Network_begin:	; 1 bytes @ 0x6
 ??_internet_relay:	; 1 bytes @ 0x6
-	global	Serial_begin@baudrate
-Serial_begin@baudrate:	; 4 bytes @ 0x6
+	global	checkButton@btn
+checkButton@btn:	; 1 bytes @ 0x6
 	ds	1
 	global	internet_setAddress@address
 internet_setAddress@address:	; 1 bytes @ 0x7
@@ -2195,7 +2169,6 @@ internet_setAddress@address:	; 1 bytes @ 0x7
 	global	internet_relay@dstMask
 internet_relay@dstMask:	; 1 bytes @ 0x9
 	ds	1
-??_Serial_begin:	; 1 bytes @ 0xA
 	global	internet_relay@packetHeader
 internet_relay@packetHeader:	; 2 bytes @ 0xA
 	ds	2
@@ -2226,13 +2199,11 @@ transport_udp_tx@destinationPort:	; 1 bytes @ 0x13
 	ds	1
 ??_transport_udp_tx:	; 1 bytes @ 0x14
 	ds	1
-	global	transport_udp_tx@packetHeader
-transport_udp_tx@packetHeader:	; 1 bytes @ 0x15
-	ds	1
 	global	transport_udp_tx@payload
-transport_udp_tx@payload:	; 1 bytes @ 0x16
-	global	Serial_begin@x
-Serial_begin@x:	; 2 bytes @ 0x16
+transport_udp_tx@payload:	; 1 bytes @ 0x15
+	ds	1
+	global	transport_udp_tx@packetHeader
+transport_udp_tx@packetHeader:	; 1 bytes @ 0x16
 	ds	1
 ?_transport_udp_process:	; 1 bytes @ 0x17
 	global	transport_udp_process@size
@@ -2288,13 +2259,22 @@ internet_rx@payload:	; 1 bytes @ 0x2A
 internet_process@size:	; 1 bytes @ 0x2C
 	ds	1
 ??_main:	; 1 bytes @ 0x2D
-	ds	3
+	ds	4
+	global	main@stopTime
+main@stopTime:	; 4 bytes @ 0x31
+	ds	4
+	global	main@var1
+main@var1:	; 1 bytes @ 0x35
+	ds	1
+	global	main@startTime
+main@startTime:	; 4 bytes @ 0x36
+	ds	4
 	global	main@packet
-main@packet:	; 1 bytes @ 0x30
+main@packet:	; 1 bytes @ 0x3A
 	ds	1
 ;!
 ;!Data Sizes:
-;!    Strings     175
+;!    Strings     168
 ;!    Constant    34
 ;!    Data        5
 ;!    BSS         88
@@ -2304,8 +2284,8 @@ main@packet:	; 1 bytes @ 0x30
 ;!Auto Spaces:
 ;!    Space          Size  Autos    Used
 ;!    COMMON           14     11      12
-;!    BANK0            80     49      57
-;!    BANK1            80      0      52
+;!    BANK0            80     59      69
+;!    BANK1            80      0      50
 ;!    BANK3            96      0      32
 ;!    BANK2            96      0       0
 
@@ -2321,18 +2301,18 @@ main@packet:	; 1 bytes @ 0x30
 ;!		 -> networkInfo(BANK1[6]), buffer_tx(BANK1[32]), 
 ;!
 ;!    memcpy@s1	PTR const void  size(1) Largest target is 6
-;!		 -> networkInfo(BANK1[6]), network_pipe(BANK1[5]), prop(BANK0[2]), 
+;!		 -> networkInfo(BANK1[6]), network_pipe(BANK1[5]), prop(BANK1[2]), 
 ;!
 ;!    memcpy@s	PTR const unsigned char  size(1) Largest target is 6
-;!		 -> networkInfo(BANK1[6]), network_pipe(BANK1[5]), prop(BANK0[2]), 
+;!		 -> networkInfo(BANK1[6]), network_pipe(BANK1[5]), prop(BANK1[2]), 
 ;!
 ;!    _$_logline_str@string	PTR unsigned char  size(2) Largest target is 32
-;!		 -> STR_20(CODE[23]), STR_19(CODE[3]), STR_18(CODE[6]), STR_17(CODE[6]), 
-;!		 -> STR_16(CODE[6]), STR_15(CODE[6]), STR_14(CODE[6]), STR_13(CODE[6]), 
-;!		 -> STR_12(CODE[11]), STR_11(CODE[7]), STR_10(CODE[9]), STR_9(CODE[6]), 
-;!		 -> STR_8(CODE[11]), STR_7(CODE[9]), STR_6(CODE[10]), STR_5(CODE[6]), 
-;!		 -> STR_4(CODE[7]), STR_3(CODE[23]), STR_2(CODE[10]), buffer_rx(BANK3[32]), 
-;!		 -> buffer_tx(BANK1[32]), STR_1(CODE[7]), 
+;!		 -> STR_19(CODE[23]), STR_18(CODE[3]), STR_17(CODE[6]), STR_16(CODE[6]), 
+;!		 -> STR_15(CODE[6]), STR_14(CODE[6]), STR_13(CODE[6]), STR_12(CODE[6]), 
+;!		 -> STR_11(CODE[11]), STR_10(CODE[7]), STR_9(CODE[9]), STR_8(CODE[6]), 
+;!		 -> STR_7(CODE[11]), STR_6(CODE[9]), STR_5(CODE[10]), STR_4(CODE[6]), 
+;!		 -> STR_3(CODE[7]), STR_2(CODE[23]), STR_1(CODE[10]), buffer_rx(BANK3[32]), 
+;!		 -> buffer_tx(BANK1[32]), 
 ;!
 ;!    transport_udp_rx@payload	PTR unsigned char  size(1) Largest target is 32
 ;!		 -> buffer_rx(BANK3[32]), 
@@ -2406,18 +2386,22 @@ main@packet:	; 1 bytes @ 0x30
 ;!    transport_udp_process@load	PTR const struct UDPPacket size(1) Largest target is 32
 ;!		 -> buffer_rx(BANK3[32]), 
 ;!
-;!    S113$udpHeader	PTR struct UDPPacket size(1) Largest target is 0
+;!    S103$udpHeader	PTR struct UDPPacket size(1) Largest target is 0
 ;!
 ;!    main@packet.udpHeader	PTR struct UDPPacket size(1) Largest target is 0
 ;!
 ;!    main@packet	PTR struct . size(1) Largest target is 32
 ;!		 -> buffer_tx(BANK1[32]), 
 ;!
+;!    checkButton@btn	PTR struct . size(1) Largest target is 5
+;!		 -> btn1(BANK1[5]), 
+;!
 
 
 ;!
 ;!Critical Paths under _main in COMMON
 ;!
+;!    _main->_checkButton
 ;!    _wait_init->_timerInit
 ;!    _internet_setChannel->_RF24_setChannel
 ;!    _internet_setNetworkPipe->_RF24_openReadingPipe
@@ -2434,7 +2418,7 @@ main@packet:	; 1 bytes @ 0x30
 ;!    _RF24_getDynamicPayloadSize->_RF24_flush_rx
 ;!    _RF24_available->_RF24_get_status
 ;!    _RF24_get_status->_SPI_exchangeByte
-;!    _Serial_begin->___aldiv
+;!    _checkButton->_micros
 ;!    _RF24_isChipConnected->_RF24_read_register
 ;!    _Network_begin->_RF24_openReadingPipe
 ;!    _Network_begin->_RF24_setAddressWidth
@@ -2483,7 +2467,6 @@ main@packet:	; 1 bytes @ 0x30
 ;!    _internet_tx->_internet_relay
 ;!    _internet_relay->_RF24_openReadingPipe
 ;!    _internet_relay->_RF24_write
-;!    _Serial_begin->___aldiv
 ;!    _Network_begin->_RF24_begin
 ;!    _RF24_begin->_RF24_setPALevel
 ;!    _RF24_begin->_RF24_setRetries
@@ -2517,7 +2500,7 @@ main@packet:	; 1 bytes @ 0x30
 ;!    None.
 
 ;;
-;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+;;Main: autosize = 0, tempsize = 4, incstack = 0, save=0
 ;;
 
 ;!
@@ -2526,13 +2509,12 @@ main@packet:	; 1 bytes @ 0x30
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                13    13      0  170077
-;!                                             45 BANK0      4     4      0
+;! (0) _main                                                14    14      0  166951
+;!                                             45 BANK0     14    14      0
 ;!                      _Network_begin
 ;!               _RF24_isChipConnected
 ;!                     _SPI_initialize
-;!                       _Serial_begin
-;!                     __$_logline_str
+;!                        _checkButton
 ;!                   _internet_process
 ;!                _internet_setAddress
 ;!                _internet_setChannel
@@ -2541,15 +2523,12 @@ main@packet:	; 1 bytes @ 0x30
 ;!                   _transport_udp_tx
 ;!                          _wait_init
 ;! ---------------------------------------------------------------------------------
-;! (1) _wait_init                                            1     1      0     114
+;! (1) _wait_init                                            1     1      0     167
 ;!                                              5 COMMON     1     1      0
 ;!                          _timerInit
 ;! ---------------------------------------------------------------------------------
-;! (2) _timerInit                                            3     3      0      92
+;! (2) _timerInit                                            3     3      0     136
 ;!                                              2 COMMON     3     3      0
-;! ---------------------------------------------------------------------------------
-;! (1) _micros                                               4     0      4       0
-;!                                              2 COMMON     4     0      4
 ;! ---------------------------------------------------------------------------------
 ;! (1) _internet_setChannel                                  1     1      0    3615
 ;!                                              0 BANK0      1     1      0
@@ -2565,36 +2544,36 @@ main@packet:	; 1 bytes @ 0x30
 ;!               _RF24_openReadingPipe
 ;!                             _memcpy
 ;! ---------------------------------------------------------------------------------
-;! (1) _internet_process                                     2     2      0   58929
+;! (1) _internet_process                                     2     2      0   58303
 ;!                                             43 BANK0      2     2      0
 ;!                     _RF24_available
 ;!         _RF24_getDynamicPayloadSize
 ;!                          _RF24_read
 ;!                        _internet_rx
 ;! ---------------------------------------------------------------------------------
-;! (2) _internet_rx                                          5     4      1   50567
+;! (2) _internet_rx                                          5     4      1   49941
 ;!                                             38 BANK0      5     4      1
 ;!                     _internet_relay
 ;!                   _transport_udp_rx
 ;! ---------------------------------------------------------------------------------
-;! (3) _transport_udp_rx                                     5     4      1   26864
+;! (3) _transport_udp_rx                                     5     4      1   26328
 ;!                                             33 BANK0      5     4      1
 ;!              _transport_udp_process
 ;! ---------------------------------------------------------------------------------
-;! (4) _transport_udp_process                               11     9      2   26561
+;! (4) _transport_udp_process                               11     9      2   26025
 ;!                                             23 BANK0     10     8      2
 ;!                             _memcpy
 ;!                   _transport_udp_tx
 ;! ---------------------------------------------------------------------------------
-;! (1) _transport_udp_tx                                     7     3      4   25292
+;! (1) _transport_udp_tx                                     7     3      4   24756
 ;!                                             16 BANK0      7     3      4
 ;!                        _internet_tx
 ;! ---------------------------------------------------------------------------------
-;! (2) _internet_tx                                          4     3      1   23641
+;! (2) _internet_tx                                          4     3      1   23551
 ;!                                             12 BANK0      4     3      1
 ;!                     _internet_relay
 ;! ---------------------------------------------------------------------------------
-;! (3) _internet_relay                                      10     7      3   23307
+;! (3) _internet_relay                                      10     7      3   23217
 ;!                                              3 BANK0      9     6      3
 ;!               _RF24_openReadingPipe
 ;!               _RF24_openWritingPipe
@@ -2612,7 +2591,7 @@ main@packet:	; 1 bytes @ 0x30
 ;! (4) _internet_calculateMask                               2     2      0     102
 ;!                                              2 COMMON     2     2      0
 ;! ---------------------------------------------------------------------------------
-;! (4) __$_logline_str                                       4     2      2    1660
+;! (4) __$_logline_str                                       4     2      2    1570
 ;!                                              3 COMMON     4     2      2
 ;!                       _Serial_write
 ;! ---------------------------------------------------------------------------------
@@ -2663,13 +2642,13 @@ main@packet:	; 1 bytes @ 0x30
 ;!                                              3 COMMON     1     1      0
 ;!                   _SPI_exchangeByte
 ;! ---------------------------------------------------------------------------------
-;! (1) _Serial_begin                                        18    14      4     836
-;!                                              6 BANK0     18    14      4
-;!                            ___aldiv
+;! (1) _checkButton                                          8     7      1     414
+;!                                             10 COMMON     1     0      1
+;!                                              0 BANK0      7     7      0
+;!                             _micros
 ;! ---------------------------------------------------------------------------------
-;! (2) ___aldiv                                             15     7      8     604
-;!                                              2 COMMON     9     1      8
-;!                                              0 BANK0      6     6      0
+;! (1) _micros                                               8     4      4       0
+;!                                              2 COMMON     8     4      4
 ;! ---------------------------------------------------------------------------------
 ;! (1) _SPI_initialize                                       0     0      0       0
 ;! ---------------------------------------------------------------------------------
@@ -2797,8 +2776,11 @@ main@packet:	; 1 bytes @ 0x30
 ;! ---------------------------------------------------------------------------------
 ;! (12) _ISR                                                 2     2      0       0
 ;!                                              0 COMMON     2     2      0
+;!                            _timeISR
 ;! ---------------------------------------------------------------------------------
-;! Estimated maximum stack depth 12
+;! (13) _timeISR                                             0     0      0       0
+;! ---------------------------------------------------------------------------------
+;! Estimated maximum stack depth 13
 ;! ---------------------------------------------------------------------------------
 ;!
 ;! Call Graph Graphs:
@@ -2855,10 +2837,8 @@ main@packet:	; 1 bytes @ 0x30
 ;!   _RF24_isChipConnected
 ;!     _RF24_read_register
 ;!   _SPI_initialize
-;!   _Serial_begin
-;!     ___aldiv
-;!   __$_logline_str
-;!     _Serial_write
+;!   _checkButton
+;!     _micros
 ;!   _internet_process
 ;!     _RF24_available
 ;!       _RF24_get_status
@@ -2886,6 +2866,7 @@ main@packet:	; 1 bytes @ 0x30
 ;!           _SPI_exchangeByte
 ;!         _Serial_write
 ;!         __$_logline_str
+;!           _Serial_write
 ;!         _internet_calculateMask
 ;!         _internet_hasChild
 ;!       _transport_udp_rx
@@ -2908,6 +2889,7 @@ main@packet:	; 1 bytes @ 0x30
 ;!     _timerInit
 ;!
 ;! _ISR (ROOT)
+;!   _timeISR
 ;!
 
 ;! Address spaces:
@@ -2921,19 +2903,19 @@ main@packet:	; 1 bytes @ 0x30
 ;!BITBANK2            60      0       0      10        0.0%
 ;!SFR2                 0      0       0       5        0.0%
 ;!BITSFR2              0      0       0       5        0.0%
-;!BANK1               50      0      34       7       65.0%
+;!BANK1               50      0      32       7       62.5%
 ;!BITBANK1            50      0       0       6        0.0%
 ;!SFR1                 0      0       0       2        0.0%
 ;!BITSFR1              0      0       0       2        0.0%
-;!BANK0               50     31      39       5       71.2%
+;!BANK0               50     3B      45       5       86.2%
 ;!BITBANK0            50      0       0       4        0.0%
 ;!SFR0                 0      0       0       1        0.0%
 ;!BITSFR0              0      0       0       1        0.0%
 ;!COMMON               E      B       C       1       85.7%
 ;!BITCOMMON            E      0       0       0        0.0%
 ;!CODE                 0      0       0       0        0.0%
-;!DATA                 0      0      99      12        0.0%
-;!ABS                  0      0      99       3        0.0%
+;!DATA                 0      0      A3      12        0.0%
+;!ABS                  0      0      A3       3        0.0%
 ;!NULL                 0      0       0       0        0.0%
 ;!STACK                0      0       0       2        0.0%
 ;!EEDATA             100      0       0       0        0.0%
@@ -2946,11 +2928,11 @@ main@packet:	; 1 bytes @ 0x30
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  packet          1   48[BANK0 ] PTR struct .
+;;  packet          1   58[BANK0 ] PTR struct .
 ;;		 -> buffer_tx(32), 
-;;  var1            1    0        unsigned char 
-;;  startTime       4    0        unsigned long 
-;;  stopTime        4    0        unsigned long 
+;;  var1            1   53[BANK0 ] unsigned char 
+;;  startTime       4   54[BANK0 ] unsigned long 
+;;  stopTime        4   49[BANK0 ] unsigned long 
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      void 
 ;; Registers used:
@@ -2961,17 +2943,16 @@ main@packet:	; 1 bytes @ 0x30
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         0       1       0       0       0
-;;      Temps:          0       3       0       0       0
-;;      Totals:         0       4       0       0       0
-;;Total ram usage:        4 bytes
-;; Hardware stack levels required when called: 12
+;;      Locals:         0      10       0       0       0
+;;      Temps:          0       4       0       0       0
+;;      Totals:         0      14       0       0       0
+;;Total ram usage:       14 bytes
+;; Hardware stack levels required when called: 13
 ;; This function calls:
 ;;		_Network_begin
 ;;		_RF24_isChipConnected
 ;;		_SPI_initialize
-;;		_Serial_begin
-;;		__$_logline_str
+;;		_checkButton
 ;;		_internet_process
 ;;		_internet_setAddress
 ;;		_internet_setChannel
@@ -2999,94 +2980,65 @@ _main:
 ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	69
 	
-l2949:	
+l2910:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bcf	(1089/8)^080h,(1089)&7	;volatile
 	line	71
-	
-l2951:	
+	bcf	(1073/8)^080h,(1073)&7	;volatile
+	line	72
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	clrf	(8)	;volatile
-	line	72
-	
-l2953:	
+	bcf	(49/8),(49)&7	;volatile
+	line	73
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
-	bcf	(1039/8)^080h,(1039)&7	;volatile
-	line	73
-	
-l2955:	
-	bcf	(1074/8)^080h,(1074)&7	;volatile
-	line	74
-	
-l2957:	
-	bsf	(1075/8)^080h,(1075)&7	;volatile
+	bsf	(1074/8)^080h,(1074)&7	;volatile
 	line	75
 	
-l2959:	
+l2912:	
 	movlw	low(010h)
 	fcall	_wait_init
-	line	76
-	
-l2961:	
-	movlw	0
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(Serial_begin@baudrate+3)
-	movlw	0
-	movwf	(Serial_begin@baudrate+2)
-	movlw	025h
-	movwf	(Serial_begin@baudrate+1)
-	movlw	080h
-	movwf	(Serial_begin@baudrate)
-
-	fcall	_Serial_begin
 	line	77
-	
-l2963:	
 	fcall	_SPI_initialize
 	line	78
 	
-l2965:	
+l2914:	
 	fcall	_Network_begin
 	line	79
 	
-l2967:	
+l2916:	
 	movlw	low(073h)
 	fcall	_internet_setChannel
 	line	80
-	
-l2969:	
 	movlw	(low(_network_pipe|((0x0)<<8)))&0ffh
 	fcall	_internet_setNetworkPipe
 	line	81
-	
-l2971:	
 	movlw	low(02h)
 	fcall	_internet_setAddress
 	line	82
 	
-l2973:	
-	line	87
+l2918:	
+	movlw	high highword(0)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(main@stopTime+3)
+	movlw	low highword(0)
+	movwf	(main@stopTime+2)
+	movlw	high(0)
+	movwf	(main@stopTime+1)
+	movlw	low(0)
+	movwf	(main@stopTime)
+
+	goto	l2922
+	line	89
 	
-l2975:	
-	movlw	(low((((STR_1)-__stringbase)|8000h)))&0ffh
-	movwf	(__$_logline_str@string)
-	movlw	80h
-	movwf	(__$_logline_str@string+1)
-	fcall	__$_logline_str
-	line	88
-	goto	l2979
-	line	90
-	
-l2977:	
+l2920:	
 	movlw	1<<((65)&7)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	xorwf	((65)/8),f
-	line	91
+	line	90
 	asmopt push
 asmopt off
 movlw  21
@@ -3097,30 +3049,30 @@ movlw	75
 movwf	((??_main+0)+0+1)
 	movlw	189
 movwf	((??_main+0)+0)
-	u1627:
+	u1657:
 decfsz	((??_main+0)+0),f
-	goto	u1627
+	goto	u1657
 	decfsz	((??_main+0)+0+1),f
-	goto	u1627
+	goto	u1657
 	decfsz	((??_main+0)+0+2),f
-	goto	u1627
+	goto	u1657
 	nop2
 asmopt pop
 
-	line	88
+	line	87
 	
-l2979:	
+l2922:	
 	fcall	_RF24_isChipConnected
 	xorlw	0
 	skipnz
-	goto	u1611
-	goto	u1610
-u1611:
-	goto	l2977
-u1610:
-	line	93
+	goto	u1591
+	goto	u1590
+u1591:
+	goto	l2920
+u1590:
+	line	92
 	
-l2981:	
+l2924:	
 	movlw	low(08h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -3139,9 +3091,9 @@ l2981:
 	movwf	(transport_udp_tx@destinationPort)
 	movlw	(low(_buffer_tx|((0x0)<<8)))&0ffh
 	fcall	_transport_udp_tx
-	line	94
+	line	93
 	
-l2983:	
+l2926:	
 	asmopt push
 asmopt off
 movlw  21
@@ -3152,102 +3104,212 @@ movlw	75
 movwf	((??_main+0)+0+1)
 	movlw	189
 movwf	((??_main+0)+0)
-	u1637:
+	u1667:
 decfsz	((??_main+0)+0),f
-	goto	u1637
+	goto	u1667
 	decfsz	((??_main+0)+0+1),f
-	goto	u1637
+	goto	u1667
 	decfsz	((??_main+0)+0+2),f
-	goto	u1637
+	goto	u1667
 	nop2
 asmopt pop
 
+	line	94
+	
+l2928:	
+	fcall	_internet_process
 	line	95
 	
-l2985:	
-	fcall	_internet_process
-	line	96
-	
-l2987:	
+l2930:	
 	fcall	_micros
-	line	103
-	
-l2989:	
-	line	104
-	
-l2991:	
-	line	106
-	
-l2993:	
+	movf	(3+(?_micros)),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	comf	(_prop),f
-	line	107
+	movwf	(main@startTime+3)
+	movf	(2+(?_micros)),w
+	movwf	(main@startTime+2)
+	movf	(1+(?_micros)),w
+	movwf	(main@startTime+1)
+	movf	(0+(?_micros)),w
+	movwf	(main@startTime)
+
+	line	97
 	
-l2995:	
+l2932:	
+	movf	(main@startTime),w
+	movwf	(??_main+0)+0
+	movf	(main@startTime+1),w
+	movwf	((??_main+0)+0+1)
+	movf	(main@startTime+2),w
+	movwf	((??_main+0)+0+2)
+	movf	(main@startTime+3),w
+	movwf	((??_main+0)+0+3)
+	movf	(main@stopTime),w
+	subwf	(??_main+0)+0,f
+	movf	(main@stopTime+1),w
+	skipc
+	incfsz	(main@stopTime+1),w
+	goto	u1601
+	goto	u1602
+u1601:
+	subwf	(??_main+0)+1,f
+u1602:
+	movf	(main@stopTime+2),w
+	skipc
+	incfsz	(main@stopTime+2),w
+	goto	u1603
+	goto	u1604
+u1603:
+	subwf	(??_main+0)+2,f
+u1604:
+	movf	(main@stopTime+3),w
+	skipc
+	incfsz	(main@stopTime+3),w
+	goto	u1605
+	goto	u1606
+u1605:
+	subwf	(??_main+0)+3,f
+u1606:
+
+		movf	(??_main+0)+3,w
+	btfss	status,2
+	goto	u1610
+	movf	(??_main+0)+2,w
+	btfss	status,2
+	goto	u1610
+	movf	(??_main+0)+1,w
+	btfss	status,2
+	goto	u1610
+	movlw	151
+	subwf	(??_main+0)+0,w
+	skipz
+	goto	u1613
+u1613:
+	btfss	status,0
+	goto	u1611
+	goto	u1610
+
+u1611:
+	goto	l2938
+u1610:
+	line	99
+	
+l2934:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(main@startTime+3),w
+	movwf	(main@stopTime+3)
+	movf	(main@startTime+2),w
+	movwf	(main@stopTime+2)
+	movf	(main@startTime+1),w
+	movwf	(main@stopTime+1)
+	movf	(main@startTime),w
+	movwf	(main@stopTime)
+
+	line	100
+	
+l2936:	
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	btfsc	(_prop)^080h,0
+	goto	u1621
+	goto	u1620
+	
+u1621:
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(49/8),(49)&7	;volatile
+	goto	u1634
+u1620:
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(49/8),(49)&7	;volatile
+u1634:
+	line	102
+	
+l2938:	
+	movlw	0
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfsc	(50/8),(50)&7	;volatile
+	movlw	1
+	movwf	(checkButton@pinState)
+	movlw	(low(_btn1|((0x0)<<8)))&0ffh
+	fcall	_checkButton
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(??_main+0)+0
+	movf	(??_main+0)+0,w
+	movwf	(main@var1)
+	line	103
+	
+l2940:	
+	movf	((main@var1)),w
+	btfsc	status,2
+	goto	u1641
+	goto	u1640
+u1641:
+	goto	l2922
+u1640:
+	line	105
+	
+l2942:	
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	comf	(_prop)^080h,f
+	line	106
+	
+l2944:	
 	movlw	(low(_buffer_tx|((0x0)<<8)))&0ffh
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(??_main+0)+0
 	movf	(??_main+0)+0,w
 	movwf	(main@packet)
-	line	108
+	line	107
 	
-l2997:	
+l2946:	
 	movf	(main@packet),w
 	addlw	03h
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
 	clrf	indf
-	line	109
+	line	108
 	
-l2999:	
-	movf	(_prop),w
+l2948:	
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	movf	(_prop)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(??_main+0)+0
 	movf	(main@packet),w
 	addlw	04h
 	movwf	fsr0
 	movf	(??_main+0)+0,w
 	movwf	indf
-	line	110
+	line	109
 	
-l3001:	
+l2950:	
 	movf	(main@packet),w
 	addlw	02h
 	movwf	fsr0
 	clrf	indf
 	incf	indf,f
-	line	111
+	line	110
 	
-l3003:	
+l2952:	
 	movlw	low(03h)
 	movwf	(??_main+0)+0
 	incf	(main@packet),w
 	movwf	fsr0
 	movf	(??_main+0)+0,w
 	movwf	indf
-	line	112
-	
-l3005:	
-	movlw	low(020h)
-	movwf	(??_main+0)+0
-	movf	(??_main+0)+0,w
-	movwf	(transport_udp_tx@size)
-	clrf	(transport_udp_tx@destination)
-	incf	(transport_udp_tx@destination),f
-	movlw	low(06h)
-	movwf	(??_main+1)+0
-	movf	(??_main+1)+0,w
-	movwf	(transport_udp_tx@sourcePort)
-	movlw	low(06h)
-	movwf	(??_main+2)+0
-	movf	(??_main+2)+0,w
-	movwf	(transport_udp_tx@destinationPort)
-	movf	(main@packet),w
-	fcall	_transport_udp_tx
-	goto	l2975
+	goto	l2922
 	global	start
 	ljmp	start
 	callstack 0
-	line	115
+	line	114
 GLOBAL	__end_of_main
 	__end_of_main:
 	signat	_main,89
@@ -3275,7 +3337,7 @@ GLOBAL	__end_of_main
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_timerInit
 ;; This function is called by:
@@ -3293,17 +3355,17 @@ psect	text1
 	
 _wait_init:	
 ;incstack = 0
-	callstack 5
+	callstack 4
 ; Regs used in _wait_init: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(wait_init@megaHertez)
 	line	5
 	
-l2319:	
+l2846:	
 	movf	(wait_init@megaHertez),w
 	fcall	_timerInit
 	line	6
 	
-l603:	
+l604:	
 	return
 	callstack 0
 GLOBAL	__end_of_wait_init
@@ -3334,7 +3396,7 @@ GLOBAL	__end_of_wait_init
 ;;      Totals:         3       0       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
@@ -3352,12 +3414,12 @@ psect	text2
 	
 _timerInit:	
 ;incstack = 0
-	callstack 5
+	callstack 4
 ; Regs used in _timerInit: [wreg+status,2+status,0]
 	movwf	(timerInit@mhz)
 	line	5
 	
-l2259:	
+l2804:	
 	clrc
 	rrf	(timerInit@mhz),f
 	clrc
@@ -3365,43 +3427,43 @@ l2259:
 
 	line	6
 	
-l2261:	
+l2806:	
 	clrf	(timerInit@prescaler)
 	line	7
-	goto	l2267
+	goto	l2812
 	line	9
 	
-l2263:	
+l2808:	
 	movlw	low(01h)
 	movwf	(??_timerInit+0)+0
 	movf	(??_timerInit+0)+0,w
 	addwf	(timerInit@prescaler),f
 	line	10
 	
-l2265:	
+l2810:	
 	clrc
 	rrf	(timerInit@mhz),f
 
 	line	7
 	
-l2267:	
+l2812:	
 	movf	((timerInit@mhz)),w
 	btfsc	status,2
-	goto	u941
-	goto	u940
-u941:
-	goto	l570
-u940:
+	goto	u1421
+	goto	u1420
+u1421:
+	goto	l571
+u1420:
 	
-l2269:	
+l2814:	
 	btfss	(timerInit@mhz),(0)&7
-	goto	u951
-	goto	u950
-u951:
-	goto	l2263
-u950:
+	goto	u1431
+	goto	u1430
+u1431:
+	goto	l2808
+u1430:
 	
-l570:	
+l571:	
 	line	16
 	bsf	(94/8),(94)&7	;volatile
 	line	17
@@ -3418,126 +3480,64 @@ l570:
 	bsf	(131/8),(131)&7	;volatile
 	line	21
 	
-l2271:	
+l2816:	
 	movf	(timerInit@prescaler),w
 	movwf	(??_timerInit+0)+0
 	movlw	01h
-u965:
+u1445:
 	clrc
 	rrf	(??_timerInit+0)+0,f
 	addlw	-1
 	skipz
-	goto	u965
+	goto	u1445
 	btfsc	0+(??_timerInit+0)+0,0
-	goto	u971
-	goto	u970
+	goto	u1451
+	goto	u1450
 	
-u971:
+u1451:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(133/8),(133)&7	;volatile
-	goto	u984
-u970:
+	goto	u1464
+u1450:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(133/8),(133)&7	;volatile
-u984:
+u1464:
 	line	22
 	
-l2273:	
+l2818:	
 	btfsc	(timerInit@prescaler),0
-	goto	u991
-	goto	u990
+	goto	u1471
+	goto	u1470
 	
-u991:
+u1471:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(132/8),(132)&7	;volatile
-	goto	u1004
-u990:
+	goto	u1484
+u1470:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(132/8),(132)&7	;volatile
-u1004:
+u1484:
 	line	23
 	
-l2275:	
+l2820:	
 	bsf	(128/8),(128)&7	;volatile
 	line	24
 	
-l2277:	
+l2822:	
 	clrf	(14)	;volatile
 	clrf	(14+1)	;volatile
 	line	28
 	
-l571:	
+l572:	
 	return
 	callstack 0
 GLOBAL	__end_of_timerInit
 	__end_of_timerInit:
 	signat	_timerInit,4217
-	global	_micros
-
-;; *************** function _micros *****************
-;; Defined at:
-;;		line 30 in file "F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
-;; Parameters:    Size  Location     Type
-;;		None
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;                  4    2[COMMON] unsigned long 
-;; Registers used:
-;;		wreg
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         4       0       0       0       0
-;;      Locals:         0       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         4       0       0       0       0
-;;Total ram usage:        4 bytes
-;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text3,local,class=CODE,delta=2,merge=1,inline,group=1
-	line	30
-global __ptext3
-__ptext3:	;psect for function _micros
-psect	text3
-	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
-	line	30
-	
-_micros:	
-;incstack = 0
-	callstack 6
-; Regs used in _micros: [wreg]
-	line	32
-	
-l2409:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(14),w	;volatile
-	movwf	(?_micros)
-	movf	(14+1),w	;volatile
-	movwf	((?_micros))+1
-	clrf	2+((?_micros))
-	clrf	3+((?_micros))
-	line	33
-	
-l574:	
-	return
-	callstack 0
-GLOBAL	__end_of_micros
-	__end_of_micros:
-	signat	_micros,92
 	global	_internet_setChannel
 
 ;; *************** function _internet_setChannel *****************
@@ -3562,37 +3562,37 @@ GLOBAL	__end_of_micros
 ;;      Totals:         0       1       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 4
+;; Hardware stack levels required when called: 5
 ;; This function calls:
 ;;		_RF24_setChannel
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text4,local,class=CODE,delta=2,merge=1,group=1
+psect	text3,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	9
-global __ptext4
-__ptext4:	;psect for function _internet_setChannel
-psect	text4
+global __ptext3
+__ptext3:	;psect for function _internet_setChannel
+psect	text3
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	9
 	
 _internet_setChannel:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _internet_setChannel: [wreg+status,2+status,0+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(internet_setChannel@channel)
 	line	11
 	
-l2911:	
+l2872:	
 	movf	(internet_setChannel@channel),w
 	fcall	_RF24_setChannel
 	line	12
 	
-l239:	
+l240:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_setChannel
@@ -3622,7 +3622,7 @@ GLOBAL	__end_of_internet_setChannel
 ;;      Totals:         0       3       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 5
+;; Hardware stack levels required when called: 6
 ;; This function calls:
 ;;		_internet_calculateMask
 ;;		_internet_setNetworkPipe
@@ -3630,31 +3630,31 @@ GLOBAL	__end_of_internet_setChannel
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text5,local,class=CODE,delta=2,merge=1,group=1
+psect	text4,local,class=CODE,delta=2,merge=1,group=1
 	line	123
-global __ptext5
-__ptext5:	;psect for function _internet_setAddress
-psect	text5
+global __ptext4
+__ptext4:	;psect for function _internet_setAddress
+psect	text4
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	123
 	
 _internet_setAddress:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _internet_setAddress: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(internet_setAddress@address)
 	line	125
 	
-l2913:	
+l2874:	
 	movf	(internet_setAddress@address),w
 	movwf	(??_internet_setAddress+0)+0
 	movf	(??_internet_setAddress+0)+0,w
 	movwf	(_node)
 	line	126
 	
-l2915:	
+l2876:	
 	movf	(internet_setAddress@address),w
 	fcall	_internet_calculateMask
 	bcf	status, 5	;RP0=0, select bank0
@@ -3664,7 +3664,7 @@ l2915:
 	movwf	0+(_node)+01h
 	line	127
 	
-l2917:	
+l2878:	
 	movf	0+(_node)+01h,w
 	addlw	01h
 	movwf	(??_internet_setAddress+0)+0
@@ -3672,16 +3672,16 @@ l2917:
 	movwf	0+(_node)+02h
 	line	128
 	
-l2919:	
+l2880:	
 	movf	0+(_node)+02h,w
 	movwf	(??_internet_setAddress+0)+0
 	movlw	01h
-u1565:
+u1545:
 	clrc
 	rlf	(??_internet_setAddress+0)+0,f
 	addlw	-1
 	skipz
-	goto	u1565
+	goto	u1545
 	movf	0+(_node)+01h,w
 	andwf	(_node),w
 	iorwf	0+(??_internet_setAddress+0)+0,w
@@ -3690,16 +3690,16 @@ u1565:
 	movwf	0+(_node)+03h
 	line	129
 	
-l2921:	
+l2882:	
 	movf	0+(_node)+02h,w
 	movwf	(??_internet_setAddress+0)+0
 	movlw	01h
-u1575:
+u1555:
 	clrc
 	rlf	(??_internet_setAddress+0)+0,f
 	addlw	-1
 	skipz
-	goto	u1575
+	goto	u1555
 	movf	0+(_node)+01h,w
 	andwf	(_node),w
 	iorwf	0+(??_internet_setAddress+0)+0,w
@@ -3709,12 +3709,12 @@ u1575:
 	movwf	0+(_node)+04h
 	line	130
 	
-l2923:	
+l2884:	
 	movlw	(low(_networkInfo|((0x0)<<8)))&0ffh
 	fcall	_internet_setNetworkPipe
 	line	131
 	
-l278:	
+l279:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_setAddress
@@ -3746,7 +3746,7 @@ GLOBAL	__end_of_internet_setAddress
 ;;      Totals:         0       2       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 4
+;; Hardware stack levels required when called: 5
 ;; This function calls:
 ;;		_RF24_openReadingPipe
 ;;		_memcpy
@@ -3755,24 +3755,24 @@ GLOBAL	__end_of_internet_setAddress
 ;;		_internet_setAddress
 ;; This function uses a non-reentrant model
 ;;
-psect	text6,local,class=CODE,delta=2,merge=1,group=1
+psect	text5,local,class=CODE,delta=2,merge=1,group=1
 	line	23
-global __ptext6
-__ptext6:	;psect for function _internet_setNetworkPipe
-psect	text6
+global __ptext5
+__ptext5:	;psect for function _internet_setNetworkPipe
+psect	text5
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	23
 	
 _internet_setNetworkPipe:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _internet_setNetworkPipe: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(internet_setNetworkPipe@pipe)
 	line	25
 	
-l2779:	
+l2684:	
 	movf	(internet_setNetworkPipe@pipe),w
 	movwf	(??_internet_setNetworkPipe+0)+0
 	movf	(??_internet_setNetworkPipe+0)+0,w
@@ -3785,7 +3785,7 @@ l2779:
 	fcall	_memcpy
 	line	26
 	
-l2781:	
+l2686:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(_node),w
@@ -3796,7 +3796,7 @@ l2781:
 	movwf	(_networkInfo)^080h
 	line	27
 	
-l2783:	
+l2688:	
 	movlw	(low(_networkInfo|((0x0)<<8))&0ffh)
 	movwf	(RF24_openReadingPipe@address)
 	movlw	(0x0)
@@ -3805,7 +3805,7 @@ l2783:
 	fcall	_RF24_openReadingPipe
 	line	28
 	
-l248:	
+l249:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_setNetworkPipe
@@ -3835,7 +3835,7 @@ GLOBAL	__end_of_internet_setNetworkPipe
 ;;      Totals:         0       2       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 11
+;; Hardware stack levels required when called: 12
 ;; This function calls:
 ;;		_RF24_available
 ;;		_RF24_getDynamicPayloadSize
@@ -3845,11 +3845,11 @@ GLOBAL	__end_of_internet_setNetworkPipe
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text7,local,class=CODE,delta=2,merge=1,group=1
+psect	text6,local,class=CODE,delta=2,merge=1,group=1
 	line	13
-global __ptext7
-__ptext7:	;psect for function _internet_process
-psect	text7
+global __ptext6
+__ptext6:	;psect for function _internet_process
+psect	text6
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	13
 	
@@ -3860,11 +3860,11 @@ _internet_process:
 ; Regs used in _internet_process: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	15
 	
-l2939:	
-	goto	l2947
+l2900:	
+	goto	l2908
 	line	17
 	
-l2941:	
+l2902:	
 	fcall	_RF24_getDynamicPayloadSize
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -3873,7 +3873,7 @@ l2941:
 	movwf	(internet_process@size)
 	line	19
 	
-l2943:	
+l2904:	
 	movf	(internet_process@size),w
 	movwf	(??_internet_process+0)+0
 	movf	(??_internet_process+0)+0,w
@@ -3882,7 +3882,7 @@ l2943:
 	fcall	_RF24_read
 	line	20
 	
-l2945:	
+l2906:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(internet_process@size),w
@@ -3893,18 +3893,18 @@ l2945:
 	fcall	_internet_rx
 	line	15
 	
-l2947:	
+l2908:	
 	fcall	_RF24_available
 	xorlw	0
 	skipz
-	goto	u1601
-	goto	u1600
-u1601:
-	goto	l2941
-u1600:
+	goto	u1581
+	goto	u1580
+u1581:
+	goto	l2902
+u1580:
 	line	22
 	
-l245:	
+l246:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_process
@@ -3939,7 +3939,7 @@ GLOBAL	__end_of_internet_process
 ;;      Totals:         0       5       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 10
+;; Hardware stack levels required when called: 11
 ;; This function calls:
 ;;		_internet_relay
 ;;		_transport_udp_rx
@@ -3947,11 +3947,11 @@ GLOBAL	__end_of_internet_process
 ;;		_internet_process
 ;; This function uses a non-reentrant model
 ;;
-psect	text8,local,class=CODE,delta=2,merge=1,group=1
+psect	text7,local,class=CODE,delta=2,merge=1,group=1
 	line	37
-global __ptext8
-__ptext8:	;psect for function _internet_rx
-psect	text8
+global __ptext7
+__ptext7:	;psect for function _internet_rx
+psect	text7
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	37
 	
@@ -3965,14 +3965,14 @@ _internet_rx:
 	movwf	(internet_rx@payload)
 	line	39
 	
-l2805:	
+l2710:	
 	movf	(internet_rx@payload),w
 	movwf	(??_internet_rx+0)+0
 	movf	(??_internet_rx+0)+0,w
 	movwf	(internet_rx@packetHeader)
 	line	40
 	
-l2807:	
+l2712:	
 	movf	(internet_rx@packetHeader),w
 	addlw	03h
 	movwf	fsr0
@@ -3980,14 +3980,14 @@ l2807:
 	movf	indf,w
 	xorwf	(_node),w
 	skipnz
-	goto	u1511
-	goto	u1510
-u1511:
-	goto	l2817
-u1510:
+	goto	u1371
+	goto	u1370
+u1371:
+	goto	l2722
+u1370:
 	line	42
 	
-l2809:	
+l2714:	
 	movf	(internet_rx@payload),w
 	movwf	(internet_relay@payload)
 	movlw	(0x1)
@@ -3997,10 +3997,10 @@ l2809:
 	movf	(??_internet_rx+0)+0,w
 	movwf	(internet_relay@size)
 	fcall	_internet_relay
-	goto	l255
+	goto	l256
 	line	54
 	
-l2813:	
+l2718:	
 	movf	(internet_rx@size),w
 	movwf	(??_internet_rx+0)+0
 	movf	(??_internet_rx+0)+0,w
@@ -4008,10 +4008,10 @@ l2813:
 	movf	(internet_rx@payload),w
 	fcall	_transport_udp_rx
 	line	55
-	goto	l255
+	goto	l256
 	line	59
 	
-l2817:	
+l2722:	
 	incf	(internet_rx@packetHeader),w
 	movwf	fsr0
 	movf	indf,w
@@ -4032,11 +4032,11 @@ l2817:
 	asmopt off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l3037
-	goto	l255
+	goto	l2984
+	goto	l256
 	asmopt pop
 	
-l3037:	
+l2984:	
 ; Switch size 1, requested type "simple"
 ; Number of cases is 3, Range of values is 0 to 2
 ; switch strategies available:
@@ -4051,19 +4051,19 @@ l3037:
 	asmopt off
 	xorlw	0^0	; case 0
 	skipnz
-	goto	l255
+	goto	l256
 	xorlw	1^0	; case 1
 	skipnz
-	goto	l2813
+	goto	l2718
 	xorlw	2^1	; case 2
 	skipnz
-	goto	l255
-	goto	l255
+	goto	l256
+	goto	l256
 	asmopt pop
 
 	line	60
 	
-l255:	
+l256:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_rx
@@ -4098,19 +4098,19 @@ GLOBAL	__end_of_internet_rx
 ;;      Totals:         0       5       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 9
+;; Hardware stack levels required when called: 10
 ;; This function calls:
 ;;		_transport_udp_process
 ;; This function is called by:
 ;;		_internet_rx
 ;; This function uses a non-reentrant model
 ;;
-psect	text9,local,class=CODE,delta=2,merge=1,group=1
+psect	text8,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/transport.c"
 	line	12
-global __ptext9
-__ptext9:	;psect for function _transport_udp_rx
-psect	text9
+global __ptext8
+__ptext8:	;psect for function _transport_udp_rx
+psect	text8
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/transport.c"
 	line	12
 	
@@ -4124,14 +4124,14 @@ _transport_udp_rx:
 	movwf	(transport_udp_rx@payload)
 	line	14
 	
-l2727:	
+l2628:	
 	movf	(transport_udp_rx@payload),w
 	movwf	(??_transport_udp_rx+0)+0
 	movf	(??_transport_udp_rx+0)+0,w
 	movwf	(transport_udp_rx@packetHeader)
 	line	15
 	
-l2729:	
+l2630:	
 	movf	(transport_udp_rx@size),w
 	movwf	(??_transport_udp_rx+0)+0
 	movf	(??_transport_udp_rx+0)+0,w
@@ -4149,7 +4149,7 @@ l2729:
 	fcall	_transport_udp_process
 	line	16
 	
-l596:	
+l597:	
 	return
 	callstack 0
 GLOBAL	__end_of_transport_udp_rx
@@ -4159,7 +4159,7 @@ GLOBAL	__end_of_transport_udp_rx
 
 ;; *************** function _transport_udp_process *****************
 ;; Defined at:
-;;		line 117 in file "F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
+;;		line 116 in file "F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
 ;; Parameters:    Size  Location     Type
 ;;  payload         1    wreg     PTR unsigned char 
 ;;		 -> buffer_rx(32), 
@@ -4191,7 +4191,7 @@ GLOBAL	__end_of_transport_udp_rx
 ;;      Totals:         0      10       0       0       0
 ;;Total ram usage:       10 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 8
+;; Hardware stack levels required when called: 9
 ;; This function calls:
 ;;		_memcpy
 ;;		_transport_udp_tx
@@ -4199,14 +4199,14 @@ GLOBAL	__end_of_transport_udp_rx
 ;;		_transport_udp_rx
 ;; This function uses a non-reentrant model
 ;;
-psect	text10,local,class=CODE,delta=2,merge=1,group=0
+psect	text9,local,class=CODE,delta=2,merge=1,group=0
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
-	line	117
-global __ptext10
-__ptext10:	;psect for function _transport_udp_process
-psect	text10
+	line	116
+global __ptext9
+__ptext9:	;psect for function _transport_udp_process
+psect	text9
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
-	line	117
+	line	116
 	
 _transport_udp_process:	
 ;incstack = 0
@@ -4216,21 +4216,21 @@ _transport_udp_process:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(transport_udp_process@payload)
-	line	120
+	line	119
 	
-l2703:	
+l2604:	
 	movf	(transport_udp_process@payload),w
 	movwf	(??_transport_udp_process+0)+0
 	movf	(??_transport_udp_process+0)+0,w
 	movwf	(transport_udp_process@load)
-	line	121
+	line	120
 	movlw	(low(_buffer_rx|((0x1)<<8)+05h))&0ffh
 	movwf	(??_transport_udp_process+0)+0
 	movf	(??_transport_udp_process+0)+0,w
 	movwf	(transport_udp_process@data)
-	line	123
+	line	122
 	
-l2705:	
+l2606:	
 	movf	(transport_udp_process@data),w
 	movwf	fsr0
 	bsf	status, 7	;select IRP bank2
@@ -4238,52 +4238,52 @@ l2705:
 	movwf	(??_transport_udp_process+0)+0
 	movf	(??_transport_udp_process+0)+0,w
 	movwf	(transport_udp_process@id)
-	line	124
+	line	123
 	
-l2707:	
+l2608:	
 	incf	(transport_udp_process@data),w
 	movwf	fsr0
 	movf	indf,w
 	movwf	(??_transport_udp_process+0)+0
 	movf	(??_transport_udp_process+0)+0,w
 	movwf	(transport_udp_process@value)
-	line	126
+	line	125
 	
-l2709:	
+l2610:	
 		movlw	6
 	xorwf	((transport_udp_process@port)),w
 	btfss	status,2
-	goto	u1431
-	goto	u1430
-u1431:
-	goto	l2717
-u1430:
+	goto	u1291
+	goto	u1290
+u1291:
+	goto	l2618
+u1290:
 	
-l2711:	
+l2612:	
 	movf	(transport_udp_process@value),w
 	movwf	(??_transport_udp_process+0)+0
 	movf	(transport_udp_process@id),w
 	addlw	low(_prop|((0x0)<<8))&0ffh
 	movwf	fsr0
 	movf	(??_transport_udp_process+0)+0,w
-	bcf	status, 7	;select IRP bank0
+	bcf	status, 7	;select IRP bank1
 	movwf	indf
 	
-l2713:	
-	goto	l78
-	line	131
+l2614:	
+	goto	l79
+	line	130
 	
-l2717:	
+l2618:	
 		movlw	6
 	xorwf	((transport_udp_process@port)),w
 	btfss	status,2
-	goto	u1441
-	goto	u1440
-u1441:
-	goto	l78
-u1440:
+	goto	u1301
+	goto	u1300
+u1301:
+	goto	l79
+u1300:
 	
-l2719:	
+l2620:	
 	movlw	(low(_prop|((0x0)<<8)))&0ffh
 	movwf	(??_transport_udp_process+0)+0
 	movf	(??_transport_udp_process+0)+0,w
@@ -4295,7 +4295,7 @@ l2719:
 	movlw	(low(_buffer_tx|((0x0)<<8)+05h))&0ffh
 	fcall	_memcpy
 	
-l2721:	
+l2622:	
 	movlw	low(020h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -4319,9 +4319,9 @@ l2721:
 	movwf	(transport_udp_tx@destinationPort)
 	movlw	(low(_buffer_tx|((0x0)<<8)))&0ffh
 	fcall	_transport_udp_tx
-	line	135
+	line	134
 	
-l78:	
+l79:	
 	return
 	callstack 0
 GLOBAL	__end_of_transport_udp_process
@@ -4340,9 +4340,9 @@ GLOBAL	__end_of_transport_udp_process
 ;;  sourcePort      1   18[BANK0 ] unsigned char 
 ;;  destinationP    1   19[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  payload         1   22[BANK0 ] PTR unsigned char 
+;;  payload         1   21[BANK0 ] PTR unsigned char 
 ;;		 -> buffer_tx(32), 
-;;  packetHeader    1   21[BANK0 ] PTR struct UDPPacket
+;;  packetHeader    1   22[BANK0 ] PTR struct UDPPacket
 ;;		 -> buffer_tx(32), 
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      void 
@@ -4359,7 +4359,7 @@ GLOBAL	__end_of_transport_udp_process
 ;;      Totals:         0       7       0       0       0
 ;;Total ram usage:        7 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 7
+;; Hardware stack levels required when called: 8
 ;; This function calls:
 ;;		_internet_tx
 ;; This function is called by:
@@ -4367,17 +4367,18 @@ GLOBAL	__end_of_transport_udp_process
 ;;		_transport_udp_process
 ;; This function uses a non-reentrant model
 ;;
-psect	text11,local,class=CODE,delta=2,merge=1,group=1
+psect	text10,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/transport.c"
 	line	3
-global __ptext11
-__ptext11:	;psect for function _transport_udp_tx
-psect	text11
+global __ptext10
+__ptext10:	;psect for function _transport_udp_tx
+psect	text10
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/transport.c"
 	line	3
 	
 _transport_udp_tx:	
 ;incstack = 0
+;; hardware stack exceeded
 	callstack 0
 ; Regs used in _transport_udp_tx: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
@@ -4385,14 +4386,14 @@ _transport_udp_tx:
 	movwf	(transport_udp_tx@payload)
 	line	5
 	
-l2683:	
+l2584:	
 	movf	(transport_udp_tx@payload),w
 	movwf	(??_transport_udp_tx+0)+0
 	movf	(??_transport_udp_tx+0)+0,w
 	movwf	(transport_udp_tx@packetHeader)
 	line	6
 	
-l2685:	
+l2586:	
 	incf	(transport_udp_tx@packetHeader),w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
@@ -4400,7 +4401,7 @@ l2685:
 	incf	indf,f
 	line	7
 	
-l2687:	
+l2588:	
 	movf	(transport_udp_tx@destination),w
 	movwf	(??_transport_udp_tx+0)+0
 	movf	(transport_udp_tx@packetHeader),w
@@ -4410,7 +4411,7 @@ l2687:
 	movwf	indf
 	line	8
 	
-l2689:	
+l2590:	
 	movf	(transport_udp_tx@packetHeader),w
 	addlw	04h
 	movwf	fsr0
@@ -4421,7 +4422,7 @@ l2689:
 	movwf	indf
 	line	9
 	
-l2691:	
+l2592:	
 	movf	(transport_udp_tx@destinationPort),w
 	movwf	(??_transport_udp_tx+0)+0
 	movf	(transport_udp_tx@packetHeader),w
@@ -4435,7 +4436,7 @@ l2691:
 	movwf	indf
 	line	10
 	
-l2693:	
+l2594:	
 	movf	(transport_udp_tx@size),w
 	movwf	(??_transport_udp_tx+0)+0
 	movf	(??_transport_udp_tx+0)+0,w
@@ -4444,7 +4445,7 @@ l2693:
 	fcall	_internet_tx
 	line	11
 	
-l593:	
+l594:	
 	return
 	callstack 0
 GLOBAL	__end_of_transport_udp_tx
@@ -4479,24 +4480,25 @@ GLOBAL	__end_of_transport_udp_tx
 ;;      Totals:         0       4       0       0       0
 ;;Total ram usage:        4 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 6
+;; Hardware stack levels required when called: 7
 ;; This function calls:
 ;;		_internet_relay
 ;; This function is called by:
 ;;		_transport_udp_tx
 ;; This function uses a non-reentrant model
 ;;
-psect	text12,local,class=CODE,delta=2,merge=1,group=1
+psect	text11,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	29
-global __ptext12
-__ptext12:	;psect for function _internet_tx
-psect	text12
+global __ptext11
+__ptext11:	;psect for function _internet_tx
+psect	text11
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	29
 	
 _internet_tx:	
 ;incstack = 0
+;; hardware stack exceeded
 	callstack 0
 ; Regs used in _internet_tx: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
@@ -4504,14 +4506,14 @@ _internet_tx:
 	movwf	(internet_tx@payload)
 	line	32
 	
-l2675:	
+l2576:	
 	movf	(internet_tx@payload),w
 	movwf	(??_internet_tx+0)+0
 	movf	(??_internet_tx+0)+0,w
 	movwf	(internet_tx@packetHeader)
 	line	33
 	
-l2677:	
+l2578:	
 	movlw	low(020h)
 	movwf	(??_internet_tx+0)+0
 	movf	(internet_tx@packetHeader),w
@@ -4521,7 +4523,7 @@ l2677:
 	movwf	indf
 	line	34
 	
-l2679:	
+l2580:	
 	movf	(_node),w
 	movwf	(??_internet_tx+0)+0
 	movf	(internet_tx@packetHeader),w
@@ -4531,7 +4533,7 @@ l2679:
 	movwf	indf
 	line	35
 	
-l2681:	
+l2582:	
 	movf	(internet_tx@payload),w
 	movwf	(internet_relay@payload)
 	movlw	(0x0)
@@ -4543,7 +4545,7 @@ l2681:
 	fcall	_internet_relay
 	line	36
 	
-l251:	
+l252:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_tx
@@ -4578,7 +4580,7 @@ GLOBAL	__end_of_internet_tx
 ;;      Totals:         0       9       0       0       0
 ;;Total ram usage:        9 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 5
+;; Hardware stack levels required when called: 6
 ;; This function calls:
 ;;		_RF24_openReadingPipe
 ;;		_RF24_openWritingPipe
@@ -4594,21 +4596,22 @@ GLOBAL	__end_of_internet_tx
 ;;		_internet_rx
 ;; This function uses a non-reentrant model
 ;;
-psect	text13,local,class=CODE,delta=2,merge=1,group=1
+psect	text12,local,class=CODE,delta=2,merge=1,group=1
 	line	61
-global __ptext13
-__ptext13:	;psect for function _internet_relay
-psect	text13
+global __ptext12
+__ptext12:	;psect for function _internet_relay
+psect	text12
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	61
 	
 _internet_relay:	
 ;incstack = 0
+;; hardware stack exceeded
 	callstack 0
 ; Regs used in _internet_relay: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	64
 	
-l2619:	
+l2520:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 		movf	(internet_relay@payload),w
@@ -4619,15 +4622,15 @@ movwf	(internet_relay@packetHeader+1)
 	line	65
 	movf	((_node)),w
 	btfss	status,2
-	goto	u1381
-	goto	u1380
-u1381:
-	goto	l2623
-u1380:
-	goto	l265
+	goto	u1241
+	goto	u1240
+u1241:
+	goto	l2524
+u1240:
+	goto	l266
 	line	72
 	
-l2623:	
+l2524:	
 	movf	(internet_relay@packetHeader),w
 	addlw	low(03h)
 	movwf	(??_internet_relay+0)+0
@@ -4650,17 +4653,17 @@ l2623:
 	movwf	(internet_relay@dstMask)
 	line	74
 	
-l2625:	
+l2526:	
 	movf	(internet_relay@dstMask),w
 	subwf	0+(_node)+01h,w
 	skipnc
-	goto	u1391
-	goto	u1390
-u1391:
-	goto	l2655
-u1390:
+	goto	u1251
+	goto	u1250
+u1251:
+	goto	l2556
+u1250:
 	
-l2627:	
+l2528:	
 	movf	(internet_relay@packetHeader),w
 	addlw	low(03h)
 	movwf	(??_internet_relay+0)+0
@@ -4678,14 +4681,14 @@ l2627:
 	fcall	_internet_hasChild
 	xorlw	0
 	skipnz
-	goto	u1401
-	goto	u1400
-u1401:
-	goto	l2655
-u1400:
+	goto	u1261
+	goto	u1260
+u1261:
+	goto	l2556
+u1260:
 	line	76
 	
-l2629:	
+l2530:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(internet_relay@packetHeader),w
@@ -4704,14 +4707,14 @@ l2629:
 	movf	indf,w
 	andwf	0+(_node)+02h,w
 	btfsc	status,2
-	goto	u1411
-	goto	u1410
-u1411:
-	goto	l2643
-u1410:
+	goto	u1271
+	goto	u1270
+u1271:
+	goto	l2544
+u1270:
 	line	79
 	
-l2631:	
+l2532:	
 	movf	0+(_node)+04h,w
 	movwf	(??_internet_relay+0)+0
 	movf	(??_internet_relay+0)+0,w
@@ -4720,7 +4723,7 @@ l2631:
 	movwf	(_networkInfo)^080h
 	line	80
 	
-l2633:	
+l2534:	
 	movlw	(low(_networkInfo|((0x0)<<8))&0ffh)
 	movwf	(RF24_openReadingPipe@address)
 	movlw	(0x0)
@@ -4729,16 +4732,16 @@ l2633:
 	fcall	_RF24_openReadingPipe
 	line	81
 	
-l2635:	
+l2536:	
 	movlw	(low(_networkInfo|((0x0)<<8)))&0ffh
 	fcall	_RF24_openWritingPipe
 	line	82
 	
-l2637:	
+l2538:	
 	fcall	_RF24_stopListening
 	line	83
 	
-l2639:	
+l2540:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 		movf	(internet_relay@payload),w
@@ -4753,7 +4756,7 @@ movwf	(RF24_write@buf+1)
 	fcall	_RF24_write
 	line	84
 	
-l2641:	
+l2542:	
 	movlw	(low((((_BASE_PIPE)-__stringbase)|8000h)))&0ffh
 	movwf	(RF24_openReadingPipe@address)
 	movlw	80h
@@ -4761,10 +4764,10 @@ l2641:
 	movlw	low(0)
 	fcall	_RF24_openReadingPipe
 	line	85
-	goto	l2673
+	goto	l2574
 	line	89
 	
-l2643:	
+l2544:	
 	movf	0+(_node)+03h,w
 	movwf	(??_internet_relay+0)+0
 	movf	(??_internet_relay+0)+0,w
@@ -4773,7 +4776,7 @@ l2643:
 	movwf	(_networkInfo)^080h
 	line	90
 	
-l2645:	
+l2546:	
 	movlw	(low(_networkInfo|((0x0)<<8))&0ffh)
 	movwf	(RF24_openReadingPipe@address)
 	movlw	(0x0)
@@ -4782,16 +4785,16 @@ l2645:
 	fcall	_RF24_openReadingPipe
 	line	91
 	
-l2647:	
+l2548:	
 	movlw	(low(_networkInfo|((0x0)<<8)))&0ffh
 	fcall	_RF24_openWritingPipe
 	line	92
 	
-l2649:	
+l2550:	
 	fcall	_RF24_stopListening
 	line	93
 	
-l2651:	
+l2552:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 		movf	(internet_relay@payload),w
@@ -4806,17 +4809,17 @@ movwf	(RF24_write@buf+1)
 	fcall	_RF24_write
 	line	94
 	
-l2653:	
+l2554:	
 	movlw	(low((((_BASE_PIPE)-__stringbase)|8000h)))&0ffh
 	movwf	(RF24_openReadingPipe@address)
 	movlw	80h
 	movwf	(RF24_openReadingPipe@address+1)
 	movlw	low(0)
 	fcall	_RF24_openReadingPipe
-	goto	l2673
+	goto	l2574
 	line	100
 	
-l2655:	
+l2556:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(_node),w
@@ -4827,7 +4830,7 @@ l2655:
 	movwf	(_networkInfo)^080h
 	line	101
 	
-l2657:	
+l2558:	
 	movlw	(low(_networkInfo|((0x0)<<8))&0ffh)
 	movwf	(RF24_openReadingPipe@address)
 	movlw	(0x0)
@@ -4836,24 +4839,24 @@ l2657:
 	fcall	_RF24_openReadingPipe
 	line	102
 	
-l2659:	
+l2560:	
 	movlw	(low(_networkInfo|((0x0)<<8)))&0ffh
 	fcall	_RF24_openWritingPipe
 	line	103
 	
-l2661:	
+l2562:	
 	fcall	_RF24_stopListening
 	line	104
 	
-l2663:	
-	movlw	(low((((STR_2)-__stringbase)|8000h)))&0ffh
+l2564:	
+	movlw	(low((((STR_1)-__stringbase)|8000h)))&0ffh
 	movwf	(__$_logline_str@string)
 	movlw	80h
 	movwf	(__$_logline_str@string+1)
 	fcall	__$_logline_str
 	line	105
 	
-l2665:	
+l2566:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 		movf	(internet_relay@payload),w
@@ -4863,12 +4866,12 @@ movwf	(__$_logline_str@string+1)
 
 	fcall	__$_logline_str
 	
-l2667:	
+l2568:	
 	movlw	low(0Ah)
 	fcall	_Serial_write
 	line	106
 	
-l2669:	
+l2570:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 		movf	(internet_relay@payload),w
@@ -4883,7 +4886,7 @@ movwf	(RF24_write@buf+1)
 	fcall	_RF24_write
 	line	108
 	
-l2671:	
+l2572:	
 	movlw	(low((((_BASE_PIPE)-__stringbase)|8000h)))&0ffh
 	movwf	(RF24_openReadingPipe@address)
 	movlw	80h
@@ -4892,11 +4895,11 @@ l2671:
 	fcall	_RF24_openReadingPipe
 	line	110
 	
-l2673:	
+l2574:	
 	fcall	_RF24_startListening
 	line	111
 	
-l265:	
+l266:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_relay
@@ -4926,29 +4929,29 @@ GLOBAL	__end_of_internet_relay
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
 ;;		_internet_relay
 ;; This function uses a non-reentrant model
 ;;
-psect	text14,local,class=CODE,delta=2,merge=1,group=1
+psect	text13,local,class=CODE,delta=2,merge=1,group=1
 	line	133
-global __ptext14
-__ptext14:	;psect for function _internet_hasChild
-psect	text14
+global __ptext13
+__ptext13:	;psect for function _internet_hasChild
+psect	text13
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	133
 	
 _internet_hasChild:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _internet_hasChild: [wreg+status,2+status,0]
 	movwf	(internet_hasChild@address)
 	line	135
 	
-l2583:	
+l2474:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(_node),w
@@ -4958,17 +4961,17 @@ l2583:
 	andwf	(internet_hasChild@address),w
 	xorwf	0+(??_internet_hasChild+0)+0,w
 	skipnz
-	goto	u1331
-	goto	u1330
-u1331:
+	goto	u1171
+	goto	u1170
+u1171:
 	movlw	1
-	goto	u1340
-u1330:
+	goto	u1180
+u1170:
 	movlw	0
-u1340:
+u1180:
 	line	136
 	
-l281:	
+l282:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_hasChild
@@ -4999,7 +5002,7 @@ GLOBAL	__end_of_internet_hasChild
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
@@ -5007,54 +5010,54 @@ GLOBAL	__end_of_internet_hasChild
 ;;		_internet_setAddress
 ;; This function uses a non-reentrant model
 ;;
-psect	text15,local,class=CODE,delta=2,merge=1,group=1
+psect	text14,local,class=CODE,delta=2,merge=1,group=1
 	line	112
-global __ptext15
-__ptext15:	;psect for function _internet_calculateMask
-psect	text15
+global __ptext14
+__ptext14:	;psect for function _internet_calculateMask
+psect	text14
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	112
 	
 _internet_calculateMask:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _internet_calculateMask: [wreg+status,2+status,0]
 	movwf	(internet_calculateMask@address)
 	line	114
 	
-l2571:	
+l2462:	
 	clrf	(internet_calculateMask@mask)
 	line	115
-	goto	l2577
+	goto	l2468
 	line	117
 	
-l2573:	
+l2464:	
 	setc
 	rlf	(internet_calculateMask@mask),f
 	line	118
 	
-l2575:	
+l2466:	
 	clrc
 	rrf	(internet_calculateMask@address),f
 
 	line	115
 	
-l2577:	
+l2468:	
 	movlw	low(02h)
 	subwf	(internet_calculateMask@address),w
 	skipnc
-	goto	u1321
-	goto	u1320
-u1321:
-	goto	l2573
-u1320:
+	goto	u1161
+	goto	u1160
+u1161:
+	goto	l2464
+u1160:
 	line	120
 	
-l2579:	
+l2470:	
 	movf	(internet_calculateMask@mask),w
 	line	121
 	
-l275:	
+l276:	
 	return
 	callstack 0
 GLOBAL	__end_of_internet_calculateMask
@@ -5067,12 +5070,12 @@ GLOBAL	__end_of_internet_calculateMask
 ;;		line 5 in file "F:/GitHub/Graduation-Project/Moduls/Switch/libs/logline.c"
 ;; Parameters:    Size  Location     Type
 ;;  string          2    3[COMMON] PTR unsigned char 
-;;		 -> STR_20(23), STR_19(3), STR_18(6), STR_17(6), 
-;;		 -> STR_16(6), STR_15(6), STR_14(6), STR_13(6), 
-;;		 -> STR_12(11), STR_11(7), STR_10(9), STR_9(6), 
-;;		 -> STR_8(11), STR_7(9), STR_6(10), STR_5(6), 
-;;		 -> STR_4(7), STR_3(23), STR_2(10), buffer_rx(32), 
-;;		 -> buffer_tx(32), STR_1(7), 
+;;		 -> STR_19(23), STR_18(3), STR_17(6), STR_16(6), 
+;;		 -> STR_15(6), STR_14(6), STR_13(6), STR_12(6), 
+;;		 -> STR_11(11), STR_10(7), STR_9(9), STR_8(6), 
+;;		 -> STR_7(11), STR_6(9), STR_5(10), STR_4(6), 
+;;		 -> STR_3(7), STR_2(23), STR_1(10), buffer_rx(32), 
+;;		 -> buffer_tx(32), 
 ;; Auto vars:     Size  Location     Type
 ;;  limit           1    6[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
@@ -5090,39 +5093,38 @@ GLOBAL	__end_of_internet_calculateMask
 ;;      Totals:         4       0       0       0       0
 ;;Total ram usage:        4 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_Serial_write
 ;; This function is called by:
-;;		_main
 ;;		_internet_relay
 ;; This function uses a non-reentrant model
 ;;
-psect	text16,local,class=CODE,delta=2,merge=1,group=1
+psect	text15,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/logline.c"
 	line	5
-global __ptext16
-__ptext16:	;psect for function __$_logline_str
-psect	text16
+global __ptext15
+__ptext15:	;psect for function __$_logline_str
+psect	text15
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/logline.c"
 	line	5
 	
 __$_logline_str:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in __$_logline_str: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	7
 	
-l2553:	
+l2506:	
 	movlw	low(064h)
 	movwf	(??__$_logline_str+0)+0
 	movf	(??__$_logline_str+0)+0,w
 	movwf	(__$_logline_str@limit)
 	line	8
-	goto	l2559
+	goto	l2512
 	line	10
 	
-l2555:	
+l2508:	
 	movf	(__$_logline_str@string+1),w
 	movwf	btemp+1
 	movf	(__$_logline_str@string),w
@@ -5131,7 +5133,7 @@ l2555:
 	fcall	_Serial_write
 	line	11
 	
-l2557:	
+l2510:	
 	movlw	01h
 	addwf	(__$_logline_str@string),f
 	skipnc
@@ -5140,7 +5142,7 @@ l2557:
 	addwf	(__$_logline_str@string+1),f
 	line	8
 	
-l2559:	
+l2512:	
 	movf	(__$_logline_str@string+1),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -5150,25 +5152,25 @@ l2559:
 	fcall	stringtab
 	xorlw	0
 	skipnz
-	goto	u1281
-	goto	u1280
-u1281:
-	goto	l675
-u1280:
+	goto	u1221
+	goto	u1220
+u1221:
+	goto	l676
+u1220:
 	
-l2561:	
+l2514:	
 	movlw	01h
 	subwf	(__$_logline_str@limit),f
 		incf	(((__$_logline_str@limit))),w
 	btfss	status,2
-	goto	u1291
-	goto	u1290
-u1291:
-	goto	l2555
-u1290:
+	goto	u1231
+	goto	u1230
+u1231:
+	goto	l2508
+u1230:
 	line	13
 	
-l675:	
+l676:	
 	return
 	callstack 0
 GLOBAL	__end_of__$_logline_str
@@ -5198,7 +5200,7 @@ GLOBAL	__end_of__$_logline_str
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
@@ -5206,45 +5208,45 @@ GLOBAL	__end_of__$_logline_str
 ;;		__$_logline_str
 ;; This function uses a non-reentrant model
 ;;
-psect	text17,local,class=CODE,delta=2,merge=1,group=1
+psect	text16,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/Serial.c"
 	line	36
-global __ptext17
-__ptext17:	;psect for function _Serial_write
-psect	text17
+global __ptext16
+__ptext16:	;psect for function _Serial_write
+psect	text16
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/Serial.c"
 	line	36
 	
 _Serial_write:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _Serial_write: [wreg]
 	movwf	(Serial_write@data)
 	line	38
 	
-l2515:	
+l2416:	
 	line	39
 	
-l656:	
+l657:	
 	line	38
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	btfss	(1217/8)^080h,(1217)&7	;volatile
-	goto	u1261
-	goto	u1260
-u1261:
-	goto	l656
-u1260:
+	goto	u1121
+	goto	u1120
+u1121:
+	goto	l657
+u1120:
 	line	40
 	
-l2517:	
+l2418:	
 	movf	(Serial_write@data),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(25)	;volatile
 	line	41
 	
-l659:	
+l660:	
 	return
 	callstack 0
 GLOBAL	__end_of_Serial_write
@@ -5276,7 +5278,7 @@ GLOBAL	__end_of_Serial_write
 ;;      Totals:         1       3       0       0       0
 ;;Total ram usage:        4 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 4
+;; Hardware stack levels required when called: 5
 ;; This function calls:
 ;;		_RF24_flush_tx
 ;;		_RF24_get_status
@@ -5286,28 +5288,29 @@ GLOBAL	__end_of_Serial_write
 ;;		_internet_relay
 ;; This function uses a non-reentrant model
 ;;
-psect	text18,local,class=CODE,delta=2,merge=1,group=1
+psect	text17,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	198
-global __ptext18
-__ptext18:	;psect for function _RF24_write
-psect	text18
+global __ptext17
+__ptext17:	;psect for function _RF24_write
+psect	text17
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	198
 	
 _RF24_write:	
 ;incstack = 0
+;; hardware stack exceeded
 	callstack 0
 ; Regs used in _RF24_write: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 	line	202
 	
-l2595:	
+l2486:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(67/8),(67)&7	;volatile
 	line	203
 	
-l2597:	
+l2488:	
 	movlw	low(0A0h)
 	fcall	_SPI_exchangeByte
 	movwf	(??_RF24_write+0)+0
@@ -5316,10 +5319,10 @@ l2597:
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(_RF24_attr_status)
 	line	204
-	goto	l2603
+	goto	l2494
 	line	206
 	
-l2599:	
+l2490:	
 	movf	(RF24_write@buf),w
 	movwf	fsr0
 	bsf	status,7
@@ -5328,7 +5331,7 @@ l2599:
 	movf	indf,w
 	fcall	_SPI_exchangeByte
 	
-l2601:	
+l2492:	
 	movlw	01h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -5339,42 +5342,42 @@ l2601:
 	addwf	(RF24_write@buf+1),f
 	line	204
 	
-l2603:	
+l2494:	
 	movlw	01h
 	subwf	(RF24_write@len),f
 		incf	(((RF24_write@len))),w
 	btfss	status,2
-	goto	u1351
-	goto	u1350
-u1351:
-	goto	l2599
-u1350:
+	goto	u1191
+	goto	u1190
+u1191:
+	goto	l2490
+u1190:
 	
-l403:	
+l404:	
 	line	208
 	bsf	(67/8),(67)&7	;volatile
 	line	210
 	bsf	(66/8),(66)&7	;volatile
 	line	211
 	
-l2605:	
+l2496:	
 	fcall	_RF24_get_status
 	andlw	030h
 	btfsc	status,2
-	goto	u1361
-	goto	u1360
-u1361:
-	goto	l2605
-u1360:
+	goto	u1201
+	goto	u1200
+u1201:
+	goto	l2496
+u1200:
 	
-l406:	
+l407:	
 	line	216
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(66/8),(66)&7	;volatile
 	line	217
 	
-l2607:	
+l2498:	
 	movlw	low(070h)
 	movwf	(??_RF24_write+0)+0
 	movf	(??_RF24_write+0)+0,w
@@ -5383,22 +5386,22 @@ l2607:
 	fcall	_RF24_write_register
 	line	220
 	
-l2609:	
+l2500:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(_RF24_attr_status),(4)&7
-	goto	u1371
-	goto	u1370
-u1371:
-	goto	l408
-u1370:
+	goto	u1211
+	goto	u1210
+u1211:
+	goto	l409
+u1210:
 	line	222
 	
-l2611:	
+l2502:	
 	fcall	_RF24_flush_tx
 	line	226
 	
-l408:	
+l409:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_write
@@ -5428,7 +5431,7 @@ GLOBAL	__end_of_RF24_write
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_register
@@ -5436,27 +5439,27 @@ GLOBAL	__end_of_RF24_write
 ;;		_internet_relay
 ;; This function uses a non-reentrant model
 ;;
-psect	text19,local,class=CODE,delta=2,merge=1,group=1
+psect	text18,local,class=CODE,delta=2,merge=1,group=1
 	line	156
-global __ptext19
-__ptext19:	;psect for function _RF24_stopListening
-psect	text19
+global __ptext18
+__ptext18:	;psect for function _RF24_stopListening
+psect	text18
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	156
 	
 _RF24_stopListening:	
 ;incstack = 0
-	callstack 1
+	callstack 0
 ; Regs used in _RF24_stopListening: [wreg+status,2+status,0+pclath+cstack]
 	line	158
 	
-l2589:	
+l2480:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(66/8),(66)&7	;volatile
 	line	165
 	
-l2591:	
+l2482:	
 	movlw	low(0)
 	fcall	_RF24_read_register
 	andlw	0FEh
@@ -5476,19 +5479,19 @@ l2591:
 	fcall	_RF24_write_register
 	line	167
 	
-l2593:	
+l2484:	
 	asmopt push
 asmopt off
 	movlw	173
 movwf	((??_RF24_stopListening+0)+0)
-	u1647:
+	u1677:
 decfsz	(??_RF24_stopListening+0)+0,f
-	goto	u1647
+	goto	u1677
 asmopt pop
 
 	line	168
 	
-l386:	
+l387:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_stopListening
@@ -5520,29 +5523,29 @@ GLOBAL	__end_of_RF24_stopListening
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_n_register
 ;; This function is called by:
 ;;		_internet_relay
 ;; This function uses a non-reentrant model
 ;;
-psect	text20,local,class=CODE,delta=2,merge=1,group=1
+psect	text19,local,class=CODE,delta=2,merge=1,group=1
 	line	457
-global __ptext20
-__ptext20:	;psect for function _RF24_openWritingPipe
-psect	text20
+global __ptext19
+__ptext19:	;psect for function _RF24_openWritingPipe
+psect	text19
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	457
 	
 _RF24_openWritingPipe:	
 ;incstack = 0
-	callstack 1
+	callstack 0
 ; Regs used in _RF24_openWritingPipe: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	movwf	(RF24_openWritingPipe@address)
 	line	459
 	
-l2587:	
+l2478:	
 	movf	(RF24_openWritingPipe@address),w
 	movwf	(RF24_write_n_register@buffer)
 	movlw	(0x0)
@@ -5555,7 +5558,7 @@ l2587:
 	fcall	_RF24_write_n_register
 	line	460
 	
-l497:	
+l498:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_openWritingPipe
@@ -5595,7 +5598,7 @@ GLOBAL	__end_of_RF24_openWritingPipe
 ;;      Totals:         8       0       0       0       0
 ;;Total ram usage:        8 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
@@ -5603,23 +5606,23 @@ GLOBAL	__end_of_RF24_openWritingPipe
 ;;		_internet_setNetworkPipe
 ;; This function uses a non-reentrant model
 ;;
-psect	text21,local,class=CODE,delta=2,merge=1,group=3
+psect	text20,local,class=CODE,delta=2,merge=1,group=3
 	file	"C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\memcpy.c"
 	line	27
-global __ptext21
-__ptext21:	;psect for function _memcpy
-psect	text21
+global __ptext20
+__ptext20:	;psect for function _memcpy
+psect	text20
 	file	"C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\memcpy.c"
 	line	27
 	
 _memcpy:	
 ;incstack = 0
-	callstack 5
+	callstack 4
 ; Regs used in _memcpy: [wreg-fsr0h+status,2+status,0]
 	movwf	(memcpy@d1)
 	line	34
 	
-l2695:	
+l2596:	
 	movf	(memcpy@s1),w
 	movwf	(??_memcpy+0)+0
 	movf	(??_memcpy+0)+0,w
@@ -5630,10 +5633,10 @@ l2695:
 	movf	(??_memcpy+0)+0,w
 	movwf	(memcpy@d)
 	line	36
-	goto	l1166
+	goto	l1167
 	line	37
 	
-l2697:	
+l2598:	
 	movf	(memcpy@s),w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
@@ -5642,14 +5645,14 @@ l2697:
 	movf	(??_memcpy+0)+0,w
 	movwf	(memcpy@tmp)
 	
-l2699:	
+l2600:	
 	movlw	low(01h)
 	movwf	(??_memcpy+0)+0
 	movf	(??_memcpy+0)+0,w
 	addwf	(memcpy@s),f
 	line	38
 	
-l2701:	
+l2602:	
 	movf	(memcpy@tmp),w
 	movwf	(??_memcpy+0)+0
 	movf	(memcpy@d),w
@@ -5662,7 +5665,7 @@ l2701:
 	addwf	(memcpy@d),f
 	line	39
 	
-l1166:	
+l1167:	
 	line	36
 	movlw	01h
 	subwf	(memcpy@n),f
@@ -5672,17 +5675,17 @@ l1166:
 	subwf	(memcpy@n+1),f
 		incf	(((memcpy@n))),w
 	skipz
-	goto	u1421
+	goto	u1281
 	incf	(((memcpy@n+1))),w
 	btfss	status,2
-	goto	u1421
-	goto	u1420
-u1421:
-	goto	l2697
-u1420:
+	goto	u1281
+	goto	u1280
+u1281:
+	goto	l2598
+u1280:
 	line	41
 	
-l1169:	
+l1170:	
 	return
 	callstack 0
 GLOBAL	__end_of_memcpy
@@ -5715,7 +5718,7 @@ GLOBAL	__end_of_memcpy
 ;;      Totals:         2       1       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_n_register
 ;;		_RF24_write_register
@@ -5723,25 +5726,25 @@ GLOBAL	__end_of_memcpy
 ;;		_internet_process
 ;; This function uses a non-reentrant model
 ;;
-psect	text22,local,class=CODE,delta=2,merge=1,group=1
+psect	text21,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	291
-global __ptext22
-__ptext22:	;psect for function _RF24_read
-psect	text22
+global __ptext21
+__ptext21:	;psect for function _RF24_read
+psect	text21
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	291
 	
 _RF24_read:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_read: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(RF24_read@buf)
 	line	295
 	
-l2801:	
+l2706:	
 	movf	(RF24_read@buf),w
 	movwf	(RF24_read_n_register@buf)
 	movlw	(0x1)
@@ -5754,7 +5757,7 @@ l2801:
 	fcall	_RF24_read_n_register
 	line	297
 	
-l2803:	
+l2708:	
 	movlw	low(040h)
 	movwf	(??_RF24_read+0)+0
 	movf	(??_RF24_read+0)+0,w
@@ -5763,7 +5766,7 @@ l2803:
 	fcall	_RF24_write_register
 	line	298
 	
-l432:	
+l433:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_read
@@ -5796,35 +5799,35 @@ GLOBAL	__end_of_RF24_read
 ;;      Totals:         5       0       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_SPI_exchangeByte
 ;; This function is called by:
 ;;		_RF24_read
 ;; This function uses a non-reentrant model
 ;;
-psect	text23,local,class=CODE,delta=2,merge=1,group=1
+psect	text22,local,class=CODE,delta=2,merge=1,group=1
 	line	7
-global __ptext23
-__ptext23:	;psect for function _RF24_read_n_register
-psect	text23
+global __ptext22
+__ptext22:	;psect for function _RF24_read_n_register
+psect	text22
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	7
 	
 _RF24_read_n_register:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_read_n_register: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 	movwf	(RF24_read_n_register@mnemonic_addr)
 	line	9
 	
-l2749:	
+l2650:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(67/8),(67)&7	;volatile
 	line	10
 	
-l2751:	
+l2652:	
 	movf	(RF24_read_n_register@mnemonic_addr),w
 	fcall	_SPI_exchangeByte
 	movwf	(??_RF24_read_n_register+0)+0
@@ -5833,10 +5836,10 @@ l2751:
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(_RF24_attr_status)
 	line	11
-	goto	l2757
+	goto	l2658
 	line	13
 	
-l2753:	
+l2654:	
 	movlw	low(0FFh)
 	fcall	_SPI_exchangeByte
 	movwf	(??_RF24_read_n_register+0)+0
@@ -5848,7 +5851,7 @@ l2753:
 	movf	(??_RF24_read_n_register+0)+0,w
 	movwf	indf
 	
-l2755:	
+l2656:	
 	movlw	01h
 	addwf	(RF24_read_n_register@buf),f
 	skipnc
@@ -5857,25 +5860,25 @@ l2755:
 	addwf	(RF24_read_n_register@buf+1),f
 	line	11
 	
-l2757:	
+l2658:	
 	movlw	01h
 	subwf	(RF24_read_n_register@len),f
 		incf	(((RF24_read_n_register@len))),w
 	btfss	status,2
-	goto	u1471
-	goto	u1470
-u1471:
-	goto	l2753
-u1470:
+	goto	u1331
+	goto	u1330
+u1331:
+	goto	l2654
+u1330:
 	
-l350:	
+l351:	
 	line	15
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(67/8),(67)&7	;volatile
 	line	16
 	
-l351:	
+l352:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_read_n_register
@@ -5905,7 +5908,7 @@ GLOBAL	__end_of_RF24_read_n_register
 ;;      Totals:         1       2       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 4
+;; Hardware stack levels required when called: 5
 ;; This function calls:
 ;;		_RF24_flush_rx
 ;;		_RF24_read_register
@@ -5913,21 +5916,21 @@ GLOBAL	__end_of_RF24_read_n_register
 ;;		_internet_process
 ;; This function uses a non-reentrant model
 ;;
-psect	text24,local,class=CODE,delta=2,merge=1,group=1
+psect	text23,local,class=CODE,delta=2,merge=1,group=1
 	line	264
-global __ptext24
-__ptext24:	;psect for function _RF24_getDynamicPayloadSize
-psect	text24
+global __ptext23
+__ptext23:	;psect for function _RF24_getDynamicPayloadSize
+psect	text23
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	264
 	
 _RF24_getDynamicPayloadSize:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _RF24_getDynamicPayloadSize: [wreg+status,2+status,0+pclath+cstack]
 	line	266
 	
-l2785:	
+l2690:	
 	movlw	low(060h)
 	fcall	_RF24_read_register
 	bcf	status, 5	;RP0=0, select bank0
@@ -5937,22 +5940,22 @@ l2785:
 	movwf	(RF24_getDynamicPayloadSize@result)
 	line	268
 	
-l2787:	
+l2692:	
 	movlw	low(021h)
 	subwf	(RF24_getDynamicPayloadSize@result),w
 	skipc
-	goto	u1501
-	goto	u1500
-u1501:
-	goto	l2797
-u1500:
+	goto	u1361
+	goto	u1360
+u1361:
+	goto	l2702
+u1360:
 	line	270
 	
-l2789:	
+l2694:	
 	fcall	_RF24_flush_rx
 	line	271
 	
-l2791:	
+l2696:	
 	asmopt push
 asmopt off
 movlw	11
@@ -5961,26 +5964,26 @@ movlw	11
 movwf	((??_RF24_getDynamicPayloadSize+0)+0+1)
 	movlw	97
 movwf	((??_RF24_getDynamicPayloadSize+0)+0)
-	u1657:
+	u1687:
 decfsz	((??_RF24_getDynamicPayloadSize+0)+0),f
-	goto	u1657
+	goto	u1687
 	decfsz	((??_RF24_getDynamicPayloadSize+0)+0+1),f
-	goto	u1657
+	goto	u1687
 	nop2
 asmopt pop
 
 	line	272
 	
-l2793:	
+l2698:	
 	movlw	low(0)
-	goto	l425
+	goto	l426
 	line	274
 	
-l2797:	
+l2702:	
 	movf	(RF24_getDynamicPayloadSize@result),w
 	line	275
 	
-l425:	
+l426:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_getDynamicPayloadSize
@@ -6010,28 +6013,28 @@ GLOBAL	__end_of_RF24_getDynamicPayloadSize
 ;;      Totals:         3       0       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_get_status
 ;; This function is called by:
 ;;		_internet_process
 ;; This function uses a non-reentrant model
 ;;
-psect	text25,local,class=CODE,delta=2,merge=1,group=1
+psect	text24,local,class=CODE,delta=2,merge=1,group=1
 	line	277
-global __ptext25
-__ptext25:	;psect for function _RF24_available
-psect	text25
+global __ptext24
+__ptext24:	;psect for function _RF24_available
+psect	text24
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	277
 	
 _RF24_available:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_available: [wreg+status,2+status,0+pclath+cstack]
 	line	280
 	
-l2825:	
+l2730:	
 	fcall	_RF24_get_status
 	movwf	(??_RF24_available+0)+0
 	clrc
@@ -6042,27 +6045,27 @@ l2825:
 	movwf	(RF24_available@pipe)
 	line	281
 	
-l2827:	
+l2732:	
 	movlw	low(06h)
 	subwf	(RF24_available@pipe),w
 	skipc
-	goto	u1521
-	goto	u1520
-u1521:
-	goto	l2833
-u1520:
+	goto	u1381
+	goto	u1380
+u1381:
+	goto	l2738
+u1380:
 	line	282
 	
-l2829:	
+l2734:	
 	movlw	low(0)
-	goto	l429
+	goto	l430
 	line	288
 	
-l2833:	
+l2738:	
 	movlw	low(01h)
 	line	289
 	
-l429:	
+l430:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_available
@@ -6092,7 +6095,7 @@ GLOBAL	__end_of_RF24_available
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_SPI_exchangeByte
 ;; This function is called by:
@@ -6100,27 +6103,27 @@ GLOBAL	__end_of_RF24_available
 ;;		_RF24_available
 ;; This function uses a non-reentrant model
 ;;
-psect	text26,local,class=CODE,delta=2,merge=1,group=1
+psect	text25,local,class=CODE,delta=2,merge=1,group=1
 	line	51
-global __ptext26
-__ptext26:	;psect for function _RF24_get_status
-psect	text26
+global __ptext25
+__ptext25:	;psect for function _RF24_get_status
+psect	text25
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	51
 	
 _RF24_get_status:	
 ;incstack = 0
-	callstack 1
+	callstack 0
 ; Regs used in _RF24_get_status: [wreg+pclath+cstack]
 	line	53
 	
-l2541:	
+l2442:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(67/8),(67)&7	;volatile
 	line	54
 	
-l2543:	
+l2444:	
 	movlw	low(0FFh)
 	fcall	_SPI_exchangeByte
 	movwf	(??_RF24_get_status+0)+0
@@ -6130,646 +6133,307 @@ l2543:
 	movwf	(_RF24_attr_status)
 	line	55
 	
-l2545:	
+l2446:	
 	bsf	(67/8),(67)&7	;volatile
 	line	56
 	
-l2547:	
+l2448:	
 	movf	(_RF24_attr_status),w
 	line	57
 	
-l366:	
+l367:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_get_status
 	__end_of_RF24_get_status:
 	signat	_RF24_get_status,89
-	global	_Serial_begin
+	global	_checkButton
 
-;; *************** function _Serial_begin *****************
+;; *************** function _checkButton *****************
 ;; Defined at:
-;;		line 2 in file "F:/GitHub/Graduation-Project/Moduls/Switch/libs/Serial.c"
+;;		line 54 in file "F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
 ;; Parameters:    Size  Location     Type
-;;  baudrate        4    6[BANK0 ] const long 
+;;  btn             1    wreg     PTR struct .
+;;		 -> btn1(5), 
+;;  pinState        1   10[COMMON] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  x               2   22[BANK0 ] unsigned int 
+;;  btn             1    6[BANK0 ] PTR struct .
+;;		 -> btn1(5), 
+;;  isPressed       1    5[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      unsigned char 
 ;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       4       0       0       0
-;;      Locals:         0       2       0       0       0
-;;      Temps:          0      12       0       0       0
-;;      Totals:         0      18       0       0       0
-;;Total ram usage:       18 bytes
+;;      Params:         1       0       0       0       0
+;;      Locals:         0       3       0       0       0
+;;      Temps:          0       4       0       0       0
+;;      Totals:         1       7       0       0       0
+;;Total ram usage:        8 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
-;;		___aldiv
+;;		_micros
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text27,local,class=CODE,delta=2,merge=1,group=1
-	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/Serial.c"
-	line	2
-global __ptext27
-__ptext27:	;psect for function _Serial_begin
-psect	text27
-	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/Serial.c"
-	line	2
+psect	text26,local,class=CODE,delta=2,merge=1,group=0
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
+	line	54
+global __ptext26
+__ptext26:	;psect for function _checkButton
+psect	text26
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
+	line	54
 	
-_Serial_begin:	
+_checkButton:	
 ;incstack = 0
-	callstack 5
-; Regs used in _Serial_begin: [wreg+status,2+status,0+pclath+cstack]
-	line	5
-	
-l2321:	
+	callstack 4
+; Regs used in _checkButton: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	movf	(Serial_begin@baudrate),w
-	movwf	(??_Serial_begin+0)+0
-	movf	(Serial_begin@baudrate+1),w
-	movwf	((??_Serial_begin+0)+0+1)
-	movf	(Serial_begin@baudrate+2),w
-	movwf	((??_Serial_begin+0)+0+2)
-	movf	(Serial_begin@baudrate+3),w
-	movwf	((??_Serial_begin+0)+0+3)
-	movlw	06h
-u1115:
-	clrc
-	rlf	(??_Serial_begin+0)+0,f
-	rlf	(??_Serial_begin+0)+1,f
-	rlf	(??_Serial_begin+0)+2,f
-	rlf	(??_Serial_begin+0)+3,f
-u1110:
-	addlw	-1
-	skipz
-	goto	u1115
-	movf	3+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor+3)
-	movf	2+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor+2)
-	movf	1+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor+1)
-	movf	0+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor)
-
-	movf	(Serial_begin@baudrate),w
-	movwf	(??_Serial_begin+4)+0
-	movf	(Serial_begin@baudrate+1),w
-	movwf	((??_Serial_begin+4)+0+1)
-	movf	(Serial_begin@baudrate+2),w
-	movwf	((??_Serial_begin+4)+0+2)
-	movf	(Serial_begin@baudrate+3),w
-	movwf	((??_Serial_begin+4)+0+3)
-	movlw	06h
-u1125:
-	clrc
-	rlf	(??_Serial_begin+4)+0,f
-	rlf	(??_Serial_begin+4)+1,f
-	rlf	(??_Serial_begin+4)+2,f
-	rlf	(??_Serial_begin+4)+3,f
-u1120:
-	addlw	-1
-	skipz
-	goto	u1125
-	movlw	0
-	movwf	((??_Serial_begin+8)+0)
-	movlw	024h
-	movwf	((??_Serial_begin+8)+0+1)
-	movlw	0F4h
-	movwf	((??_Serial_begin+8)+0+2)
-	movlw	0
-	movwf	((??_Serial_begin+8)+0+3)
-	movf	0+(??_Serial_begin+4)+0,w
-	subwf	(??_Serial_begin+8)+0,f
-	movf	1+(??_Serial_begin+4)+0,w
-	skipc
-	incfsz	1+(??_Serial_begin+4)+0,w
-	goto	u1131
-	goto	u1132
-u1131:
-	subwf	(??_Serial_begin+8)+1,f
-u1132:
-	movf	2+(??_Serial_begin+4)+0,w
-	skipc
-	incfsz	2+(??_Serial_begin+4)+0,w
-	goto	u1133
-	goto	u1134
-u1133:
-	subwf	(??_Serial_begin+8)+2,f
-u1134:
-	movf	3+(??_Serial_begin+4)+0,w
-	skipc
-	incfsz	3+(??_Serial_begin+4)+0,w
-	goto	u1135
-	goto	u1136
-u1135:
-	subwf	(??_Serial_begin+8)+3,f
-u1136:
-
-	movf	3+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend+3)
-	movf	2+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend+2)
-	movf	1+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend+1)
-	movf	0+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend)
-
-	fcall	___aldiv
-	movf	(1+(?___aldiv)),w
+	movwf	(checkButton@btn)
+	line	56
+	
+l2824:	
+	clrf	(_checkButton$133)
+	
+l2826:	
+	movf	(checkButton@btn),w
+	addlw	04h
+	movwf	fsr0
+	bcf	status, 7	;select IRP bank0
+	movf	(indf),w
+	btfss	status,2
+	goto	u1491
+	goto	u1490
+u1491:
+	goto	l2834
+u1490:
+	
+l2828:	
+	movf	((checkButton@pinState)),w
+	btfsc	status,2
+	goto	u1501
+	goto	u1500
+u1501:
+	goto	l2834
+u1500:
+	
+l2830:	
+	fcall	_micros
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	movwf	(Serial_begin@x+1)
-	movf	(0+(?___aldiv)),w
-	movwf	(Serial_begin@x)
-	line	6
-	
-l2323:	
-	movlw	01h
-	subwf	(Serial_begin@x+1),w
-	movlw	0
-	skipnz
-	subwf	(Serial_begin@x),w
-	skipc
-	goto	u1141
-	goto	u1140
-u1141:
-	goto	l2329
-u1140:
-	line	8
-	
-l2325:	
-	movf	(Serial_begin@baudrate),w
-	movwf	(??_Serial_begin+0)+0
-	movf	(Serial_begin@baudrate+1),w
-	movwf	((??_Serial_begin+0)+0+1)
-	movf	(Serial_begin@baudrate+2),w
-	movwf	((??_Serial_begin+0)+0+2)
-	movf	(Serial_begin@baudrate+3),w
-	movwf	((??_Serial_begin+0)+0+3)
-	movlw	04h
-u1155:
-	clrc
-	rlf	(??_Serial_begin+0)+0,f
-	rlf	(??_Serial_begin+0)+1,f
-	rlf	(??_Serial_begin+0)+2,f
-	rlf	(??_Serial_begin+0)+3,f
-u1150:
-	addlw	-1
+	movf	(checkButton@btn),w
+	movwf	fsr0
+	bcf	status, 7	;select IRP bank0
+	movf	indf,w
+	movwf	(??_checkButton+0)+0+0
+	incf	fsr0,f
+	movf	indf,w
+	movwf	(??_checkButton+0)+0+1
+	incf	fsr0,f
+	movf	indf,w
+	movwf	(??_checkButton+0)+0+2
+	incf	fsr0,f
+	movf	indf,w
+	movwf	(??_checkButton+0)+0+3
+	movf	(3+(?_micros)),w
+	subwf	3+(??_checkButton+0)+0,w
 	skipz
-	goto	u1155
-	movf	3+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor+3)
-	movf	2+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor+2)
-	movf	1+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor+1)
-	movf	0+(??_Serial_begin+0)+0,w
-	movwf	(___aldiv@divisor)
-
-	movf	(Serial_begin@baudrate),w
-	movwf	(??_Serial_begin+4)+0
-	movf	(Serial_begin@baudrate+1),w
-	movwf	((??_Serial_begin+4)+0+1)
-	movf	(Serial_begin@baudrate+2),w
-	movwf	((??_Serial_begin+4)+0+2)
-	movf	(Serial_begin@baudrate+3),w
-	movwf	((??_Serial_begin+4)+0+3)
-	movlw	04h
-u1165:
-	clrc
-	rlf	(??_Serial_begin+4)+0,f
-	rlf	(??_Serial_begin+4)+1,f
-	rlf	(??_Serial_begin+4)+2,f
-	rlf	(??_Serial_begin+4)+3,f
-u1160:
-	addlw	-1
+	goto	u1515
+	movf	(2+(?_micros)),w
+	subwf	2+(??_checkButton+0)+0,w
 	skipz
-	goto	u1165
-	movlw	0
-	movwf	((??_Serial_begin+8)+0)
-	movlw	024h
-	movwf	((??_Serial_begin+8)+0+1)
-	movlw	0F4h
-	movwf	((??_Serial_begin+8)+0+2)
-	movlw	0
-	movwf	((??_Serial_begin+8)+0+3)
-	movf	0+(??_Serial_begin+4)+0,w
-	subwf	(??_Serial_begin+8)+0,f
-	movf	1+(??_Serial_begin+4)+0,w
-	skipc
-	incfsz	1+(??_Serial_begin+4)+0,w
-	goto	u1171
-	goto	u1172
-u1171:
-	subwf	(??_Serial_begin+8)+1,f
-u1172:
-	movf	2+(??_Serial_begin+4)+0,w
-	skipc
-	incfsz	2+(??_Serial_begin+4)+0,w
-	goto	u1173
-	goto	u1174
-u1173:
-	subwf	(??_Serial_begin+8)+2,f
-u1174:
-	movf	3+(??_Serial_begin+4)+0,w
-	skipc
-	incfsz	3+(??_Serial_begin+4)+0,w
-	goto	u1175
-	goto	u1176
-u1175:
-	subwf	(??_Serial_begin+8)+3,f
-u1176:
-
-	movf	3+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend+3)
-	movf	2+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend+2)
-	movf	1+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend+1)
-	movf	0+(??_Serial_begin+8)+0,w
-	movwf	(___aldiv@dividend)
-
-	fcall	___aldiv
-	movf	(1+(?___aldiv)),w
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(Serial_begin@x+1)
-	movf	(0+(?___aldiv)),w
-	movwf	(Serial_begin@x)
-	line	9
-	
-l2327:	
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	bsf	(1218/8)^080h,(1218)&7	;volatile
-	line	11
-	
-l2329:	
-	movlw	01h
-	bcf	status, 5	;RP0=0, select bank0
-	subwf	(Serial_begin@x+1),w
-	movlw	0
-	skipnz
-	subwf	(Serial_begin@x),w
+	goto	u1515
+	movf	(1+(?_micros)),w
+	subwf	1+(??_checkButton+0)+0,w
+	skipz
+	goto	u1515
+	movf	(0+(?_micros)),w
+	subwf	0+(??_checkButton+0)+0,w
+u1515:
 	skipnc
-	goto	u1181
-	goto	u1180
-u1181:
-	goto	l644
-u1180:
-	line	13
+	goto	u1511
+	goto	u1510
+u1511:
+	goto	l2834
+u1510:
 	
-l2331:	
-	movf	(Serial_begin@x),w
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movwf	(153)^080h	;volatile
-	line	14
+l2832:	
+	clrf	(_checkButton$133)
+	incf	(_checkButton$133),f
 	
-l2333:	
-	bcf	(1220/8)^080h,(1220)&7	;volatile
-	line	15
+l2834:	
+	movf	(_checkButton$133),w
+	movwf	(??_checkButton+0)+0
+	movf	(??_checkButton+0)+0,w
+	movwf	(checkButton@isPressed)
+	line	57
 	
-l2335:	
+l2836:	
+	movf	((checkButton@isPressed)),w
+	btfsc	status,2
+	goto	u1521
+	goto	u1520
+u1521:
+	goto	l2840
+u1520:
+	line	59
+	
+l2838:	
+	movlw	0E8h
+	movwf	((??_checkButton+0)+0)
+	movlw	03h
+	movwf	((??_checkButton+0)+0+1)
+	movlw	0
+	movwf	((??_checkButton+0)+0+2)
+	movlw	0
+	movwf	((??_checkButton+0)+0+3)
+	fcall	_micros
+	movf	(0+(?_micros)),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bsf	(199/8),(199)&7	;volatile
-	line	16
+	addwf	(??_checkButton+0)+0,f
+	movf	(1+(?_micros)),w
+	skipnc
+	incfsz	(1+(?_micros)),w
+	goto	u1530
+	goto	u1531
+u1530:
+	addwf	(??_checkButton+0)+1,f
+u1531:
+	movf	(2+(?_micros)),w
+	skipnc
+	incfsz	(2+(?_micros)),w
+	goto	u1532
+	goto	u1533
+u1532:
+	addwf	(??_checkButton+0)+2,f
+u1533:
+	movf	(3+(?_micros)),w
+	skipnc
+	incf	(3+(?_micros)),w
+	addwf	(??_checkButton+0)+3,f
+	movf	(checkButton@btn),w
+	movwf	fsr0
+	movf	0+(??_checkButton+0)+0,w
+	bcf	status, 7	;select IRP bank0
+	movwf	indf
+	incf	fsr0,f
+	movf	1+(??_checkButton+0)+0,w
+	movwf	indf
+	incf	fsr0,f
+	movf	2+(??_checkButton+0)+0,w
+	movwf	indf
+	incf	fsr0,f
+	movf	3+(??_checkButton+0)+0,w
+	movwf	indf
+	line	61
 	
-l2337:	
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	bsf	(1087/8)^080h,(1087)&7	;volatile
-	line	17
+l2840:	
+	movf	(checkButton@pinState),w
+	movwf	(??_checkButton+0)+0
+	movf	(checkButton@btn),w
+	addlw	04h
+	movwf	fsr0
+	movf	(??_checkButton+0)+0,w
+	movwf	indf
+	line	62
 	
-l2339:	
-	bsf	(1086/8)^080h,(1086)&7	;volatile
-	line	18
+l2842:	
+	movf	(checkButton@isPressed),w
+	line	63
 	
-l2341:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(196/8),(196)&7	;volatile
-	line	19
-	
-l2343:	
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	bsf	(1221/8)^080h,(1221)&7	;volatile
-	line	23
-	
-l644:	
+l60:	
 	return
 	callstack 0
-GLOBAL	__end_of_Serial_begin
-	__end_of_Serial_begin:
-	signat	_Serial_begin,4217
-	global	___aldiv
+GLOBAL	__end_of_checkButton
+	__end_of_checkButton:
+	signat	_checkButton,8313
+	global	_micros
 
-;; *************** function ___aldiv *****************
+;; *************** function _micros *****************
 ;; Defined at:
-;;		line 5 in file "C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\aldiv.c"
+;;		line 30 in file "F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
 ;; Parameters:    Size  Location     Type
-;;  divisor         4    2[COMMON] long 
-;;  dividend        4    6[COMMON] long 
+;;		None
 ;; Auto vars:     Size  Location     Type
-;;  quotient        4    2[BANK0 ] long 
-;;  sign            1    1[BANK0 ] unsigned char 
-;;  counter         1    0[BANK0 ] unsigned char 
+;;		None
 ;; Return value:  Size  Location     Type
-;;                  4    2[COMMON] long 
+;;                  4    2[COMMON] unsigned long 
 ;; Registers used:
-;;		wreg, status,2, status,0
+;;		wreg
 ;; Tracked objects:
 ;;		On entry : 0/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         8       0       0       0       0
-;;      Locals:         0       6       0       0       0
-;;      Temps:          1       0       0       0       0
-;;      Totals:         9       6       0       0       0
-;;Total ram usage:       15 bytes
+;;      Params:         4       0       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          4       0       0       0       0
+;;      Totals:         8       0       0       0       0
+;;Total ram usage:        8 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
-;;		_Serial_begin
+;;		_checkButton
+;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text28,local,class=CODE,delta=2,merge=1,group=2
-	file	"C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\aldiv.c"
-	line	5
-global __ptext28
-__ptext28:	;psect for function ___aldiv
-psect	text28
-	file	"C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\aldiv.c"
-	line	5
-	
-___aldiv:	
-;incstack = 0
-	callstack 5
-; Regs used in ___aldiv: [wreg+status,2+status,0]
-	line	13
-	
-l2279:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(___aldiv@sign)
-	line	14
-	
-l2281:	
-	btfss	(___aldiv@divisor+3),7
-	goto	u1011
-	goto	u1010
-u1011:
-	goto	l780
-u1010:
-	line	15
-	
-l2283:	
-	comf	(___aldiv@divisor),f
-	comf	(___aldiv@divisor+1),f
-	comf	(___aldiv@divisor+2),f
-	comf	(___aldiv@divisor+3),f
-	incf	(___aldiv@divisor),f
-	skipnz
-	incf	(___aldiv@divisor+1),f
-	skipnz
-	incf	(___aldiv@divisor+2),f
-	skipnz
-	incf	(___aldiv@divisor+3),f
-	line	16
-	clrf	(___aldiv@sign)
-	incf	(___aldiv@sign),f
-	line	17
-	
-l780:	
-	line	18
-	btfss	(___aldiv@dividend+3),7
-	goto	u1021
-	goto	u1020
-u1021:
-	goto	l2289
-u1020:
-	line	19
-	
-l2285:	
-	comf	(___aldiv@dividend),f
-	comf	(___aldiv@dividend+1),f
-	comf	(___aldiv@dividend+2),f
-	comf	(___aldiv@dividend+3),f
-	incf	(___aldiv@dividend),f
-	skipnz
-	incf	(___aldiv@dividend+1),f
-	skipnz
-	incf	(___aldiv@dividend+2),f
-	skipnz
-	incf	(___aldiv@dividend+3),f
-	line	20
-	
-l2287:	
-	movlw	low(01h)
-	movwf	(??___aldiv+0)+0
-	movf	(??___aldiv+0)+0,w
-	xorwf	(___aldiv@sign),f
-	line	22
-	
-l2289:	
-	movlw	high highword(0)
-	movwf	(___aldiv@quotient+3)
-	movlw	low highword(0)
-	movwf	(___aldiv@quotient+2)
-	movlw	high(0)
-	movwf	(___aldiv@quotient+1)
-	movlw	low(0)
-	movwf	(___aldiv@quotient)
-
-	line	23
-	
-l2291:	
-	movf	(___aldiv@divisor+3),w
-	iorwf	(___aldiv@divisor+2),w
-	iorwf	(___aldiv@divisor+1),w
-	iorwf	(___aldiv@divisor),w
-	skipnz
-	goto	u1031
-	goto	u1030
-u1031:
-	goto	l2311
-u1030:
-	line	24
-	
-l2293:	
-	clrf	(___aldiv@counter)
-	incf	(___aldiv@counter),f
-	line	25
-	goto	l2297
-	line	26
-	
-l2295:	
-	movlw	01h
-	movwf	(??___aldiv+0)+0
-u1045:
-	clrc
-	rlf	(___aldiv@divisor),f
-	rlf	(___aldiv@divisor+1),f
-	rlf	(___aldiv@divisor+2),f
-	rlf	(___aldiv@divisor+3),f
-	decfsz	(??___aldiv+0)+0
-	goto	u1045
-	line	27
-	movlw	low(01h)
-	movwf	(??___aldiv+0)+0
-	movf	(??___aldiv+0)+0,w
-	addwf	(___aldiv@counter),f
-	line	25
-	
-l2297:	
-	btfss	(___aldiv@divisor+3),(31)&7
-	goto	u1051
-	goto	u1050
-u1051:
-	goto	l2295
-u1050:
+psect	text27,local,class=CODE,delta=2,merge=1,inline,group=1
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
+	line	30
+global __ptext27
+__ptext27:	;psect for function _micros
+psect	text27
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
 	line	30
 	
-l2299:	
-	movlw	01h
-	movwf	(??___aldiv+0)+0
-u1065:
-	clrc
-	rlf	(___aldiv@quotient),f
-	rlf	(___aldiv@quotient+1),f
-	rlf	(___aldiv@quotient+2),f
-	rlf	(___aldiv@quotient+3),f
-	decfsz	(??___aldiv+0)+0
-	goto	u1065
-	line	31
-	
-l2301:	
-	movf	(___aldiv@divisor+3),w
-	subwf	(___aldiv@dividend+3),w
-	skipz
-	goto	u1075
-	movf	(___aldiv@divisor+2),w
-	subwf	(___aldiv@dividend+2),w
-	skipz
-	goto	u1075
-	movf	(___aldiv@divisor+1),w
-	subwf	(___aldiv@dividend+1),w
-	skipz
-	goto	u1075
-	movf	(___aldiv@divisor),w
-	subwf	(___aldiv@dividend),w
-u1075:
-	skipc
-	goto	u1071
-	goto	u1070
-u1071:
-	goto	l2307
-u1070:
+_micros:	
+;incstack = 0
+	callstack 5
+; Regs used in _micros: [wreg]
 	line	32
 	
-l2303:	
-	movf	(___aldiv@divisor),w
-	subwf	(___aldiv@dividend),f
-	movf	(___aldiv@divisor+1),w
-	skipc
-	incfsz	(___aldiv@divisor+1),w
-	subwf	(___aldiv@dividend+1),f
-	movf	(___aldiv@divisor+2),w
-	skipc
-	incfsz	(___aldiv@divisor+2),w
-	subwf	(___aldiv@dividend+2),f
-	movf	(___aldiv@divisor+3),w
-	skipc
-	incfsz	(___aldiv@divisor+3),w
-	subwf	(___aldiv@dividend+3),f
+l2680:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(14),w	;volatile
+	movwf	((??_micros+0)+0)
+	movf	(14+1),w	;volatile
+	movwf	((??_micros+0)+0+1)
+	clrf	((??_micros+0)+0+2)
+	clrf	((??_micros+0)+0+3)
+	movf	(__microsMSB),w
+	iorwf	0+(??_micros+0)+0,w
+	movwf	(?_micros)
+	movf	(__microsMSB+1),w
+	iorwf	1+(??_micros+0)+0,w
+	movwf	1+(?_micros)
+	
+	movf	(__microsMSB+2),w
+	iorwf	2+(??_micros+0)+0,w
+	movwf	2+(?_micros)
+	
+	movf	(__microsMSB+3),w
+	iorwf	3+(??_micros+0)+0,w
+	movwf	3+(?_micros)
 	line	33
 	
-l2305:	
-	bsf	(___aldiv@quotient)+(0/8),(0)&7
-	line	35
-	
-l2307:	
-	movlw	01h
-u1085:
-	clrc
-	rrf	(___aldiv@divisor+3),f
-	rrf	(___aldiv@divisor+2),f
-	rrf	(___aldiv@divisor+1),f
-	rrf	(___aldiv@divisor),f
-	addlw	-1
-	skipz
-	goto	u1085
-
-	line	36
-	
-l2309:	
-	movlw	01h
-	subwf	(___aldiv@counter),f
-	btfss	status,2
-	goto	u1091
-	goto	u1090
-u1091:
-	goto	l2299
-u1090:
-	line	38
-	
-l2311:	
-	movf	((___aldiv@sign)),w
-	btfsc	status,2
-	goto	u1101
-	goto	u1100
-u1101:
-	goto	l2315
-u1100:
-	line	39
-	
-l2313:	
-	comf	(___aldiv@quotient),f
-	comf	(___aldiv@quotient+1),f
-	comf	(___aldiv@quotient+2),f
-	comf	(___aldiv@quotient+3),f
-	incf	(___aldiv@quotient),f
-	skipnz
-	incf	(___aldiv@quotient+1),f
-	skipnz
-	incf	(___aldiv@quotient+2),f
-	skipnz
-	incf	(___aldiv@quotient+3),f
-	line	40
-	
-l2315:	
-	movf	(___aldiv@quotient+3),w
-	movwf	(?___aldiv+3)
-	movf	(___aldiv@quotient+2),w
-	movwf	(?___aldiv+2)
-	movf	(___aldiv@quotient+1),w
-	movwf	(?___aldiv+1)
-	movf	(___aldiv@quotient),w
-	movwf	(?___aldiv)
-
-	line	41
-	
-l790:	
+l575:	
 	return
 	callstack 0
-GLOBAL	__end_of___aldiv
-	__end_of___aldiv:
-	signat	___aldiv,8316
+GLOBAL	__end_of_micros
+	__end_of_micros:
+	signat	_micros,92
 	global	_SPI_initialize
 
 ;; *************** function _SPI_initialize *****************
@@ -6794,54 +6458,54 @@ GLOBAL	__end_of___aldiv
 ;;      Totals:         0       0       0       0       0
 ;;Total ram usage:        0 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text29,local,class=CODE,delta=2,merge=1,group=1
+psect	text28,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.c"
 	line	3
-global __ptext29
-__ptext29:	;psect for function _SPI_initialize
-psect	text29
+global __ptext28
+__ptext28:	;psect for function _SPI_initialize
+psect	text28
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.c"
 	line	3
 	
 _SPI_initialize:	
 ;incstack = 0
-	callstack 6
+	callstack 5
 ; Regs used in _SPI_initialize: [wreg+status,2]
 	line	5
 	
-l2347:	
+l2848:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(165/8),(165)&7	;volatile
 	line	6
 	
-l2349:	
+l2850:	
 	movlw	low(040h)
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(148)^080h	;volatile
 	line	7
 	
-l2351:	
+l2852:	
 	bcf	(1085/8)^080h,(1085)&7	;volatile
 	line	8
 	
-l2353:	
+l2854:	
 	bsf	(1084/8)^080h,(1084)&7	;volatile
 	line	9
 	
-l2355:	
+l2856:	
 	bcf	(1083/8)^080h,(1083)&7	;volatile
 	line	10
 	
-l2357:	
+l2858:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(20),w	;volatile
@@ -6850,7 +6514,7 @@ l2357:
 	movwf	(20)	;volatile
 	line	11
 	
-l535:	
+l536:	
 	return
 	callstack 0
 GLOBAL	__end_of_SPI_initialize
@@ -6880,29 +6544,29 @@ GLOBAL	__end_of_SPI_initialize
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text30,local,class=CODE,delta=2,merge=1,group=1
+psect	text29,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	129
-global __ptext30
-__ptext30:	;psect for function _RF24_isChipConnected
-psect	text30
+global __ptext29
+__ptext29:	;psect for function _RF24_isChipConnected
+psect	text29
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	129
 	
 _RF24_isChipConnected:	
 ;incstack = 0
-	callstack 4
+	callstack 3
 ; Regs used in _RF24_isChipConnected: [wreg+status,2+status,0+pclath+cstack]
 	line	131
 	
-l2925:	
+l2886:	
 	movlw	low(03h)
 	fcall	_RF24_read_register
 	andlw	03h
@@ -6911,36 +6575,36 @@ l2925:
 	movwf	(RF24_isChipConnected@width)
 	line	132
 	
-l2927:	
+l2888:	
 	movf	((RF24_isChipConnected@width)),w
 	btfsc	status,2
-	goto	u1581
-	goto	u1580
-u1581:
-	goto	l2935
-u1580:
+	goto	u1561
+	goto	u1560
+u1561:
+	goto	l2896
+u1560:
 	
-l2929:	
+l2890:	
 	movlw	low(04h)
 	subwf	(RF24_isChipConnected@width),w
 	skipnc
-	goto	u1591
-	goto	u1590
-u1591:
-	goto	l2935
-u1590:
+	goto	u1571
+	goto	u1570
+u1571:
+	goto	l2896
+u1570:
 	line	134
 	
-l2931:	
+l2892:	
 	movlw	low(01h)
-	goto	l380
+	goto	l381
 	line	136
 	
-l2935:	
+l2896:	
 	movlw	low(0)
 	line	137
 	
-l380:	
+l381:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_isChipConnected
@@ -6970,7 +6634,7 @@ GLOBAL	__end_of_RF24_isChipConnected
 ;;      Totals:         0       1       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 5
+;; Hardware stack levels required when called: 6
 ;; This function calls:
 ;;		_RF24_begin
 ;;		_RF24_enableDynamicPayloads
@@ -6986,22 +6650,22 @@ GLOBAL	__end_of_RF24_isChipConnected
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text31,local,class=CODE,delta=2,merge=1,group=1
+psect	text30,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	138
-global __ptext31
-__ptext31:	;psect for function _Network_begin
-psect	text31
+global __ptext30
+__ptext30:	;psect for function _Network_begin
+psect	text30
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c"
 	line	138
 	
 _Network_begin:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _Network_begin: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	141
 	
-l2899:	
+l2860:	
 	fcall	_RF24_begin
 	line	142
 	movlw	low(05h)
@@ -7016,7 +6680,7 @@ l2899:
 	fcall	_RF24_setCRCLength
 	line	146
 	
-l2901:	
+l2862:	
 	movlw	(low((((_BASE_PIPE)-__stringbase)|8000h)))&0ffh
 	movwf	(RF24_openReadingPipe@address)
 	movlw	80h
@@ -7025,12 +6689,12 @@ l2901:
 	fcall	_RF24_openReadingPipe
 	line	147
 	
-l2903:	
+l2864:	
 	movlw	low(01h)
 	fcall	_RF24_setAutoAck
 	line	148
 	
-l2905:	
+l2866:	
 	movlw	low(03h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7040,16 +6704,16 @@ l2905:
 	fcall	_RF24_getPALevel
 	line	149
 	
-l2907:	
+l2868:	
 	movlw	low(020h)
 	fcall	_RF24_setPayloadSize
 	line	150
 	
-l2909:	
+l2870:	
 	fcall	_RF24_startListening
 	line	151
 	
-l284:	
+l285:	
 	return
 	callstack 0
 GLOBAL	__end_of_Network_begin
@@ -7079,7 +6743,7 @@ GLOBAL	__end_of_Network_begin
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_register
@@ -7088,22 +6752,22 @@ GLOBAL	__end_of_Network_begin
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text32,local,class=CODE,delta=2,merge=1,group=1
+psect	text31,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	139
-global __ptext32
-__ptext32:	;psect for function _RF24_startListening
-psect	text32
+global __ptext31
+__ptext31:	;psect for function _RF24_startListening
+psect	text31
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	139
 	
 _RF24_startListening:	
 ;incstack = 0
-	callstack 1
+	callstack 0
 ; Regs used in _RF24_startListening: [wreg+status,2+status,0+pclath+cstack]
 	line	141
 	
-l2615:	
+l2516:	
 	movlw	low(0)
 	fcall	_RF24_read_register
 	iorlw	01h
@@ -7121,13 +6785,13 @@ l2615:
 	fcall	_RF24_write_register
 	line	143
 	
-l2617:	
+l2518:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(66/8),(66)&7	;volatile
 	line	154
 	
-l383:	
+l384:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_startListening
@@ -7157,29 +6821,29 @@ GLOBAL	__end_of_RF24_startListening
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text33,local,class=CODE,delta=2,merge=1,group=1
+psect	text32,local,class=CODE,delta=2,merge=1,group=1
 	line	411
-global __ptext33
-__ptext33:	;psect for function _RF24_setCRCLength
-psect	text33
+global __ptext32
+__ptext32:	;psect for function _RF24_setCRCLength
+psect	text32
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	411
 	
 _RF24_setCRCLength:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_setCRCLength: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_setCRCLength@length)
 	line	413
 	
-l2877:	
+l2782:	
 	movf	(_RF24_attr_config),w
 	andlw	0F3h
 	movwf	(??_RF24_setCRCLength+0)+0
@@ -7187,41 +6851,41 @@ l2877:
 	movwf	(_RF24_attr_config)
 	line	416
 	
-l2879:	
+l2784:	
 	movf	((RF24_setCRCLength@length)),w
 	btfss	status,2
-	goto	u1531
-	goto	u1530
-u1531:
-	goto	l2883
-u1530:
-	goto	l2887
+	goto	u1391
+	goto	u1390
+u1391:
+	goto	l2788
+u1390:
+	goto	l2792
 	line	420
 	
-l2883:	
+l2788:	
 		decf	((RF24_setCRCLength@length)),w
 	btfss	status,2
-	goto	u1541
-	goto	u1540
-u1541:
-	goto	l474
-u1540:
+	goto	u1401
+	goto	u1400
+u1401:
+	goto	l475
+u1400:
 	line	422
 	
-l2885:	
+l2790:	
 	bsf	(_RF24_attr_config)+(3/8),(3)&7
 	line	423
-	goto	l2887
+	goto	l2792
 	line	424
 	
-l474:	
+l475:	
 	line	426
 	bsf	(_RF24_attr_config)+(3/8),(3)&7
 	line	427
 	bsf	(_RF24_attr_config)+(2/8),(2)&7
 	line	429
 	
-l2887:	
+l2792:	
 	movf	(_RF24_attr_config),w
 	movwf	(??_RF24_setCRCLength+0)+0
 	movf	(??_RF24_setCRCLength+0)+0,w
@@ -7230,7 +6894,7 @@ l2887:
 	fcall	_RF24_write_register
 	line	430
 	
-l476:	
+l477:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setCRCLength
@@ -7260,39 +6924,39 @@ GLOBAL	__end_of_RF24_setCRCLength
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text34,local,class=CODE,delta=2,merge=1,group=1
+psect	text33,local,class=CODE,delta=2,merge=1,group=1
 	line	342
-global __ptext34
-__ptext34:	;psect for function _RF24_setAutoAck
-psect	text34
+global __ptext33
+__ptext33:	;psect for function _RF24_setAutoAck
+psect	text33
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	342
 	
 _RF24_setAutoAck:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_setAutoAck: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_setAutoAck@enable)
 	line	344
 	
-l2889:	
+l2794:	
 	movf	((RF24_setAutoAck@enable)),w
 	btfsc	status,2
-	goto	u1551
-	goto	u1550
-u1551:
-	goto	l2893
-u1550:
+	goto	u1411
+	goto	u1410
+u1411:
+	goto	l2798
+u1410:
 	line	346
 	
-l2891:	
+l2796:	
 	movlw	low(03Fh)
 	movwf	(??_RF24_setAutoAck+0)+0
 	movf	(??_RF24_setAutoAck+0)+0,w
@@ -7300,16 +6964,16 @@ l2891:
 	movlw	low(01h)
 	fcall	_RF24_write_register
 	line	347
-	goto	l451
+	goto	l452
 	line	350
 	
-l2893:	
+l2798:	
 	clrf	(RF24_write_register@value)
 	movlw	low(01h)
 	fcall	_RF24_write_register
 	line	352
 	
-l451:	
+l452:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setAutoAck
@@ -7341,7 +7005,7 @@ GLOBAL	__end_of_RF24_setAutoAck
 ;;      Totals:         2       3       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_n_register
@@ -7352,16 +7016,17 @@ GLOBAL	__end_of_RF24_setAutoAck
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text35,local,class=CODE,delta=2,merge=1,group=1
+psect	text34,local,class=CODE,delta=2,merge=1,group=1
 	line	312
-global __ptext35
-__ptext35:	;psect for function _RF24_openReadingPipe
-psect	text35
+global __ptext34
+__ptext34:	;psect for function _RF24_openReadingPipe
+psect	text34
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	312
 	
 _RF24_openReadingPipe:	
 ;incstack = 0
+;; using string table level
 	callstack 1
 ; Regs used in _RF24_openReadingPipe: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
@@ -7369,18 +7034,18 @@ _RF24_openReadingPipe:
 	movwf	(RF24_openReadingPipe@child)
 	line	314
 	
-l2563:	
+l2454:	
 	movlw	low(02h)
 	subwf	(RF24_openReadingPipe@child),w
 	skipnc
-	goto	u1301
-	goto	u1300
-u1301:
-	goto	l2567
-u1300:
+	goto	u1141
+	goto	u1140
+u1141:
+	goto	l2458
+u1140:
 	line	316
 	
-l2565:	
+l2456:	
 		movf	(RF24_openReadingPipe@address),w
 	movwf	(RF24_write_n_register@buffer)
 movf	(RF24_openReadingPipe@address+1),w
@@ -7394,10 +7059,10 @@ movwf	(RF24_write_n_register@buffer+1)
 	addlw	0Ah
 	fcall	_RF24_write_n_register
 	line	317
-	goto	l2569
+	goto	l2460
 	line	320
 	
-l2567:	
+l2458:	
 	movf	(RF24_openReadingPipe@address+1),w
 	movwf	btemp+1
 	movf	(RF24_openReadingPipe@address),w
@@ -7411,20 +7076,20 @@ l2567:
 	fcall	_RF24_write_register
 	line	322
 	
-l2569:	
+l2460:	
 	movlw	low(01h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(??_RF24_openReadingPipe+0)+0
 	incf	(RF24_openReadingPipe@child),w
-	goto	u1314
-u1315:
+	goto	u1154
+u1155:
 	clrc
 	rlf	(??_RF24_openReadingPipe+0)+0,f
-u1314:
+u1154:
 	addlw	-1
 	skipz
-	goto	u1315
+	goto	u1155
 	movlw	low(02h)
 	fcall	_RF24_read_register
 	bcf	status, 5	;RP0=0, select bank0
@@ -7437,7 +7102,7 @@ u1314:
 	fcall	_RF24_write_register
 	line	323
 	
-l437:	
+l438:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_openReadingPipe
@@ -7470,7 +7135,7 @@ GLOBAL	__end_of_RF24_openReadingPipe
 ;;      Totals:         5       0       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_SPI_exchangeByte
 ;; This function is called by:
@@ -7478,28 +7143,29 @@ GLOBAL	__end_of_RF24_openReadingPipe
 ;;		_RF24_openWritingPipe
 ;; This function uses a non-reentrant model
 ;;
-psect	text36,local,class=CODE,delta=2,merge=1,group=1
+psect	text35,local,class=CODE,delta=2,merge=1,group=1
 	line	29
-global __ptext36
-__ptext36:	;psect for function _RF24_write_n_register
-psect	text36
+global __ptext35
+__ptext35:	;psect for function _RF24_write_n_register
+psect	text35
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	29
 	
 _RF24_write_n_register:	
 ;incstack = 0
+;; using string table level
 	callstack 1
 ; Regs used in _RF24_write_n_register: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	movwf	(RF24_write_n_register@mnemonic_addr)
 	line	31
 	
-l2529:	
+l2430:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(67/8),(67)&7	;volatile
 	line	32
 	
-l2531:	
+l2432:	
 	movf	(RF24_write_n_register@mnemonic_addr),w
 	iorlw	020h
 	fcall	_SPI_exchangeByte
@@ -7509,10 +7175,10 @@ l2531:
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(_RF24_attr_status)
 	line	33
-	goto	l2539
+	goto	l2440
 	line	35
 	
-l2533:	
+l2434:	
 	movf	(RF24_write_n_register@buffer+1),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7522,7 +7188,7 @@ l2533:
 	fcall	stringtab
 	fcall	_SPI_exchangeByte
 	
-l2535:	
+l2436:	
 	movlw	01h
 	addwf	(RF24_write_n_register@buffer),f
 	skipnc
@@ -7531,28 +7197,28 @@ l2535:
 	addwf	(RF24_write_n_register@buffer+1),f
 	line	36
 	
-l2537:	
+l2438:	
 	movlw	01h
 	subwf	(RF24_write_n_register@length),f
 	line	33
 	
-l2539:	
+l2440:	
 	movf	((RF24_write_n_register@length)),w
 	btfss	status,2
-	goto	u1271
-	goto	u1270
-u1271:
-	goto	l2533
-u1270:
+	goto	u1131
+	goto	u1130
+u1131:
+	goto	l2434
+u1130:
 	
-l359:	
+l360:	
 	line	38
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(67/8),(67)&7	;volatile
 	line	39
 	
-l360:	
+l361:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_write_n_register
@@ -7582,34 +7248,34 @@ GLOBAL	__end_of_RF24_write_n_register
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;; This function is called by:
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text37,local,class=CODE,delta=2,merge=1,group=1
+psect	text36,local,class=CODE,delta=2,merge=1,group=1
 	line	465
-global __ptext37
-__ptext37:	;psect for function _RF24_getPALevel
-psect	text37
+global __ptext36
+__ptext36:	;psect for function _RF24_getPALevel
+psect	text36
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	465
 	
 _RF24_getPALevel:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_getPALevel: [wreg+status,2+status,0+pclath+cstack]
 	line	467
 	
-l2895:	
+l2800:	
 ;	Return value of _RF24_getPALevel is never used
 	movlw	low(06h)
 	fcall	_RF24_read_register
 	line	468
 	
-l503:	
+l504:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_getPALevel
@@ -7639,7 +7305,7 @@ GLOBAL	__end_of_RF24_getPALevel
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_register
@@ -7647,21 +7313,21 @@ GLOBAL	__end_of_RF24_getPALevel
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text38,local,class=CODE,delta=2,merge=1,group=1
+psect	text37,local,class=CODE,delta=2,merge=1,group=1
 	line	330
-global __ptext38
-__ptext38:	;psect for function _RF24_enableDynamicPayloads
-psect	text38
+global __ptext37
+__ptext37:	;psect for function _RF24_enableDynamicPayloads
+psect	text37
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	330
 	
 _RF24_enableDynamicPayloads:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_enableDynamicPayloads: [wreg+status,2+status,0+pclath+cstack]
 	line	332
 	
-l2875:	
+l2780:	
 	movlw	low(01Dh)
 	fcall	_RF24_read_register
 	iorlw	04h
@@ -7681,7 +7347,7 @@ l2875:
 	fcall	_RF24_write_register
 	line	334
 	
-l443:	
+l444:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_enableDynamicPayloads
@@ -7711,7 +7377,7 @@ GLOBAL	__end_of_RF24_enableDynamicPayloads
 ;;      Totals:         0       3       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 4
+;; Hardware stack levels required when called: 5
 ;; This function calls:
 ;;		_RF24_flush_rx
 ;;		_RF24_flush_tx
@@ -7728,21 +7394,21 @@ GLOBAL	__end_of_RF24_enableDynamicPayloads
 ;;		_Network_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text39,local,class=CODE,delta=2,merge=1,group=1
+psect	text38,local,class=CODE,delta=2,merge=1,group=1
 	line	59
-global __ptext39
-__ptext39:	;psect for function _RF24_begin
-psect	text39
+global __ptext38
+__ptext38:	;psect for function _RF24_begin
+psect	text38
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	59
 	
 _RF24_begin:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _RF24_begin: [wreg+status,2+status,0+pclath+cstack]
 	line	62
 	
-l2837:	
+l2742:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bcf	(1090/8)^080h,(1090)&7	;volatile
@@ -7756,7 +7422,7 @@ l2837:
 	bsf	(67/8),(67)&7	;volatile
 	line	66
 	
-l2839:	
+l2744:	
 	asmopt push
 asmopt off
 movlw  3
@@ -7767,13 +7433,13 @@ movlw	8
 movwf	((??_RF24_begin+0)+0+1)
 	movlw	118
 movwf	((??_RF24_begin+0)+0)
-	u1667:
+	u1697:
 decfsz	((??_RF24_begin+0)+0),f
-	goto	u1667
+	goto	u1697
 	decfsz	((??_RF24_begin+0)+0+1),f
-	goto	u1667
+	goto	u1697
 	decfsz	((??_RF24_begin+0)+0+2),f
-	goto	u1667
+	goto	u1697
 	nop
 asmopt pop
 
@@ -7786,17 +7452,17 @@ movlw	26
 movwf	((??_RF24_begin+0)+0+1)
 	movlw	247
 movwf	((??_RF24_begin+0)+0)
-	u1677:
+	u1707:
 decfsz	((??_RF24_begin+0)+0),f
-	goto	u1677
+	goto	u1707
 	decfsz	((??_RF24_begin+0)+0+1),f
-	goto	u1677
+	goto	u1707
 	nop2
 asmopt pop
 
 	line	80
 	
-l2841:	
+l2746:	
 	movlw	low(0Fh)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7807,29 +7473,29 @@ l2841:
 	fcall	_RF24_setRetries
 	line	85
 	
-l2843:	
+l2748:	
 	movlw	low(03h)
 	fcall	_RF24_setPALevel
 	line	86
 	
-l2845:	
+l2750:	
 	movlw	low(0)
 	fcall	_RF24_setDataRate
 	line	89
 	
-l2847:	
+l2752:	
 	clrf	(RF24_write_register@value)
 	movlw	low(01Dh)
 	fcall	_RF24_write_register
 	line	90
 	
-l2849:	
+l2754:	
 	clrf	(RF24_write_register@value)
 	movlw	low(01Ch)
 	fcall	_RF24_write_register
 	line	91
 	
-l2851:	
+l2756:	
 	movlw	low(03Fh)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7840,7 +7506,7 @@ l2851:
 	fcall	_RF24_write_register
 	line	92
 	
-l2853:	
+l2758:	
 	movlw	low(03h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7851,22 +7517,22 @@ l2853:
 	fcall	_RF24_write_register
 	line	93
 	
-l2855:	
+l2760:	
 	movlw	low(020h)
 	fcall	_RF24_setPayloadSize
 	line	94
 	
-l2857:	
+l2762:	
 	movlw	low(05h)
 	fcall	_RF24_setAddressWidth
 	line	99
 	
-l2859:	
+l2764:	
 	movlw	low(04Ch)
 	fcall	_RF24_setChannel
 	line	103
 	
-l2861:	
+l2766:	
 	movlw	low(070h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7877,15 +7543,15 @@ l2861:
 	fcall	_RF24_write_register
 	line	106
 	
-l2863:	
+l2768:	
 	fcall	_RF24_flush_rx
 	line	107
 	
-l2865:	
+l2770:	
 	fcall	_RF24_flush_tx
 	line	116
 	
-l2867:	
+l2772:	
 	movlw	low(0Ch)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -7896,11 +7562,11 @@ l2867:
 	fcall	_RF24_write_register
 	line	117
 	
-l2869:	
+l2774:	
 	fcall	_RF24_powerUp
 	line	118
 	
-l2871:	
+l2776:	
 	movlw	low(0)
 	fcall	_RF24_read_register
 	bcf	status, 5	;RP0=0, select bank0
@@ -7910,7 +7576,7 @@ l2871:
 	movwf	(_RF24_attr_config)
 	line	120
 	
-l369:	
+l370:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_begin
@@ -7941,29 +7607,29 @@ GLOBAL	__end_of_RF24_begin
 ;;      Totals:         2       3       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text40,local,class=CODE,delta=2,merge=1,group=1
+psect	text39,local,class=CODE,delta=2,merge=1,group=1
 	line	469
-global __ptext40
-__ptext40:	;psect for function _RF24_setRetries
-psect	text40
+global __ptext39
+__ptext39:	;psect for function _RF24_setRetries
+psect	text39
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	469
 	
 _RF24_setRetries:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _RF24_setRetries: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_setRetries@delay)
 	line	471
 	
-l2759:	
+l2660:	
 	movlw	low(0Fh)
 	andwf	(RF24_setRetries@count),w
 	bcf	status, 5	;RP0=0, select bank0
@@ -7973,12 +7639,12 @@ l2759:
 	andlw	0Fh
 	movwf	(??_RF24_setRetries+1)+0
 	movlw	(04h)-1
-u1485:
+u1345:
 	clrc
 	rlf	(??_RF24_setRetries+1)+0,f
 	addlw	-1
 	skipz
-	goto	u1485
+	goto	u1345
 	clrc
 	rlf	(??_RF24_setRetries+1)+0,w
 	iorwf	0+(??_RF24_setRetries+0)+0,w
@@ -7989,7 +7655,7 @@ u1485:
 	fcall	_RF24_write_register
 	line	472
 	
-l506:	
+l507:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setRetries
@@ -8019,7 +7685,7 @@ GLOBAL	__end_of_RF24_setRetries
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
@@ -8027,22 +7693,22 @@ GLOBAL	__end_of_RF24_setRetries
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text41,local,class=CODE,delta=2,merge=1,group=1
+psect	text40,local,class=CODE,delta=2,merge=1,group=1
 	line	183
-global __ptext41
-__ptext41:	;psect for function _RF24_setPayloadSize
-psect	text41
+global __ptext40
+__ptext40:	;psect for function _RF24_setPayloadSize
+psect	text40
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	183
 	
 _RF24_setPayloadSize:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_setPayloadSize: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_setPayloadSize@size)
 	line	185
 	
-l2747:	
+l2648:	
 	movf	(RF24_setPayloadSize@size),w
 	movwf	(??_RF24_setPayloadSize+0)+0
 	movf	(??_RF24_setPayloadSize+0)+0,w
@@ -8086,7 +7752,7 @@ l2747:
 	fcall	_RF24_write_register
 	line	191
 	
-l395:	
+l396:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setPayloadSize
@@ -8117,7 +7783,7 @@ GLOBAL	__end_of_RF24_setPayloadSize
 ;;      Totals:         2       3       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_register
@@ -8125,24 +7791,24 @@ GLOBAL	__end_of_RF24_setPayloadSize
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text42,local,class=CODE,delta=2,merge=1,group=1
+psect	text41,local,class=CODE,delta=2,merge=1,group=1
 	line	122
-global __ptext42
-__ptext42:	;psect for function _RF24_setPALevel
-psect	text42
+global __ptext41
+__ptext41:	;psect for function _RF24_setPALevel
+psect	text41
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	122
 	
 _RF24_setPALevel:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _RF24_setPALevel: [wreg+status,2+status,0+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(RF24_setPALevel@level)
 	line	124
 	
-l2761:	
+l2662:	
 	movlw	low(06h)
 	fcall	_RF24_read_register
 	andlw	0F8h
@@ -8153,31 +7819,31 @@ l2761:
 	movwf	(RF24_setPALevel@setup)
 	line	125
 	
-l2763:	
+l2664:	
 	movlw	low(04h)
 	subwf	(RF24_setPALevel@level),w
 	skipnc
-	goto	u1491
-	goto	u1490
-u1491:
-	goto	l2767
-u1490:
+	goto	u1351
+	goto	u1350
+u1351:
+	goto	l2668
+u1350:
 	
-l2765:	
+l2666:	
 	movf	(RF24_setPALevel@level),w
 	movwf	(??_RF24_setPALevel+0)+0
 	movf	(??_RF24_setPALevel+0)+0,w
-	movwf	(_RF24_setPALevel$650)
-	goto	l2769
+	movwf	(_RF24_setPALevel$653)
+	goto	l2670
 	
-l2767:	
+l2668:	
 	movlw	low(03h)
 	movwf	(??_RF24_setPALevel+0)+0
 	movf	(??_RF24_setPALevel+0)+0,w
-	movwf	(_RF24_setPALevel$650)
+	movwf	(_RF24_setPALevel$653)
 	
-l2769:	
-	movf	(_RF24_setPALevel$650),w
+l2670:	
+	movf	(_RF24_setPALevel$653),w
 	movwf	(??_RF24_setPALevel+0)+0
 	addwf	(??_RF24_setPALevel+0)+0,w
 	movwf	(??_RF24_setPALevel+1)+0
@@ -8185,7 +7851,7 @@ l2769:
 	iorwf	(RF24_setPALevel@setup),f
 	line	126
 	
-l2771:	
+l2672:	
 	movf	(RF24_setPALevel@setup),w
 	movwf	(??_RF24_setPALevel+0)+0
 	movf	(??_RF24_setPALevel+0)+0,w
@@ -8194,7 +7860,7 @@ l2771:
 	fcall	_RF24_write_register
 	line	127
 	
-l376:	
+l377:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setPALevel
@@ -8225,7 +7891,7 @@ GLOBAL	__end_of_RF24_setPALevel
 ;;      Totals:         1       2       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_register
@@ -8234,24 +7900,24 @@ GLOBAL	__end_of_RF24_setPALevel
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text43,local,class=CODE,delta=2,merge=1,group=1
+psect	text42,local,class=CODE,delta=2,merge=1,group=1
 	line	370
-global __ptext43
-__ptext43:	;psect for function _RF24_setDataRate
-psect	text43
+global __ptext42
+__ptext42:	;psect for function _RF24_setDataRate
+psect	text42
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	370
 	
 _RF24_setDataRate:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_setDataRate: [wreg+status,2+status,0+pclath+cstack]
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(RF24_setDataRate@speed)
 	line	372
 	
-l2733:	
+l2634:	
 	movlw	low(06h)
 	fcall	_RF24_read_register
 	movwf	(??_RF24_setDataRate+0)+0
@@ -8261,7 +7927,7 @@ l2733:
 	movwf	(RF24_setDataRate@setup)
 	line	374
 	
-l2735:	
+l2636:	
 	movf	(RF24_setDataRate@setup),w
 	andlw	0D7h
 	movwf	(??_RF24_setDataRate+0)+0
@@ -8269,38 +7935,38 @@ l2735:
 	movwf	(RF24_setDataRate@setup)
 	line	375
 	
-l2737:	
+l2638:	
 		movlw	2
 	xorwf	((RF24_setDataRate@speed)),w
 	btfss	status,2
-	goto	u1451
-	goto	u1450
-u1451:
-	goto	l2741
-u1450:
+	goto	u1311
+	goto	u1310
+u1311:
+	goto	l2642
+u1310:
 	line	377
 	
-l2739:	
+l2640:	
 	bsf	(RF24_setDataRate@setup)+(5/8),(5)&7
 	line	378
-	goto	l2745
+	goto	l2646
 	line	379
 	
-l2741:	
+l2642:	
 		decf	((RF24_setDataRate@speed)),w
 	btfss	status,2
-	goto	u1461
-	goto	u1460
-u1461:
-	goto	l2745
-u1460:
+	goto	u1321
+	goto	u1320
+u1321:
+	goto	l2646
+u1320:
 	line	381
 	
-l2743:	
+l2644:	
 	bsf	(RF24_setDataRate@setup)+(3/8),(3)&7
 	line	383
 	
-l2745:	
+l2646:	
 	movf	(RF24_setDataRate@setup),w
 	movwf	(??_RF24_setDataRate+0)+0
 	movf	(??_RF24_setDataRate+0)+0,w
@@ -8309,7 +7975,7 @@ l2745:
 	fcall	_RF24_write_register
 	line	384
 	
-l462:	
+l463:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setDataRate
@@ -8339,7 +8005,7 @@ GLOBAL	__end_of_RF24_setDataRate
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
@@ -8347,22 +8013,22 @@ GLOBAL	__end_of_RF24_setDataRate
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text44,local,class=CODE,delta=2,merge=1,group=1
+psect	text43,local,class=CODE,delta=2,merge=1,group=1
 	line	449
-global __ptext44
-__ptext44:	;psect for function _RF24_setChannel
-psect	text44
+global __ptext43
+__ptext43:	;psect for function _RF24_setChannel
+psect	text43
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	449
 	
 _RF24_setChannel:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_setChannel: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_setChannel@channel)
 	line	451
 	
-l2725:	
+l2626:	
 	movf	(RF24_setChannel@channel),w
 	movwf	(??_RF24_setChannel+0)+0
 	movf	(??_RF24_setChannel+0)+0,w
@@ -8371,7 +8037,7 @@ l2725:
 	fcall	_RF24_write_register
 	line	452
 	
-l491:	
+l492:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setChannel
@@ -8401,7 +8067,7 @@ GLOBAL	__end_of_RF24_setChannel
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
@@ -8409,22 +8075,22 @@ GLOBAL	__end_of_RF24_setChannel
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text45,local,class=CODE,delta=2,merge=1,group=1
+psect	text44,local,class=CODE,delta=2,merge=1,group=1
 	line	473
-global __ptext45
-__ptext45:	;psect for function _RF24_setAddressWidth
-psect	text45
+global __ptext44
+__ptext44:	;psect for function _RF24_setAddressWidth
+psect	text44
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	473
 	
 _RF24_setAddressWidth:	
 ;incstack = 0
-	callstack 3
+	callstack 2
 ; Regs used in _RF24_setAddressWidth: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_setAddressWidth@w)
 	line	475
 	
-l2731:	
+l2632:	
 	movf	(RF24_setAddressWidth@w),w
 	addlw	0FEh
 	andlw	03h
@@ -8435,7 +8101,7 @@ l2731:
 	fcall	_RF24_write_register
 	line	476
 	
-l509:	
+l510:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_setAddressWidth
@@ -8465,7 +8131,7 @@ GLOBAL	__end_of_RF24_setAddressWidth
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_read_register
 ;;		_RF24_write_register
@@ -8473,21 +8139,21 @@ GLOBAL	__end_of_RF24_setAddressWidth
 ;;		_RF24_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text46,local,class=CODE,delta=2,merge=1,group=1
+psect	text45,local,class=CODE,delta=2,merge=1,group=1
 	line	177
-global __ptext46
-__ptext46:	;psect for function _RF24_powerUp
-psect	text46
+global __ptext45
+__ptext45:	;psect for function _RF24_powerUp
+psect	text45
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	177
 	
 _RF24_powerUp:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _RF24_powerUp: [wreg+status,2+status,0+pclath+cstack]
 	line	179
 	
-l2775:	
+l2676:	
 	movlw	low(0)
 	fcall	_RF24_read_register
 	iorlw	02h
@@ -8498,24 +8164,24 @@ l2775:
 	fcall	_RF24_write_register
 	line	180
 	
-l2777:	
+l2678:	
 	asmopt push
 asmopt off
 movlw	26
 movwf	((??_RF24_powerUp+0)+0+1)
 	movlw	248
 movwf	((??_RF24_powerUp+0)+0)
-	u1687:
+	u1717:
 decfsz	((??_RF24_powerUp+0)+0),f
-	goto	u1687
+	goto	u1717
 	decfsz	((??_RF24_powerUp+0)+0+1),f
-	goto	u1687
+	goto	u1717
 	nop
 asmopt pop
 
 	line	181
 	
-l392:	
+l393:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_powerUp
@@ -8546,7 +8212,7 @@ GLOBAL	__end_of_RF24_powerUp
 ;;      Totals:         3       0       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_SPI_exchangeByte
 ;; This function is called by:
@@ -8563,28 +8229,28 @@ GLOBAL	__end_of_RF24_powerUp
 ;;		_RF24_getPALevel
 ;; This function uses a non-reentrant model
 ;;
-psect	text47,local,class=CODE,delta=2,merge=1,group=1
+psect	text46,local,class=CODE,delta=2,merge=1,group=1
 	line	18
-global __ptext47
-__ptext47:	;psect for function _RF24_read_register
-psect	text47
+global __ptext46
+__ptext46:	;psect for function _RF24_read_register
+psect	text46
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	18
 	
 _RF24_read_register:	
 ;incstack = 0
-	callstack 1
+	callstack 0
 ; Regs used in _RF24_read_register: [wreg+pclath+cstack]
 	movwf	(RF24_read_register@mnemonic_addr)
 	line	20
 	
-l2519:	
+l2420:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(67/8),(67)&7	;volatile
 	line	22
 	
-l2521:	
+l2422:	
 	movf	(RF24_read_register@mnemonic_addr),w
 	fcall	_SPI_exchangeByte
 	movwf	(??_RF24_read_register+0)+0
@@ -8600,17 +8266,17 @@ l2521:
 	movwf	(RF24_read_register@result)
 	line	24
 	
-l2523:	
+l2424:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(67/8),(67)&7	;volatile
 	line	26
 	
-l2525:	
+l2426:	
 	movf	(RF24_read_register@result),w
 	line	27
 	
-l354:	
+l355:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_read_register
@@ -8640,7 +8306,7 @@ GLOBAL	__end_of_RF24_read_register
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
@@ -8648,21 +8314,22 @@ GLOBAL	__end_of_RF24_read_register
 ;;		_RF24_write
 ;; This function uses a non-reentrant model
 ;;
-psect	text48,local,class=CODE,delta=2,merge=1,group=1
+psect	text47,local,class=CODE,delta=2,merge=1,group=1
 	line	437
-global __ptext48
-__ptext48:	;psect for function _RF24_flush_tx
-psect	text48
+global __ptext47
+__ptext47:	;psect for function _RF24_flush_tx
+psect	text47
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	437
 	
 _RF24_flush_tx:	
 ;incstack = 0
+;; hardware stack exceeded
 	callstack 0
 ; Regs used in _RF24_flush_tx: [wreg+status,2+status,0+pclath+cstack]
 	line	439
 	
-l2551:	
+l2452:	
 	movlw	low(0FFh)
 	movwf	(??_RF24_flush_tx+0)+0
 	movf	(??_RF24_flush_tx+0)+0,w
@@ -8671,7 +8338,7 @@ l2551:
 	fcall	_RF24_write_register
 	line	440
 	
-l482:	
+l483:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_flush_tx
@@ -8701,7 +8368,7 @@ GLOBAL	__end_of_RF24_flush_tx
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 3
+;; Hardware stack levels required when called: 4
 ;; This function calls:
 ;;		_RF24_write_register
 ;; This function is called by:
@@ -8709,21 +8376,21 @@ GLOBAL	__end_of_RF24_flush_tx
 ;;		_RF24_getDynamicPayloadSize
 ;; This function uses a non-reentrant model
 ;;
-psect	text49,local,class=CODE,delta=2,merge=1,group=1
+psect	text48,local,class=CODE,delta=2,merge=1,group=1
 	line	441
-global __ptext49
-__ptext49:	;psect for function _RF24_flush_rx
-psect	text49
+global __ptext48
+__ptext48:	;psect for function _RF24_flush_rx
+psect	text48
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	441
 	
 _RF24_flush_rx:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _RF24_flush_rx: [wreg+status,2+status,0+pclath+cstack]
 	line	443
 	
-l2773:	
+l2674:	
 	movlw	low(0FFh)
 	movwf	(??_RF24_flush_rx+0)+0
 	movf	(??_RF24_flush_rx+0)+0,w
@@ -8732,7 +8399,7 @@ l2773:
 	fcall	_RF24_write_register
 	line	444
 	
-l485:	
+l486:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_flush_rx
@@ -8763,7 +8430,7 @@ GLOBAL	__end_of_RF24_flush_rx
 ;;      Totals:         3       0       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 2
+;; Hardware stack levels required when called: 3
 ;; This function calls:
 ;;		_SPI_exchangeByte
 ;; This function is called by:
@@ -8787,28 +8454,28 @@ GLOBAL	__end_of_RF24_flush_rx
 ;;		_RF24_setAddressWidth
 ;; This function uses a non-reentrant model
 ;;
-psect	text50,local,class=CODE,delta=2,merge=1,group=1
+psect	text49,local,class=CODE,delta=2,merge=1,group=1
 	line	42
-global __ptext50
-__ptext50:	;psect for function _RF24_write_register
-psect	text50
+global __ptext49
+__ptext49:	;psect for function _RF24_write_register
+psect	text49
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c"
 	line	42
 	
 _RF24_write_register:	
 ;incstack = 0
-	callstack 1
+	callstack 0
 ; Regs used in _RF24_write_register: [wreg+status,2+status,0+pclath+cstack]
 	movwf	(RF24_write_register@mnemonic_addr)
 	line	45
 	
-l2507:	
+l2408:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(67/8),(67)&7	;volatile
 	line	46
 	
-l2509:	
+l2410:	
 	movf	(RF24_write_register@mnemonic_addr),w
 	iorlw	020h
 	fcall	_SPI_exchangeByte
@@ -8819,18 +8486,18 @@ l2509:
 	movwf	(_RF24_attr_status)
 	line	47
 	
-l2511:	
+l2412:	
 	movf	(RF24_write_register@value),w
 	fcall	_SPI_exchangeByte
 	line	48
 	
-l2513:	
+l2414:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(67/8),(67)&7	;volatile
 	line	49
 	
-l363:	
+l364:	
 	return
 	callstack 0
 GLOBAL	__end_of_RF24_write_register
@@ -8860,7 +8527,7 @@ GLOBAL	__end_of_RF24_write_register
 ;;      Totals:         1       0       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used: 1
-;; Hardware stack levels required when called: 1
+;; Hardware stack levels required when called: 2
 ;; This function calls:
 ;;		Nothing
 ;; This function is called by:
@@ -8872,48 +8539,48 @@ GLOBAL	__end_of_RF24_write_register
 ;;		_RF24_write
 ;; This function uses a non-reentrant model
 ;;
-psect	text51,local,class=CODE,delta=2,merge=1,group=1
+psect	text50,local,class=CODE,delta=2,merge=1,group=1
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.c"
 	line	13
-global __ptext51
-__ptext51:	;psect for function _SPI_exchangeByte
-psect	text51
+global __ptext50
+__ptext50:	;psect for function _SPI_exchangeByte
+psect	text50
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/spi_master.c"
 	line	13
 	
 _SPI_exchangeByte:	
 ;incstack = 0
-	callstack 2
+	callstack 1
 ; Regs used in _SPI_exchangeByte: [wreg]
 	movwf	(SPI_exchangeByte@byte)
 	line	16
 	
-l2501:	
+l2402:	
 	movf	(SPI_exchangeByte@byte),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(19)	;volatile
 	line	19
 	
-l538:	
+l539:	
 	line	18
 	btfss	(99/8),(99)&7	;volatile
-	goto	u1251
-	goto	u1250
-u1251:
-	goto	l538
-u1250:
+	goto	u1111
+	goto	u1110
+u1111:
+	goto	l539
+u1110:
 	
-l540:	
+l541:	
 	line	20
 	bcf	(99/8),(99)&7	;volatile
 	line	21
 	
-l2503:	
+l2404:	
 	movf	(19),w	;volatile
 	line	22
 	
-l541:	
+l542:	
 	return
 	callstack 0
 GLOBAL	__end_of_SPI_exchangeByte
@@ -8923,7 +8590,7 @@ GLOBAL	__end_of_SPI_exchangeByte
 
 ;; *************** function _ISR *****************
 ;; Defined at:
-;;		line 137 in file "F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
+;;		line 136 in file "F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -8931,7 +8598,7 @@ GLOBAL	__end_of_SPI_exchangeByte
 ;; Return value:  Size  Location     Type
 ;;                  1    wreg      void 
 ;; Registers used:
-;;		None
+;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 0/0
 ;;		On exit  : 0/0
@@ -8943,26 +8610,27 @@ GLOBAL	__end_of_SPI_exchangeByte
 ;;      Totals:         2       0       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used: 1
+;; Hardware stack levels required when called: 1
 ;; This function calls:
-;;		Nothing
+;;		_timeISR
 ;; This function is called by:
 ;;		Interrupt level 1
 ;; This function uses a non-reentrant model
 ;;
-psect	text52,local,class=CODE,delta=2,merge=1,group=0
+psect	text51,local,class=CODE,delta=2,merge=1,group=0
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
-	line	137
-global __ptext52
-__ptext52:	;psect for function _ISR
-psect	text52
+	line	136
+global __ptext51
+__ptext51:	;psect for function _ISR
+psect	text51
 	file	"F:/GitHub/Graduation-Project/Moduls/Switch/app/src/main.c"
-	line	137
+	line	136
 	
 _ISR:	
 ;incstack = 0
 ;; hardware stack exceeded
 	callstack 0
-; Regs used in _ISR: []
+; Regs used in _ISR: [wreg+status,2+status,0+pclath+cstack]
 psect	intentry,class=CODE,delta=2
 global __pintentry
 __pintentry:
@@ -8976,10 +8644,14 @@ interrupt_function:
 	movf	pclath,w
 	movwf	(??_ISR+1)
 	ljmp	_ISR
-psect	text52
-	line	140
+psect	text51
+	line	138
 	
-i1l84:	
+i1l2370:	
+	fcall	_timeISR
+	line	139
+	
+i1l85:	
 	movf	(??_ISR+1),w
 	movwf	pclath
 	swapf	(??_ISR+0),w
@@ -8991,6 +8663,90 @@ i1l84:
 GLOBAL	__end_of_ISR
 	__end_of_ISR:
 	signat	_ISR,89
+	global	_timeISR
+
+;; *************** function _timeISR *****************
+;; Defined at:
+;;		line 35 in file "F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
+;; Parameters:    Size  Location     Type
+;;		None
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;                  1    wreg      void 
+;; Registers used:
+;;		wreg
+;; Tracked objects:
+;;		On entry : 0/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       0       0       0       0
+;;Total ram usage:        0 bytes
+;; Hardware stack levels used: 1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_ISR
+;; This function uses a non-reentrant model
+;;
+psect	text52,local,class=CODE,delta=2,merge=1,group=1
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
+	line	35
+global __ptext52
+__ptext52:	;psect for function _timeISR
+psect	text52
+	file	"F:/GitHub/Graduation-Project/Moduls/Switch/libs/time.c"
+	line	35
+	
+_timeISR:	
+;incstack = 0
+;; hardware stack exceeded
+	callstack 0
+; Regs used in _timeISR: [wreg]
+	line	37
+	
+i1l2320:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfss	(96/8),(96)&7	;volatile
+	goto	u104_21
+	goto	u104_20
+u104_21:
+	goto	i1l579
+u104_20:
+	line	39
+	
+i1l2322:	
+	movlw	0
+	addwf	(__microsMSB),f
+	movlw	0
+	skipnc
+movlw 1
+	addwf	(__microsMSB+1),f
+	movlw	01h
+	skipnc
+movlw 2
+	addwf	(__microsMSB+2),f
+	movlw	0
+	skipnc
+movlw 1
+	addwf	(__microsMSB+3),f
+	line	40
+	
+i1l2324:	
+	bcf	(96/8),(96)&7	;volatile
+	line	42
+	
+i1l579:	
+	return
+	callstack 0
+GLOBAL	__end_of_timeISR
+	__end_of_timeISR:
+	signat	_timeISR,89
 global	___latbits
 ___latbits	equ	2
 	global	btemp

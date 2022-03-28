@@ -1,0 +1,32 @@
+The target system is: MicrochipMCU -  - PIC_8
+The host system is: Windows - 10.0.19044 - AMD64
+
+Searching for Microchip tool 'xc8' (MICROCHIP_XC8_PATH):
+    good 2.35 = C:/Program Files/Microchip/xc8/v2.35
+  Best good version: 2.35
+  Best bad  version: 
+  Chose: C:/Program Files/Microchip/xc8/v2.35
+
+Determining if the C compiler works passed with the following output:
+Change Dir: F:/GitHub/Graduation-Project/Moduls/CriticalSensor/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/ProgramData/chocolatey/bin/make.exe -f Makefile cmTC_9223f/fast && C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe  -f CMakeFiles/cmTC_9223f.dir/build.make CMakeFiles/cmTC_9223f.dir/build
+make[1]: Entering directory 'F:/GitHub/Graduation-Project/Moduls/CriticalSensor/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9223f.dir/testCCompiler.c.p1
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback      -oCMakeFiles/cmTC_9223f.dir/testCCompiler.c.p1   -c F:/GitHub/Graduation-Project/Moduls/CriticalSensor/build/CMakeFiles/CMakeTmp/testCCompiler.c
+::: advisory: (2049) C99 compliant libraries are currently not available for baseline or mid-range devices, or for enhanced mid-range devices using a reentrant stack; using C90 libraries
+Linking C executable cmTC_9223f
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F877A -std=c99 --nofallback    "CMakeFiles/cmTC_9223f.dir/testCCompiler.c.p1"      -ocmTC_9223f
+::: advisory: (2049) C99 compliant libraries are currently not available for baseline or mid-range devices, or for enhanced mid-range devices using a reentrant stack; using C90 libraries
+
+Memory Summary:
+    Program space        used     Ah (    10) of  2000h words   (  0.1%)
+    Data space           used     5h (     5) of   170h bytes   (  1.4%)
+    EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
+    Configuration bits   used     0h (     0) of     1h word    (  0.0%)
+    ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
+
+make[1]: Leaving directory 'F:/GitHub/Graduation-Project/Moduls/CriticalSensor/build/CMakeFiles/CMakeTmp'
+
+
+
