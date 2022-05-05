@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libs/include/time.h
+xc.h
+-
+stdint.h
+-
+
+../libs/include/wait.h
+stdint.h
+-
+xc.h
+-
+time.h
+../libs/include/time.h
+
+E:/PIC project/timer1828Test/libs/wait.c
+wait.h
+E:/PIC project/timer1828Test/libs/wait.h
+
