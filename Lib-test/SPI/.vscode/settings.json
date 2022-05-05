@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "internet.h": "c",
+    "buffers.h": "c",
+    "packets.h": "c",
+    "string.h": "c",
+    "oxpacket.h": "c",
+    "wait.h": "c",
+    "time.h": "c",
+    "stdint.h": "c",
+    "config.h": "c",
+    "serial.h": "c",
+    "spi_master.h": "c"
+  }
+}

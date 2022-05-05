@@ -9,11 +9,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 5h		(app.hex)
-  8h - 9B9h		(app.hex)
+  8h - 9D1h		(app.hex)
   400Eh - 400Fh		(app.hex)
  Unused ranges:
   6h - 7h
-  9BAh - 400Dh
+  9D2h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
@@ -177,6 +177,8 @@
 00000980 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000990 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000009A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000009B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
+000009B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000009C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000009D0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1

@@ -6,10 +6,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [c E1135 0 1 .. ]
 [n E1135 val FALSE TRUE  ]
 [p mainexit ]
-"2943 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
-[v _TRISB1 `Vb ~T0 @X0 0 e@1073 ]
-"2682
-[v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"2991 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f877a.h
+[v _TRISD1 `Vb ~T0 @X0 0 e@1089 ]
+"2757
+[v _RD1 `Vb ~T0 @X0 0 e@65 ]
 "2988
 [v _TRISD0 `Vb ~T0 @X0 0 e@1088 ]
 "6 F:/GitHub/Graduation-Project/Moduls/Door/libs/include/wait.h
@@ -212,9 +212,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "42
-[e = _TRISB1 -> -> 0 `i `b ]
+[e = _TRISD1 -> -> 0 `i `b ]
 "43
-[e = _RB1 -> -> 0 `i `b ]
+[e = _RD1 -> -> 0 `i `b ]
 "44
 [e = _TRISD0 -> -> 1 `i `b ]
 "45
@@ -234,7 +234,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "52
 [e = . _prop 0 -> -> 1 `i `uc ]
 "53
-[e = _RB1 -> . _prop 0 `b ]
+[e = _RD1 -> . _prop 0 `b ]
 "54
 [v _packet `*S100 ~T0 @X0 1 a ]
 [e = _packet -> &U _buffer_tx `*S100 ]
@@ -256,23 +256,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "62
 [e = . _prop 0 -> -> 0 `i `uc ]
 [e :U 107 ]
-"65
+"63
+[e = _RD1 -> . _prop 0 `b ]
+"66
 }
 [e :U 103 ]
 [e $U 104  ]
 [e :U 105 ]
-"66
+"67
 [e :UE 102 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"67
-[v _ISR `(v ~T1 @X0 1 ef ]
 "68
+[v _ISR `(v ~T1 @X0 1 ef ]
+"69
 {
 [e :U _ISR ]
 [f ]
-"69
-[e ( _timeISR ..  ]
 "70
+[e ( _timeISR ..  ]
+"71
 [e :UE 108 ]
 }

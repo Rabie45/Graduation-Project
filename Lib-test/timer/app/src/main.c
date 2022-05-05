@@ -9,9 +9,9 @@ int main()
     while (1)
     {
         RB1 = 1;
-        waitMicros(30);
+        waitMicros(1000);
         RB1 = 0;
-        __delay_ms(30);
+        __delay_us(1000);
     }
 }
 void __interrupt() ISR(void)

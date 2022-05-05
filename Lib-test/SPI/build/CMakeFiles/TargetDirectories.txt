@@ -1,0 +1,8 @@
+E:/PIC project/pic16f18spi/build/CMakeFiles/edit_cache.dir
+E:/PIC project/pic16f18spi/build/CMakeFiles/rebuild_cache.dir
+E:/PIC project/pic16f18spi/build/app/CMakeFiles/app.dir
+E:/PIC project/pic16f18spi/build/app/CMakeFiles/edit_cache.dir
+E:/PIC project/pic16f18spi/build/app/CMakeFiles/rebuild_cache.dir
+E:/PIC project/pic16f18spi/build/libs/CMakeFiles/libs.dir
+E:/PIC project/pic16f18spi/build/libs/CMakeFiles/edit_cache.dir
+E:/PIC project/pic16f18spi/build/libs/CMakeFiles/rebuild_cache.dir

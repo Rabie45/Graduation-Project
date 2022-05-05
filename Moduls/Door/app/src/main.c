@@ -23,7 +23,7 @@ Module: -
 #pragma config CP = OFF   // Flash Program Memory Code Protection bit (Code protection off)
 #define _XTAL_FREQ 16000000
 #define DOOR_WATCHER RD0
-#define LED1 RB1
+#define LED1 RD1
 
 enum val
 {
@@ -39,7 +39,7 @@ typedef struct
 Property prop = {FALSE};
 int main()
 {
-    TRISB1 = 0;
+    TRISD1 = 0;
     LED1 = 0;
     TRISD0 = 1;
     wait_init(16);
@@ -60,6 +60,7 @@ int main()
         }
         else
             prop.value = 0;
+            LED1 = prop.value;
 
         /* code */
     }

@@ -2,6 +2,9 @@
   "files.associations": {
     "packets.h": "c",
     "logline.h": "c",
-    "config.h": "c"
+    "config.h": "c",
+    "time.h": "c",
+    "wait.h": "c",
+    "stdint.h": "c"
   }
 }
