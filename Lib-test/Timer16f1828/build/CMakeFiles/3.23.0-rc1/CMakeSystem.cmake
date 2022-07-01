@@ -3,7 +3,7 @@ set(CMAKE_HOST_SYSTEM_NAME "Windows")
 set(CMAKE_HOST_SYSTEM_VERSION "10.0.19044")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "AMD64")
 
-include("E:/PIC project/timer1828Test/external/cmake-microchip/toolchain.cmake")
+include("F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/external/cmake-microchip/toolchain.cmake")
 
 set(CMAKE_SYSTEM "MicrochipMCU")
 set(CMAKE_SYSTEM_NAME "MicrochipMCU")

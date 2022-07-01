@@ -2,6 +2,7 @@
   "files.associations": {
     "wait.h": "c",
     "time.h": "c",
-    "stdint.h": "c"
+    "stdint.h": "c",
+    "timer.h": "c"
   }
 }

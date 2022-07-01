@@ -1,6 +1,6 @@
 #include "rf24.h"
 #include <nRF24l01.h>
-#include <logline.h>
+// #include <logline.h>
 #include <bitwise.h>
 
 // void RF24::RF24_read_register(uint8_t reg, uint8_t* buf, uint8_t len)
@@ -276,6 +276,7 @@ uint8_t RF24_getDynamicPayloadSize(void)
 
 uint8_t RF24_available(void)
 {
+
     // get implied RX FIFO empty flag from status byte
     uint8_t pipe = (RF24_get_status() >> RX_P_NO) & 0x07;
     if (pipe > 5)

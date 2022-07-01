@@ -22,6 +22,7 @@ set(CMAKE_C_COMPILER_ID "XC8-CC")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
+  "INTERNET_BASE_PIPE=0x59,0xec,0xad,0xfc,0x84"
   "_XTAL_FREQ=16000000"
   )
 

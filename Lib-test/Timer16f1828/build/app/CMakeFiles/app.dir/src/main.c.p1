@@ -1,37 +1,43 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"6 E:/PIC project/timer1828Test/libs/include\wait.h
+"6 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include\wait.h
 [v _wait_init `(v ~T0 @X0 0 ef1`uc ]
-"1256 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
-[v _TRISC `Vuc ~T0 @X0 0 e@142 ]
-"519
-[v _PORTC `Vuc ~T0 @X0 0 e@14 ]
+"1722 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
+"1217
+[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
+"7885
+[v _RB7 `Vb ~T0 @X0 0 e@111 ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.35\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"8 E:/PIC project/timer1828Test/libs/include\wait.h
+"8 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include\wait.h
 [v _waitMillis `(v ~T0 @X0 0 ef1`ul ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-"8 E:/PIC project/timer1828Test/libs/include/time.h
+"8 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include\timer.h
 [v _timeISR `(v ~T0 @X0 0 e? ]
-"6 E:/PIC project/timer1828Test/app/src/main.c
-[p x FOSC  =  HS  ]
+"6 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+[p x FOSC  =  INTOSC   ]
 "7
-[p x WDTE  =  OFF     ]
+[p x WDTE  =  OFF      ]
 "8
-[p x PWRTE  =  ON     ]
+[p x PWRTE  =  ON      ]
 "9
-[p x BOREN  =  ON     ]
+[p x MCLRE  =  ON      ]
 "10
-[p x LVP  =  OFF      ]
+[p x CP  =  OFF        ]
 "11
-[p x CPD  =  OFF      ]
+[p x CPD  =  OFF       ]
 "12
-[p x WRT  =  OFF      ]
+[p x BOREN  =  OFF     ]
 "13
-[p x CP  =  OFF       ]
+[p x CLKOUTEN  =  OFF  ]
+"14
+[p x IESO  =  OFF      ]
+"15
+[p x FCMEN  =  ON      ]
 "55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
 [; <" INDF0 equ 00h ;# ">
 "75
@@ -353,45 +359,49 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6837
 [; <" TOSH equ 0FEFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"18 E:/PIC project/timer1828Test/app/src/main.c
+"23 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
 [v _main `(i ~T0 @X0 1 ef ]
-"19
+"24
 {
 [e :U _main ]
 [f ]
-"20
-[e ( _wait_init (1 -> -> 16 `i `uc ]
-"22
-[e = _TRISC -> -> 0 `i `uc ]
-"24
-[e :U 367 ]
 "25
-{
+[e ( _wait_init (1 -> -> 16 `i `uc ]
 "26
-[e = _PORTC -> -> 255 `i `uc ]
+[e = _OSCCON -> -> 122 `i `uc ]
 "27
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[e = _TRISB -> -> 0 `i `uc ]
 "28
-[e = _PORTC -> -> 0 `i `uc ]
-"29
-[e ( _waitMillis (1 -> -> -> 100 `i `l `ul ]
+[e = _RB7 -> -> 1 `i `b ]
 "30
-}
-[e :U 366 ]
-[e $U 367  ]
-[e :U 368 ]
+[e :U 372 ]
 "31
-[e :UE 365 ]
+{
+"32
+[e = _RB7 -> -> 1 `i `b ]
+"33
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"34
+[e = _RB7 -> -> 0 `i `b ]
+"35
+[e ( _waitMillis (1 -> -> -> 1000 `i `l `ul ]
+"36
+}
+[e :U 371 ]
+[e $U 372  ]
+[e :U 373 ]
+"37
+[e :UE 370 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"32
+"38
 [v _ISR `(v ~T1 @X0 1 ef ]
-"33
+"39
 {
 [e :U _ISR ]
 [f ]
-"34
+"40
 [e ( _timeISR ..  ]
-"35
-[e :UE 369 ]
+"41
+[e :UE 374 ]
 }

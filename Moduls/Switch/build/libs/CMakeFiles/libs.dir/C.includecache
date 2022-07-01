@@ -35,6 +35,8 @@ rf24.h
 ../libs/include/rf24.h
 spi_master.h
 ../libs/include/spi_master.h
+buffers.h
+../libs/include/buffers.h
 
 ../libs/include/logline.h
 Serial.h
@@ -108,8 +110,6 @@ F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.c
 rf24.h
 F:/GitHub/Graduation-Project/Moduls/Switch/libs/rf24.h
 nRF24l01.h
--
-logline.h
 -
 bitwise.h
 -

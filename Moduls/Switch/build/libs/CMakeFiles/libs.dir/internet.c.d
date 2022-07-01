@@ -8,6 +8,4 @@ CMakeFiles/libs.dir\internet.c.p1: \
   F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/spi_master.h \
   F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/wait.h \
   F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/time.h \
-  F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/buffers.h \
-  F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h \
-  F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\Serial.h
+  F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/buffers.h

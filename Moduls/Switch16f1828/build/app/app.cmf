@@ -1,0 +1,1756 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$app.o
+cinit CODE 0 D D 23 2 1
+text1 CODE 0 9AE 9AE 6 2 1
+text2 CODE 0 EAB EAB 38 2 1
+text3 CODE 0 551 551 8D 2 1
+text4 CODE 0 C76 C76 22 2 1
+text5 CODE 0 F63 F63 4A 2 1
+text6 CODE 0 B44 B44 19 2 1
+text7 CODE 0 1CE 1CE 15E 2 1
+text8 CODE 0 E40 E40 35 2 1
+text9 CODE 0 C54 C54 22 2 1
+text10 CODE 0 410 410 B1 2 1
+text11 CODE 0 A5D A5D 11 2 1
+text12 CODE 0 EE3 EE3 3D 2 1
+text13 CODE 0 BF2 BF2 1F 2 1
+text14 CODE 0 A20 A20 E 2 1
+text15 CODE 0 B79 B79 1C 2 1
+text16 CODE 0 F20 F20 43 2 1
+text17 CODE 0 BD3 BD3 1F 2 1
+text18 CODE 0 D52 D52 2C 2 1
+text19 CODE 0 A3D A3D F 2 1
+text20 CODE 0 AFE AFE 16 2 1
+text21 CODE 0 B5D B5D 1C 2 1
+text22 CODE 0 A6E A6E 12 2 1
+text23 CODE 0 A13 A13 D 2 1
+text24 CODE 0 9A8 9A8 6 2 1
+text25 CODE 0 D7E D7E 2D 2 1
+text26 CODE 0 30 30 19E 2 1
+text27 CODE 0 C32 C32 22 2 1
+text28 CODE 0 E0B E0B 35 2 1
+text29 CODE 0 774 774 59 2 1
+text30 CODE 0 D29 D29 29 2 1
+text31 CODE 0 FAD FAD 53 2 1
+text32 CODE 0 6B6 6B6 5F 2 1
+text33 CODE 0 BB4 BB4 1F 2 1
+text34 CODE 0 C11 C11 21 2 1
+text35 CODE 0 9D2 9D2 9 2 1
+text36 CODE 0 D04 D04 25 2 1
+text37 CODE 0 9FA 9FA C 2 1
+text38 CODE 0 DAB DAB 2E 2 1
+text39 CODE 0 B14 B14 17 2 1
+text40 CODE 0 B95 B95 1F 2 1
+text41 CODE 0 ABD ABD 15 2 1
+text42 CODE 0 E75 E75 36 2 1
+text43 CODE 0 C98 C98 23 2 1
+text44 CODE 0 9A3 9A3 5 2 1
+text45 CODE 0 B2B B2B 19 2 1
+text46 CODE 0 5DE 5DE 72 2 1
+text47 CODE 0 AE8 AE8 16 2 1
+text48 CODE 0 DD9 DD9 32 2 1
+text49 CODE 0 CDF CDF 25 2 1
+text50 CODE 0 CBB CBB 24 2 1
+text51 CODE 0 9E4 9E4 A 2 1
+text52 CODE 0 9EE 9EE C 2 1
+text53 CODE 0 AA8 AA8 15 2 1
+text54 CODE 0 AD2 AD2 16 2 1
+text55 CODE 0 9C9 9C9 9 2 1
+text56 CODE 0 9C0 9C0 9 2 1
+text57 CODE 0 A80 A80 13 2 1
+text58 CODE 0 A06 A06 D 2 1
+text59 CODE 0 650 650 66 2 1
+text60 CODE 0 A93 A93 15 2 1
+text61 CODE 0 715 715 5F 2 1
+text62 CODE 0 7CD 7CD 33 2 1
+text63 CODE 0 4C1 4C1 90 2 1
+text64 CODE 0 A2E A2E F 2 1
+text66 CODE 0 A4C A4C 11 2 1
+maintext CODE 0 32C 32C E4 2 1
+cstackCOMMON COMMON 1 70 70 E 1 1
+cstackBANK0 BANK0 1 20 20 3A 1 1
+inittext CODE 0 9BA 9BA 6 2 1
+stringtext1 STRCODE 0 86B 86B 10 2 1
+stringtext2 STRCODE 0 8FA 8FA 5 2 1
+stringtext3 STRCODE 0 8FF 8FF 5 2 1
+stringtext4 STRCODE 0 904 904 3 2 1
+stringtext5 STRCODE 0 800 800 2A 2 1
+stringtext6 STRCODE 0 82A 82A 17 2 1
+stringtext7 STRCODE 0 841 841 17 2 1
+stringtext8 STRCODE 0 858 858 13 2 1
+stringtext9 STRCODE 0 87B 87B F 2 1
+intentry CODE 0 4 4 7 2 1
+bssBANK0 BANK0 1 5A 5A 3 1 1
+bssBANK1 BANK1 1 A0 A0 37 1 1
+bssBANK2 BANK2 1 120 120 40 1 1
+idataBANK1 CODE 0 9DB 9DB 9 2 1
+dataBANK1 BANK1 1 D7 D7 9 1 1
+clrtext CODE 0 9B4 9B4 6 2 1
+stringtext10 STRCODE 0 88A 88A B 2 1
+stringtext11 STRCODE 0 895 895 B 2 1
+stringtext12 STRCODE 0 8A0 8A0 A 2 1
+stringtext13 STRCODE 0 8AA 8AA 9 2 1
+stringtext14 STRCODE 0 8B3 8B3 9 2 1
+stringtext15 STRCODE 0 8BC 8BC 7 2 1
+stringtext16 STRCODE 0 8C3 8C3 7 2 1
+stringtext17 STRCODE 0 8CA 8CA 6 2 1
+stringtext18 STRCODE 0 8D0 8D0 6 2 1
+stringtext19 STRCODE 0 8D6 8D6 6 2 1
+stringtext20 STRCODE 0 8DC 8DC 6 2 1
+stringtext21 STRCODE 0 8E2 8E2 6 2 1
+stringtext22 STRCODE 0 8E8 8E8 6 2 1
+stringtext23 STRCODE 0 8EE 8EE 6 2 1
+stringtext24 STRCODE 0 8F4 8F4 6 2 1
+stringtext25 STRCODE 0 907 907 2 2 1
+config CONFIG 4 8007 8007 1 2 1
+$startup.o
+reset_vec CODE 0 0 0 2 2 1
+end_init CODE 0 B B 2 2 1
+config CONFIG 4 8007 8007 1 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 5D-6F 1
+RAM E0-EF 1
+RAM 160-16F 1
+BANK0 5D-6F 1
+BANK1 E0-EF 1
+BANK2 160-16F 1
+CONST 2-3 2
+CONST 909-9A2 2
+ENTRY 2-3 2
+ENTRY 909-9A2 2
+IDLOC 8000-8003 2
+SFR10 500-56F 1
+SFR11 580-5EF 1
+SFR12 600-66F 1
+SFR13 680-6EF 1
+SFR14 700-76F 1
+SFR15 780-7EF 1
+SFR16 800-86F 1
+SFR17 880-8EF 1
+SFR18 900-96F 1
+SFR19 980-9EF 1
+SFR20 A00-A6F 1
+SFR21 A80-AEF 1
+SFR22 B00-B6F 1
+SFR23 B80-BEF 1
+SFR24 C00-C6F 1
+SFR25 C80-CEF 1
+SFR26 D00-D6F 1
+SFR27 D80-DEF 1
+SFR28 E00-E6F 1
+SFR29 E80-EEF 1
+SFR30 F00-F6F 1
+SFR31 F80-FEF 1
+CODE 2-3 2
+CODE 909-9A2 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-11F 1
+SFR3 180-1EF 1
+SFR4 200-26F 1
+SFR5 280-2EF 1
+SFR6 300-36F 1
+SFR7 380-3EF 1
+SFR8 400-46F 1
+SFR9 480-4EF 1
+BIGRAM 2000-20EF 1
+CONFIG 8008-8008 2
+EEDATA F000-F0FF 2
+STRCODE 2-3 2
+STRCODE 909-9A2 2
+STRING 2-3 2
+STRING 909-9A2 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$app.o
+D cinit CODE >3994:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+D cinit CODE >3997:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+D cinit CODE >4066:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+E cinit CODE >4067:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+F cinit CODE >4068:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+10 cinit CODE >4069:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+11 cinit CODE >4070:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+12 cinit CODE >4071:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+13 cinit CODE >4072:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+14 cinit CODE >4073:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+15 cinit CODE >4074:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+16 cinit CODE >4075:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+19 cinit CODE >4092:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+1A cinit CODE >4093:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+1B cinit CODE >4094:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+1C cinit CODE >4098:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+1D cinit CODE >4099:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+1E cinit CODE >4100:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+1F cinit CODE >4101:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+20 cinit CODE >4102:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+21 cinit CODE >4103:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+24 cinit CODE >4107:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+25 cinit CODE >4108:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+26 cinit CODE >4109:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+27 cinit CODE >4110:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+28 cinit CODE >4111:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+29 cinit CODE >4112:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+2C cinit CODE >4118:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+2C cinit CODE >4120:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+2D cinit CODE >4121:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+2E cinit CODE >4122:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+4 intentry CODE >186:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+6 intentry CODE >188:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+9 intentry CODE >189:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+A4C text66 CODE >47:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+A4C text66 CODE >49:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+A51 text66 CODE >51:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+A5A text66 CODE >52:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+A5C text66 CODE >54:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+A2E text64 CODE >4:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A2E text64 CODE >6:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A30 text64 CODE >7:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A32 text64 CODE >8:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A34 text64 CODE >9:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A35 text64 CODE >10:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A36 text64 CODE >11:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A3B text64 CODE >12:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A3C text64 CODE >22:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+4C1 text63 CODE >5:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4C1 text63 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4C3 text63 CODE >14:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4C7 text63 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4CC text63 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4CE text63 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4D0 text63 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4D2 text63 CODE >16:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4D4 text63 CODE >17:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4D4 text63 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4D8 text63 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4DD text63 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4DF text63 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4E1 text63 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4E3 text63 CODE >20:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4E7 text63 CODE >22:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4EF text63 CODE >23:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4F3 text63 CODE >23:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4F7 text63 CODE >24:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4F9 text63 CODE >25:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+4FA text63 CODE >26:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+501 text63 CODE >27:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+505 text63 CODE >25:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+509 text63 CODE >30:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+510 text63 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+512 text63 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+516 text63 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+51A text63 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+51E text63 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+522 text63 CODE >32:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+52A text63 CODE >33:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+52B text63 CODE >35:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+532 text63 CODE >36:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+538 text63 CODE >38:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+53D text63 CODE >39:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+542 text63 CODE >39:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+544 text63 CODE >39:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+546 text63 CODE >39:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+548 text63 CODE >40:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+550 text63 CODE >41:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\aldiv.c
+7CD text62 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7CD text62 CODE >119:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7D5 text62 CODE >121:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7D9 text62 CODE >122:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7E1 text62 CODE >123:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7E8 text62 CODE >124:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7EF text62 CODE >125:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7F3 text62 CODE >125:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7F7 text62 CODE >128:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+7FF text62 CODE >129:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
+715 text61 CODE >26:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+715 text61 CODE >28:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+761 text61 CODE >29:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+764 text61 CODE >30:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+765 text61 CODE >31:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+767 text61 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+768 text61 CODE >33:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+76A text61 CODE >34:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+76B text61 CODE >35:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+76C text61 CODE >36:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+76E text61 CODE >37:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+76F text61 CODE >38:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+771 text61 CODE >39:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+772 text61 CODE >40:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+773 text61 CODE >59:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+A93 text60 CODE >42:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+A93 text60 CODE >44:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+AA7 text60 CODE >45:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+650 text59 CODE >46:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+652 text59 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+672 text59 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+676 text59 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+67A text59 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+67E text59 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+688 text59 CODE >49:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+68D text59 CODE >51:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+6AC text59 CODE >53:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+6B4 text59 CODE >54:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+6B5 text59 CODE >55:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+A06 text58 CODE >24:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A07 text58 CODE >27:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A0A text58 CODE >28:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A0A text58 CODE >29:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A0F text58 CODE >30:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A10 text58 CODE >31:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A12 text58 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+A80 text57 CODE >41:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A81 text57 CODE >44:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A83 text57 CODE >45:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A8C text57 CODE >46:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A90 text57 CODE >47:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A92 text57 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9C0 text56 CODE >435:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9C0 text56 CODE >437:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9C8 text56 CODE >438:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9C9 text55 CODE >431:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9C9 text55 CODE >433:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9D1 text55 CODE >434:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AD2 text54 CODE >17:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AD3 text54 CODE >19:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AD5 text54 CODE >21:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+ADD text54 CODE >22:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AE4 text54 CODE >23:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AE6 text54 CODE >25:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AE7 text54 CODE >26:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AA8 text53 CODE >171:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AA8 text53 CODE >173:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AB4 text53 CODE >174:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+ABC text53 CODE >175:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9EE text52 CODE >467:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9EF text52 CODE >469:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9F9 text52 CODE >470:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9E4 text51 CODE >443:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9E5 text51 CODE >445:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9ED text51 CODE >446:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CBB text50 CODE >364:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CBC text50 CODE >366:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CC3 text50 CODE >368:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CC8 text50 CODE >369:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CCE text50 CODE >371:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CCF text50 CODE >372:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CD0 text50 CODE >373:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CD5 text50 CODE >375:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CD6 text50 CODE >377:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CDE text50 CODE >378:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CDF text49 CODE >121:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CE0 text49 CODE >123:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CE8 text49 CODE >124:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CEA text49 CODE >124:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CFB text49 CODE >125:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D03 text49 CODE >126:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DD9 text48 CODE >177:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DDA text48 CODE >179:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DE2 text48 CODE >180:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DEA text48 CODE >181:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DF2 text48 CODE >182:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DFA text48 CODE >183:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E02 text48 CODE >184:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E0A text48 CODE >185:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AE8 text47 CODE >463:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AE9 text47 CODE >465:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AF2 text47 CODE >465:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AFD text47 CODE >466:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5DE text46 CODE >58:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5DE text46 CODE >61:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5E0 text46 CODE >62:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5E1 text46 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5E3 text46 CODE >64:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5E4 text46 CODE >65:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5F0 text46 CODE >75:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+5F8 text46 CODE >79:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+600 text46 CODE >84:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+604 text46 CODE >85:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+608 text46 CODE >88:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+60D text46 CODE >89:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+612 text46 CODE >90:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+61A text46 CODE >91:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+622 text46 CODE >92:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+626 text46 CODE >93:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+62A text46 CODE >98:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+62E text46 CODE >102:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+636 text46 CODE >105:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+639 text46 CODE >106:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+63C text46 CODE >115:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+644 text46 CODE >116:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+647 text46 CODE >117:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+64F text46 CODE >119:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B2B text45 CODE >324:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B2B text45 CODE >326:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B37 text45 CODE >327:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B43 text45 CODE >328:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9A3 text44 CODE >459:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9A3 text44 CODE >461:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9A7 text44 CODE >462:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+C98 text43 CODE >28:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+C99 text43 CODE >30:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+C9B text43 CODE >31:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CA4 text43 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CA5 text43 CODE >34:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CB1 text43 CODE >35:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CB3 text43 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CB8 text43 CODE >37:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+CBA text43 CODE >38:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E75 text42 CODE >306:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E76 text42 CODE >308:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E78 text42 CODE >308:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E7C text42 CODE >310:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E89 text42 CODE >311:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E8A text42 CODE >314:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+E97 text42 CODE >316:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EAA text42 CODE >317:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+ABD text41 CODE >336:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+ABE text41 CODE >338:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AC3 text41 CODE >340:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+ACB text41 CODE >341:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+ACC text41 CODE >344:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AD1 text41 CODE >346:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B95 text40 CODE >405:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B96 text40 CODE >407:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B9C text40 CODE >410:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BA2 text40 CODE >414:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BA7 text40 CODE >416:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BA8 text40 CODE >417:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BA9 text40 CODE >418:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BA9 text40 CODE >420:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BAA text40 CODE >421:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BAB text40 CODE >423:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BB3 text40 CODE >424:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B14 text39 CODE >133:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B14 text39 CODE >135:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B20 text39 CODE >136:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B28 text39 CODE >137:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B2A text39 CODE >148:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+DAB text38 CODE >142:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DAB text38 CODE >145:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DAE text38 CODE >146:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DB2 text38 CODE >147:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DB5 text38 CODE >148:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DB9 text38 CODE >149:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DBD text38 CODE >150:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DC5 text38 CODE >151:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DC9 text38 CODE >152:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DD1 text38 CODE >153:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DD5 text38 CODE >154:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+DD8 text38 CODE >155:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+9FA text37 CODE >128:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9FA text37 CODE >130:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9FF text37 CODE >130:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A05 text37 CODE >131:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D04 text36 CODE >6:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D05 text36 CODE >8:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D07 text36 CODE >9:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D0F text36 CODE >10:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D10 text36 CODE >12:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D1F text36 CODE >10:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D26 text36 CODE >14:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D28 text36 CODE >15:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+9D2 text35 CODE >73:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+9D3 text35 CODE >75:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+9D3 text35 CODE >76:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+9D8 text35 CODE >77:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+9DA text35 CODE >78:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+C11 text34 CODE >27:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C12 text34 CODE >29:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C16 text34 CODE >30:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C17 text34 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C28 text34 CODE >33:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C2A text34 CODE >30:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C31 text34 CODE >35:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+BB4 text33 CODE >37:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+BB5 text33 CODE >39:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+BBF text33 CODE >39:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+BC6 text33 CODE >40:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+BCB text33 CODE >40:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+BD2 text33 CODE >41:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+6B6 text32 CODE >5:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6B6 text32 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6B7 text32 CODE >14:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6BB text32 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6BE text32 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6C0 text32 CODE >16:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6C2 text32 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6C6 text32 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6C9 text32 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6CB text32 CODE >20:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6CF text32 CODE >22:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6D1 text32 CODE >23:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6D7 text32 CODE >24:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6D9 text32 CODE >25:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6DA text32 CODE >26:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6DF text32 CODE >27:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6E3 text32 CODE >25:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6E7 text32 CODE >30:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6EC text32 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6EE text32 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6F2 text32 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6F6 text32 CODE >32:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6FA text32 CODE >33:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+6FB text32 CODE >35:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+700 text32 CODE >36:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+706 text32 CODE >38:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+70B text32 CODE >39:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+70E text32 CODE >39:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+710 text32 CODE >40:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+714 text32 CODE >41:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awdiv.c
+FAD text31 CODE >5:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FAD text31 CODE >12:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FAE text31 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FB2 text31 CODE >14:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FB5 text31 CODE >14:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FB7 text31 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FB9 text31 CODE >17:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FBD text31 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FC0 text31 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FC2 text31 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FC8 text31 CODE >20:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FCA text31 CODE >21:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FCB text31 CODE >22:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FD0 text31 CODE >23:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FD4 text31 CODE >21:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FD8 text31 CODE >26:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FDA text31 CODE >26:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FDE text31 CODE >26:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FE2 text31 CODE >27:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FE6 text31 CODE >28:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FEB text31 CODE >29:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FF1 text31 CODE >31:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FF6 text31 CODE >32:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FF9 text31 CODE >32:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FFB text31 CODE >33:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+FFF text31 CODE >34:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\awmod.c
+D29 text30 CODE >4:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D2A text30 CODE >9:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D2B text30 CODE >10:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D30 text30 CODE >11:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D32 text30 CODE >12:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D33 text30 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D35 text30 CODE >14:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D39 text30 CODE >12:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D3D text30 CODE >17:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D3F text30 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D41 text30 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D45 text30 CODE >19:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D47 text30 CODE >20:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D48 text30 CODE >22:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D4A text30 CODE >23:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D50 text30 CODE >25:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+D51 text30 CODE >26:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\lbdiv.c
+774 text29 CODE >15:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+776 text29 CODE >18:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+778 text29 CODE >18:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+77E text29 CODE >18:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+798 text29 CODE >22:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+7B3 text29 CODE >23:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+7C7 text29 CODE >24:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+7CC text29 CODE >25:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E0B text28 CODE >43:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E0C text28 CODE >45:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E11 text28 CODE >46:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E12 text28 CODE >48:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E19 text28 CODE >49:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E23 text28 CODE >49:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E2A text28 CODE >50:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E2F text28 CODE >50:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E36 text28 CODE >51:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E38 text28 CODE >52:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E3A text28 CODE >46:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+E3F text28 CODE >54:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C32 text27 CODE >5:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C32 text27 CODE >7:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C36 text27 CODE >8:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C37 text27 CODE >10:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C3F text27 CODE >11:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C43 text27 CODE >8:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+C53 text27 CODE >13:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+30 text26 CODE >481:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+30 text26 CODE >484:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+3B text26 CODE >485:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+51 text26 CODE >486:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+67 text26 CODE >487:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+7D text26 CODE >488:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+93 text26 CODE >489:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A9 text26 CODE >490:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BF text26 CODE >491:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D5 text26 CODE >492:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EB text26 CODE >493:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+101 text26 CODE >494:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+10D text26 CODE >495:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+124 text26 CODE >496:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+130 text26 CODE >497:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+147 text26 CODE >498:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+15D text26 CODE >499:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+173 text26 CODE >500:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+189 text26 CODE >501:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+19F text26 CODE >502:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+1AB text26 CODE >503:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+1C2 text26 CODE >504:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+1CD text26 CODE >505:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+D7E text25 CODE >123:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+D7E text25 CODE >125:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+D82 text25 CODE >125:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+D86 text25 CODE >128:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+D91 text25 CODE >129:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+D95 text25 CODE >129:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+D99 text25 CODE >131:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+DA4 text25 CODE >132:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+DA7 text25 CODE >133:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+DAA text25 CODE >136:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+9A8 text24 CODE >9:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+9A9 text24 CODE >11:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+9AD text24 CODE >12:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A13 text23 CODE >50:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A13 text23 CODE >52:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A15 text23 CODE >53:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A1D text23 CODE >54:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A1E text23 CODE >55:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A1F text23 CODE >56:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A6E text22 CODE >271:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A6E text22 CODE >274:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A76 text22 CODE >275:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A78 text22 CODE >275:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A7C text22 CODE >276:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A7E text22 CODE >282:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A7F text22 CODE >283:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B5D text21 CODE >258:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B5D text21 CODE >260:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B64 text21 CODE >262:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B66 text21 CODE >262:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B6A text21 CODE >264:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B6D text21 CODE >265:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B75 text21 CODE >266:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B77 text21 CODE >268:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B78 text21 CODE >269:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AFE text20 CODE >285:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+AFF text20 CODE >289:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B0B text20 CODE >291:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+B13 text20 CODE >292:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A3D text19 CODE >116:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A3E text19 CODE >118:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A3F text19 CODE >119:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A40 text19 CODE >121:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A42 text19 CODE >122:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A44 text19 CODE >119:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A46 text19 CODE >119:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A4A text19 CODE >124:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A4B text19 CODE >125:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+D52 text18 CODE >4:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D52 text18 CODE >11:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D56 text18 CODE >12:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D5A text18 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D5B text18 CODE >14:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D67 text18 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D71 text18 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D76 text18 CODE >13:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+D7D text18 CODE >18:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\memcpy.c
+BD3 text17 CODE >23:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+BD3 text17 CODE >25:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+BE2 text17 CODE >26:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+BE9 text17 CODE >27:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+BF1 text17 CODE >28:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F20 text16 CODE >127:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F22 text16 CODE >129:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F27 text16 CODE >130:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F31 text16 CODE >131:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F38 text16 CODE >132:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F48 text16 CODE >133:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F5B text16 CODE >134:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F62 text16 CODE >135:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+B79 text15 CODE >240:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+B7B text15 CODE >242:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+B7F text15 CODE >243:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+B87 text15 CODE >244:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+B91 text15 CODE >245:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+B94 text15 CODE >246:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+A20 text14 CODE >451:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A21 text14 CODE >453:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A2D text14 CODE >454:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BF2 text13 CODE >150:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BF2 text13 CODE >152:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+BF4 text13 CODE >159:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+C00 text13 CODE >160:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+C0C text13 CODE >161:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+C10 text13 CODE >162:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EE3 text12 CODE >192:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EE4 text12 CODE >196:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EE6 text12 CODE >197:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EEE text12 CODE >198:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EEF text12 CODE >200:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+EFB text12 CODE >198:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F02 text12 CODE >202:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F04 text12 CODE >204:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F05 text12 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F0D text12 CODE >210:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F0F text12 CODE >211:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F17 text12 CODE >214:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F1C text12 CODE >216:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+F1F text12 CODE >220:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
+A5D text11 CODE >137:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A5E text11 CODE >139:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A67 text11 CODE >139:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+A6D text11 CODE >140:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+410 text10 CODE >65:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+412 text10 CODE >68:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+416 text10 CODE >69:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+41D text10 CODE >76:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+42B text10 CODE >78:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+42E text10 CODE >78:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+43D text10 CODE >78:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+441 text10 CODE >80:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+44E text10 CODE >83:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+452 text10 CODE >84:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+45A text10 CODE >85:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+45E text10 CODE >86:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+461 text10 CODE >87:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+46A text10 CODE >88:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+472 text10 CODE >89:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+473 text10 CODE >93:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+477 text10 CODE >94:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+47F text10 CODE >95:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+483 text10 CODE >96:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+486 text10 CODE >97:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+48F text10 CODE >98:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+498 text10 CODE >104:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+49D text10 CODE >105:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+4A5 text10 CODE >106:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+4A9 text10 CODE >107:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+4AC text10 CODE >110:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+4B5 text10 CODE >112:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+4BD text10 CODE >114:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+4C0 text10 CODE >115:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C54 text9 CODE >29:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C56 text9 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C5A text9 CODE >33:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C62 text9 CODE >34:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C6D text9 CODE >35:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C75 text9 CODE >36:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+E40 text8 CODE >3:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E42 text8 CODE >5:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E46 text8 CODE >6:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E4C text8 CODE >7:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E55 text8 CODE >8:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E5F text8 CODE >9:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E6C text8 CODE >10:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+E74 text8 CODE >11:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+1CE text7 CODE >138:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1D0 text7 CODE >141:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1D6 text7 CODE >144:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1D8 text7 CODE >144:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1DD text7 CODE >146:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1E1 text7 CODE >147:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1E9 text7 CODE >147:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1ED text7 CODE >149:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1F1 text7 CODE >150:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+1FF text7 CODE >151:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+205 text7 CODE >152:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+20E text7 CODE >153:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+21C text7 CODE >154:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+22F text7 CODE >155:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+237 text7 CODE >156:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+247 text7 CODE >157:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+265 text7 CODE >158:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+266 text7 CODE >159:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+26E text7 CODE >159:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+272 text7 CODE >161:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+274 text7 CODE >163:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+280 text7 CODE >164:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+282 text7 CODE >164:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+286 text7 CODE >165:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+28E text7 CODE >166:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+298 text7 CODE >166:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+29C text7 CODE >167:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2A0 text7 CODE >168:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2AE text7 CODE >169:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2B4 text7 CODE >170:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2BD text7 CODE >171:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2CB text7 CODE >172:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2DE text7 CODE >173:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+2E6 text7 CODE >174:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+303 text7 CODE >176:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+311 text7 CODE >176:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+315 text7 CODE >178:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+328 text7 CODE >179:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+32A text7 CODE >180:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+32B text7 CODE >184:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+B44 text6 CODE >12:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+B46 text6 CODE >14:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+B4A text6 CODE >15:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+B5C text6 CODE >16:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+F63 text5 CODE >37:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F65 text5 CODE >39:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F69 text5 CODE >40:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F71 text5 CODE >40:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F75 text5 CODE >43:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F7F text5 CODE >55:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F87 text5 CODE >56:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F88 text5 CODE >58:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F90 text5 CODE >59:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F91 text5 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+F9B text5 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+FA0 text5 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+FA3 text5 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+FA6 text5 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+FA9 text5 CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+FAC text5 CODE >64:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C76 text4 CODE >13:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C76 text4 CODE >15:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C77 text4 CODE >18:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C7E text4 CODE >19:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C86 text4 CODE >20:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C8F text4 CODE >15:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C93 text4 CODE >15:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+C97 text4 CODE >22:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+551 text3 CODE >190:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+553 text3 CODE >193:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+557 text3 CODE >194:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+55D text3 CODE >195:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+568 text3 CODE >196:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+571 text3 CODE >197:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+578 text3 CODE >198:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+579 text3 CODE >199:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+57A text3 CODE >200:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+580 text3 CODE >201:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+593 text3 CODE >203:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5A9 text3 CODE >204:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5B9 text3 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5BA text3 CODE >207:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5BD text3 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5C3 text3 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5C7 text3 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5CB text3 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5CF text3 CODE >205:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5D8 text3 CODE >209:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5DD text3 CODE >211:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+5DD text3 CODE >215:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+EAB text2 CODE >3:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EAC text2 CODE >5:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EAE text2 CODE >5:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EB0 text2 CODE >6:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EB1 text2 CODE >7:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EB2 text2 CODE >9:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EB6 text2 CODE >10:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EB8 text2 CODE >7:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC1 text2 CODE >26:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC2 text2 CODE >27:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC3 text2 CODE >28:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC5 text2 CODE >29:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC7 text2 CODE >30:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC8 text2 CODE >31:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EC9 text2 CODE >32:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+ED7 text2 CODE >33:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EDF text2 CODE >34:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EE0 text2 CODE >35:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+EE2 text2 CODE >40:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+9AE text1 CODE >3:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/wait.c
+9AF text1 CODE >5:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/wait.c
+9B3 text1 CODE >6:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/wait.c
+32C maintext CODE >60:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+32C maintext CODE >63:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+32F maintext CODE >64:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+330 maintext CODE >65:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+331 maintext CODE >66:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+333 maintext CODE >67:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+334 maintext CODE >68:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+335 maintext CODE >69:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+337 maintext CODE >70:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+339 maintext CODE >71:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+33B maintext CODE >73:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+33F maintext CODE >74:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+342 maintext CODE >75:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+34E maintext CODE >76:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+351 maintext CODE >77:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+355 maintext CODE >78:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+35C maintext CODE >79:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+360 maintext CODE >80:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+363 maintext CODE >82:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+366 maintext CODE >83:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+368 maintext CODE >85:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+373 maintext CODE >86:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+374 maintext CODE >88:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+377 maintext CODE >89:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+37E maintext CODE >90:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+381 maintext CODE >91:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+384 maintext CODE >92:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+391 maintext CODE >86:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+397 maintext CODE >94:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+398 maintext CODE >95:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3A8 maintext CODE >97:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3A8 maintext CODE >99:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3AB maintext CODE >100:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3AB maintext CODE >101:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3AD maintext CODE >102:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3B0 maintext CODE >108:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3C3 maintext CODE >109:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3CF maintext CODE >111:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3DE maintext CODE >113:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3DE maintext CODE >114:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3E7 maintext CODE >116:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3F1 maintext CODE >116:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3F5 maintext CODE >118:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+3FC maintext CODE >119:F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+9B4 clrtext CODE >4081:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B4 clrtext CODE >4082:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B5 clrtext CODE >4083:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B5 clrtext CODE >4084:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B6 clrtext CODE >4085:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B7 clrtext CODE >4086:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B8 clrtext CODE >4087:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9B9 clrtext CODE >4088:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BA inittext CODE >4055:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BA inittext CODE >4056:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BB inittext CODE >4057:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BB inittext CODE >4058:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BC inittext CODE >4059:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BD inittext CODE >4060:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BE inittext CODE >4061:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+9BF inittext CODE >4062:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\app.s
+$startup.o
+B end_init CODE >97:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\startup.s
+0 reset_vec CODE >69:F:\GitHub\Graduation-Project\Moduls\Switch16f1828\build\app\startup.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___latbits 1 0 ABS 0 - app.o
+___awdiv@counter 75 0 COMMON 1 cstackCOMMON app.o
+__LdataBANK1 0 0 ABS 0 dataBANK1 -
+_RF24_write_n_register 1930 0 CODE 0 text43 app.o
+__Hspace_0 1000 0 ABS 0 - -
+__Hspace_1 160 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Hspace_4 1000F 0 ABS 0 - -
+_RF24_getPALevel 1346 0 CODE 0 text44 app.o
+__HidataBANK1 0 0 ABS 0 idataBANK1 -
+internet_calculateMask@mask 71 0 COMMON 1 cstackCOMMON app.o
+_timeISR 1498 0 CODE 0 text66 app.o
+__$_logline_n_hex@ptr 74 0 COMMON 1 cstackCOMMON app.o
+__end_of_RF24_setRetries 15FC 0 CODE 0 text47 app.o
+__end_of_RF24_powerUp 157A 0 CODE 0 text53 app.o
+_wait_init 135C 0 CODE 0 text1 app.o
+checkButton@isPressed 21 0 BANK0 1 cstackBANK0 app.o
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__end_of_RF24_openReadingPipe 1D56 0 CODE 0 text42 app.o
+__$_logline_bin$788 72 0 COMMON 1 cstackCOMMON app.o
+RF24_read_register@result 73 0 COMMON 1 cstackCOMMON app.o
+__Hstrings 0 0 ABS 0 strings -
+oxp_post@timeoutTime 4D 0 BANK0 1 cstackBANK0 app.o
+checkButton@btn 22 0 BANK0 1 cstackBANK0 app.o
+_BRGH CF2 0 ABS 0 - app.o
+_CREN CEC 0 ABS 0 - app.o
+_PEIE 5E 0 ABS 0 - app.o
+_SPEN CEF 0 ABS 0 - app.o
+_SYNC CF4 0 ABS 0 - app.o
+_TMR1 16 0 ABS 0 - app.o
+_TRMT CF1 0 ABS 0 - app.o
+_TXEN CF5 0 ABS 0 - app.o
+___sp 0 0 STACK 2 stack startup.o
+_btn1 D2 0 BANK1 1 bssBANK1 app.o
+_main 658 0 CODE 0 maintext app.o
+_node A0 0 BANK1 1 bssBANK1 app.o
+btemp 7E 0 ABS 0 - app.o
+internet_config_rx@size 24 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_setAutoAck 15A4 0 CODE 0 text41 app.o
+start 16 0 CODE 0 init startup.o
+__end_of_checkRF24Connection 1B56 0 CODE 0 text25 app.o
+__end_of_timerInit 1DC6 0 CODE 0 text2 app.o
+__$_logline_bin@i 75 0 COMMON 1 cstackCOMMON app.o
+__$_logline_bin@v 74 0 COMMON 1 cstackCOMMON app.o
+__Hstringtext10 0 0 ABS 0 stringtext10 -
+__Hstringtext11 0 0 ABS 0 stringtext11 -
+__Hstringtext12 0 0 ABS 0 stringtext12 -
+__Hstringtext13 0 0 ABS 0 stringtext13 -
+__Hstringtext14 0 0 ABS 0 stringtext14 -
+__Hstringtext15 0 0 ABS 0 stringtext15 -
+__Hstringtext16 0 0 ABS 0 stringtext16 -
+__Hstringtext17 0 0 ABS 0 stringtext17 -
+__Hstringtext18 0 0 ABS 0 stringtext18 -
+__Hstringtext19 0 0 ABS 0 stringtext19 -
+__Hstringtext20 0 0 ABS 0 stringtext20 -
+__Hstringtext21 0 0 ABS 0 stringtext21 -
+__Hstringtext22 0 0 ABS 0 stringtext22 -
+__Hstringtext23 0 0 ABS 0 stringtext23 -
+__Hstringtext24 0 0 ABS 0 stringtext24 -
+__Hstringtext25 0 0 ABS 0 stringtext25 -
+__Hstringtext26 0 0 ABS 0 stringtext26 -
+__$_logline_hex@v 72 0 COMMON 1 cstackCOMMON app.o
+__$_logline_int@t 28 0 BANK0 1 cstackBANK0 app.o
+__$_logline_int@v 27 0 BANK0 1 cstackBANK0 app.o
+_internet_setAddress 1E40 0 CODE 0 text16 app.o
+__$_logline_n_hex 1C16 0 CODE 0 text28 app.o
+__end_of_internet_calculateMask 1498 0 CODE 0 text19 app.o
+?___lmul 70 0 COMMON 1 cstackCOMMON app.o
+internet_relay@dstMask 21 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_setPALevel 1A08 0 CODE 0 text49 app.o
+RF24_write_n_register@mnemonic_addr 75 0 COMMON 1 cstackCOMMON app.o
+__LidataBANK1 0 0 ABS 0 idataBANK1 -
+__end_of_RF24_read 1628 0 CODE 0 text20 app.o
+transport_udp_tx@size 27 0 BANK0 1 cstackBANK0 app.o
+__Hpowerup 0 0 CODE 0 powerup -
+___awmod@sign 7B 0 COMMON 1 cstackCOMMON app.o
+transport_udp_process@response_245 37 0 BANK0 1 cstackBANK0 app.o
+RF24_setDataRate@setup 79 0 COMMON 1 cstackCOMMON app.o
+RF24_setDataRate@speed 78 0 COMMON 1 cstackCOMMON app.o
+_timerInit 1D56 0 CODE 0 text2 app.o
+_SPI_initialize 145C 0 CODE 0 text64 app.o
+intlevel0 0 0 ENTRY 0 functab startup.o
+intlevel1 0 0 ENTRY 0 functab startup.o
+intlevel2 0 0 ENTRY 0 functab startup.o
+intlevel3 0 0 ENTRY 0 functab startup.o
+intlevel4 0 0 ENTRY 0 functab startup.o
+intlevel5 0 0 ENTRY 0 functab startup.o
+RF24_openReadingPipe@child 7B 0 COMMON 1 cstackCOMMON app.o
+_TMR1CS0 C6 0 ABS 0 - app.o
+_TMR1CS1 C7 0 ABS 0 - app.o
+transport_udp_process@packet 39 0 BANK0 1 cstackBANK0 app.o
+___aldiv@divisor 20 0 BANK0 1 cstackBANK0 app.o
+_RF24_setRetries 15D0 0 CODE 0 text47 app.o
+wtemp0 7E 0 ABS 0 - app.o
+__Hfunctab 0 0 ENTRY 0 functab -
+timerInit@mhz 71 0 COMMON 1 cstackCOMMON app.o
+_RF24_read 15FC 0 CODE 0 text20 app.o
+___aldiv@sign 29 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_setAddressWidth 13F4 0 CODE 0 text52 app.o
+___awdiv@sign 76 0 COMMON 1 cstackCOMMON app.o
+__Hclrtext 0 0 ABS 0 clrtext -
+RF24_read_register@mnemonic_addr 72 0 COMMON 1 cstackCOMMON app.o
+timerInit@prescaler 72 0 COMMON 1 cstackCOMMON app.o
+_RF24_setAutoAck 157A 0 CODE 0 text41 app.o
+_internet_process 18EC 0 CODE 0 text4 app.o
+_ANSELA 18C 0 ABS 0 - app.o
+_ANSELB 18D 0 ABS 0 - app.o
+_ANSELC 18E 0 ABS 0 - app.o
+__$_logline_int$783 23 0 BANK0 1 cstackBANK0 app.o
+__$_logline_int$784 25 0 BANK0 1 cstackBANK0 app.o
+___awdiv@dividend 72 0 COMMON 1 cstackCOMMON app.o
+_RF24_setPALevel 19BE 0 CODE 0 text49 app.o
+_RF24_available 14DC 0 CODE 0 text22 app.o
+?_micros 70 0 COMMON 1 cstackCOMMON app.o
+internet_tx@size 24 0 BANK0 1 cstackBANK0 app.o
+__end_of___lmul 1000 0 CODE 0 text62 app.o
+_network_pipe D7 0 BANK1 1 dataBANK1 app.o
+internet_process@size 45 0 BANK0 1 cstackBANK0 app.o
+_RF24_begin BBC 0 CODE 0 text46 app.o
+_RF24_attr_config 5B 0 BANK0 1 bssBANK0 app.o
+checkButton@pinState 78 0 COMMON 1 cstackCOMMON app.o
+_internet_relay 820 0 CODE 0 text10 app.o
+___lbdiv@dividend 72 0 COMMON 1 cstackCOMMON app.o
+_RF24_write 1DC6 0 CODE 0 text12 app.o
+_TXCKSEL 8EA 0 ABS 0 - app.o
+__Lmaintext 0 0 ABS 0 maintext -
+__end_of_RF24_read_register 15D0 0 CODE 0 text54 app.o
+__end_of_SPI_initialize 147A 0 CODE 0 text64 app.o
+_RF24_setPayloadSize 1BB2 0 CODE 0 text48 app.o
+__microsMSB A5 0 BANK1 1 bssBANK1 app.o
+___awdiv@divisor 70 0 COMMON 1 cstackCOMMON app.o
+__end_of__$_logline_n_hex 1C80 0 CODE 0 text28 app.o
+_internet_rx 1EC6 0 CODE 0 text5 app.o
+_internet_tx 18A8 0 CODE 0 text9 app.o
+__end_of___aldiv AA2 0 CODE 0 text63 app.o
+__end_of___awdiv E2A 0 CODE 0 text32 app.o
+__end_of___awmod 2000 0 CODE 0 text31 app.o
+__end_of_RF24_enableDynamicPayloads 1688 0 CODE 0 text45 app.o
+__end_of___lbdiv 1AA4 0 CODE 0 text30 app.o
+__end_of_checkButton D6C 0 CODE 0 text59 app.o
+__end_of_RF24_openWritingPipe 145C 0 CODE 0 text14 app.o
+__end_of_RF24_printDetails 39C 0 CODE 0 text26 app.o
+internet_relay@size 20 0 BANK0 1 cstackBANK0 app.o
+__end_of_BROADCAST_PIPE 11FE 0 STRCODE 0 stringtext2 app.o
+__end_of_internet_setAddress 1EC6 0 CODE 0 text16 app.o
+___stackhi 0 0 ABS 0 - startup.o
+___stacklo 0 0 ABS 0 - startup.o
+oxp_post@properties 47 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_stopListening 1822 0 CODE 0 text13 app.o
+__end_of_BASE_PIPE 100A 0 STRCODE 0 stringtext5 app.o
+internet_config_rx@confPacket 27 0 BANK0 1 cstackBANK0 app.o
+__end_of_transport_udp_process 658 0 CODE 0 text7 app.o
+memcpy@tmp 7B 0 COMMON 1 cstackCOMMON app.o
+__Lstringtext10 0 0 ABS 0 stringtext10 -
+__Lstringtext11 0 0 ABS 0 stringtext11 -
+__Lstringtext12 0 0 ABS 0 stringtext12 -
+__Lstringtext13 0 0 ABS 0 stringtext13 -
+__Lstringtext14 0 0 ABS 0 stringtext14 -
+__Lstringtext15 0 0 ABS 0 stringtext15 -
+__Lstringtext16 0 0 ABS 0 stringtext16 -
+__Lstringtext17 0 0 ABS 0 stringtext17 -
+__Lstringtext18 0 0 ABS 0 stringtext18 -
+__Lstringtext19 0 0 ABS 0 stringtext19 -
+__Lstringtext20 0 0 ABS 0 stringtext20 -
+__Lstringtext21 0 0 ABS 0 stringtext21 -
+__Lstringtext22 0 0 ABS 0 stringtext22 -
+__Lstringtext23 0 0 ABS 0 stringtext23 -
+__Lstringtext24 0 0 ABS 0 stringtext24 -
+__Lstringtext25 0 0 ABS 0 stringtext25 -
+__Lstringtext26 0 0 ABS 0 stringtext26 -
+_internet_setNetworkPipe 17A6 0 CODE 0 text17 app.o
+start_initialization 1A 0 CODE 0 cinit app.o
+_OSCCON 99 0 ABS 0 - app.o
+__end_of_internet_setNetworkPipe 17E4 0 CODE 0 text17 app.o
+_RF24_read_register 15A4 0 CODE 0 text54 app.o
+__end_of_RF24_available 1500 0 CODE 0 text22 app.o
+___aldiv@quotient 2A 0 BANK0 1 cstackBANK0 app.o
+_BASE_PIPE 1000 0 STRCODE 0 stringtext5 app.o
+_RF24_read_n_register 1A08 0 CODE 0 text36 app.o
+__$_logline_str@limit 74 0 COMMON 1 cstackCOMMON app.o
+__end_of_memcpy 1AFC 0 CODE 0 text18 app.o
+_transport_udp_process 39C 0 CODE 0 text7 app.o
+__end_of_micros 1550 0 CODE 0 text60 app.o
+__end_of_internet_relay 982 0 CODE 0 text10 app.o
+oxp_post@destination 51 0 BANK0 1 cstackBANK0 app.o
+_RF24_getDynamicPayloadSize 16BA 0 CODE 0 text21 app.o
+clear_ram0 1368 0 CODE 0 clrtext app.o
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 app.o
+_SSP1IF 8B 0 ABS 0 - app.o
+__end_of_RF24_begin CA0 0 CODE 0 text46 app.o
+main@startTime 56 0 BANK0 1 cstackBANK0 app.o
+_RF24_stopListening 17E4 0 CODE 0 text13 app.o
+__end_of_internet_process 1930 0 CODE 0 text4 app.o
+_TMR1IE 488 0 ABS 0 - app.o
+_TMR1IF 88 0 ABS 0 - app.o
+_TMR1ON C0 0 ABS 0 - app.o
+__end_of_RF24_write 1E40 0 CODE 0 text12 app.o
+_TRISB4 46C 0 ABS 0 - app.o
+_TRISB5 46D 0 ABS 0 - app.o
+_TRISB6 46E 0 ABS 0 - app.o
+_TRISB7 46F 0 ABS 0 - app.o
+_TRISC1 471 0 ABS 0 - app.o
+_TRISC3 473 0 ABS 0 - app.o
+_TRISC4 474 0 ABS 0 - app.o
+_TRISC5 475 0 ABS 0 - app.o
+_TRISC6 476 0 ABS 0 - app.o
+_TRISC7 477 0 ABS 0 - app.o
+internet_hasChild@address 72 0 COMMON 1 cstackCOMMON app.o
+wait_init@megaHertez 73 0 COMMON 1 cstackCOMMON app.o
+_RF24_attr_status 5C 0 BANK0 1 bssBANK0 app.o
+__end_of_RF24_isChipConnected 140C 0 CODE 0 text37 app.o
+RF24_read_n_register@buf 71 0 COMMON 1 cstackCOMMON app.o
+RF24_read_n_register@len 73 0 COMMON 1 cstackCOMMON app.o
+RF24_write_n_register@buffer 71 0 COMMON 1 cstackCOMMON app.o
+___lbdiv@counter 73 0 COMMON 1 cstackCOMMON app.o
+internet_rx@packetHeader 42 0 BANK0 1 cstackBANK0 app.o
+___int_sp 0 0 STACK 2 stack startup.o
+RF24_openWritingPipe@address 77 0 COMMON 1 cstackCOMMON app.o
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 BANK3 1 bank3 -
+__Hbank4 0 0 BANK4 1 bank4 -
+__Hbank5 0 0 BANK5 1 bank5 -
+__Hbank6 0 0 BANK6 1 bank6 -
+__Hbank7 0 0 BANK7 1 bank7 -
+__Hbank8 0 0 BANK8 1 bank8 -
+__Hbank9 0 0 BANK9 1 bank9 -
+__Hcinit 60 0 CODE 0 cinit -
+_RF24_startListening 1628 0 CODE 0 text39 app.o
+__Hsfr10 0 0 ABS 0 sfr10 -
+__Hsfr11 0 0 ABS 0 sfr11 -
+__Hsfr12 0 0 ABS 0 sfr12 -
+__Hsfr13 0 0 ABS 0 sfr13 -
+__Hsfr14 0 0 ABS 0 sfr14 -
+__Hsfr15 0 0 ABS 0 sfr15 -
+__Hsfr16 0 0 ABS 0 sfr16 -
+__Hsfr17 0 0 ABS 0 sfr17 -
+__Hsfr18 0 0 ABS 0 sfr18 -
+__Hsfr19 0 0 ABS 0 sfr19 -
+__Hsfr20 0 0 ABS 0 sfr20 -
+__Hsfr21 0 0 ABS 0 sfr21 -
+__Hsfr22 0 0 ABS 0 sfr22 -
+__Hsfr23 0 0 ABS 0 sfr23 -
+__Hsfr24 0 0 ABS 0 sfr24 -
+__Hsfr25 0 0 ABS 0 sfr25 -
+__Hsfr26 0 0 ABS 0 sfr26 -
+__Hsfr27 0 0 ABS 0 sfr27 -
+__Hsfr28 0 0 ABS 0 sfr28 -
+__Hsfr29 0 0 ABS 0 sfr29 -
+__Hsfr30 0 0 ABS 0 sfr30 -
+__Hsfr31 0 0 ABS 0 sfr31 -
+__Hstack 0 0 STACK 2 stack -
+__Hbank10 0 0 BANK10 1 bank10 -
+__Hbank11 0 0 BANK11 1 bank11 -
+__Hbank12 0 0 BANK12 1 bank12 -
+__Hbank13 0 0 BANK13 1 bank13 -
+__Hbank14 0 0 BANK14 1 bank14 -
+__Hbank15 0 0 BANK15 1 bank15 -
+__Hbank16 0 0 BANK16 1 bank16 -
+__Hbank17 0 0 BANK17 1 bank17 -
+__Hbank18 0 0 BANK18 1 bank18 -
+__Hbank19 0 0 BANK19 1 bank19 -
+__Hbank20 0 0 BANK20 1 bank20 -
+__Hbank21 0 0 BANK21 1 bank21 -
+__Hbank22 0 0 BANK22 1 bank22 -
+__Hbank23 0 0 BANK23 1 bank23 -
+__Hbank24 0 0 BANK24 1 bank24 -
+__Hbank25 0 0 BANK25 1 bank25 -
+__Hbank26 0 0 BANK26 1 bank26 -
+__Hbank27 0 0 BANK27 1 bank27 -
+__Hbank28 0 0 BANK28 1 bank28 -
+__Hbank29 0 0 BANK29 1 bank29 -
+__Hbank30 0 0 BANK30 1 bank30 -
+__Hbank31 0 0 BANK31 1 bank31 -
+__Hbigram 0 0 ABS 0 bigram -
+__Hmaintext 0 0 ABS 0 maintext -
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 10010 0 CONFIG 4 config -
+transport_udp_rx@payload 3E 0 BANK0 1 cstackBANK0 app.o
+_transport_udp_rx 1688 0 CODE 0 text6 app.o
+_transport_udp_tx 1C80 0 CODE 0 text8 app.o
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 BANK3 1 bank3 -
+__Lbank4 0 0 BANK4 1 bank4 -
+__Lbank5 0 0 BANK5 1 bank5 -
+__Lbank6 0 0 BANK6 1 bank6 -
+__Lbank7 0 0 BANK7 1 bank7 -
+__Lbank8 0 0 BANK8 1 bank8 -
+__Lbank9 0 0 BANK9 1 bank9 -
+__Lcinit 1A 0 CODE 0 cinit -
+_RF24_printDetails 60 0 CODE 0 text26 app.o
+__end_of_RF24_setPayloadSize 1C16 0 CODE 0 text48 app.o
+__Lsfr10 0 0 ABS 0 sfr10 -
+__Lsfr11 0 0 ABS 0 sfr11 -
+__Lsfr12 0 0 ABS 0 sfr12 -
+__Lsfr13 0 0 ABS 0 sfr13 -
+__Lsfr14 0 0 ABS 0 sfr14 -
+__Lsfr15 0 0 ABS 0 sfr15 -
+__Lsfr16 0 0 ABS 0 sfr16 -
+__Lsfr17 0 0 ABS 0 sfr17 -
+__Lsfr18 0 0 ABS 0 sfr18 -
+__Lsfr19 0 0 ABS 0 sfr19 -
+__Lsfr20 0 0 ABS 0 sfr20 -
+__Lsfr21 0 0 ABS 0 sfr21 -
+__Lsfr22 0 0 ABS 0 sfr22 -
+__Lsfr23 0 0 ABS 0 sfr23 -
+__Lsfr24 0 0 ABS 0 sfr24 -
+__Lsfr25 0 0 ABS 0 sfr25 -
+__Lsfr26 0 0 ABS 0 sfr26 -
+__Lsfr27 0 0 ABS 0 sfr27 -
+__Lsfr28 0 0 ABS 0 sfr28 -
+__Lsfr29 0 0 ABS 0 sfr29 -
+__Lsfr30 0 0 ABS 0 sfr30 -
+__Lsfr31 0 0 ABS 0 sfr31 -
+__Lstack 0 0 STACK 2 stack -
+init_ram 1374 0 CODE 0 inittext app.o
+RF24_setRetries@count 77 0 COMMON 1 cstackCOMMON app.o
+RF24_setRetries@delay 7B 0 COMMON 1 cstackCOMMON app.o
+__Linittext 0 0 ABS 0 inittext -
+internet_calculateMask@address 70 0 COMMON 1 cstackCOMMON app.o
+_networkInfo CC 0 BANK1 1 bssBANK1 app.o
+_LOGLINE_CONVERSION_TABLE 10D6 0 STRCODE 0 stringtext1 app.o
+transport_udp_tx@payload 2D 0 BANK0 1 cstackBANK0 app.o
+memcpy@d1 70 0 COMMON 1 cstackCOMMON app.o
+memcpy@s1 72 0 COMMON 1 cstackCOMMON app.o
+RF24_setAutoAck@enable 78 0 COMMON 1 cstackCOMMON app.o
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hheap 0 0 HEAP 7 heap -
+__Hinit 16 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Hsfr4 0 0 ABS 0 sfr4 -
+__Hsfr5 0 0 ABS 0 sfr5 -
+__Hsfr6 0 0 ABS 0 sfr6 -
+__Hsfr7 0 0 ABS 0 sfr7 -
+__Hsfr8 0 0 ABS 0 sfr8 -
+__Hsfr9 0 0 ABS 0 sfr9 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Lheap 0 0 HEAP 7 heap -
+__Linit 16 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Lsfr4 0 0 ABS 0 sfr4 -
+__Lsfr5 0 0 ABS 0 sfr5 -
+__Lsfr6 0 0 ABS 0 sfr6 -
+__Lsfr7 0 0 ABS 0 sfr7 -
+__Lsfr8 0 0 ABS 0 sfr8 -
+__Lsfr9 0 0 ABS 0 sfr9 -
+__Ltext 0 0 ABS 0 text -
+memcpy@d 77 0 COMMON 1 cstackCOMMON app.o
+memcpy@n 74 0 COMMON 1 cstackCOMMON app.o
+memcpy@s 79 0 COMMON 1 cstackCOMMON app.o
+__pstringtext1 10D6 0 STRCODE 0 stringtext1 app.o
+__pstringtext2 11F4 0 STRCODE 0 stringtext2 app.o
+__pstringtext3 11FE 0 STRCODE 0 stringtext3 app.o
+__pstringtext4 1208 0 STRCODE 0 stringtext4 app.o
+__pstringtext5 1000 0 STRCODE 0 stringtext5 app.o
+__pstringtext6 1054 0 STRCODE 0 stringtext6 app.o
+__pstringtext7 1082 0 STRCODE 0 stringtext7 app.o
+__pstringtext8 10B0 0 STRCODE 0 stringtext8 app.o
+__pstringtext9 10F6 0 STRCODE 0 stringtext9 app.o
+_RF24_openReadingPipe 1CEA 0 CODE 0 text42 app.o
+_SSP1CON1 215 0 ABS 0 - app.o
+_SSP1STAT 214 0 ABS 0 - app.o
+__pstringtext10 1114 0 STRCODE 0 stringtext10 app.o
+__pstringtext11 112A 0 STRCODE 0 stringtext11 app.o
+__pstringtext12 1140 0 STRCODE 0 stringtext12 app.o
+__pstringtext13 1154 0 STRCODE 0 stringtext13 app.o
+__pstringtext14 1166 0 STRCODE 0 stringtext14 app.o
+__pstringtext15 1178 0 STRCODE 0 stringtext15 app.o
+__pstringtext16 1186 0 STRCODE 0 stringtext16 app.o
+__pstringtext17 1194 0 STRCODE 0 stringtext17 app.o
+__pstringtext18 11A0 0 STRCODE 0 stringtext18 app.o
+__pstringtext19 11AC 0 STRCODE 0 stringtext19 app.o
+__pstringtext20 11B8 0 STRCODE 0 stringtext20 app.o
+__pstringtext21 11C4 0 STRCODE 0 stringtext21 app.o
+__pstringtext22 11D0 0 STRCODE 0 stringtext22 app.o
+__pstringtext23 11DC 0 STRCODE 0 stringtext23 app.o
+__pstringtext24 11E8 0 STRCODE 0 stringtext24 app.o
+__pstringtext25 120E 0 STRCODE 0 stringtext25 app.o
+__pstringtext26 0 0 STRCODE 0 stringtext26 app.o
+___lmul F9A 0 CODE 0 text62 app.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
+int$flags 7E 0 ABS 0 - app.o
+RF24_write_n_register@length 73 0 COMMON 1 cstackCOMMON app.o
+__HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_GIE 5F 0 ABS 0 - app.o
+_ISR 8 0 CODE 0 intentry app.o
+_RB7 6F 0 ABS 0 - app.o
+_RC1 71 0 ABS 0 - app.o
+_RC3 73 0 ABS 0 - app.o
+_RC4 74 0 ABS 0 - app.o
+_RC5 75 0 ABS 0 - app.o
+_RC6 76 0 ABS 0 - app.o
+__S0 1000 0 ABS 0 - -
+__S1 160 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+transport_udp_rx@packetHeader 3D 0 BANK0 1 cstackBANK0 app.o
+internet_setAddress@address 23 0 BANK0 1 cstackBANK0 app.o
+transport_udp_rx@size 3A 0 BANK0 1 cstackBANK0 app.o
+RF24_openReadingPipe@address 77 0 COMMON 1 cstackCOMMON app.o
+__$_logline_str@string 71 0 COMMON 1 cstackCOMMON app.o
+internet_relay@payload 23 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_setChannel 13DC 0 CODE 0 text51 app.o
+__end_of_ISR 16 0 CODE 0 intentry app.o
+internet_relay@packetHeader 22 0 BANK0 1 cstackBANK0 app.o
+__Lintentry 8 0 CODE 0 intentry -
+transport_udp_process@port 2F 0 BANK0 1 cstackBANK0 app.o
+transport_udp_process@prop 35 0 BANK0 1 cstackBANK0 app.o
+transport_udp_process@size 2E 0 BANK0 1 cstackBANK0 app.o
+__$_logline_n_hex@n 71 0 COMMON 1 cstackCOMMON app.o
+__$_logline_n_hex@v 73 0 COMMON 1 cstackCOMMON app.o
+reset_vec 0 0 CODE 0 reset_vec startup.o
+_SPI_exchangeByte 140C 0 CODE 0 text58 app.o
+transport_udp_tx@destinationPort 2A 0 BANK0 1 cstackBANK0 app.o
+__pdataBANK1 D7 0 BANK1 1 dataBANK1 app.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 -
+__LbssBANK1 0 0 ABS 0 bssBANK1 -
+__LbssBANK2 0 0 ABS 0 bssBANK2 -
+internet_setNetworkPipe@pipe 7C 0 COMMON 1 cstackCOMMON app.o
+__Lstringtext1 0 0 ABS 0 stringtext1 -
+__Lstringtext2 0 0 ABS 0 stringtext2 -
+__Lstringtext3 0 0 ABS 0 stringtext3 -
+__Lstringtext4 0 0 ABS 0 stringtext4 -
+__Lstringtext5 0 0 ABS 0 stringtext5 -
+__Lstringtext6 0 0 ABS 0 stringtext6 -
+__Lstringtext7 0 0 ABS 0 stringtext7 -
+__Lstringtext8 0 0 ABS 0 stringtext8 -
+__Lstringtext9 0 0 ABS 0 stringtext9 -
+_RF24_setAddressWidth 13DC 0 CODE 0 text52 app.o
+Serial_write@data 70 0 COMMON 1 cstackCOMMON app.o
+___awmod@counter 7A 0 COMMON 1 cstackCOMMON app.o
+_memcpy 1AA4 0 CODE 0 text18 app.o
+_micros 1526 0 CODE 0 text60 app.o
+__end_of_RF24_startListening 1656 0 CODE 0 text39 app.o
+__end_of_transport_udp_rx 16BA 0 CODE 0 text6 app.o
+__end_of_transport_udp_tx 1CEA 0 CODE 0 text8 app.o
+__ptext10 820 0 CODE 0 text10 app.o
+__ptext11 14BA 0 CODE 0 text11 app.o
+__ptext12 1DC6 0 CODE 0 text12 app.o
+__ptext13 17E4 0 CODE 0 text13 app.o
+__ptext14 1440 0 CODE 0 text14 app.o
+__ptext15 16F2 0 CODE 0 text15 app.o
+__ptext16 1E40 0 CODE 0 text16 app.o
+__ptext17 17A6 0 CODE 0 text17 app.o
+__ptext18 1AA4 0 CODE 0 text18 app.o
+__ptext19 147A 0 CODE 0 text19 app.o
+__ptext20 15FC 0 CODE 0 text20 app.o
+__ptext21 16BA 0 CODE 0 text21 app.o
+__ptext22 14DC 0 CODE 0 text22 app.o
+__ptext23 1426 0 CODE 0 text23 app.o
+__ptext24 1350 0 CODE 0 text24 app.o
+__ptext25 1AFC 0 CODE 0 text25 app.o
+__ptext26 60 0 CODE 0 text26 app.o
+__ptext27 1864 0 CODE 0 text27 app.o
+__ptext28 1C16 0 CODE 0 text28 app.o
+__ptext29 EE8 0 CODE 0 text29 app.o
+__ptext30 1A52 0 CODE 0 text30 app.o
+__ptext31 1F5A 0 CODE 0 text31 app.o
+__ptext32 D6C 0 CODE 0 text32 app.o
+__ptext33 1768 0 CODE 0 text33 app.o
+__ptext34 1822 0 CODE 0 text34 app.o
+__ptext35 13A4 0 CODE 0 text35 app.o
+__ptext36 1A08 0 CODE 0 text36 app.o
+__ptext37 13F4 0 CODE 0 text37 app.o
+__ptext38 1B56 0 CODE 0 text38 app.o
+__ptext39 1628 0 CODE 0 text39 app.o
+__ptext40 172A 0 CODE 0 text40 app.o
+__ptext41 157A 0 CODE 0 text41 app.o
+__ptext42 1CEA 0 CODE 0 text42 app.o
+__ptext43 1930 0 CODE 0 text43 app.o
+__ptext44 1346 0 CODE 0 text44 app.o
+__ptext45 1656 0 CODE 0 text45 app.o
+__ptext46 BBC 0 CODE 0 text46 app.o
+__ptext47 15D0 0 CODE 0 text47 app.o
+__ptext48 1BB2 0 CODE 0 text48 app.o
+__ptext49 19BE 0 CODE 0 text49 app.o
+__ptext50 1976 0 CODE 0 text50 app.o
+__ptext51 13C8 0 CODE 0 text51 app.o
+__ptext52 13DC 0 CODE 0 text52 app.o
+__ptext53 1550 0 CODE 0 text53 app.o
+__ptext54 15A4 0 CODE 0 text54 app.o
+__ptext55 1392 0 CODE 0 text55 app.o
+__ptext56 1380 0 CODE 0 text56 app.o
+__ptext57 1500 0 CODE 0 text57 app.o
+__ptext58 140C 0 CODE 0 text58 app.o
+__ptext59 CA0 0 CODE 0 text59 app.o
+__ptext60 1526 0 CODE 0 text60 app.o
+__ptext61 E2A 0 CODE 0 text61 app.o
+__ptext62 F9A 0 CODE 0 text62 app.o
+__ptext63 982 0 CODE 0 text63 app.o
+__ptext64 145C 0 CODE 0 text64 app.o
+__ptext66 1498 0 CODE 0 text66 app.o
+internet_rx@size 3F 0 BANK0 1 cstackBANK0 app.o
+___aldiv 982 0 CODE 0 text63 app.o
+___awdiv D6C 0 CODE 0 text32 app.o
+___awmod 1F5A 0 CODE 0 text31 app.o
+internet_rx@payload 43 0 BANK0 1 cstackBANK0 app.o
+___lbdiv 1A52 0 CODE 0 text30 app.o
+transport_udp_process@response 38 0 BANK0 1 cstackBANK0 app.o
+__Lbank10 0 0 BANK10 1 bank10 -
+__Lbank11 0 0 BANK11 1 bank11 -
+__Lbank12 0 0 BANK12 1 bank12 -
+__Lbank13 0 0 BANK13 1 bank13 -
+__Lbank14 0 0 BANK14 1 bank14 -
+__Lbank15 0 0 BANK15 1 bank15 -
+__Lbank16 0 0 BANK16 1 bank16 -
+__Lbank17 0 0 BANK17 1 bank17 -
+__Lbank18 0 0 BANK18 1 bank18 -
+__Lbank19 0 0 BANK19 1 bank19 -
+__Lbank20 0 0 BANK20 1 bank20 -
+__Lbank21 0 0 BANK21 1 bank21 -
+__Lbank22 0 0 BANK22 1 bank22 -
+__Lbank23 0 0 BANK23 1 bank23 -
+__Lbank24 0 0 BANK24 1 bank24 -
+__Lbank25 0 0 BANK25 1 bank25 -
+__Lbank26 0 0 BANK26 1 bank26 -
+__Lbank27 0 0 BANK27 1 bank27 -
+__Lbank28 0 0 BANK28 1 bank28 -
+__Lbank29 0 0 BANK29 1 bank29 -
+__Lbank30 0 0 BANK30 1 bank30 -
+__Lbank31 0 0 BANK31 1 bank31 -
+__pmaintext 658 0 CODE 0 maintext app.o
+__Lbigram 0 0 ABS 0 bigram -
+_Network_begin 1B56 0 CODE 0 text38 app.o
+___lmul@multiplier 70 0 COMMON 1 cstackCOMMON app.o
+_RF24_enableDynamicPayloads 1656 0 CODE 0 text45 app.o
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 4 config -
+_RXDTSEL 8EF 0 ABS 0 - app.o
+__Hinittext 0 0 ABS 0 inittext -
+___lbdiv@divisor 70 0 COMMON 1 cstackCOMMON app.o
+__end_of_internet_hasChild 14DC 0 CODE 0 text11 app.o
+_RF24_flush_rx 1380 0 CODE 0 text56 app.o
+_RF24_flush_tx 1392 0 CODE 0 text55 app.o
+internet_tx@payload 26 0 BANK0 1 cstackBANK0 app.o
+__end_of_internet_rx 1F5A 0 CODE 0 text5 app.o
+__end_of_internet_tx 18EC 0 CODE 0 text9 app.o
+_RF24_setChannel 13C8 0 CODE 0 text51 app.o
+__$_logline_bin 1822 0 CODE 0 text34 app.o
+__$_logline_hex 1768 0 CODE 0 text33 app.o
+__$_logline_int EE8 0 CODE 0 text29 app.o
+__$_logline_str 1864 0 CODE 0 text27 app.o
+__end_of_timeISR 14BA 0 CODE 0 text66 app.o
+RF24_getDynamicPayloadSize@result 79 0 COMMON 1 cstackCOMMON app.o
+_RF24_setDataRate 1976 0 CODE 0 text50 app.o
+internet_tx@packetHeader 25 0 BANK0 1 cstackBANK0 app.o
+_RF24_write_register 1500 0 CODE 0 text57 app.o
+RF24_available@pipe 73 0 COMMON 1 cstackCOMMON app.o
+_RF24_openWritingPipe 1440 0 CODE 0 text14 app.o
+transport_udp_tx@destination 28 0 BANK0 1 cstackBANK0 app.o
+__end_of_internet_config_rx 172A 0 CODE 0 text15 app.o
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lspace_4 0 0 ABS 0 - -
+_OXPSTASTS A9 0 BANK1 1 bssBANK1 app.o
+_internet_setChannel 1350 0 CODE 0 text24 app.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+__Lend_init 16 0 CODE 0 end_init -
+RF24_setPALevel@level 7A 0 COMMON 1 cstackCOMMON app.o
+RF24_setPayloadSize@size 78 0 COMMON 1 cstackCOMMON app.o
+RF24_setPALevel@setup 78 0 COMMON 1 cstackCOMMON app.o
+__LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+RF24_printDetails@buffer 29 0 BANK0 1 cstackBANK0 app.o
+_checkButton$193 20 0 BANK0 1 cstackBANK0 app.o
+end_of_initialization 58 0 CODE 0 cinit app.o
+__Hintentry 16 0 CODE 0 intentry -
+_oxp_post AA2 0 CODE 0 text3 app.o
+__end_of_SPI_exchangeByte 1426 0 CODE 0 text58 app.o
+__Lstrings 0 0 ABS 0 strings -
+___awdiv@quotient 77 0 COMMON 1 cstackCOMMON app.o
+?___aldiv 20 0 BANK0 1 cstackBANK0 app.o
+?___awdiv 70 0 COMMON 1 cstackCOMMON app.o
+?___awmod 75 0 COMMON 1 cstackCOMMON app.o
+RF24_setCRCLength@length 78 0 COMMON 1 cstackCOMMON app.o
+__end_of_LOGLINE_OK 120E 0 STRCODE 0 stringtext4 app.o
+__Hreset_vec 4 0 CODE 0 reset_vec -
+__HbssBANK0 0 0 ABS 0 bssBANK0 -
+__HbssBANK1 0 0 ABS 0 bssBANK1 -
+__HbssBANK2 0 0 ABS 0 bssBANK2 -
+__end_of_RF24_setCRCLength 1768 0 CODE 0 text40 app.o
+___awmod@dividend 77 0 COMMON 1 cstackCOMMON app.o
+transport_udp_tx@packetHeader 2C 0 BANK0 1 cstackBANK0 app.o
+_internet_calculateMask 147A 0 CODE 0 text19 app.o
+__end_of_oxp_post BBC 0 CODE 0 text3 app.o
+__ptext1 135C 0 CODE 0 text1 app.o
+__ptext2 1D56 0 CODE 0 text2 app.o
+__ptext3 AA2 0 CODE 0 text3 app.o
+__ptext4 18EC 0 CODE 0 text4 app.o
+__ptext5 1EC6 0 CODE 0 text5 app.o
+__ptext6 1688 0 CODE 0 text6 app.o
+__ptext7 39C 0 CODE 0 text7 app.o
+__ptext8 1C80 0 CODE 0 text8 app.o
+__ptext9 18A8 0 CODE 0 text9 app.o
+transport_udp_process@payload 34 0 BANK0 1 cstackBANK0 app.o
+__end_of__$_logline_bin 1864 0 CODE 0 text34 app.o
+__end_of__$_logline_hex 17A6 0 CODE 0 text33 app.o
+__end_of__$_logline_int F9A 0 CODE 0 text29 app.o
+__end_of__$_logline_str 18A8 0 CODE 0 text27 app.o
+___lbdiv@quotient 74 0 COMMON 1 cstackCOMMON app.o
+_internet_config_rx 16F2 0 CODE 0 text15 app.o
+RF24_setChannel@channel 78 0 COMMON 1 cstackCOMMON app.o
+___aldiv@dividend 24 0 BANK0 1 cstackBANK0 app.o
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+_RF24_isChipConnected 13F4 0 CODE 0 text37 app.o
+RF24_write_register@mnemonic_addr 76 0 COMMON 1 cstackCOMMON app.o
+__Lreset_vec 0 0 CODE 0 reset_vec -
+RF24_read@buf 79 0 COMMON 1 cstackCOMMON app.o
+RF24_read@len 77 0 COMMON 1 cstackCOMMON app.o
+__Hstringtext1 0 0 ABS 0 stringtext1 -
+__Hstringtext2 0 0 ABS 0 stringtext2 -
+__Hstringtext3 0 0 ABS 0 stringtext3 -
+__Hstringtext4 0 0 ABS 0 stringtext4 -
+__Hstringtext5 0 0 ABS 0 stringtext5 -
+__Hstringtext6 0 0 ABS 0 stringtext6 -
+__Hstringtext7 0 0 ABS 0 stringtext7 -
+__Hstringtext8 0 0 ABS 0 stringtext8 -
+__Hstringtext9 0 0 ABS 0 stringtext9 -
+transport_udp_process@i 33 0 BANK0 1 cstackBANK0 app.o
+_internet_hasChild 14BA 0 CODE 0 text11 app.o
+___heap_hi 0 0 ABS 0 - startup.o
+___heap_lo 0 0 ABS 0 - startup.o
+oxp_post@propertiesLength 48 0 BANK0 1 cstackBANK0 app.o
+_Serial_begin E2A 0 CODE 0 text61 app.o
+oxp_post@packet 52 0 BANK0 1 cstackBANK0 app.o
+Serial_begin@x 3A 0 BANK0 1 cstackBANK0 app.o
+_Serial_write 13A4 0 CODE 0 text35 app.o
+__end_of__initialization 58 0 CODE 0 cinit app.o
+___awmod@divisor 75 0 COMMON 1 cstackCOMMON app.o
+__Lfunctab 0 0 ENTRY 0 functab -
+__end_of_RF24_setDataRate 19BE 0 CODE 0 text50 app.o
+__pidataBANK1 13B6 0 CODE 0 idataBANK1 app.o
+_checkButton CA0 0 CODE 0 text59 app.o
+__Lclrtext 0 0 ABS 0 clrtext -
+_checkRF24Connection 1AFC 0 CODE 0 text25 app.o
+___lmul@product 78 0 COMMON 1 cstackCOMMON app.o
+_RF24_powerUp 1550 0 CODE 0 text53 app.o
+__end_of_RF24_write_register 1526 0 CODE 0 text57 app.o
+__end_of_LOGLINE_CONVERSION_TABLE 10F6 0 STRCODE 0 stringtext1 app.o
+__end_of_RF24_get_status 1440 0 CODE 0 text23 app.o
+___lmul@multiplicand 74 0 COMMON 1 cstackCOMMON app.o
+RF24_setAddressWidth@w 78 0 COMMON 1 cstackCOMMON app.o
+?_RF24_getPALevel 74 0 COMMON 1 cstackCOMMON app.o
+_T1CKPS0 C4 0 ABS 0 - app.o
+_T1CKPS1 C5 0 ABS 0 - app.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON app.o
+_T1OSCEN C3 0 ABS 0 - app.o
+_SSP1BUF 211 0 ABS 0 - app.o
+RF24_write@buf 7A 0 COMMON 1 cstackCOMMON app.o
+RF24_write@len 78 0 COMMON 1 cstackCOMMON app.o
+__Hend_init 1A 0 CODE 0 end_init -
+___aldiv@counter 28 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_getPALevel 1350 0 CODE 0 text44 app.o
+__end_of_Network_begin 1BB2 0 CODE 0 text38 app.o
+__end_of_main 820 0 CODE 0 maintext app.o
+_buffer_rx 120 0 BANK2 1 bssBANK2 app.o
+_buffer_tx 140 0 BANK2 1 bssBANK2 app.o
+__end_of_internet_setChannel 135C 0 CODE 0 text24 app.o
+__end_of_LOGLINE_FAIL 1208 0 STRCODE 0 stringtext3 app.o
+internet_config_rx@payload 26 0 BANK0 1 cstackBANK0 app.o
+__end_of_RF24_read_n_register 1A52 0 CODE 0 text36 app.o
+_SENDB CF3 0 ABS 0 - app.o
+_SPBRG 19B 0 ABS 0 - app.o
+_SSPEN 10AD 0 ABS 0 - app.o
+_TXREG 19A 0 ABS 0 - app.o
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+__end_of_RF24_flush_rx 1392 0 CODE 0 text56 app.o
+__end_of_RF24_flush_tx 13A4 0 CODE 0 text55 app.o
+internet_setChannel@channel 79 0 COMMON 1 cstackCOMMON app.o
+_props DC 0 BANK1 1 dataBANK1 app.o
+__pintentry 8 0 CODE 0 intentry app.o
+Serial_begin@baudrate 2E 0 BANK0 1 cstackBANK0 app.o
+__HdataBANK1 0 0 ABS 0 dataBANK1 -
+_RF24_setCRCLength 172A 0 CODE 0 text40 app.o
+RF24_read_n_register@mnemonic_addr 75 0 COMMON 1 cstackCOMMON app.o
+oxp_post@destinationPort 46 0 BANK0 1 cstackBANK0 app.o
+_RF24_setPALevel$925 79 0 COMMON 1 cstackCOMMON app.o
+__initialization 1A 0 CODE 0 cinit app.o
+__end_of_RF24_write_n_register 1976 0 CODE 0 text43 app.o
+__pbssBANK0 5A 0 BANK0 1 bssBANK0 app.o
+__pbssBANK1 A0 0 BANK1 1 bssBANK1 app.o
+__pbssBANK2 120 0 BANK2 1 bssBANK2 app.o
+__end_of_wait_init 1368 0 CODE 0 text1 app.o
+__end_of_RF24_getDynamicPayloadSize 16F2 0 CODE 0 text21 app.o
+SPI_exchangeByte@byte 70 0 COMMON 1 cstackCOMMON app.o
+_ANSELBbits 18D 0 ABS 0 - app.o
+_isConfigerd 5A 0 BANK0 1 bssBANK0 app.o
+__end_of_Serial_begin EE8 0 CODE 0 text61 app.o
+_RF24_get_status 1426 0 CODE 0 text23 app.o
+transport_udp_tx@sourcePort 29 0 BANK0 1 cstackBANK0 app.o
+__end_of_Serial_write 13B6 0 CODE 0 text35 app.o
+RF24_write_register@value 74 0 COMMON 1 cstackCOMMON app.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+text1 0 9AE 135C 6 2
+text2 0 EAB 1D56 38 2
+text4 0 C76 18EC 22 2
+text5 0 F63 1EC6 4A 2
+text6 0 B44 1688 19 2
+text8 0 E40 1C80 35 2
+text9 0 C54 18A8 22 2
+text11 0 A5D 14BA 11 2
+text12 0 EE3 1DC6 3D 2
+text13 0 BF2 17E4 1F 2
+text14 0 A20 1440 E 2
+text15 0 B79 16F2 1C 2
+text16 0 F20 1E40 43 2
+text17 0 BD3 17A6 1F 2
+text18 0 D52 1AA4 2C 2
+text19 0 A3D 147A F 2
+text20 0 AFE 15FC 16 2
+text21 0 B5D 16BA 1C 2
+text22 0 A6E 14DC 12 2
+text23 0 A13 1426 D 2
+text24 0 9A8 1350 6 2
+text25 0 D7E 1AFC 2D 2
+text27 0 C32 1864 22 2
+text28 0 E0B 1C16 35 2
+text30 0 D29 1A52 29 2
+text31 0 FAD 1F5A 53 2
+text33 0 BB4 1768 1F 2
+text34 0 C11 1822 21 2
+text35 0 9D2 13A4 9 2
+text36 0 D04 1A08 25 2
+text37 0 9FA 13F4 C 2
+text38 0 DAB 1B56 2E 2
+text39 0 B14 1628 17 2
+text40 0 B95 172A 1F 2
+text41 0 ABD 157A 15 2
+text42 0 E75 1CEA 36 2
+text43 0 C98 1930 23 2
+text44 0 9A3 1346 5 2
+text45 0 B2B 1656 19 2
+text47 0 AE8 15D0 16 2
+text48 0 DD9 1BB2 32 2
+text49 0 CDF 19BE 25 2
+text50 0 CBB 1976 24 2
+text51 0 9E4 13C8 A 2
+text52 0 9EE 13DC C 2
+text53 0 AA8 1550 15 2
+text54 0 AD2 15A4 16 2
+text55 0 9C9 1392 9 2
+text56 0 9C0 1380 9 2
+text57 0 A80 1500 13 2
+text58 0 A06 140C D 2
+text60 0 A93 1526 15 2
+text64 0 A2E 145C F 2
+text66 0 A4C 1498 11 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 3D 1
+inittext 0 9BA 1374 6 2
+stringtext5 0 800 1000 109 2
+intentry 0 4 8 7FC 2
+reset_vec 0 0 0 2 2
+bssBANK1 1 A0 A0 40 1
+bssBANK2 1 120 120 40 1
+idataBANK1 0 9DB 13B6 9 2
+clrtext 0 9B4 1368 6 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

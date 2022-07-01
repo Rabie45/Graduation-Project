@@ -341,7 +341,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "6837
 [; <" TOSH equ 0FEFh ;# ">
-"2 E:/PIC project/timer1828Test/libs/time.c
+"2 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/time.c
 [v __microsMSB `ul ~T0 @X0 1 e ]
 [i __microsMSB
 -> -> -> 0 `i `l `ul

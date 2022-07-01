@@ -13,22 +13,22 @@
 %PSECTS
 $app.o
 cinit CODE 0 D D 9 2 1
-text1 CODE 0 110 110 6 2 1
+text1 CODE 0 113 113 6 2 1
 text2 CODE 0 5D 5D 38 2 1
 text3 CODE 0 16 16 47 2 1
-text4 CODE 0 ED ED 14 2 1
+text4 CODE 0 F0 F0 14 2 1
 text5 CODE 0 95 95 33 2 1
-text7 CODE 0 101 101 F 2 1
-maintext CODE 0 C8 C8 25 2 1
+text7 CODE 0 104 104 F 2 1
+maintext CODE 0 C8 C8 28 2 1
 cstackCOMMON COMMON 1 70 70 E 1 1
 cstackBANK0 BANK0 1 20 20 C 1 1
 intentry CODE 0 4 4 7 2 1
 bssBANK0 BANK0 1 2C 2C 4 1 1
-config CONFIG 4 8007 8007 2 2 1
+config CONFIG 4 8007 8007 1 2 1
 $startup.o
 reset_vec CODE 0 0 0 2 2 1
 end_init CODE 0 B B 2 2 1
-config CONFIG 4 8007 8007 2 2 1
+config CONFIG 4 8007 8007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -42,9 +42,9 @@ BANK0 30-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 CONST 2-3 2
-CONST 116-FFF 2
+CONST 119-FFF 2
 ENTRY 2-3 2
-ENTRY 116-FFF 2
+ENTRY 119-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -69,7 +69,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 CODE 2-3 2
-CODE 116-FFF 2
+CODE 119-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -81,11 +81,12 @@ SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-20EF 1
+CONFIG 8008-8008 2
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE 116-FFF 2
+STRCODE 119-FFF 2
 STRING 2-3 2
-STRING 116-FFF 2
+STRING 119-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -100,25 +101,25 @@ STRING 116-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $app.o
-D cinit CODE >1430:E:\PIC project\timer1828Test\build\app\app.s
-D cinit CODE >1433:E:\PIC project\timer1828Test\build\app\app.s
-D cinit CODE >1445:E:\PIC project\timer1828Test\build\app\app.s
-E cinit CODE >1446:E:\PIC project\timer1828Test\build\app\app.s
-F cinit CODE >1447:E:\PIC project\timer1828Test\build\app\app.s
-10 cinit CODE >1448:E:\PIC project\timer1828Test\build\app\app.s
-11 cinit CODE >1449:E:\PIC project\timer1828Test\build\app\app.s
-12 cinit CODE >1455:E:\PIC project\timer1828Test\build\app\app.s
-12 cinit CODE >1457:E:\PIC project\timer1828Test\build\app\app.s
-13 cinit CODE >1458:E:\PIC project\timer1828Test\build\app\app.s
-14 cinit CODE >1459:E:\PIC project\timer1828Test\build\app\app.s
-4 intentry CODE >32:E:/PIC project/timer1828Test/app/src/main.c
-6 intentry CODE >34:E:/PIC project/timer1828Test/app/src/main.c
-9 intentry CODE >35:E:/PIC project/timer1828Test/app/src/main.c
-101 text7 CODE >47:E:/PIC project/timer1828Test/libs/time.c
-101 text7 CODE >49:E:/PIC project/timer1828Test/libs/time.c
-106 text7 CODE >51:E:/PIC project/timer1828Test/libs/time.c
-10E text7 CODE >52:E:/PIC project/timer1828Test/libs/time.c
-10F text7 CODE >54:E:/PIC project/timer1828Test/libs/time.c
+D cinit CODE >1434:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+D cinit CODE >1437:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+D cinit CODE >1449:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+E cinit CODE >1450:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+F cinit CODE >1451:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+10 cinit CODE >1452:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+11 cinit CODE >1453:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+12 cinit CODE >1459:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+12 cinit CODE >1461:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+13 cinit CODE >1462:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+14 cinit CODE >1463:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\app.s
+4 intentry CODE >38:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+6 intentry CODE >40:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+9 intentry CODE >41:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+104 text7 CODE >47:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+104 text7 CODE >49:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+109 text7 CODE >51:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+111 text7 CODE >52:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+112 text7 CODE >54:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 95 text5 CODE >15:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
 95 text5 CODE >119:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
 9D text5 CODE >121:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
@@ -129,49 +130,51 @@ B7 text5 CODE >125:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\U
 BB text5 CODE >125:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
 BF text5 CODE >128:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
 C7 text5 CODE >129:C:\Program Files\Microchip\xc8\v2.35\pic\sources\c99\common\Umul32.c
-ED text4 CODE >42:E:/PIC project/timer1828Test/libs/time.c
-ED text4 CODE >44:E:/PIC project/timer1828Test/libs/time.c
-100 text4 CODE >45:E:/PIC project/timer1828Test/libs/time.c
-16 text3 CODE >16:E:/PIC project/timer1828Test/libs/wait.c
-16 text3 CODE >18:E:/PIC project/timer1828Test/libs/wait.c
-46 text3 CODE >19:E:/PIC project/timer1828Test/libs/wait.c
-4C text3 CODE >19:E:/PIC project/timer1828Test/libs/wait.c
-50 text3 CODE >19:E:/PIC project/timer1828Test/libs/wait.c
-54 text3 CODE >19:E:/PIC project/timer1828Test/libs/wait.c
-58 text3 CODE >19:E:/PIC project/timer1828Test/libs/wait.c
-5C text3 CODE >22:E:/PIC project/timer1828Test/libs/wait.c
-5D text2 CODE >3:E:/PIC project/timer1828Test/libs/time.c
-5E text2 CODE >5:E:/PIC project/timer1828Test/libs/time.c
-60 text2 CODE >5:E:/PIC project/timer1828Test/libs/time.c
-62 text2 CODE >6:E:/PIC project/timer1828Test/libs/time.c
-63 text2 CODE >7:E:/PIC project/timer1828Test/libs/time.c
-64 text2 CODE >9:E:/PIC project/timer1828Test/libs/time.c
-68 text2 CODE >10:E:/PIC project/timer1828Test/libs/time.c
-6A text2 CODE >7:E:/PIC project/timer1828Test/libs/time.c
-73 text2 CODE >26:E:/PIC project/timer1828Test/libs/time.c
-74 text2 CODE >27:E:/PIC project/timer1828Test/libs/time.c
-75 text2 CODE >28:E:/PIC project/timer1828Test/libs/time.c
-77 text2 CODE >29:E:/PIC project/timer1828Test/libs/time.c
-79 text2 CODE >30:E:/PIC project/timer1828Test/libs/time.c
-7A text2 CODE >31:E:/PIC project/timer1828Test/libs/time.c
-7B text2 CODE >32:E:/PIC project/timer1828Test/libs/time.c
-89 text2 CODE >33:E:/PIC project/timer1828Test/libs/time.c
-91 text2 CODE >34:E:/PIC project/timer1828Test/libs/time.c
-92 text2 CODE >35:E:/PIC project/timer1828Test/libs/time.c
-94 text2 CODE >40:E:/PIC project/timer1828Test/libs/time.c
-110 text1 CODE >3:E:/PIC project/timer1828Test/libs/wait.c
-111 text1 CODE >5:E:/PIC project/timer1828Test/libs/wait.c
-115 text1 CODE >6:E:/PIC project/timer1828Test/libs/wait.c
-C8 maintext CODE >18:E:/PIC project/timer1828Test/app/src/main.c
-C8 maintext CODE >20:E:/PIC project/timer1828Test/app/src/main.c
-CC maintext CODE >22:E:/PIC project/timer1828Test/app/src/main.c
-CE maintext CODE >26:E:/PIC project/timer1828Test/app/src/main.c
-D1 maintext CODE >27:E:/PIC project/timer1828Test/app/src/main.c
-DD maintext CODE >28:E:/PIC project/timer1828Test/app/src/main.c
-DF maintext CODE >29:E:/PIC project/timer1828Test/app/src/main.c
+F0 text4 CODE >42:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+F0 text4 CODE >44:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+103 text4 CODE >45:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+16 text3 CODE >16:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+16 text3 CODE >18:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+46 text3 CODE >19:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+4C text3 CODE >19:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+50 text3 CODE >19:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+54 text3 CODE >19:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+58 text3 CODE >19:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+5C text3 CODE >22:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+5D text2 CODE >3:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+5E text2 CODE >5:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+60 text2 CODE >5:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+62 text2 CODE >6:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+63 text2 CODE >7:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+64 text2 CODE >9:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+68 text2 CODE >10:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+6A text2 CODE >7:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+73 text2 CODE >26:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+74 text2 CODE >27:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+75 text2 CODE >28:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+77 text2 CODE >29:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+79 text2 CODE >30:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+7A text2 CODE >31:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+7B text2 CODE >32:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+89 text2 CODE >33:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+91 text2 CODE >34:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+92 text2 CODE >35:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+94 text2 CODE >40:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
+113 text1 CODE >3:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+114 text1 CODE >5:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+118 text1 CODE >6:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
+C8 maintext CODE >23:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+C8 maintext CODE >25:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+CC maintext CODE >26:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+CF maintext CODE >27:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+D0 maintext CODE >28:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+D2 maintext CODE >32:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+D4 maintext CODE >33:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+E0 maintext CODE >34:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
+E2 maintext CODE >35:F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
 $startup.o
-B end_init CODE >97:E:\PIC project\timer1828Test\build\app\startup.s
-0 reset_vec CODE >69:E:\PIC project\timer1828Test\build\app\startup.s
+B end_init CODE >97:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\startup.s
+0 reset_vec CODE >69:F:\GitHub\Graduation-Project\Lib-test\Timer16f1828\build\app\startup.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -185,13 +188,13 @@ B end_init CODE >97:E:\PIC project\timer1828Test\build\app\startup.s
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 1 0 ABS 0 - app.o
-__Hspace_0 116 0 ABS 0 - -
+__Hspace_0 119 0 ABS 0 - -
 __Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
-__Hspace_4 10010 0 ABS 0 - -
-_timeISR 202 0 CODE 0 text7 app.o
-_wait_init 220 0 CODE 0 text1 app.o
+__Hspace_4 1000F 0 ABS 0 - -
+_timeISR 208 0 CODE 0 text7 app.o
+_wait_init 226 0 CODE 0 text1 app.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - app.o
@@ -226,7 +229,8 @@ __microsMSB 2C 0 BANK0 1 bssBANK0 app.o
 ___stackhi 0 0 ABS 0 - startup.o
 ___stacklo 0 0 ABS 0 - startup.o
 start_initialization 1A 0 CODE 0 cinit app.o
-__end_of_micros 202 0 CODE 0 text4 app.o
+_OSCCON 99 0 ABS 0 - app.o
+__end_of_micros 208 0 CODE 0 text4 app.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 app.o
 _TMR1IE 488 0 ABS 0 - app.o
 _TMR1IF 88 0 ABS 0 - app.o
@@ -292,7 +296,7 @@ __Hbank31 0 0 BANK31 1 bank31 -
 __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
-__Hconfig 10012 0 CONFIG 4 config -
+__Hconfig 10010 0 CONFIG 4 config -
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -363,14 +367,15 @@ int$flags 7E 0 ABS 0 - app.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _GIE 5F 0 ABS 0 - app.o
 _ISR 8 0 CODE 0 intentry app.o
-__S0 116 0 ABS 0 - -
+_RB7 6F 0 ABS 0 - app.o
+__S0 119 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __end_of_ISR 16 0 CODE 0 intentry app.o
 __Lintentry 8 0 CODE 0 intentry -
 reset_vec 0 0 CODE 0 reset_vec startup.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_micros 1DA 0 CODE 0 text4 app.o
+_micros 1E0 0 CODE 0 text4 app.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -399,7 +404,7 @@ ___lmul@multiplier 70 0 COMMON 1 cstackCOMMON app.o
 waitMillis@stopTime 28 0 BANK0 1 cstackBANK0 app.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_timeISR 220 0 CODE 0 text7 app.o
+__end_of_timeISR 226 0 CODE 0 text7 app.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -413,12 +418,12 @@ __Hintentry 16 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__ptext1 220 0 CODE 0 text1 app.o
+__ptext1 226 0 CODE 0 text1 app.o
 __ptext2 BA 0 CODE 0 text2 app.o
 __ptext3 2C 0 CODE 0 text3 app.o
-__ptext4 1DA 0 CODE 0 text4 app.o
+__ptext4 1E0 0 CODE 0 text4 app.o
 __ptext5 12A 0 CODE 0 text5 app.o
-__ptext7 202 0 CODE 0 text7 app.o
+__ptext7 208 0 CODE 0 text7 app.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -434,16 +439,15 @@ _T1CKPS1 C5 0 ABS 0 - app.o
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON app.o
 _T1OSCEN C3 0 ABS 0 - app.o
 __Hend_init 1A 0 CODE 0 end_init -
-__end_of_main 1DA 0 CODE 0 maintext app.o
-_PORTC E 0 ABS 0 - app.o
-_TRISC 8E 0 ABS 0 - app.o
+__end_of_main 1E0 0 CODE 0 maintext app.o
+_TRISB 8D 0 ABS 0 - app.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __pintentry 8 0 CODE 0 intentry app.o
 _waitMillis 2C 0 CODE 0 text3 app.o
 __initialization 1A 0 CODE 0 cinit app.o
 __pbssBANK0 2C 0 BANK0 1 bssBANK0 app.o
-__end_of_wait_init 22C 0 CODE 0 text1 app.o
+__end_of_wait_init 232 0 CODE 0 text1 app.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -471,7 +475,7 @@ __end_of_wait_init 22C 0 CODE 0 text1 app.o
 %SEGMENTS
 cstackCOMMON 1 70 70 E 1
 cstackBANK0 1 20 20 10 1
-intentry 0 4 8 112 2
+intentry 0 4 8 115 2
 reset_vec 0 0 0 2 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

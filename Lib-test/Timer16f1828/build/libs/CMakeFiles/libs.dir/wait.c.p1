@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"6 E:/PIC project/timer1828Test/libs/include/time.h
+"6 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include/time.h
 [v _timerInit `(v ~T0 @X0 0 ef1`uc ]
 "7
 [v _micros `(ul ~T0 @X0 0 e? ]
@@ -323,7 +323,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "6837
 [; <" TOSH equ 0FEFh ;# ">
-"3 E:/PIC project/timer1828Test/libs/wait.c
+"3 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
 [v _wait_init `(v ~T0 @X0 1 ef1`uc ]
 "4
 {

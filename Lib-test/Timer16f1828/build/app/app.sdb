@@ -13,30 +13,32 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"18 E:/PIC project/timer1828Test/app/src/main.c
+"23 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
 [v _main main `(i  1 e 2 0 ]
-"32
+"38
 [v _ISR ISR `II(v  1 e 1 0 ]
-"3 E:/PIC project/timer1828Test/libs/time.c
+"3 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 [v _timerInit timerInit `(v  1 e 1 0 ]
 "42
 [v _micros micros `(ul  1 e 4 0 ]
 "47
 [v _timeISR timeISR `(v  1 e 1 0 ]
-"3 E:/PIC project/timer1828Test/libs/wait.c
+"3 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
 [v _wait_init wait_init `(v  1 e 1 0 ]
 "16
 [v _waitMillis waitMillis `(v  1 e 1 0 ]
-"519 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
-[v _PORTC PORTC `VEuc  1 e 1 @14 ]
-"754
+"754 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
 [v _TMR1 TMR1 `VEus  1 e 2 @22 ]
-"1256
-[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"1217
+[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+"1722
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
 "7399
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "7813
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
+"7885
+[v _RB7 RB7 `VEb  1 e 0 @111 ]
 "8110
 [v _T1CKPS0 T1CKPS0 `VEb  1 e 0 @196 ]
 "8113
@@ -53,14 +55,14 @@
 [v _TMR1IF TMR1IF `VEb  1 e 0 @136 ]
 "8236
 [v _TMR1ON TMR1ON `VEb  1 e 0 @192 ]
-"2 E:/PIC project/timer1828Test/libs/time.c
+"2 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 [v __microsMSB _microsMSB `ul  1 e 4 0 ]
-"18 E:/PIC project/timer1828Test/app/src/main.c
+"23 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"31
+"37
 } 0
-"3 E:/PIC project/timer1828Test/libs/wait.c
+"3 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
 [v _wait_init wait_init `(v  1 e 1 0 ]
 {
 [v wait_init@megaHertez megaHertez `uc  1 a 1 wreg ]
@@ -69,7 +71,7 @@
 [v wait_init@megaHertez megaHertez `uc  1 a 1 3 ]
 "6
 } 0
-"3 E:/PIC project/timer1828Test/libs/time.c
+"3 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 [v _timerInit timerInit `(v  1 e 1 0 ]
 {
 [v timerInit@mhz mhz `uc  1 a 1 wreg ]
@@ -81,7 +83,7 @@
 [v timerInit@mhz mhz `uc  1 a 1 1 ]
 "40
 } 0
-"16 E:/PIC project/timer1828Test/libs/wait.c
+"16 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
 [v _waitMillis waitMillis `(v  1 e 1 0 ]
 {
 "18
@@ -90,7 +92,7 @@
 [v waitMillis@microSeconds microSeconds `ul  1 p 4 0 ]
 "22
 } 0
-"42 E:/PIC project/timer1828Test/libs/time.c
+"42 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 [v _micros micros `(ul  1 e 4 0 ]
 {
 "45
@@ -105,12 +107,12 @@
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
 "129
 } 0
-"32 E:/PIC project/timer1828Test/app/src/main.c
+"38 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"35
+"41
 } 0
-"47 E:/PIC project/timer1828Test/libs/time.c
+"47 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 [v _timeISR timeISR `(v  1 e 1 0 ]
 {
 "54

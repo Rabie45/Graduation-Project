@@ -191,39 +191,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR1ON -> -> 1 `i `b ]
 "24
 [e = _TMR1 -> -> 0 `i `us ]
-"28
+"39
 [e :UE 95 ]
 }
 [v F888 `(ul ~T0 @X0 1 tf ]
-"30
+"41
 [v _micros `TF888 ~T0 @X0 1 e ]
-"31
+"42
 {
 [e :U _micros ]
 [f ]
-"32
+"43
 [e ) | __microsMSB -> _TMR1 `ul ]
 [e $UE 99  ]
-"33
+"44
 [e :UE 99 ]
 }
-"35
+"46
 [v _timeISR `(v ~T0 @X0 1 ef ]
-"36
+"47
 {
 [e :U _timeISR ]
 [f ]
-"37
+"48
 [e $ ! _TMR1IF 101  ]
-"38
+"49
 {
-"39
+"50
 [e =+ __microsMSB -> -> 65536 `l `ul ]
-"40
+"51
 [e = _TMR1IF -> -> 0 `i `b ]
-"41
+"52
 }
 [e :U 101 ]
-"42
+"53
 [e :UE 100 ]
 }

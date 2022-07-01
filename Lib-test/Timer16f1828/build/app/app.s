@@ -1393,8 +1393,6 @@ TOSH equ 0FEFh ;#
 	global	__microsMSB
 	global	_TMR1
 _TMR1	set	0x16
-	global	_PORTC
-_PORTC	set	0xE
 	global	_TMR1IF
 _TMR1IF	set	0x88
 	global	_TMR1ON
@@ -1413,8 +1411,12 @@ _TMR1CS0	set	0xC6
 _GIE	set	0x5F
 	global	_PEIE
 _PEIE	set	0x5E
-	global	_TRISC
-_TRISC	set	0x8E
+	global	_RB7
+_RB7	set	0x6F
+	global	_TRISB
+_TRISB	set	0x8D
+	global	_OSCCON
+_OSCCON	set	0x99
 	global	_TMR1IE
 _TMR1IE	set	0x488
 ; #config settings
@@ -1423,14 +1425,16 @@ _TMR1IE	set	0x488
 	config ignore_cmsgs    = off
 	config default_configs = off
 	config default_idlocs  = off
-	config FOSC = "HS"
+	config FOSC = "INTOSC"
 	config WDTE = "OFF"
 	config PWRTE = "ON"
+	config MCLRE = "ON"
 	config CP = "OFF"
 	config CPD = "OFF"
-	config BOREN = "ON"
-	config WRT = "OFF"
-	config LVP = "OFF"
+	config BOREN = "OFF"
+	config CLKOUTEN = "OFF"
+	config IESO = "OFF"
+	config FCMEN = "ON"
 	file	"app.s"
 	line	#
 psect cinit,class=CODE,delta=2
@@ -1716,13 +1720,13 @@ waitMillis@stopTime:	; 4 bytes @ 0x8
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 18 in file "E:/PIC project/timer1828Test/app/src/main.c"
+;;		line 23 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  2   16[None  ] int 
+;;                  2   18[None  ] int 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -1744,37 +1748,46 @@ waitMillis@stopTime:	; 4 bytes @ 0x8
 ;; This function uses a non-reentrant model
 ;;
 psect	maintext,global,class=CODE,delta=2,merge=1,split=1,group=0
-	file	"E:/PIC project/timer1828Test/app/src/main.c"
-	line	18
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c"
+	line	23
 global __pmaintext
 __pmaintext:	;psect for function _main
 psect	maintext
-	file	"E:/PIC project/timer1828Test/app/src/main.c"
-	line	18
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c"
+	line	23
 	
 _main:	
 ;incstack = 0
 	callstack 12
 ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-	line	20
+	line	25
 	
-l781:	
+l789:	
 	movlw	low(010h)
 	fcall	_wait_init
-	line	22
-	
-l783:	
-	movlb 1	; select bank1
-	clrf	(142)^080h	;volatile
 	line	26
 	
-l785:	
-	movlw	low(0FFh)
-	movlb 0	; select bank0
-	movwf	(14)	;volatile
+l791:	
+	movlw	low(07Ah)
+	movlb 1	; select bank1
+	movwf	(153)^080h	;volatile
 	line	27
 	
-l787:	
+l793:	
+	clrf	(141)^080h	;volatile
+	line	28
+	
+l795:	
+	movlb 0	; select bank0
+	bsf	(111/8),(111)&7	;volatile
+	line	32
+	
+l797:	
+	movlb 0	; select bank0
+	bsf	(111/8),(111)&7	;volatile
+	line	33
+	
+l799:	
 	asmopt push
 asmopt off
 movlw  21
@@ -1792,27 +1805,29 @@ decfsz	wreg
 	nop2
 asmopt pop
 
-	line	28
+	line	34
 	
-l789:	
+l801:	
 	movlb 0	; select bank0
-	clrf	(14)	;volatile
-	line	29
+	bcf	(111/8),(111)&7	;volatile
+	line	35
+	
+l803:	
 	movlw	0
 	movwf	(waitMillis@microSeconds+3)
 	movlw	0
 	movwf	(waitMillis@microSeconds+2)
-	movlw	0
+	movlw	03h
 	movwf	(waitMillis@microSeconds+1)
-	movlw	064h
+	movlw	0E8h
 	movwf	(waitMillis@microSeconds)
 
 	fcall	_waitMillis
-	goto	l785
+	goto	l797
 	global	start
 	ljmp	start
 	callstack 0
-	line	31
+	line	37
 GLOBAL	__end_of_main
 	__end_of_main:
 	signat	_main,90
@@ -1820,7 +1835,7 @@ GLOBAL	__end_of_main
 
 ;; *************** function _wait_init *****************
 ;; Defined at:
-;;		line 3 in file "E:/PIC project/timer1828Test/libs/wait.c"
+;;		line 3 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c"
 ;; Parameters:    Size  Location     Type
 ;;  megaHertez      1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -1848,12 +1863,12 @@ GLOBAL	__end_of_main
 ;; This function uses a non-reentrant model
 ;;
 psect	text1,local,class=CODE,delta=2,merge=1,group=1
-	file	"E:/PIC project/timer1828Test/libs/wait.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c"
 	line	3
 global __ptext1
 __ptext1:	;psect for function _wait_init
 psect	text1
-	file	"E:/PIC project/timer1828Test/libs/wait.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c"
 	line	3
 	
 _wait_init:	
@@ -1863,12 +1878,12 @@ _wait_init:
 	movwf	(wait_init@megaHertez)
 	line	5
 	
-l729:	
+l731:	
 	movf	(wait_init@megaHertez),w
 	fcall	_timerInit
 	line	6
 	
-l217:	
+l219:	
 	return
 	callstack 0
 GLOBAL	__end_of_wait_init
@@ -1878,7 +1893,7 @@ GLOBAL	__end_of_wait_init
 
 ;; *************** function _timerInit *****************
 ;; Defined at:
-;;		line 3 in file "E:/PIC project/timer1828Test/libs/time.c"
+;;		line 3 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 ;; Parameters:    Size  Location     Type
 ;;  mhz             1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -1907,12 +1922,12 @@ GLOBAL	__end_of_wait_init
 ;; This function uses a non-reentrant model
 ;;
 psect	text2,local,class=CODE,delta=2,merge=1,group=1
-	file	"E:/PIC project/timer1828Test/libs/time.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 	line	3
 global __ptext2
 __ptext2:	;psect for function _timerInit
 psect	text2
-	file	"E:/PIC project/timer1828Test/libs/time.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 	line	3
 	
 _timerInit:	
@@ -1922,7 +1937,7 @@ _timerInit:
 	movwf	(timerInit@mhz)
 	line	5
 	
-l691:	
+l693:	
 	clrc
 	rrf	(timerInit@mhz),f
 	clrc
@@ -1930,43 +1945,43 @@ l691:
 
 	line	6
 	
-l693:	
+l695:	
 	clrf	(timerInit@prescaler)
 	line	7
-	goto	l699
+	goto	l701
 	line	9
 	
-l695:	
+l697:	
 	movlw	low(01h)
 	movwf	(??_timerInit+0)+0
 	movf	(??_timerInit+0)+0,w
 	addwf	(timerInit@prescaler),f
 	line	10
 	
-l697:	
+l699:	
 	clrc
 	rrf	(timerInit@mhz),f
 
 	line	7
 	
-l699:	
+l701:	
 	movf	((timerInit@mhz)),w
 	btfsc	status,2
 	goto	u11
 	goto	u10
 u11:
-	goto	l202
+	goto	l204
 u10:
 	
-l701:	
+l703:	
 	btfss	(timerInit@mhz),(0)&7
 	goto	u21
 	goto	u20
 u21:
-	goto	l695
+	goto	l697
 u20:
 	
-l202:	
+l204:	
 	line	26
 	bsf	(94/8),(94)&7	;volatile
 	line	27
@@ -1983,7 +1998,7 @@ l202:
 	bsf	(195/8),(195)&7	;volatile
 	line	32
 	
-l703:	
+l705:	
 	movf	(timerInit@prescaler),w
 	movwf	(??_timerInit+0)+0
 	movlw	01h
@@ -2005,7 +2020,7 @@ u40:
 u54:
 	line	33
 	
-l705:	
+l707:	
 	btfsc	(timerInit@prescaler),0
 	goto	u61
 	goto	u60
@@ -2020,16 +2035,16 @@ u60:
 u74:
 	line	34
 	
-l707:	
+l709:	
 	bsf	(192/8),(192)&7	;volatile
 	line	35
 	
-l709:	
+l711:	
 	clrf	(22)	;volatile
 	clrf	(22+1)	;volatile
 	line	40
 	
-l203:	
+l205:	
 	return
 	callstack 0
 GLOBAL	__end_of_timerInit
@@ -2039,7 +2054,7 @@ GLOBAL	__end_of_timerInit
 
 ;; *************** function _waitMillis *****************
 ;; Defined at:
-;;		line 16 in file "E:/PIC project/timer1828Test/libs/wait.c"
+;;		line 16 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c"
 ;; Parameters:    Size  Location     Type
 ;;  microSeconds    4    0[BANK0 ] unsigned long 
 ;; Auto vars:     Size  Location     Type
@@ -2068,12 +2083,12 @@ GLOBAL	__end_of_timerInit
 ;; This function uses a non-reentrant model
 ;;
 psect	text3,local,class=CODE,delta=2,merge=1,group=1
-	file	"E:/PIC project/timer1828Test/libs/wait.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c"
 	line	16
 global __ptext3
 __ptext3:	;psect for function _waitMillis
 psect	text3
-	file	"E:/PIC project/timer1828Test/libs/wait.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c"
 	line	16
 	
 _waitMillis:	
@@ -2082,7 +2097,7 @@ _waitMillis:
 ; Regs used in _waitMillis: [wreg+status,2+status,0+pclath+cstack]
 	line	18
 	
-l771:	
+l779:	
 	fcall	_micros
 	movf	(0+?_micros),w
 	movlb 0	; select bank0
@@ -2132,7 +2147,7 @@ l771:
 
 	line	19
 	
-l773:	
+l781:	
 	fcall	_micros
 	movlb 0	; select bank0
 	movf	(waitMillis@stopTime+3),w
@@ -2154,11 +2169,11 @@ u185:
 	goto	u181
 	goto	u180
 u181:
-	goto	l773
+	goto	l781
 u180:
 	line	22
 	
-l229:	
+l231:	
 	return
 	callstack 0
 GLOBAL	__end_of_waitMillis
@@ -2168,7 +2183,7 @@ GLOBAL	__end_of_waitMillis
 
 ;; *************** function _micros *****************
 ;; Defined at:
-;;		line 42 in file "E:/PIC project/timer1828Test/libs/time.c"
+;;		line 42 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -2196,12 +2211,12 @@ GLOBAL	__end_of_waitMillis
 ;; This function uses a non-reentrant model
 ;;
 psect	text4,local,class=CODE,delta=2,merge=1,group=1
-	file	"E:/PIC project/timer1828Test/libs/time.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 	line	42
 global __ptext4
 __ptext4:	;psect for function _micros
 psect	text4
-	file	"E:/PIC project/timer1828Test/libs/time.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 	line	42
 	
 _micros:	
@@ -2210,7 +2225,7 @@ _micros:
 ; Regs used in _micros: [wreg]
 	line	44
 	
-l753:	
+l761:	
 	movlb 0	; select bank0
 	movf	(22),w	;volatile
 	movwf	((??_micros+0)+0)
@@ -2234,7 +2249,7 @@ l753:
 	movwf	3+(?_micros)
 	line	45
 	
-l206:	
+l208:	
 	return
 	callstack 0
 GLOBAL	__end_of_micros
@@ -2287,7 +2302,7 @@ ___lmul:
 ; Regs used in ___lmul: [wreg+status,2+status,0]
 	line	119
 	
-l757:	
+l765:	
 	movlw	high highword(0)
 	movwf	(___lmul@product+3)
 	movlw	low highword(0)
@@ -2299,16 +2314,16 @@ l757:
 
 	line	121
 	
-l759:	
+l767:	
 	btfss	(___lmul@multiplier),(0)&7
 	goto	u141
 	goto	u140
 u141:
-	goto	l763
+	goto	l771
 u140:
 	line	122
 	
-l761:	
+l769:	
 	movf	(___lmul@multiplicand),w
 	addwf	(___lmul@product),f
 	movf	(___lmul@multiplicand+1),w
@@ -2319,7 +2334,7 @@ l761:
 	addwfc	(___lmul@product+3),f
 	line	123
 	
-l763:	
+l771:	
 	movlw	01h
 u155:
 	lslf	(___lmul@multiplicand),f
@@ -2330,7 +2345,7 @@ u155:
 	goto	u155
 	line	124
 	
-l765:	
+l773:	
 	movlw	01h
 u165:
 	lsrf	(___lmul@multiplier+3),f
@@ -2349,11 +2364,11 @@ u165:
 	goto	u171
 	goto	u170
 u171:
-	goto	l759
+	goto	l767
 u170:
 	line	128
 	
-l767:	
+l775:	
 	movf	(___lmul@product+3),w
 	movwf	(?___lmul+3)
 	movf	(___lmul@product+2),w
@@ -2365,7 +2380,7 @@ l767:
 
 	line	129
 	
-l247:	
+l249:	
 	return
 	callstack 0
 GLOBAL	__end_of___lmul
@@ -2375,7 +2390,7 @@ GLOBAL	__end_of___lmul
 
 ;; *************** function _ISR *****************
 ;; Defined at:
-;;		line 32 in file "E:/PIC project/timer1828Test/app/src/main.c"
+;;		line 38 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -2406,8 +2421,8 @@ psect	intentry,class=CODE,delta=2
 global __pintentry
 __pintentry:
 psect	intentry
-	file	"E:/PIC project/timer1828Test/app/src/main.c"
-	line	32
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c"
+	line	38
 	
 _ISR:	
 ;incstack = 0
@@ -2416,13 +2431,13 @@ _ISR:
 ; Regs used in _ISR: [wreg+status,2+status,0+pclath+cstack]
 psect	intentry
 	pagesel	$
-	line	34
+	line	40
 	
-i1l791:	
+i1l805:	
 	fcall	_timeISR
-	line	35
+	line	41
 	
-i1l25:	
+i1l27:	
 	bcf int$flags,0 ;clear compiler interrupt flag (level 1)
 	retfie
 	callstack 0
@@ -2433,7 +2448,7 @@ GLOBAL	__end_of_ISR
 
 ;; *************** function _timeISR *****************
 ;; Defined at:
-;;		line 47 in file "E:/PIC project/timer1828Test/libs/time.c"
+;;		line 47 in file "F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -2460,12 +2475,12 @@ GLOBAL	__end_of_ISR
 ;; This function uses a non-reentrant model
 ;;
 psect	text7,local,class=CODE,delta=2,merge=1,group=1
-	file	"E:/PIC project/timer1828Test/libs/time.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 	line	47
 global __ptext7
 __ptext7:	;psect for function _timeISR
 psect	text7
-	file	"E:/PIC project/timer1828Test/libs/time.c"
+	file	"F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c"
 	line	47
 	
 _timeISR:	
@@ -2474,17 +2489,17 @@ _timeISR:
 ; Regs used in _timeISR: [wreg]
 	line	49
 	
-i1l775:	
+i1l783:	
 	movlb 0	; select bank0
 	btfss	(136/8),(136)&7	;volatile
 	goto	u19_21
 	goto	u19_20
 u19_21:
-	goto	i1l210
+	goto	i1l212
 u19_20:
 	line	51
 	
-i1l777:	
+i1l785:	
 	movlw	0
 	addwf	(__microsMSB),f
 	movlw	0
@@ -2495,11 +2510,11 @@ i1l777:
 	addwfc	(__microsMSB+3),f
 	line	52
 	
-i1l779:	
+i1l787:	
 	bcf	(136/8),(136)&7	;volatile
 	line	54
 	
-i1l210:	
+i1l212:	
 	return
 	callstack 0
 GLOBAL	__end_of_timeISR

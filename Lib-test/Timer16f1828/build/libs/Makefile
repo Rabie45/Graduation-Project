@@ -57,10 +57,10 @@ RM = F:/cmake-3.23.0-rc1-windows-x86_64/cmake-3.23.0-rc1-windows-x86_64/bin/cmak
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "E:/PIC project/timer1828Test"
+CMAKE_SOURCE_DIR = F:/GitHub/Graduation-Project/Lib-test/Timer16f1828
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "E:/PIC project/timer1828Test/build"
+CMAKE_BINARY_DIR = F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "E:/PIC project/timer1828Test/build" && $(CMAKE_COMMAND) -E cmake_progress_start "E:/PIC project/timer1828Test/build/CMakeFiles" "E:/PIC project/timer1828Test/build/libs//CMakeFiles/progress.marks"
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "E:/PIC project/timer1828Test/build/CMakeFiles" 0
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(CMAKE_COMMAND) -E cmake_progress_start F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs//CMakeFiles/progress.marks
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/all
+	$(CMAKE_COMMAND) -E cmake_progress_start F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clean
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "E:/PIC project/timer1828Test/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/CMakeFiles/libs.dir/rule:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/CMakeFiles/libs.dir/rule
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/CMakeFiles/libs.dir/rule
 .PHONY : libs/CMakeFiles/libs.dir/rule
 
 # Convenience name for target.
@@ -127,39 +127,39 @@ libs: libs/CMakeFiles/libs.dir/rule
 
 # fast build rule for target.
 libs/fast:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/build
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/build
 .PHONY : libs/fast
 
-time.p1: time.c.p1
-.PHONY : time.p1
+timer.p1: timer.c.p1
+.PHONY : timer.p1
 
 # target to build an object file
-time.c.p1:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/time.c.p1
-.PHONY : time.c.p1
+timer.c.p1:
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/timer.c.p1
+.PHONY : timer.c.p1
 
-time.i: time.c.i
-.PHONY : time.i
+timer.i: timer.c.i
+.PHONY : timer.i
 
 # target to preprocess a source file
-time.c.i:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/time.c.i
-.PHONY : time.c.i
+timer.c.i:
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/timer.c.i
+.PHONY : timer.c.i
 
-time.s: time.c.s
-.PHONY : time.s
+timer.s: timer.c.s
+.PHONY : timer.s
 
 # target to generate assembly for a file
-time.c.s:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/time.c.s
-.PHONY : time.c.s
+timer.c.s:
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/timer.c.s
+.PHONY : timer.c.s
 
 wait.p1: wait.c.p1
 .PHONY : wait.p1
 
 # target to build an object file
 wait.c.p1:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.p1
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.p1
 .PHONY : wait.c.p1
 
 wait.i: wait.c.i
@@ -167,7 +167,7 @@ wait.i: wait.c.i
 
 # target to preprocess a source file
 wait.c.i:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.i
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.i
 .PHONY : wait.c.i
 
 wait.s: wait.c.s
@@ -175,7 +175,7 @@ wait.s: wait.c.s
 
 # target to generate assembly for a file
 wait.c.s:
-	cd "E:/PIC project/timer1828Test/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.s
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/wait.c.s
 .PHONY : wait.c.s
 
 # Help Target
@@ -187,9 +187,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... libs"
-	@echo "... time.p1"
-	@echo "... time.i"
-	@echo "... time.s"
+	@echo "... timer.p1"
+	@echo "... timer.i"
+	@echo "... timer.s"
 	@echo "... wait.p1"
 	@echo "... wait.i"
 	@echo "... wait.s"
@@ -204,6 +204,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "E:/PIC project/timer1828Test/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

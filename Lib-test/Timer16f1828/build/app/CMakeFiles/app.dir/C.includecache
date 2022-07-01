@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../libs/include/time.h
+../libs/include/timer.h
 xc.h
 -
 stdint.h
@@ -20,9 +20,13 @@ xc.h
 time.h
 ../libs/include/time.h
 
-E:/PIC project/timer1828Test/app/src/main.c
+F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c
 xc.h
 -
 wait.h
+-
+timer.h
+-
+stdint.h
 -
 

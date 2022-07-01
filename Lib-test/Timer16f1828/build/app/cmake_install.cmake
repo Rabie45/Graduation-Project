@@ -1,4 +1,4 @@
-# Install script for directory: E:/PIC project/timer1828Test/app
+# Install script for directory: F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

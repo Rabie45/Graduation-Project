@@ -1,5 +1,7 @@
 set(SOURCES 
-time.c
+
+timer.c
+
 wait.c
 )
 add_library(libs ${SOURCES})

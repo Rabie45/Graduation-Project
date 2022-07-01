@@ -53,10 +53,10 @@ RM = F:/cmake-3.23.0-rc1-windows-x86_64/cmake-3.23.0-rc1-windows-x86_64/bin/cmak
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "E:/PIC project/timer1828Test"
+CMAKE_SOURCE_DIR = F:/GitHub/Graduation-Project/Lib-test/Timer16f1828
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "E:/PIC project/timer1828Test/build"
+CMAKE_BINARY_DIR = F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build
 
 # Include any dependencies generated for this target.
 include libs/CMakeFiles/libs.dir/depend.make
@@ -69,23 +69,23 @@ include libs/CMakeFiles/libs.dir/progress.make
 # Include the compile flags for this target's objects.
 include libs/CMakeFiles/libs.dir/flags.make
 
-libs/CMakeFiles/libs.dir/time.c.p1: libs/CMakeFiles/libs.dir/flags.make
-libs/CMakeFiles/libs.dir/time.c.p1: ../libs/time.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="E:/PIC project/timer1828Test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/CMakeFiles/libs.dir/time.c.p1"
-	cd "E:/PIC project/timer1828Test/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/time.c.p1   -c "E:/PIC project/timer1828Test/libs/time.c"
+libs/CMakeFiles/libs.dir/timer.c.p1: libs/CMakeFiles/libs.dir/flags.make
+libs/CMakeFiles/libs.dir/timer.c.p1: ../libs/timer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libs/CMakeFiles/libs.dir/timer.c.p1"
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/timer.c.p1   -c F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/timer.c
 
-libs/CMakeFiles/libs.dir/time.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/time.c.i"
+libs/CMakeFiles/libs.dir/timer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/timer.c.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
 
-libs/CMakeFiles/libs.dir/time.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/time.c.s"
+libs/CMakeFiles/libs.dir/timer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/timer.c.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
 
 libs/CMakeFiles/libs.dir/wait.c.p1: libs/CMakeFiles/libs.dir/flags.make
 libs/CMakeFiles/libs.dir/wait.c.p1: ../libs/wait.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="E:/PIC project/timer1828Test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object libs/CMakeFiles/libs.dir/wait.c.p1"
-	cd "E:/PIC project/timer1828Test/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/wait.c.p1   -c "E:/PIC project/timer1828Test/libs/wait.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object libs/CMakeFiles/libs.dir/wait.c.p1"
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/wait.c.p1   -c F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c
 
 libs/CMakeFiles/libs.dir/wait.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/wait.c.i"
@@ -97,28 +97,28 @@ libs/CMakeFiles/libs.dir/wait.c.s: cmake_force
 
 # Object files for target libs
 libs_OBJECTS = \
-"CMakeFiles/libs.dir/time.c.p1" \
+"CMakeFiles/libs.dir/timer.c.p1" \
 "CMakeFiles/libs.dir/wait.c.p1"
 
 # External object files for target libs
 libs_EXTERNAL_OBJECTS =
 
-libs/liblibs.a: libs/CMakeFiles/libs.dir/time.c.p1
+libs/liblibs.a: libs/CMakeFiles/libs.dir/timer.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/wait.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/build.make
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="E:/PIC project/timer1828Test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library liblibs.a"
-	cd "E:/PIC project/timer1828Test/build/libs" && $(CMAKE_COMMAND) -P CMakeFiles/libs.dir/cmake_clean_target.cmake
-	cd "E:/PIC project/timer1828Test/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-ar.exe" -r liblibs.a $(libs_OBJECTS) $(libs_EXTERNAL_OBJECTS) 
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library liblibs.a"
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs && $(CMAKE_COMMAND) -P CMakeFiles/libs.dir/cmake_clean_target.cmake
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-ar.exe" -r liblibs.a $(libs_OBJECTS) $(libs_EXTERNAL_OBJECTS) 
 
 # Rule to build all files generated by this target.
 libs/CMakeFiles/libs.dir/build: libs/liblibs.a
 .PHONY : libs/CMakeFiles/libs.dir/build
 
 libs/CMakeFiles/libs.dir/clean:
-	cd "E:/PIC project/timer1828Test/build/libs" && $(CMAKE_COMMAND) -P CMakeFiles/libs.dir/cmake_clean.cmake
+	cd F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs && $(CMAKE_COMMAND) -P CMakeFiles/libs.dir/cmake_clean.cmake
 .PHONY : libs/CMakeFiles/libs.dir/clean
 
 libs/CMakeFiles/libs.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "E:/PIC project/timer1828Test" "E:/PIC project/timer1828Test/libs" "E:/PIC project/timer1828Test/build" "E:/PIC project/timer1828Test/build/libs" "E:/PIC project/timer1828Test/build/libs/CMakeFiles/libs.dir/DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" F:/GitHub/Graduation-Project/Lib-test/Timer16f1828 F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/libs/CMakeFiles/libs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libs/CMakeFiles/libs.dir/depend
 

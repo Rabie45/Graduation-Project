@@ -1,0 +1,989 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"33 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\OXPacket.h
+[s S374 :1 `uc 1 :1 `uc 1 :4 `uc 1 `uc 1 `uc 1 `uc -> 32 `i ]
+[n S374 . isRequestAlive isRequestFinished responsePropertyCount nextRid aliveRequestId oxpResponseBuffer ]
+"13
+[s S371 `uc 1 `uc 1 ]
+[n S371 . id value ]
+"40 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+[s S376 `l 1 `uc 1 ]
+[n S376 . nextMills wasPressed ]
+[v F2600 `(ul ~T0 @X0 1 tf ]
+"7 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/timer.h
+[v _micros `TF2600 ~T0 @X0 0 e ]
+[p mainexit ]
+"1722 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
+"8305
+[v _TRISC3 `Vb ~T0 @X0 0 e@1139 ]
+"8308
+[v _TRISC4 `Vb ~T0 @X0 0 e@1140 ]
+"2894
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"2941
+[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
+"2977
+[v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
+"8293
+[v _TRISB7 `Vb ~T0 @X0 0 e@1135 ]
+"7885
+[v _RB7 `Vb ~T0 @X0 0 e@111 ]
+"8299
+[v _TRISC1 `Vb ~T0 @X0 0 e@1137 ]
+"6 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\wait.h
+[v _wait_init `(v ~T0 @X0 0 ef1`uc ]
+"6 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/spi_master.h
+[v _SPI_initialize `(v ~T0 @X0 0 ef ]
+"7 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\Serial.h
+[v _Serial_begin `(uc ~T0 @X0 0 ef1`Cl ]
+"14 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\internet.h
+[v _Network_begin `(v ~T0 @X0 0 e? ]
+"17
+[v _internet_setChannel `(v ~T0 @X0 0 ef1`uc ]
+"18
+[v _internet_setNetworkPipe `(v ~T0 @X0 0 ef1`*uc ]
+"44
+[v _internet_setAddress `(v ~T0 @X0 0 ef1`uc ]
+"167 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/rf24.h
+[v _RF24_printDetails `(v ~T0 @X0 0 ef ]
+"59 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+[v _checkRF24Connection `(v ~T0 @X0 0 e? ]
+"7897 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
+[v _RC3 `Vb ~T0 @X0 0 e@115 ]
+"56 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\logline.h
+[v __$_logline_str `(v ~T0 @X0 0 ef1`*uc ]
+"10 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\Serial.h
+[v _Serial_write `(v ~T0 @X0 0 ef1`uc ]
+"19 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\internet.h
+[v _internet_process `(v ~T0 @X0 0 e? ]
+"7900 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
+[v _RC4 `Vb ~T0 @X0 0 e@116 ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.35\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"42 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\OXPacket.h
+[v _oxp_post `(uc ~T0 @X0 0 ef4`uc`uc`*S371`uc ]
+"14 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/transport.h
+[v _transport_udp_tx `(v ~T0 @X0 0 ef5`*uc`uc`uc`uc`uc ]
+"6 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\buffers.h
+[v _buffer_tx `uc ~T0 @X0 -> 0 `x e ]
+"13 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\packets.h
+[s S366 `uc 1 `uc 1 `uc 1 `uc 1 :4 `uc 1 :4 `uc 1 ]
+[n S366 . ttl protocol source destination sourcePort destinationPort ]
+"7891 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
+[v _RC1 `Vb ~T0 @X0 0 e@113 ]
+"114 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/rf24.h
+[v _RF24_isChipConnected `(uc ~T0 @X0 0 ef ]
+"20 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\OXPacket.h
+[s S372 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S372 . rid type fin ]
+"26
+[s S373 `S366 1 `S372 1 `S371 -> 12 `i ]
+[n S373 . udpHeader oxp properties ]
+"27 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\string.h
+[v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"8 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/timer.h
+[v _timeISR `(v ~T0 @X0 0 e? ]
+"5 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\packets.h
+[s S365 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S365 . ttl protocol source destination ]
+"22
+[s S367 `S365 1 `uc 1 `uc -> 5 `i ]
+[n S367 . ip address network_pipe ]
+"55 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
+[; <" INDF0 equ 00h ;# ">
+"75
+[; <" INDF1 equ 01h ;# ">
+"95
+[; <" PCL equ 02h ;# ">
+"115
+[; <" STATUS equ 03h ;# ">
+"178
+[; <" FSR0L equ 04h ;# ">
+"198
+[; <" FSR0H equ 05h ;# ">
+"222
+[; <" FSR1L equ 06h ;# ">
+"242
+[; <" FSR1H equ 07h ;# ">
+"262
+[; <" BSR equ 08h ;# ">
+"314
+[; <" WREG equ 09h ;# ">
+"334
+[; <" PCLATH equ 0Ah ;# ">
+"354
+[; <" INTCON equ 0Bh ;# ">
+"432
+[; <" PORTA equ 0Ch ;# ">
+"482
+[; <" PORTB equ 0Dh ;# ">
+"521
+[; <" PORTC equ 0Eh ;# ">
+"583
+[; <" PIR1 equ 011h ;# ">
+"645
+[; <" PIR2 equ 012h ;# ">
+"696
+[; <" PIR3 equ 013h ;# ">
+"736
+[; <" TMR0 equ 015h ;# ">
+"756
+[; <" TMR1 equ 016h ;# ">
+"763
+[; <" TMR1L equ 016h ;# ">
+"783
+[; <" TMR1H equ 017h ;# ">
+"803
+[; <" T1CON equ 018h ;# ">
+"875
+[; <" T1GCON equ 019h ;# ">
+"952
+[; <" TMR2 equ 01Ah ;# ">
+"972
+[; <" PR2 equ 01Bh ;# ">
+"992
+[; <" T2CON equ 01Ch ;# ">
+"1063
+[; <" CPSCON0 equ 01Eh ;# ">
+"1123
+[; <" CPSCON1 equ 01Fh ;# ">
+"1169
+[; <" TRISA equ 08Ch ;# ">
+"1219
+[; <" TRISB equ 08Dh ;# ">
+"1258
+[; <" TRISC equ 08Eh ;# ">
+"1320
+[; <" PIE1 equ 091h ;# ">
+"1382
+[; <" PIE2 equ 092h ;# ">
+"1433
+[; <" PIE3 equ 093h ;# ">
+"1473
+[; <" OPTION_REG equ 095h ;# ">
+"1556
+[; <" PCON equ 096h ;# ">
+"1607
+[; <" WDTCON equ 097h ;# ">
+"1666
+[; <" OSCTUNE equ 098h ;# ">
+"1724
+[; <" OSCCON equ 099h ;# ">
+"1796
+[; <" OSCSTAT equ 09Ah ;# ">
+"1858
+[; <" ADRES equ 09Bh ;# ">
+"1865
+[; <" ADRESL equ 09Bh ;# ">
+"1885
+[; <" ADRESH equ 09Ch ;# ">
+"1905
+[; <" ADCON0 equ 09Dh ;# ">
+"1985
+[; <" ADCON1 equ 09Eh ;# ">
+"2057
+[; <" LATA equ 010Ch ;# ">
+"2102
+[; <" LATB equ 010Dh ;# ">
+"2141
+[; <" LATC equ 010Eh ;# ">
+"2203
+[; <" CM1CON0 equ 0111h ;# ">
+"2260
+[; <" CM1CON1 equ 0112h ;# ">
+"2326
+[; <" CM2CON0 equ 0113h ;# ">
+"2383
+[; <" CM2CON1 equ 0114h ;# ">
+"2449
+[; <" CMOUT equ 0115h ;# ">
+"2475
+[; <" BORCON equ 0116h ;# ">
+"2502
+[; <" FVRCON equ 0117h ;# ">
+"2578
+[; <" DACCON0 equ 0118h ;# ">
+"2639
+[; <" DACCON1 equ 0119h ;# ">
+"2691
+[; <" SRCON0 equ 011Ah ;# ">
+"2762
+[; <" SRCON1 equ 011Bh ;# ">
+"2824
+[; <" APFCON0 equ 011Dh ;# ">
+"2858
+[; <" APFCON1 equ 011Eh ;# ">
+"2896
+[; <" ANSELA equ 018Ch ;# ">
+"2943
+[; <" ANSELB equ 018Dh ;# ">
+"2979
+[; <" ANSELC equ 018Eh ;# ">
+"3038
+[; <" EEADR equ 0191h ;# ">
+"3045
+[; <" EEADRL equ 0191h ;# ">
+"3065
+[; <" EEADRH equ 0192h ;# ">
+"3085
+[; <" EEDAT equ 0193h ;# ">
+"3092
+[; <" EEDATL equ 0193h ;# ">
+"3097
+[; <" EEDATA equ 0193h ;# ">
+"3130
+[; <" EEDATH equ 0194h ;# ">
+"3150
+[; <" EECON1 equ 0195h ;# ">
+"3212
+[; <" EECON2 equ 0196h ;# ">
+"3232
+[; <" RCREG equ 0199h ;# ">
+"3252
+[; <" TXREG equ 019Ah ;# ">
+"3272
+[; <" SP1BRG equ 019Bh ;# ">
+"3279
+[; <" SP1BRGL equ 019Bh ;# ">
+"3284
+[; <" SPBRG equ 019Bh ;# ">
+"3288
+[; <" SPBRGL equ 019Bh ;# ">
+"3333
+[; <" SP1BRGH equ 019Ch ;# ">
+"3338
+[; <" SPBRGH equ 019Ch ;# ">
+"3371
+[; <" RCSTA equ 019Dh ;# ">
+"3433
+[; <" TXSTA equ 019Eh ;# ">
+"3495
+[; <" BAUDCON equ 019Fh ;# ">
+"3547
+[; <" WPUA equ 020Ch ;# ">
+"3605
+[; <" WPUB equ 020Dh ;# ">
+"3653
+[; <" WPUC equ 020Eh ;# ">
+"3723
+[; <" SSP1BUF equ 0211h ;# ">
+"3728
+[; <" SSPBUF equ 0211h ;# ">
+"3761
+[; <" SSP1ADD equ 0212h ;# ">
+"3766
+[; <" SSPADD equ 0212h ;# ">
+"3799
+[; <" SSP1MSK equ 0213h ;# ">
+"3804
+[; <" SSPMSK equ 0213h ;# ">
+"3837
+[; <" SSP1STAT equ 0214h ;# ">
+"3842
+[; <" SSPSTAT equ 0214h ;# ">
+"3959
+[; <" SSP1CON equ 0215h ;# ">
+"3964
+[; <" SSP1CON1 equ 0215h ;# ">
+"3968
+[; <" SSPCON1 equ 0215h ;# ">
+"3972
+[; <" SSPCON equ 0215h ;# ">
+"4229
+[; <" SSP1CON2 equ 0216h ;# ">
+"4234
+[; <" SSPCON2 equ 0216h ;# ">
+"4351
+[; <" SSP1CON3 equ 0217h ;# ">
+"4356
+[; <" SSPCON3 equ 0217h ;# ">
+"4473
+[; <" CCPR1 equ 0291h ;# ">
+"4480
+[; <" CCPR1L equ 0291h ;# ">
+"4500
+[; <" CCPR1H equ 0292h ;# ">
+"4520
+[; <" CCP1CON equ 0293h ;# ">
+"4602
+[; <" PWM1CON equ 0294h ;# ">
+"4672
+[; <" CCP1AS equ 0295h ;# ">
+"4677
+[; <" ECCP1AS equ 0295h ;# ">
+"4834
+[; <" PSTR1CON equ 0296h ;# ">
+"4878
+[; <" CCPR2 equ 0298h ;# ">
+"4885
+[; <" CCPR2L equ 0298h ;# ">
+"4905
+[; <" CCPR2H equ 0299h ;# ">
+"4925
+[; <" CCP2CON equ 029Ah ;# ">
+"5007
+[; <" PWM2CON equ 029Bh ;# ">
+"5077
+[; <" CCP2AS equ 029Ch ;# ">
+"5159
+[; <" PSTR2CON equ 029Dh ;# ">
+"5203
+[; <" CCPTMRS0 equ 029Eh ;# ">
+"5208
+[; <" CCPTMRS equ 029Eh ;# ">
+"5377
+[; <" CCPR3 equ 0311h ;# ">
+"5384
+[; <" CCPR3L equ 0311h ;# ">
+"5404
+[; <" CCPR3H equ 0312h ;# ">
+"5424
+[; <" CCP3CON equ 0313h ;# ">
+"5488
+[; <" CCPR4 equ 0318h ;# ">
+"5495
+[; <" CCPR4L equ 0318h ;# ">
+"5515
+[; <" CCPR4H equ 0319h ;# ">
+"5535
+[; <" CCP4CON equ 031Ah ;# ">
+"5599
+[; <" INLVLA equ 038Ch ;# ">
+"5657
+[; <" INLVLB equ 038Dh ;# ">
+"5705
+[; <" INLVLC equ 038Eh ;# ">
+"5775
+[; <" IOCAP equ 0391h ;# ">
+"5833
+[; <" IOCAN equ 0392h ;# ">
+"5891
+[; <" IOCAF equ 0393h ;# ">
+"5949
+[; <" IOCBP equ 0394h ;# ">
+"5997
+[; <" IOCBN equ 0395h ;# ">
+"6045
+[; <" IOCBF equ 0396h ;# ">
+"6093
+[; <" CLKRCON equ 039Ah ;# ">
+"6169
+[; <" MDCON equ 039Ch ;# ">
+"6220
+[; <" MDSRC equ 039Dh ;# ">
+"6273
+[; <" MDCARL equ 039Eh ;# ">
+"6338
+[; <" MDCARH equ 039Fh ;# ">
+"6403
+[; <" TMR4 equ 0415h ;# ">
+"6423
+[; <" PR4 equ 0416h ;# ">
+"6443
+[; <" T4CON equ 0417h ;# ">
+"6514
+[; <" TMR6 equ 041Ch ;# ">
+"6534
+[; <" PR6 equ 041Dh ;# ">
+"6554
+[; <" T6CON equ 041Eh ;# ">
+"6625
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"6657
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"6677
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"6697
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"6717
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"6737
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"6757
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"6777
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"6797
+[; <" STKPTR equ 0FEDh ;# ">
+"6817
+[; <" TOSL equ 0FEEh ;# ">
+"6837
+[; <" TOSH equ 0FEFh ;# ">
+"16 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\logline.h
+[v _LOGLINE_OK `Cuc ~T0 @X0 -> 3 `i e ]
+[i _LOGLINE_OK
+:U ..
+-> 79 `c
+-> 75 `c
+-> 0 `c
+..
+]
+"17
+[v _LOGLINE_FAIL `Cuc ~T0 @X0 -> 5 `i e ]
+[i _LOGLINE_FAIL
+:U ..
+-> 70 `c
+-> 65 `c
+-> 73 `c
+-> 76 `c
+-> 0 `c
+..
+]
+"99 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/rf24.h
+[v _RF24_attr_status `uc ~T0 @X0 1 e ]
+"100
+[v _RF24_attr_config `uc ~T0 @X0 1 e ]
+"12 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\internet.h
+[v _BASE_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
+[i _BASE_PIPE
+:U ..
+-> -> 233 `i `uc
+-> -> 112 `i `uc
+-> -> 157 `i `uc
+-> -> 107 `i `uc
+-> -> 197 `i `uc
+..
+]
+"13
+[v _BROADCAST_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
+[i _BROADCAST_PIPE
+:U ..
+-> -> 249 `i `uc
+-> -> 54 `i `uc
+-> -> 205 `i `uc
+-> -> 172 `i `uc
+-> -> 231 `i `uc
+..
+]
+"40 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\OXPacket.h
+[v _OXPSTASTS `S374 ~T0 @X0 1 e ]
+"3 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\config.h
+[p x FOSC  =  INTOSC   ]
+"4
+[p x WDTE  =  OFF      ]
+"5
+[p x PWRTE  =  ON      ]
+"6
+[p x MCLRE  =  ON      ]
+"7
+[p x CP  =  OFF        ]
+"8
+[p x CPD  =  OFF       ]
+"9
+[p x BOREN  =  OFF     ]
+"10
+[p x CLKOUTEN  =  OFF  ]
+"11
+[p x IESO  =  OFF      ]
+"12
+[p x FCMEN  =  ON      ]
+"17 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/app/src/main.c
+[v _props `S371 ~T0 @X0 -> 2 `i e ]
+[i _props
+:U ..
+:U ..
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+..
+:U ..
+-> -> 2 `i `uc
+-> -> 255 `i `uc
+..
+..
+]
+"27
+[v _network_pipe `uc ~T0 @X0 -> 5 `i e ]
+[i _network_pipe
+:U ..
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 176 `i `uc
+-> -> 232 `i `uc
+-> -> 245 `i `uc
+..
+]
+"46
+[v _checkButton `(uc ~T0 @X0 1 ef2`*S376`uc ]
+"47
+{
+[e :U _checkButton ]
+"46
+[v _btn `*S376 ~T0 @X0 1 r1 ]
+[v _pinState `uc ~T0 @X0 1 r2 ]
+"47
+[f ]
+"48
+[v _isPressed `uc ~T0 @X0 1 a ]
+[e = _isPressed -> -> && && ! != -> . *U _btn 1 `i -> 0 `i != -> _pinState `i -> 0 `i > ( _micros ..  -> . *U _btn 0 `ul `i `uc ]
+"49
+[e $ ! != -> _isPressed `i -> 0 `i 378  ]
+"50
+{
+"51
+[e = . *U _btn 0 -> + ( _micros ..  -> -> 100000 `l `ul `l ]
+"52
+}
+[e :U 378 ]
+"53
+[e = . *U _btn 1 _pinState ]
+"54
+[e ) _isPressed ]
+[e $UE 377  ]
+"55
+[e :UE 377 ]
+}
+"57
+[v _btn1 `S376 ~T0 @X0 1 e ]
+"58
+[v _isConfigerd `uc ~T0 @X0 1 e ]
+[i _isConfigerd
+-> -> 0 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"60
+[v _main `(v ~T0 @X0 1 ef ]
+"61
+{
+[e :U _main ]
+[f ]
+"63
+[e = _OSCCON -> -> 122 `i `uc ]
+"64
+[e = _TRISC3 -> -> 0 `i `b ]
+"65
+[e = _TRISC4 -> -> 0 `i `b ]
+"66
+[e = _ANSELA -> -> 0 `i `uc ]
+"67
+[e = _ANSELB -> -> 0 `i `uc ]
+"68
+[e = _ANSELC -> -> 0 `i `uc ]
+"69
+[e = _TRISB7 -> -> 0 `i `b ]
+"70
+[e = _RB7 -> -> 0 `i `b ]
+"71
+[e = _TRISC1 -> -> 1 `i `b ]
+"73
+[e ( _wait_init (1 -> -> 16 `i `uc ]
+"74
+[e ( _SPI_initialize ..  ]
+"75
+[e ( _Serial_begin (1 -> -> 9600 `i `l ]
+"76
+[e ( _Network_begin ..  ]
+"77
+[e ( _internet_setChannel (1 -> -> 115 `i `uc ]
+"78
+[e ( _internet_setNetworkPipe (1 &U _network_pipe ]
+"79
+[e ( _internet_setAddress (1 -> -> 0 `i `uc ]
+"80
+[e ( _RF24_printDetails ..  ]
+"82
+[e ( _checkRF24Connection ..  ]
+"83
+[e = _RC3 -> -> 1 `i `b ]
+"85
+[e ( __$_logline_str (1 :s 1C ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"86
+[e $U 380  ]
+[e :U 381 ]
+"87
+{
+"88
+[e ( _internet_process ..  ]
+"89
+[e ( __$_logline_str (1 :s 2C ]
+"90
+[e ( _checkRF24Connection ..  ]
+"91
+[e = _RC4 -> ~ -> _RC4 `ui `b ]
+"92
+[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"93
+}
+[e :U 380 ]
+"86
+[e $ ! != -> _isConfigerd `i -> 0 `i 381  ]
+[e :U 382 ]
+"94
+[e = _RC4 -> -> 1 `i `b ]
+"95
+[e ( _oxp_post (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc -> &U _props `*S371 -> -> 2 `i `uc ]
+"97
+[e :U 384 ]
+"98
+{
+"99
+[e ( _internet_process ..  ]
+"100
+[v _stopTime `ul ~T0 @X0 1 a ]
+[e = _stopTime -> -> -> 0 `i `l `ul ]
+[v _startTime `ul ~T0 @X0 1 a ]
+"101
+[e = _RC3 -> -> 0 `i `b ]
+"102
+[e ( _checkRF24Connection ..  ]
+"108
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> -> 3 `i `ui `uc -> -> 1 `i `uc -> -> 3 `i `uc -> -> 3 `i `uc ]
+"109
+[e = _startTime ( _micros ..  ]
+"111
+[e $ ! > - _startTime _stopTime -> -> -> 150 `i `l `ul 386  ]
+"112
+{
+"113
+[e = _stopTime _startTime ]
+"114
+[e = _RB7 -> . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 `b ]
+"115
+}
+[e :U 386 ]
+"116
+[e $ ! != -> ( _checkButton (2 , &U _btn1 -> _RC1 `uc `i -> 0 `i 387  ]
+"117
+{
+"118
+[e = . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 -> ~ -> . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 `i `uc ]
+"119
+[e ( _oxp_post (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc &U *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux -> -> 2 `i `uc ]
+"120
+}
+[e :U 387 ]
+"121
+}
+[e :U 383 ]
+[e $U 384  ]
+[e :U 385 ]
+"122
+[e :UE 379 ]
+}
+"123
+[v _checkRF24Connection `(v ~T0 @X0 1 ef ]
+"124
+{
+[e :U _checkRF24Connection ]
+[f ]
+"125
+[e $ ! ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 389  ]
+"126
+{
+"128
+[e ( __$_logline_str (1 :s 3C ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"129
+[e $U 390  ]
+[e :U 391 ]
+"130
+[e :U 390 ]
+"129
+[e $ ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 391  ]
+[e :U 392 ]
+"131
+[e ( __$_logline_str (1 :s 4C ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"132
+[e ( _Network_begin ..  ]
+"133
+[e ( _RF24_printDetails ..  ]
+"135
+}
+[e :U 389 ]
+"136
+[e :UE 388 ]
+}
+"138
+[v _transport_udp_process `(v ~T0 @X0 1 ef3`*uc`uc`uc ]
+"139
+{
+[e :U _transport_udp_process ]
+"138
+[v _payload `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+[v _port `uc ~T0 @X0 1 r3 ]
+"139
+[f ]
+"141
+[e $ ! == -> _port `i -> 3 `i 394  ]
+"142
+{
+"144
+[e $ ! < -> _size `ui + -> # `S366 `ui -> # `S372 `ui 395  ]
+"145
+[e $UE 393  ]
+[e :U 395 ]
+"146
+[v _packet `*S373 ~T0 @X0 1 a ]
+[e = _packet -> _payload `*S373 ]
+"147
+[e $ ! == -> . . *U _packet 1 1 `i -> 0 `i 396  ]
+"148
+{
+"149
+[v _response `*S373 ~T0 @X0 1 a ]
+[e = _response -> &U _buffer_tx `*S373 ]
+"150
+[e = . . *U _response 1 0 . . *U _packet 1 0 ]
+"151
+[e = . . *U _response 1 2 -> -> 1 `i `uc ]
+"152
+[e = . . *U _response 1 1 -> -> 2 `i `uc ]
+"153
+[e = . . *U _response 0 3 . . *U _packet 0 2 ]
+"154
+[e = . . *U _response 0 5 . . *U _packet 0 4 ]
+"155
+[e = . . *U _response 0 0 -> -> 32 `i `uc ]
+"156
+[e ( _memcpy (3 , , -> &U . *U _response 2 `*v -> &U _props `*Cv -> # _props `ui ]
+"157
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + + -> # `S366 `ui -> # `S372 `ui -> # _props `ui `uc . . *U _packet 0 2 -> -> 3 `i `uc . . *U _packet 0 4 ]
+"158
+}
+[e $U 397  ]
+"159
+[e :U 396 ]
+[e $ ! == -> . . *U _packet 1 1 `i -> 1 `i 398  ]
+"160
+{
+"161
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $U 402  ]
+[e :U 399 ]
+"162
+{
+"163
+[v _prop `S371 ~T0 @X0 1 a ]
+[e = _prop *U + &U . *U _packet 2 * -> _i `ux -> -> # *U &U . *U _packet 2 `ui `ux ]
+"164
+[e $ ! < -> . _prop 0 `ui -> # _props `ui 403  ]
+"165
+[e = . *U + &U _props * -> . _prop 0 `ux -> -> # *U &U _props `ui `ux 1 . _prop 1 ]
+[e :U 403 ]
+"166
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 402 ]
+[e $ < -> _i `i -> . _OXPSTASTS 2 `i 399  ]
+[e :U 400 ]
+}
+"167
+[v _response `*S373 ~T0 @X0 1 a ]
+[e = _response -> &U _buffer_tx `*S373 ]
+"168
+[e = . . *U _response 1 0 . . *U _packet 1 0 ]
+"169
+[e = . . *U _response 1 2 -> -> 1 `i `uc ]
+"170
+[e = . . *U _response 1 1 -> -> 2 `i `uc ]
+"171
+[e = . . *U _response 0 3 . . *U _packet 0 2 ]
+"172
+[e = . . *U _response 0 5 . . *U _packet 0 4 ]
+"173
+[e = . . *U _response 0 0 -> -> 32 `i `uc ]
+"174
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> # `S372 `ui `uc . . *U _packet 0 2 -> -> 3 `i `uc . . *U _packet 0 4 ]
+"175
+}
+[e :U 398 ]
+[e :U 397 ]
+"176
+[e $ ! && != -> . _OXPSTASTS 0 `i -> 0 `i == -> . . *U _packet 1 0 `i -> . _OXPSTASTS 4 `i 404  ]
+"177
+{
+"178
+[e ( _memcpy (3 , , -> &U . _OXPSTASTS 5 `*v -> _payload `*Cv -> _size `ui ]
+"179
+[e = . _OXPSTASTS 0 -> -> 0 `i `uc ]
+"180
+[e = . _OXPSTASTS 1 -> -> 1 `i `uc ]
+"181
+}
+[e :U 404 ]
+"182
+}
+[e :U 394 ]
+"183
+[e $UE 393  ]
+"184
+[e :UE 393 ]
+}
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"186
+[v _ISR `(v ~T1 @X0 1 ef ]
+"187
+{
+[e :U _ISR ]
+[f ]
+"188
+[e ( _timeISR ..  ]
+"189
+[e :UE 405 ]
+}
+"190
+[v _oxp_post `(uc ~T0 @X0 1 ef4`uc`uc`*S371`uc ]
+"191
+{
+[e :U _oxp_post ]
+"190
+[v _destination `uc ~T0 @X0 1 r1 ]
+[v _destinationPort `uc ~T0 @X0 1 r2 ]
+[v _properties `*S371 ~T0 @X0 1 r3 ]
+[v _propertiesLength `uc ~T0 @X0 1 r4 ]
+"191
+[f ]
+"193
+[v _packet `*S373 ~T0 @X0 1 a ]
+[e = _packet -> &U _buffer_tx `*S373 ]
+"194
+[e = . . *U _packet 1 2 -> -> 1 `i `uc ]
+"195
+[e = . . *U _packet 1 0 . _OXPSTASTS 3 ]
+"196
+[e = . . *U _packet 1 1 -> -> 1 `i `uc ]
+"197
+[e = . _OXPSTASTS 4 . _OXPSTASTS 3 ]
+"198
+[e = . _OXPSTASTS 0 -> -> 1 `i `uc ]
+"199
+[e = . _OXPSTASTS 1 -> -> 0 `i `uc ]
+"200
+[e ++ . _OXPSTASTS 3 -> -> 1 `i `uc ]
+"201
+[e ( _memcpy (3 , , -> + &U _buffer_tx * -> + -> # `S366 `ui -> # `S372 `ui `ux -> -> # *U &U _buffer_tx `ui `ux `*v -> _properties `*Cv * -> # `S371 `ui -> _propertiesLength `ui ]
+"203
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + + -> # `S366 `ui -> # `S372 `ui * -> _propertiesLength `ui -> # `S371 `ui `uc _destination -> -> 3 `i `uc _destinationPort ]
+"204
+[v _timeoutTime `ul ~T0 @X0 1 a ]
+[e = _timeoutTime + ( _micros ..  -> -> 230000 `l `ul ]
+"205
+[e $U 407  ]
+[e :U 408 ]
+"206
+{
+"207
+[e ( _internet_process ..  ]
+"208
+}
+[e :U 407 ]
+"205
+[e $ && < ( _micros ..  _timeoutTime ! != -> . _OXPSTASTS 1 `i -> 0 `i 408  ]
+[e :U 409 ]
+"209
+[e $ ! != -> . _OXPSTASTS 1 `i -> 0 `i 410  ]
+"210
+{
+"211
+[v _response `*CS373 ~T0 @X0 1 a ]
+[e = _response -> -> &U . _OXPSTASTS 5 `*S373 `*CS373 ]
+"212
+[e ) -> -> == -> . . *U _response 1 1 `i -> 2 `i `i `uc ]
+[e $UE 406  ]
+"213
+}
+[e :U 410 ]
+"214
+[e ) -> -> 0 `i `uc ]
+[e $UE 406  ]
+"215
+[e :UE 406 ]
+}
+"216
+[v _oxp_get `(uc ~T0 @X0 1 ef2`uc`uc ]
+"217
+{
+[e :U _oxp_get ]
+"216
+[v _destination `uc ~T0 @X0 1 r1 ]
+[v _destinationPort `uc ~T0 @X0 1 r2 ]
+"217
+[f ]
+"218
+[v _packet `*S373 ~T0 @X0 1 a ]
+[e = _packet -> &U _buffer_tx `*S373 ]
+"219
+[e = . . *U _packet 1 2 -> -> 1 `i `uc ]
+"220
+[e = . . *U _packet 1 0 . _OXPSTASTS 3 ]
+"221
+[e = . . *U _packet 1 1 -> -> 0 `i `uc ]
+"222
+[e = . _OXPSTASTS 4 . _OXPSTASTS 3 ]
+"223
+[e = . _OXPSTASTS 0 -> -> 1 `i `uc ]
+"224
+[e = . _OXPSTASTS 1 -> -> 0 `i `uc ]
+"225
+[e ++ . _OXPSTASTS 3 -> -> 1 `i `uc ]
+"227
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> # `S372 `ui `uc _destination -> -> 3 `i `uc _destinationPort ]
+"228
+[v _timeoutTime `ul ~T0 @X0 1 a ]
+[e = _timeoutTime + ( _micros ..  -> -> 230000 `l `ul ]
+"229
+[e $U 412  ]
+[e :U 413 ]
+"230
+{
+"231
+[e ( _internet_process ..  ]
+"232
+}
+[e :U 412 ]
+"229
+[e $ && < ( _micros ..  _timeoutTime ! != -> . _OXPSTASTS 1 `i -> 0 `i 413  ]
+[e :U 414 ]
+"233
+[e $ ! != -> . _OXPSTASTS 1 `i -> 0 `i 415  ]
+"234
+{
+"235
+[v _response `*CS373 ~T0 @X0 1 a ]
+[e = _response -> -> &U . _OXPSTASTS 5 `*S373 `*CS373 ]
+"236
+[e ) -> -> == -> . . *U _response 1 1 `i -> 2 `i `i `uc ]
+[e $UE 411  ]
+"237
+}
+[e :U 415 ]
+"238
+[e ) -> -> 0 `i `uc ]
+[e $UE 411  ]
+"239
+[e :UE 411 ]
+}
+"240
+[v _internet_config_rx `(v ~T0 @X0 1 ef2`*uc`uc ]
+"241
+{
+[e :U _internet_config_rx ]
+"240
+[v _payload `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+"241
+[f ]
+"242
+[v _confPacket `*S367 ~T0 @X0 1 a ]
+[e = _confPacket -> _payload `*S367 ]
+"243
+[e ( _internet_setNetworkPipe (1 &U . *U _confPacket 2 ]
+"244
+[e ( _internet_setAddress (1 . *U _confPacket 1 ]
+"245
+[e = _isConfigerd -> -> 1 `i `uc ]
+"246
+[e :UE 416 ]
+}
+[a 4C 82 70 50 52 32 99 111 110 110 101 99 116 101 100 0 ]
+[a 1C 119 97 105 116 105 110 103 32 102 111 114 32 99 111 110 102 105 103 117 114 97 116 105 111 110 32 109 101 115 115 97 103 101 46 46 46 0 ]
+[a 2C 35 0 ]
+[a 3C 82 70 50 52 32 100 105 115 99 111 110 110 101 99 116 101 100 33 0 ]

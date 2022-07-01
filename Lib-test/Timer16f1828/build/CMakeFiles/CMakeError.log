@@ -1,12 +1,12 @@
 Detecting C compiler ABI info failed to compile with the following output:
-Change Dir: E:/PIC project/timer1828Test/build/CMakeFiles/CMakeTmp
+Change Dir: F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/ProgramData/chocolatey/bin/make.exe -f Makefile cmTC_3e04a/fast && C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe  -f CMakeFiles/cmTC_3e04a.dir/build.make CMakeFiles/cmTC_3e04a.dir/build
-make[1]: Entering directory 'E:/PIC project/timer1828Test/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_3e04a.dir/CMakeCCompilerABI.c.p1
-"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F1828 -std=c99 --nofallback      -oCMakeFiles/cmTC_3e04a.dir/CMakeCCompilerABI.c.p1   -c F:/cmake-3.23.0-rc1-windows-x86_64/cmake-3.23.0-rc1-windows-x86_64/share/cmake-3.23/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_3e04a
-"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F1828 -std=c99 --nofallback    "CMakeFiles/cmTC_3e04a.dir/CMakeCCompilerABI.c.p1"      -ocmTC_3e04a
+Run Build Command(s):C:/ProgramData/chocolatey/bin/make.exe -f Makefile cmTC_37e3a/fast && C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe  -f CMakeFiles/cmTC_37e3a.dir/build.make CMakeFiles/cmTC_37e3a.dir/build
+make[1]: Entering directory 'F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_37e3a.dir/CMakeCCompilerABI.c.p1
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F1828 -std=c99 --nofallback      -oCMakeFiles/cmTC_37e3a.dir/CMakeCCompilerABI.c.p1   -c F:/cmake-3.23.0-rc1-windows-x86_64/cmake-3.23.0-rc1-windows-x86_64/share/cmake-3.23/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_37e3a
+"C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" -mcpu=16F1828 -std=c99 --nofallback    "CMakeFiles/cmTC_37e3a.dir/CMakeCCompilerABI.c.p1"      -ocmTC_37e3a
 
 Memory Summary:
     Program space        used    91h (   145) of  1000h words   (  3.5%)
@@ -15,16 +15,16 @@ Memory Summary:
     Configuration bits   used     0h (     0) of     2h words   (  0.0%)
     ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
 
-make[1]: Leaving directory 'E:/PIC project/timer1828Test/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory 'F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/CMakeTmp'
 
 
 Cannot copy output executable
   ''
 to destination specified by COPY_FILE:
-  'E:/PIC project/timer1828Test/build/CMakeFiles/3.23.0-rc1/CMakeDetermineCompilerABI_C.bin'
+  'F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/3.23.0-rc1/CMakeDetermineCompilerABI_C.bin'
 Unable to find the executable at any of:
-  E:/PIC project/timer1828Test/build/CMakeFiles/CMakeTmp/cmTC_3e04a
-  E:/PIC project/timer1828Test/build/CMakeFiles/CMakeTmp/Debug/cmTC_3e04a
-  E:/PIC project/timer1828Test/build/CMakeFiles/CMakeTmp/Development/cmTC_3e04a
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/CMakeTmp/cmTC_37e3a
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/CMakeTmp/Debug/cmTC_37e3a
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/build/CMakeFiles/CMakeTmp/Development/cmTC_37e3a
 
 

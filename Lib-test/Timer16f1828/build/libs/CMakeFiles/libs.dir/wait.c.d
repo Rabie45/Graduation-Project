@@ -1,3 +1,4 @@
-CMakeFiles/libs.dir\wait.c.p1: E:/PIC\ project/timer1828Test/libs/wait.c \
-  E:/PIC\ project/timer1828Test/libs/include\wait.h \
-  E:/PIC\ project/timer1828Test/libs/include/time.h
+CMakeFiles/libs.dir\wait.c.p1: \
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/wait.c \
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include\wait.h \
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include/time.h

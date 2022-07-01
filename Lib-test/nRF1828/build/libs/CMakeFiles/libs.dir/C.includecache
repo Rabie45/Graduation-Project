@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../libs/include/spi_master.h
+stdint.h
+-
+xc.h
+-
+
+F:/GitHub/Graduation-Project/Lib-test/nRF1828/libs/spi_master.c
+spi_master.h
+-
+

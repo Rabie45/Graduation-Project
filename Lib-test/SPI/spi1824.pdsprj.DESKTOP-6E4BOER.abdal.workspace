@@ -31,13 +31,13 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="1650" flags="00000022" y="294" h="250" pid="0" iid="2">
+   <POPUP w="450" x="1470" flags="00008023" y="294" h="250" pid="0" iid="2">
     <PROPERTIES>
      <ITEM name="HSplitter1Pos">125</ITEM>
      <ITEM name="VSplitter1Pos">298</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="108" flags="00000008" y="220" h="15" pid="3" iid="1">
+   <POPUP w="434" x="108" flags="00000008" y="220" h="242" pid="3" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="128" flags="0000000a" y="240" h="32" pid="4" iid="1">
@@ -70,7 +70,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="188" flags="00000008" y="300" h="18" pid="7" iid="1">
+   <POPUP w="130" x="188" flags="00000008" y="300" h="281" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="208" flags="00000002" y="320" h="8" pid="8" iid="1">

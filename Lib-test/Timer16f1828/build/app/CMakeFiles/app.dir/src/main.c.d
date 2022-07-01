@@ -1,4 +1,4 @@
 CMakeFiles/app.dir/src\main.c.p1: \
-  E:/PIC\ project/timer1828Test/app/src/main.c \
-  E:/PIC\ project/timer1828Test/libs/include\wait.h \
-  E:/PIC\ project/timer1828Test/libs/include/time.h
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/app/src/main.c \
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include\wait.h \
+  F:/GitHub/Graduation-Project/Lib-test/Timer16f1828/libs/include\timer.h

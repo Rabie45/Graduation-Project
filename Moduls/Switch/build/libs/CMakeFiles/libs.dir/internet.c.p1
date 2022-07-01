@@ -1,10 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"24 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
-[s S97 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S97 Node address mask routingMask child0 child1 ]
-"34
-[s S98 `uc -> 5 `i `uc 1 ]
-[n S98 NetworkInfo networkPipe defaultGateway ]
+"25 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
+[s S98 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S98 Node address mask routingMask child0 child1 ]
+"35
+[s S99 `uc -> 5 `i `uc 1 ]
+[n S99 NetworkInfo networkPipe defaultGateway ]
 "102 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\rf24.h
 [v _RF24_setChannel `(v ~T0 @X0 0 ef1`uc ]
 "141
@@ -23,11 +23,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RF24_openReadingPipe `(v ~T0 @X0 0 ef2`uc`*uc ]
 "5 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/packets.h
 [s S95 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S95 Packet ttl protocol source destination ]
+[n S95 . ttl protocol source destination ]
+"32 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
+[s S107 ]
+[n S107 Packet ]
 "42 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
 [v _internet_relay `(v ~T0 @X0 0 ef2`*uc`uc ]
+"39 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
+[s S109 ]
+[n S109 Packet ]
 "15 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/transport.h
 [v _transport_udp_rx `(v ~T0 @X0 0 ef2`*uc`uc ]
+"22 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
+[v _internet_config_rx `(v ~T0 @X0 0 ef2`*uc`uc ]
+"68 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
+[s S119 ]
+[n S119 Packet ]
 "43 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
 [v _internet_calculateMask `(uc ~T0 @X0 0 ef1`uc ]
 "45
@@ -38,11 +49,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RF24_stopListening `(v ~T0 @X0 0 ef ]
 "117
 [v _RF24_write `(uc ~T0 @X0 0 ef2`*v`uc ]
-"56 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h
-[v __$_logline_str `(v ~T0 @X0 0 ef1`*uc ]
-"10 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\Serial.h
-[v _Serial_write `(v ~T0 @X0 0 ef1`uc ]
-"112 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\rf24.h
+"112
 [v _RF24_startListening `(v ~T0 @X0 0 ef ]
 "110
 [v _RF24_begin `(uc ~T0 @X0 0 ef ]
@@ -50,23 +57,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RF24_setAddressWidth `(v ~T0 @X0 0 ef1`uc ]
 "145
 [v _RF24_enableDynamicPayloads `(v ~T0 @X0 0 ef ]
-"144 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
-[c E924 0 1 2 .. ]
-[n E924 . RF24_1MBPS RF24_2MBPS RF24_250KBPS  ]
+"148 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
+[c E931 0 1 2 .. ]
+[n E931 . RF24_1MBPS RF24_2MBPS RF24_250KBPS  ]
 "152 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\rf24.h
-[v _RF24_setDataRate `(v ~T0 @X0 0 ef1`E924 ]
-"145 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
-[c E929 0 1 2 .. ]
-[n E929 . RF24_CRC_DISABLED RF24_CRC_8 RF24_CRC_16  ]
+[v _RF24_setDataRate `(v ~T0 @X0 0 ef1`E931 ]
+"149 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
+[c E936 0 1 2 .. ]
+[n E936 . RF24_CRC_DISABLED RF24_CRC_8 RF24_CRC_16  ]
 "154 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\rf24.h
-[v _RF24_setCRCLength `(v ~T0 @X0 0 ef1`E929 ]
+[v _RF24_setCRCLength `(v ~T0 @X0 0 ef1`E936 ]
 "149
 [v _RF24_setAutoAck `(v ~T0 @X0 0 ef1`uc ]
 "106
 [v _RF24_getPALevel `(uc ~T0 @X0 0 e? ]
-"148 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
-[c E917 0 1 2 3 4 .. ]
-[n E917 . RF24_PA_MIN RF24_PA_LOW RF24_PA_HIGH RF24_PA_MAX RF24_PA_ERROR  ]
+"152 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
+[c E924 0 1 2 3 4 .. ]
+[n E924 . RF24_PA_MIN RF24_PA_LOW RF24_PA_HIGH RF24_PA_MAX RF24_PA_ERROR  ]
 "139 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\rf24.h
 [v _RF24_setPayloadSize `(v ~T0 @X0 0 ef1`uc ]
 "6 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include/buffers.h
@@ -195,7 +202,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RF24_attr_status `uc ~T0 @X0 1 e ]
 "97
 [v _RF24_attr_config `uc ~T0 @X0 1 e ]
-"13 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
+"12 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\internet.h
 [v _BASE_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
 [i _BASE_PIPE
 :U ..
@@ -206,7 +213,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 132 `i `uc
 ..
 ]
-"14
+"13
 [v _BROADCAST_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
 [i _BROADCAST_PIPE
 :U ..
@@ -217,30 +224,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 231 `i `uc
 ..
 ]
-"16 F:/GitHub/Graduation-Project/Moduls/Switch/libs/include\logline.h
-[v _LOGLINE_OK `Cuc ~T0 @X0 -> 3 `i e ]
-[i _LOGLINE_OK
-:U ..
--> 79 `c
--> 75 `c
--> 0 `c
-..
-]
-"17
-[v _LOGLINE_FAIL `Cuc ~T0 @X0 -> 5 `i e ]
-[i _LOGLINE_FAIL
-:U ..
--> 70 `c
--> 65 `c
--> 73 `c
--> 76 `c
--> 0 `c
-..
-]
 "5 F:/GitHub/Graduation-Project/Moduls/Switch/libs/internet.c
-[v _node `S97 ~T0 @X0 1 e ]
+[v _node `S98 ~T0 @X0 1 e ]
 "6
-[v _networkInfo `S98 ~T0 @X0 1 e ]
+[v _networkInfo `S99 ~T0 @X0 1 e ]
 "9
 [v _internet_setChannel `(v ~T0 @X0 1 ef1`uc ]
 "10
@@ -253,7 +240,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [e ( _RF24_setChannel (1 _channel ]
 "12
-[e :UE 99 ]
+[e :UE 100 ]
 }
 "13
 [v _internet_process `(v ~T0 @X0 1 ef ]
@@ -262,11 +249,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _internet_process ]
 [f ]
 "15
-[e $U 101  ]
-[e :U 102 ]
+[e $U 102  ]
+[e :U 103 ]
 "16
 {
-"17
+"18
 [v _size `uc ~T0 @X0 1 a ]
 [e = _size ( _RF24_getDynamicPayloadSize ..  ]
 "19
@@ -275,12 +262,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _internet_rx (2 , &U _buffer_rx _size ]
 "21
 }
-[e :U 101 ]
+[e :U 102 ]
 "15
-[e $ != -> ( _RF24_available ..  `i -> 0 `i 102  ]
-[e :U 103 ]
+[e $ != -> ( _RF24_available ..  `i -> 0 `i 103  ]
+[e :U 104 ]
 "22
-[e :UE 100 ]
+[e :UE 101 ]
 }
 "23
 [v _internet_setNetworkPipe `(v ~T0 @X0 1 ef1`*uc ]
@@ -298,7 +285,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [e ( _RF24_openReadingPipe (2 , -> -> 1 `i `uc &U . _networkInfo 0 ]
 "28
-[e :UE 104 ]
+[e :UE 105 ]
 }
 "29
 [v _internet_tx `(v ~T0 @X0 1 ef2`*uc`uc ]
@@ -312,7 +299,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "32
 [v _packetHeader `*S95 ~T0 @X0 1 a ]
-[e = _packetHeader -> _payload `*S95 ]
+[e = _packetHeader -> -> _payload `*S107 `*S95 ]
 "33
 [e = . *U _packetHeader 0 -> -> 32 `i `uc ]
 "34
@@ -320,7 +307,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35
 [e ( _internet_relay (2 , _payload _size ]
 "36
-[e :UE 105 ]
+[e :UE 106 ]
 }
 "37
 [v _internet_rx `(v ~T0 @X0 1 ef2`*uc`uc ]
@@ -334,289 +321,290 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "39
 [v _packetHeader `*S95 ~T0 @X0 1 a ]
-[e = _packetHeader -> _payload `*S95 ]
+[e = _packetHeader -> -> _payload `*S109 `*S95 ]
 "40
-[e $ ! != -> . *U _packetHeader 3 `i -> . _node 0 `i 107  ]
+[e $ ! != -> . *U _packetHeader 3 `i -> . _node 0 `i 110  ]
 "41
 {
-"42
-[e ( _internet_relay (2 , _payload _size ]
 "43
-[e $UE 106  ]
+[e ( _internet_relay (2 , _payload _size ]
 "44
-}
-[e :U 107 ]
+[e $UE 108  ]
 "45
-[e $U 109  ]
-"46
-{
-"47
+}
 [e :U 110 ]
-"49
-[e $U 108  ]
-"50
-[e :U 111 ]
-"52
-[e $U 108  ]
-"53
-[e :U 112 ]
-"54
-[e ( _transport_udp_rx (2 , _payload _size ]
-"55
-[e $U 108  ]
-"56
-[e :U 113 ]
-"58
-[e $U 108  ]
-"59
-}
-[e $U 108  ]
-[e :U 109 ]
-[e [\ -> . *U _packetHeader 1 `i , $ -> 0 `i 110
- , $ -> 2 `i 111
- , $ -> 1 `i 112
- 113 ]
-[e :U 108 ]
-"60
-[e :UE 106 ]
-}
-"61
-[v _internet_relay `(v ~T0 @X0 1 ef2`*uc`uc ]
-"62
+"46
+[e $U 112  ]
+"47
 {
-[e :U _internet_relay ]
-"61
-[v _payload `*uc ~T0 @X0 1 r1 ]
-[v _size `uc ~T0 @X0 1 r2 ]
+"48
+[e :U 113 ]
+"50
+[e $U 111  ]
+"51
+[e :U 114 ]
+"53
+[e $U 111  ]
+"54
+[e :U 115 ]
+"55
+[e ( _transport_udp_rx (2 , _payload _size ]
+"56
+[e $U 111  ]
+"57
+[e :U 116 ]
+"58
+[e ( _internet_config_rx (2 , _payload _size ]
+"59
+[e $U 111  ]
+"60
+[e :U 117 ]
 "62
-[f ]
+[e $U 111  ]
+"63
+}
+[e $U 111  ]
+[e :U 112 ]
+[e [\ -> . *U _packetHeader 1 `i , $ -> 0 `i 113
+ , $ -> 2 `i 114
+ , $ -> 1 `i 115
+ , $ -> 3 `i 116
+ 117 ]
+[e :U 111 ]
 "64
-[v _packetHeader `*S95 ~T0 @X0 1 a ]
-[e = _packetHeader -> _payload `*S95 ]
+[e :UE 108 ]
+}
 "65
-[e $ ! == -> . _node 0 `i -> 0 `i 115  ]
+[v _internet_relay `(v ~T0 @X0 1 ef2`*uc`uc ]
 "66
 {
+[e :U _internet_relay ]
+"65
+[v _payload `*uc ~T0 @X0 1 r1 ]
+[v _size `uc ~T0 @X0 1 r2 ]
+"66
+[f ]
+"68
+[v _packetHeader `*S95 ~T0 @X0 1 a ]
+[e = _packetHeader -> -> _payload `*S119 `*S95 ]
+"69
+[e $ ! == -> . _node 0 `i -> 0 `i 120  ]
 "70
-[e $UE 114  ]
-"71
+{
+"74
+[e $UE 118  ]
+"75
 }
-[e :U 115 ]
-"72
+[e :U 120 ]
+"76
 [v _dstMask `uc ~T0 @X0 1 a ]
 [e = _dstMask ( _internet_calculateMask (1 . *U _packetHeader 3 ]
-"73
-[v _status `uc ~T0 @X0 1 a ]
-"74
-[e $ ! && > -> _dstMask `i -> . _node 1 `i != -> ( _internet_hasChild (1 . *U _packetHeader 3 `i -> 0 `i 116  ]
-"75
-{
-"76
-[e $ ! != & -> . *U _packetHeader 3 `i -> . _node 2 `i -> 0 `i 117  ]
 "77
-{
+[v _status `uc ~T0 @X0 1 a ]
+"78
+[e $ ! && > -> _dstMask `i -> . _node 1 `i != -> ( _internet_hasChild (1 . *U _packetHeader 3 `i -> 0 `i 121  ]
 "79
-[e = *U + &U . _networkInfo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _networkInfo 0 `ui `ux . _node 4 ]
+{
 "80
-[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc &U . _networkInfo 0 ]
+[e $ ! != & -> . *U _packetHeader 3 `i -> . _node 2 `i -> 0 `i 122  ]
 "81
-[e ( _RF24_openWritingPipe (1 &U . _networkInfo 0 ]
-"82
-[e ( _RF24_stopListening ..  ]
+{
 "83
-[e ( _RF24_write (2 , -> _payload `*v _size ]
+[e = *U + &U . _networkInfo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _networkInfo 0 `ui `ux . _node 4 ]
 "84
-[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
+[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc &U . _networkInfo 0 ]
 "85
-}
-[e $U 118  ]
+[e ( _RF24_openWritingPipe (1 &U . _networkInfo 0 ]
 "86
-[e :U 117 ]
+[e ( _RF24_stopListening ..  ]
 "87
-{
+[e ( _RF24_write (2 , -> _payload `*v _size ]
+"88
+[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
 "89
-[e = *U + &U . _networkInfo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _networkInfo 0 `ui `ux . _node 3 ]
+}
+[e $U 123  ]
 "90
-[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc &U . _networkInfo 0 ]
+[e :U 122 ]
 "91
-[e ( _RF24_openWritingPipe (1 &U . _networkInfo 0 ]
-"92
-[e ( _RF24_stopListening ..  ]
-"93
-[e ( _RF24_write (2 , -> _payload `*v _size ]
-"94
-[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
-"95
-}
-[e :U 118 ]
-"96
-}
-[e $U 119  ]
-"97
-[e :U 116 ]
-"98
 {
-"100
-[e = *U + &U . _networkInfo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _networkInfo 0 `ui `ux . _node 0 ]
-"101
+"93
+[e = *U + &U . _networkInfo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _networkInfo 0 `ui `ux . _node 3 ]
+"94
 [e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc &U . _networkInfo 0 ]
-"102
+"95
 [e ( _RF24_openWritingPipe (1 &U . _networkInfo 0 ]
-"103
+"96
 [e ( _RF24_stopListening ..  ]
-"104
-[e ( __$_logline_str (1 :s 1C ]
-"105
-[e ( __$_logline_str (1 -> _payload `*uc ]
-[e ( _Serial_write (1 -> -> 10 `ui `uc ]
-"106
+"97
 [e ( _RF24_write (2 , -> _payload `*v _size ]
-"108
+"98
 [e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
-"109
+"99
 }
-[e :U 119 ]
+[e :U 123 ]
+"100
+}
+[e $U 124  ]
+"101
+[e :U 121 ]
+"102
+{
+"104
+[e = *U + &U . _networkInfo 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _networkInfo 0 `ui `ux . _node 0 ]
+"105
+[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc &U . _networkInfo 0 ]
+"106
+[e ( _RF24_openWritingPipe (1 &U . _networkInfo 0 ]
+"107
+[e ( _RF24_stopListening ..  ]
 "110
-[e ( _RF24_startListening ..  ]
-"111
-[e :UE 114 ]
-}
+[e ( _RF24_write (2 , -> _payload `*v _size ]
 "112
-[v _internet_calculateMask `(uc ~T0 @X0 1 ef1`uc ]
+[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
 "113
+}
+[e :U 124 ]
+"114
+[e ( _RF24_startListening ..  ]
+"115
+[e :UE 118 ]
+}
+"116
+[v _internet_calculateMask `(uc ~T0 @X0 1 ef1`uc ]
+"117
 {
 [e :U _internet_calculateMask ]
-"112
+"116
 [v _address `uc ~T0 @X0 1 r1 ]
-"113
+"117
 [f ]
-"114
+"118
 [v _mask `uc ~T0 @X0 1 a ]
 [e = _mask -> -> 0 `i `uc ]
-"115
-[e $U 121  ]
-[e :U 122 ]
-"116
-{
-"117
-[e = _mask -> | << -> _mask `i -> 1 `i -> 1 `i `uc ]
-"118
-[e =>> _address -> -> 1 `i `uc ]
 "119
-}
-[e :U 121 ]
-"115
-[e $ > -> _address `i -> 1 `i 122  ]
-[e :U 123 ]
+[e $U 126  ]
+[e :U 127 ]
 "120
-[e ) _mask ]
-[e $UE 120  ]
+{
 "121
-[e :UE 120 ]
-}
+[e = _mask -> | << -> _mask `i -> 1 `i -> 1 `i `uc ]
+"122
+[e =>> _address -> -> 1 `i `uc ]
 "123
-[v _internet_setAddress `(v ~T0 @X0 1 ef1`uc ]
-"124
-{
-[e :U _internet_setAddress ]
-"123
-[v _address `uc ~T0 @X0 1 r1 ]
-"124
-[f ]
-"125
-[e = . _node 0 _address ]
-"126
-[e = . _node 1 ( _internet_calculateMask (1 _address ]
-"127
-[e = . _node 2 -> + -> . _node 1 `i -> 1 `i `uc ]
-"128
-[e = . _node 3 -> | & -> . _node 0 `i -> . _node 1 `i << -> . _node 2 `i -> 1 `i `uc ]
-"129
-[e = . _node 4 -> | | & -> . _node 0 `i -> . _node 1 `i << -> . _node 2 `i -> 1 `i -> . _node 2 `i `uc ]
-"130
-[e ( _internet_setNetworkPipe (1 &U . _networkInfo 0 ]
-"131
-[e :UE 124 ]
 }
-"133
-[v _internet_hasChild `(uc ~T0 @X0 1 ef1`uc ]
-"134
-{
-[e :U _internet_hasChild ]
-"133
-[v _address `uc ~T0 @X0 1 r1 ]
-"134
-[f ]
-"135
-[e ) -> -> == & -> _address `i -> . _node 1 `i & -> . _node 0 `i -> . _node 1 `i `i `uc ]
+[e :U 126 ]
+"119
+[e $ > -> _address `i -> 1 `i 127  ]
+[e :U 128 ]
+"124
+[e ) _mask ]
 [e $UE 125  ]
-"136
+"125
 [e :UE 125 ]
 }
+"127
+[v _internet_setAddress `(v ~T0 @X0 1 ef1`uc ]
+"128
+{
+[e :U _internet_setAddress ]
+"127
+[v _address `uc ~T0 @X0 1 r1 ]
+"128
+[f ]
+"129
+[e = . _node 0 _address ]
+"130
+[e = . _node 1 ( _internet_calculateMask (1 _address ]
+"131
+[e = . _node 2 -> + -> . _node 1 `i -> 1 `i `uc ]
+"132
+[e = . _node 3 -> | & -> . _node 0 `i -> . _node 1 `i << -> . _node 2 `i -> 1 `i `uc ]
+"133
+[e = . _node 4 -> | | & -> . _node 0 `i -> . _node 1 `i << -> . _node 2 `i -> 1 `i -> . _node 2 `i `uc ]
+"134
+[e ( _internet_setNetworkPipe (1 &U . _networkInfo 0 ]
+"135
+[e :UE 129 ]
+}
+"137
+[v _internet_hasChild `(uc ~T0 @X0 1 ef1`uc ]
 "138
-[v _Network_begin `(v ~T0 @X0 1 ef ]
+{
+[e :U _internet_hasChild ]
+"137
+[v _address `uc ~T0 @X0 1 r1 ]
+"138
+[f ]
 "139
+[e ) -> -> == & -> _address `i -> . _node 1 `i & -> . _node 0 `i -> . _node 1 `i `i `uc ]
+[e $UE 130  ]
+"140
+[e :UE 130 ]
+}
+"142
+[v _Network_begin `(v ~T0 @X0 1 ef ]
+"143
 {
 [e :U _Network_begin ]
 [f ]
-"141
-[e ( _RF24_begin ..  ]
-"142
-[e ( _RF24_setAddressWidth (1 -> -> 5 `i `uc ]
-"143
-[e ( _RF24_enableDynamicPayloads ..  ]
-"144
-[e ( _RF24_setDataRate (1 . `E924 0 ]
 "145
-[e ( _RF24_setCRCLength (1 . `E929 1 ]
+[e ( _RF24_begin ..  ]
 "146
-[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
+[e ( _RF24_setAddressWidth (1 -> -> 5 `i `uc ]
 "147
-[e ( _RF24_setAutoAck (1 -> -> 1 `i `uc ]
+[e ( _RF24_enableDynamicPayloads ..  ]
 "148
-[e ( _RF24_getPALevel . `E917 3 ]
+[e ( _RF24_setDataRate (1 . `E931 0 ]
 "149
-[e ( _RF24_setPayloadSize (1 -> -> 32 `i `uc ]
+[e ( _RF24_setCRCLength (1 . `E936 1 ]
 "150
-[e ( _RF24_startListening ..  ]
+[e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
 "151
-[e :UE 126 ]
-}
+[e ( _RF24_setAutoAck (1 -> -> 1 `i `uc ]
 "152
-[v _startListeningBroadcasts `(v ~T0 @X0 1 ef ]
+[e ( _RF24_getPALevel . `E924 3 ]
 "153
+[e ( _RF24_setPayloadSize (1 -> -> 32 `i `uc ]
+"154
+[e ( _RF24_startListening ..  ]
+"155
+[e :UE 131 ]
+}
+"156
+[v _startListeningBroadcasts `(v ~T0 @X0 1 ef ]
+"157
 {
 [e :U _startListeningBroadcasts ]
 [f ]
-"154
-[e ( _RF24_setAutoAck (1 -> -> 1 `i `uc ]
-"155
-[e ( _RF24_startListening ..  ]
-"156
-[e :UE 127 ]
-}
-"157
-[v _internet_getTransmissionBuffer `(*uc ~T0 @X0 1 ef ]
 "158
+[e ( _RF24_setAutoAck (1 -> -> 1 `i `uc ]
+"159
+[e ( _RF24_startListening ..  ]
+"160
+[e :UE 132 ]
+}
+"161
+[v _internet_getTransmissionBuffer `(*uc ~T0 @X0 1 ef ]
+"162
 {
 [e :U _internet_getTransmissionBuffer ]
 [f ]
-"159
+"163
 [e ) &U _buffer_tx ]
-[e $UE 128  ]
-"160
-[e :UE 128 ]
+[e $UE 133  ]
+"164
+[e :UE 133 ]
 }
-"161
+"165
 [v _internet_getRecievingBuffer `(*uc ~T0 @X0 1 ef ]
-"162
+"166
 {
 [e :U _internet_getRecievingBuffer ]
 [f ]
-"163
+"167
 [e ) &U _buffer_rx ]
-[e $UE 129  ]
-"164
-[e :UE 129 ]
+[e $UE 134  ]
+"168
+[e :UE 134 ]
 }
-[a 1C 112 97 121 108 111 97 100 32 61 0 ]
