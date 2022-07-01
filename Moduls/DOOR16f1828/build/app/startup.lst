@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                                           Tue Jun 28 21:38:42 2022
+                                                                                                           Fri Jul 01 15:16:03 2022
 
 
      1                           	processor	16F1828
@@ -156,9 +156,9 @@ Microchip MPLAB XC8 Assembler V2.35 build 20211206165544
 
 
 Microchip Technology PIC Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                               Tue Jun 28 21:38:42 2022
+Symbol Table                                                                                               Fri Jul 01 15:16:03 2022
 
-               ___sp 0000                 _main 024B                 start 000B  start_initialization 000D  
+               ___sp 0000                 _main 03E9                 start 000B  start_initialization 000D  
           ___heap_hi 0000            ___heap_lo 0000            ___stackhi 0000            ___stacklo 0000  
            ___int_sp 0000             intlevel0 0000             intlevel1 0000             intlevel2 0000  
            intlevel3 0000             intlevel4 0000             intlevel5 0000             reset_vec 0000  

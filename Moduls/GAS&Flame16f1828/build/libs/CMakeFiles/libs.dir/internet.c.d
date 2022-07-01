@@ -8,4 +8,6 @@ CMakeFiles/libs.dir\internet.c.p1: \
   F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/spi_master.h \
   F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/wait.h \
   F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/timer.h \
+  F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/logline.h \
+  F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\Serial.h \
   F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/buffers.h

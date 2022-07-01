@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "spi_master.h"
 #include "wait.h"
+#include "logline.h"
 #define RF24_CE RC6
 #define RF24_CSN RC5
 #define RF24_CE_TRIS TRISC6

@@ -1,4 +1,5 @@
 #include <spi_master.h>
+#include <pic16f1828.h>
 #ifdef _16F1828
 void SPI_initialize()
 {
@@ -7,11 +8,8 @@ void SPI_initialize()
     TRISB4 = 1;            // SDI must have corresponding TRIS bit set
     TRISC7 = 0;            // SDO must have corresponding TRIS bit cleared
     TRISB6 = 0;            // SCK (Master mode) must have corresponding TRIS bit cleared
-    ANSELB = 0;
-    SSP1CON = (SSP1CON & 0xf0) | 0b0010;
+    SSP1CON1 = (SSP1CON1 & 0xf0) | 0b0010;
     SSPEN = 1;
-    // SSP1CON3 = (SSP1CON3 & 0x10);
-
     /*void SPI_initialize()
 {
     SSPEN = 1;

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/libs.dir/Serial.c.p1"
   "CMakeFiles/libs.dir/buffers.c.p1"
   "CMakeFiles/libs.dir/internet.c.p1"
+  "CMakeFiles/libs.dir/logline.c.p1"
   "CMakeFiles/libs.dir/rf24.c.p1"
   "CMakeFiles/libs.dir/spi_master.c.p1"
   "CMakeFiles/libs.dir/timer.c.p1"

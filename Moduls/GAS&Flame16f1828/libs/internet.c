@@ -29,14 +29,14 @@ void internet_setNetworkPipe(uint8_t *pipe)
 void internet_tx(uint8_t *payload, uint8_t size)
 {
 
-     Packet *packetHeader = (struct Packet *)payload;
+    Packet *packetHeader = (struct Packet *)payload;
     packetHeader->ttl = 32;
     packetHeader->source = node.address;
     internet_relay(payload, size);
 }
 void internet_rx(uint8_t *payload, uint8_t size)
 {
-     Packet *packetHeader = (struct Packet *)payload;
+    Packet *packetHeader = (struct Packet *)payload;
     if (packetHeader->destination != node.address)
     {
 

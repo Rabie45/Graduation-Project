@@ -127,12 +127,7 @@ void RF24_setPALevel(uint8_t level)
 
 uint8_t RF24_isChipConnected()
 {
-    uint8_t width = RF24_read_register(SETUP_AW) & 0b11;
-    if (width > 0 && width < 4)
-    {
-        return 1;
-    }
-    return 0;
+    return RF24_read_register(SETUP_AW) == 3;
 }
 
 void RF24_startListening(void)

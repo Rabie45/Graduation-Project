@@ -3,9 +3,11 @@
 
 app/CMakeFiles/app.dir/src/main.c.p1
  ../libs/include/OXPacket.h
+ ../libs/include/Serial.h
  ../libs/include/buffers.h
  ../libs/include/config.h
  ../libs/include/internet.h
+ ../libs/include/logline.h
  ../libs/include/packets.h
  ../libs/include/protocols.h
  ../libs/include/rf24.h

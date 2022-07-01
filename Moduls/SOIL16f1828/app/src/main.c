@@ -8,9 +8,9 @@
 #include <packets.h>
 #include <OXPacket.h>
 #include <wait.h>
-
 #include <config.h>
 #include <stdint.h>
+#include <AToD.h>
 
 OXProperty props[] = {{.id = 1, .value = 0},
                       {.id = 2, .value = 255}};
@@ -31,21 +31,31 @@ void main()
     OSCCON = 0b01111010;
     TRISC3 = 0;
     TRISC4 = 0;
-    TRISA1 = 1;
+    ANSELA = 0x00;
+    ANSELB = 0x00;
+    ANSELC = 0x00;
+    ADC_Init();
     wait_init(16);
     SPI_initialize();
+    Serial_begin(9600);
     Network_begin();
     internet_setChannel(115);
     internet_setNetworkPipe(network_pipe);
     internet_setAddress(0);
+    RF24_printDetails();
+
+    checkRF24Connection();
+    CONNECTE_LED = 1;
+
+    logline_println("waiting for configuration message...");
     while (!isConfigerd)
     {
         internet_process();
+        logline_print("#");
+        checkRF24Connection();
         IS_CONFIGURED = ~IS_CONFIGURED;
         __delay_ms(300);
     }
-
-    CONNECTE_LED = 1;
     IS_CONFIGURED = 1;
     oxp_post(1, 3, &props, 2);
 
@@ -54,16 +64,23 @@ void main()
         internet_process();
         uint32_t stopTime = 0, startTime;
         CONNECTE_LED = 0;
-        while (!RF24_isChipConnected())
-        {
-            CONNECTE_LED = ~CONNECTE_LED;
-            __delay_ms(100);
-        }
+        // while (!RF24_isChipConnected())
+        // {
+        //     CONNECTE_LED = ~CONNECTE_LED;
+        //     __delay_ms(100);
+        // }
         transport_udp_tx(buffer_tx, sizeof(UDPPacket) + 3, 1, 3, 3); // send pay load
-        if (checkButton(&btn1, SW1))
+        uint8_t soil = analogRead(1);
+        startTime = micros();
+
+        if (soil < 150)
         {
-            props[0].value = ~props[0].value;
+            props[0].value = 0;
             oxp_post(1, 3, &props[0], 2);
+        }
+        else
+        {
+            props[0].value = 1;
         }
     }
 }

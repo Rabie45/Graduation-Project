@@ -6,7 +6,8 @@ set(CMAKE_TOOLCHAIN_FILE external/cmake-microchip/toolchain.cmake)
 # set the default MCU model
 set(MICROCHIP_MCU PIC16F1828)
 set(CPU_FREQUENCY 16000000)
-set(INTERNET_BASE_PIPE 0x59,0xec,0xad,0xfc,0x84)
+set(INTERNET_BASE_PIPE 0xe9,0x70,0x9d,0x6b,0xc5)
+
 # if(NOT CMAKE_BUILD_TYPE)
 #   set(CMAKE_BUILD_TYPE Release)
 # endif()

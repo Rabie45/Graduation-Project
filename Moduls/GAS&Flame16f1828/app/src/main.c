@@ -25,6 +25,7 @@ OXProperty props[] = {{.id = 1, .value = 0},
 uint8_t network_pipe[] = {0x00, 0xfc, 0xb0, 0xe8, 0xf5};
 
 uint8_t isConfigerd = 0;
+void checkRF24Connection();
 
 void main()
 {
@@ -32,22 +33,32 @@ void main()
     OSCCON = 0b01111010;
     TRISC3 = 0;
     TRISC4 = 0;
+    ANSELA = 0x00;
+    ANSELB = 0x00;
+    ANSELC = 0x00;
     TRISC1 = 1;
     TRISC0 = 1;
     wait_init(16);
     SPI_initialize();
+    Serial_begin(9600);
     Network_begin();
     internet_setChannel(115);
     internet_setNetworkPipe(network_pipe);
     internet_setAddress(0);
+    RF24_printDetails();
+
+    checkRF24Connection();
+    CONNECTE_LED = 1;
+
+    logline_println("waiting for configuration message...");
     while (!isConfigerd)
     {
         internet_process();
+        logline_print("#");
+        checkRF24Connection();
         IS_CONFIGURED = ~IS_CONFIGURED;
         __delay_ms(300);
     }
-
-    CONNECTE_LED = 0;
     IS_CONFIGURED = 1;
     oxp_post(1, 3, &props, 2);
 
@@ -56,11 +67,11 @@ void main()
         internet_process();
         uint32_t stopTime = 0, startTime;
         CONNECTE_LED = 0;
-        while (!RF24_isChipConnected())
-        {
-            CONNECTE_LED = ~CONNECTE_LED;
-            __delay_ms(100);
-        }
+        // while (!RF24_isChipConnected())
+        // {
+        //     CONNECTE_LED = ~CONNECTE_LED;
+        //     __delay_ms(100);
+        // }
         transport_udp_tx(buffer_tx, sizeof(UDPPacket) + 3, 1, 3, 3); // send pay load
         if (GAS == 1)
         {
@@ -72,6 +83,20 @@ void main()
             props[1].value = ~props[1].value;
             oxp_post(1, 3, &props[1], 2);
         }
+    }
+}
+void checkRF24Connection()
+{
+    if (!RF24_isChipConnected())
+    {
+        // RED = 1;
+        logline_println("RF24 disconnected!");
+        while (!RF24_isChipConnected())
+            ;
+        logline_println("RF24 connected");
+        Network_begin();
+        RF24_printDetails();
+        // RED = 0;
     }
 }
 void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)

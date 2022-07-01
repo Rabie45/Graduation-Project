@@ -130,6 +130,30 @@ libs/fast:
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/build
 .PHONY : libs/fast
 
+Serial.p1: Serial.c.p1
+.PHONY : Serial.p1
+
+# target to build an object file
+Serial.c.p1:
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.p1
+.PHONY : Serial.c.p1
+
+Serial.i: Serial.c.i
+.PHONY : Serial.i
+
+# target to preprocess a source file
+Serial.c.i:
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.i
+.PHONY : Serial.c.i
+
+Serial.s: Serial.c.s
+.PHONY : Serial.s
+
+# target to generate assembly for a file
+Serial.c.s:
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/Serial.c.s
+.PHONY : Serial.c.s
+
 buffers.p1: buffers.c.p1
 .PHONY : buffers.p1
 
@@ -177,6 +201,30 @@ internet.s: internet.c.s
 internet.c.s:
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/internet.c.s
 .PHONY : internet.c.s
+
+logline.p1: logline.c.p1
+.PHONY : logline.p1
+
+# target to build an object file
+logline.c.p1:
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.p1
+.PHONY : logline.c.p1
+
+logline.i: logline.c.i
+.PHONY : logline.i
+
+# target to preprocess a source file
+logline.c.i:
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.i
+.PHONY : logline.c.i
+
+logline.s: logline.c.s
+.PHONY : logline.s
+
+# target to generate assembly for a file
+logline.c.s:
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build" && $(MAKE) $(MAKESILENT) -f libs/CMakeFiles/libs.dir/build.make libs/CMakeFiles/libs.dir/logline.c.s
+.PHONY : logline.c.s
 
 rf24.p1: rf24.c.p1
 .PHONY : rf24.p1
@@ -307,12 +355,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... libs"
+	@echo "... Serial.p1"
+	@echo "... Serial.i"
+	@echo "... Serial.s"
 	@echo "... buffers.p1"
 	@echo "... buffers.i"
 	@echo "... buffers.s"
 	@echo "... internet.p1"
 	@echo "... internet.i"
 	@echo "... internet.s"
+	@echo "... logline.p1"
+	@echo "... logline.i"
+	@echo "... logline.s"
 	@echo "... rf24.p1"
 	@echo "... rf24.i"
 	@echo "... rf24.s"

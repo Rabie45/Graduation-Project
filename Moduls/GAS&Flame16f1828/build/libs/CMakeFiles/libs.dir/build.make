@@ -82,9 +82,61 @@ libs/CMakeFiles/libs.dir/internet.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/internet.c.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
 
+libs/CMakeFiles/libs.dir/transport.c.p1: libs/CMakeFiles/libs.dir/flags.make
+libs/CMakeFiles/libs.dir/transport.c.p1: ../libs/transport.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object libs/CMakeFiles/libs.dir/transport.c.p1"
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/transport.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/transport.c"
+
+libs/CMakeFiles/libs.dir/transport.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/transport.c.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
+
+libs/CMakeFiles/libs.dir/transport.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/transport.c.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
+
+libs/CMakeFiles/libs.dir/buffers.c.p1: libs/CMakeFiles/libs.dir/flags.make
+libs/CMakeFiles/libs.dir/buffers.c.p1: ../libs/buffers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object libs/CMakeFiles/libs.dir/buffers.c.p1"
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/buffers.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/buffers.c"
+
+libs/CMakeFiles/libs.dir/buffers.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/buffers.c.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
+
+libs/CMakeFiles/libs.dir/buffers.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/buffers.c.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
+
+libs/CMakeFiles/libs.dir/logline.c.p1: libs/CMakeFiles/libs.dir/flags.make
+libs/CMakeFiles/libs.dir/logline.c.p1: ../libs/logline.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object libs/CMakeFiles/libs.dir/logline.c.p1"
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/logline.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/logline.c"
+
+libs/CMakeFiles/libs.dir/logline.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/logline.c.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
+
+libs/CMakeFiles/libs.dir/logline.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/logline.c.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
+
+libs/CMakeFiles/libs.dir/Serial.c.p1: libs/CMakeFiles/libs.dir/flags.make
+libs/CMakeFiles/libs.dir/Serial.c.p1: ../libs/Serial.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object libs/CMakeFiles/libs.dir/Serial.c.p1"
+	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/Serial.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/Serial.c"
+
+libs/CMakeFiles/libs.dir/Serial.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/Serial.c.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
+
+libs/CMakeFiles/libs.dir/Serial.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/Serial.c.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
+
 libs/CMakeFiles/libs.dir/rf24.c.p1: libs/CMakeFiles/libs.dir/flags.make
 libs/CMakeFiles/libs.dir/rf24.c.p1: ../libs/rf24.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object libs/CMakeFiles/libs.dir/rf24.c.p1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object libs/CMakeFiles/libs.dir/rf24.c.p1"
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/rf24.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/rf24.c"
 
 libs/CMakeFiles/libs.dir/rf24.c.i: cmake_force
@@ -97,7 +149,7 @@ libs/CMakeFiles/libs.dir/rf24.c.s: cmake_force
 
 libs/CMakeFiles/libs.dir/spi_master.c.p1: libs/CMakeFiles/libs.dir/flags.make
 libs/CMakeFiles/libs.dir/spi_master.c.p1: ../libs/spi_master.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object libs/CMakeFiles/libs.dir/spi_master.c.p1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object libs/CMakeFiles/libs.dir/spi_master.c.p1"
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/spi_master.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/spi_master.c"
 
 libs/CMakeFiles/libs.dir/spi_master.c.i: cmake_force
@@ -110,7 +162,7 @@ libs/CMakeFiles/libs.dir/spi_master.c.s: cmake_force
 
 libs/CMakeFiles/libs.dir/timer.c.p1: libs/CMakeFiles/libs.dir/flags.make
 libs/CMakeFiles/libs.dir/timer.c.p1: ../libs/timer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object libs/CMakeFiles/libs.dir/timer.c.p1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object libs/CMakeFiles/libs.dir/timer.c.p1"
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/timer.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/timer.c"
 
 libs/CMakeFiles/libs.dir/timer.c.i: cmake_force
@@ -121,22 +173,9 @@ libs/CMakeFiles/libs.dir/timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/timer.c.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
 
-libs/CMakeFiles/libs.dir/transport.c.p1: libs/CMakeFiles/libs.dir/flags.make
-libs/CMakeFiles/libs.dir/transport.c.p1: ../libs/transport.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object libs/CMakeFiles/libs.dir/transport.c.p1"
-	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/transport.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/transport.c"
-
-libs/CMakeFiles/libs.dir/transport.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/transport.c.i"
-	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
-
-libs/CMakeFiles/libs.dir/transport.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/transport.c.s"
-	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
-
 libs/CMakeFiles/libs.dir/wait.c.p1: libs/CMakeFiles/libs.dir/flags.make
 libs/CMakeFiles/libs.dir/wait.c.p1: ../libs/wait.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object libs/CMakeFiles/libs.dir/wait.c.p1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building C object libs/CMakeFiles/libs.dir/wait.c.p1"
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/wait.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/wait.c"
 
 libs/CMakeFiles/libs.dir/wait.c.i: cmake_force
@@ -147,41 +186,32 @@ libs/CMakeFiles/libs.dir/wait.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/wait.c.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
 
-libs/CMakeFiles/libs.dir/buffers.c.p1: libs/CMakeFiles/libs.dir/flags.make
-libs/CMakeFiles/libs.dir/buffers.c.p1: ../libs/buffers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object libs/CMakeFiles/libs.dir/buffers.c.p1"
-	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-cc.exe" $(C_FLAGS) $(C_DEFINES) $(C_INCLUDES)   -oCMakeFiles/libs.dir/buffers.c.p1   -c "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/buffers.c"
-
-libs/CMakeFiles/libs.dir/buffers.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libs.dir/buffers.c.i"
-	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_PREPROCESSED_SOURCE
-
-libs/CMakeFiles/libs.dir/buffers.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libs.dir/buffers.c.s"
-	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_C_CREATE_ASSEMBLY_SOURCE
-
 # Object files for target libs
 libs_OBJECTS = \
 "CMakeFiles/libs.dir/internet.c.p1" \
+"CMakeFiles/libs.dir/transport.c.p1" \
+"CMakeFiles/libs.dir/buffers.c.p1" \
+"CMakeFiles/libs.dir/logline.c.p1" \
+"CMakeFiles/libs.dir/Serial.c.p1" \
 "CMakeFiles/libs.dir/rf24.c.p1" \
 "CMakeFiles/libs.dir/spi_master.c.p1" \
 "CMakeFiles/libs.dir/timer.c.p1" \
-"CMakeFiles/libs.dir/transport.c.p1" \
-"CMakeFiles/libs.dir/wait.c.p1" \
-"CMakeFiles/libs.dir/buffers.c.p1"
+"CMakeFiles/libs.dir/wait.c.p1"
 
 # External object files for target libs
 libs_EXTERNAL_OBJECTS =
 
 libs/liblibs.a: libs/CMakeFiles/libs.dir/internet.c.p1
+libs/liblibs.a: libs/CMakeFiles/libs.dir/transport.c.p1
+libs/liblibs.a: libs/CMakeFiles/libs.dir/buffers.c.p1
+libs/liblibs.a: libs/CMakeFiles/libs.dir/logline.c.p1
+libs/liblibs.a: libs/CMakeFiles/libs.dir/Serial.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/rf24.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/spi_master.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/timer.c.p1
-libs/liblibs.a: libs/CMakeFiles/libs.dir/transport.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/wait.c.p1
-libs/liblibs.a: libs/CMakeFiles/libs.dir/buffers.c.p1
 libs/liblibs.a: libs/CMakeFiles/libs.dir/build.make
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking C static library liblibs.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking C static library liblibs.a"
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && $(CMAKE_COMMAND) -P CMakeFiles/libs.dir/cmake_clean_target.cmake
 	cd "F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/build/libs" && "C:/Program Files/Microchip/xc8/v2.35/bin/xc8-ar.exe" -r liblibs.a $(libs_OBJECTS) $(libs_EXTERNAL_OBJECTS) 
 

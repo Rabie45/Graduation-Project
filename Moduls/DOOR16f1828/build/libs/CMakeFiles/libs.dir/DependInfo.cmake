@@ -8,8 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/Serial.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/Serial.c.p1"
   "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/buffers.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/buffers.c.p1"
   "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/internet.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/internet.c.p1"
+  "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/logline.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/logline.c.p1"
   "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/rf24.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/rf24.c.p1"
   "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/spi_master.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/spi_master.c.p1"
   "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/libs/timer.c" "F:/GitHub/Graduation-Project/Moduls/DOOR16f1828/build/libs/CMakeFiles/libs.dir/timer.c.p1"
@@ -20,7 +22,7 @@ set(CMAKE_C_COMPILER_ID "XC8-CC")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
-  "INTERNET_BASE_PIPE=0x59,0xec,0xad,0xfc,0x84"
+  "INTERNET_BASE_PIPE=0xe9,0x70,0x9d,0x6b,0xc5"
   "_XTAL_FREQ=16000000"
   )
 

@@ -12,6 +12,14 @@ stdint.h
 packets.h
 -
 
+../libs/include/Serial.h
+stdint.h
+-
+xc.h
+-
+pic16f1828.h
+-
+
 ../libs/include/buffers.h
 stdint.h
 -
@@ -40,6 +48,10 @@ spi_master.h
 buffers.h
 ../libs/include/buffers.h
 
+../libs/include/logline.h
+Serial.h
+-
+
 ../libs/include/packets.h
 stdint.h
 -
@@ -53,6 +65,8 @@ spi_master.h
 ../libs/include/spi_master.h
 wait.h
 ../libs/include/wait.h
+logline.h
+../libs/include/logline.h
 
 ../libs/include/spi_master.h
 stdint.h

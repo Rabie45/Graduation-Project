@@ -5,21 +5,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "35
 [s S369 `uc -> 5 `i `uc 1 ]
 [n S369 NetworkInfo networkPipe defaultGateway ]
-"104 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+"105 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
 [v _RF24_setChannel `(v ~T0 @X0 0 ef1`uc ]
-"143
+"144
 [v _RF24_getDynamicPayloadSize `(uc ~T0 @X0 0 ef ]
-"118
+"119
 [v _RF24_read `(v ~T0 @X0 0 ef2`*v`uc ]
 "5 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/buffers.h
 [v _buffer_rx `uc ~T0 @X0 -> 0 `x e ]
 "41 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\internet.h
 [v _internet_rx `(v ~T0 @X0 0 ef2`*uc`uc ]
-"116 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+"117 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
 [v _RF24_available `(uc ~T0 @X0 0 ef ]
 "27 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\string.h
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
-"121 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+"122 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
 [v _RF24_openReadingPipe `(v ~T0 @X0 0 ef2`uc`*uc ]
 "5 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/packets.h
 [s S365 `uc 1 `uc 1 `uc 1 `uc 1 ]
@@ -43,38 +43,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _internet_calculateMask `(uc ~T0 @X0 0 ef1`uc ]
 "45
 [v _internet_hasChild `(uc ~T0 @X0 0 ef1`uc ]
-"106 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+"107 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
 [v _RF24_openWritingPipe `(v ~T0 @X0 0 ef1`*uc ]
-"115
+"116
 [v _RF24_stopListening `(v ~T0 @X0 0 ef ]
-"119
+"120
 [v _RF24_write `(uc ~T0 @X0 0 ef2`*v`uc ]
-"114
+"115
 [v _RF24_startListening `(v ~T0 @X0 0 ef ]
-"112
+"113
 [v _RF24_begin `(uc ~T0 @X0 0 ef ]
-"110
+"111
 [v _RF24_setAddressWidth `(v ~T0 @X0 0 ef1`uc ]
-"147
+"148
 [v _RF24_enableDynamicPayloads `(v ~T0 @X0 0 ef ]
 "148 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/internet.c
-[c E2647 0 1 2 .. ]
-[n E2647 . RF24_1MBPS RF24_2MBPS RF24_250KBPS  ]
-"154 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
-[v _RF24_setDataRate `(v ~T0 @X0 0 ef1`E2647 ]
+[c E2666 0 1 2 .. ]
+[n E2666 . RF24_1MBPS RF24_2MBPS RF24_250KBPS  ]
+"155 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+[v _RF24_setDataRate `(v ~T0 @X0 0 ef1`E2666 ]
 "149 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/internet.c
-[c E2652 0 1 2 .. ]
-[n E2652 . RF24_CRC_DISABLED RF24_CRC_8 RF24_CRC_16  ]
-"156 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
-[v _RF24_setCRCLength `(v ~T0 @X0 0 ef1`E2652 ]
-"151
+[c E2671 0 1 2 .. ]
+[n E2671 . RF24_CRC_DISABLED RF24_CRC_8 RF24_CRC_16  ]
+"157 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+[v _RF24_setCRCLength `(v ~T0 @X0 0 ef1`E2671 ]
+"152
 [v _RF24_setAutoAck `(v ~T0 @X0 0 ef1`uc ]
-"108
+"109
 [v _RF24_getPALevel `(uc ~T0 @X0 0 e? ]
 "152 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/internet.c
-[c E2640 0 1 2 3 4 .. ]
-[n E2640 . RF24_PA_MIN RF24_PA_LOW RF24_PA_HIGH RF24_PA_MAX RF24_PA_ERROR  ]
-"141 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+[c E2659 0 1 2 3 4 .. ]
+[n E2659 . RF24_PA_MIN RF24_PA_LOW RF24_PA_HIGH RF24_PA_MAX RF24_PA_ERROR  ]
+"142 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
 [v _RF24_setPayloadSize `(v ~T0 @X0 0 ef1`uc ]
 "6 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/buffers.h
 [v _buffer_tx `uc ~T0 @X0 -> 0 `x e ]
@@ -398,19 +398,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "6837
 [; <" TOSH equ 0FEFh ;# ">
-"98 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
+"16 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include/logline.h
+[v _LOGLINE_OK `Cuc ~T0 @X0 -> 3 `i e ]
+[i _LOGLINE_OK
+:U ..
+-> 79 `c
+-> 75 `c
+-> 0 `c
+..
+]
+"17
+[v _LOGLINE_FAIL `Cuc ~T0 @X0 -> 5 `i e ]
+[i _LOGLINE_FAIL
+:U ..
+-> 70 `c
+-> 65 `c
+-> 73 `c
+-> 76 `c
+-> 0 `c
+..
+]
+"99 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\rf24.h
 [v _RF24_attr_status `uc ~T0 @X0 1 e ]
-"99
+"100
 [v _RF24_attr_config `uc ~T0 @X0 1 e ]
 "12 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/include\internet.h
 [v _BASE_PIPE `Cuc ~T0 @X0 -> 5 `i e ]
 [i _BASE_PIPE
 :U ..
--> -> 89 `i `uc
--> -> 236 `i `uc
--> -> 173 `i `uc
--> -> 252 `i `uc
--> -> 132 `i `uc
+-> -> 233 `i `uc
+-> -> 112 `i `uc
+-> -> 157 `i `uc
+-> -> 107 `i `uc
+-> -> 197 `i `uc
 ..
 ]
 "13
@@ -755,15 +775,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "147
 [e ( _RF24_enableDynamicPayloads ..  ]
 "148
-[e ( _RF24_setDataRate (1 . `E2647 0 ]
+[e ( _RF24_setDataRate (1 . `E2666 0 ]
 "149
-[e ( _RF24_setCRCLength (1 . `E2652 1 ]
+[e ( _RF24_setCRCLength (1 . `E2671 1 ]
 "150
 [e ( _RF24_openReadingPipe (2 , -> -> 0 `i `uc -> &U _BASE_PIPE `*uc ]
 "151
 [e ( _RF24_setAutoAck (1 -> -> 1 `i `uc ]
 "152
-[e ( _RF24_getPALevel . `E2640 3 ]
+[e ( _RF24_getPALevel . `E2659 3 ]
 "153
 [e ( _RF24_setPayloadSize (1 -> -> 32 `i `uc ]
 "154

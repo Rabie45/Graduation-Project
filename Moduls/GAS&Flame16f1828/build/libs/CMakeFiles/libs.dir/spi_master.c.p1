@@ -9,10 +9,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TRISC7 `Vb ~T0 @X0 0 e@1143 ]
 "8290
 [v _TRISB6 `Vb ~T0 @X0 0 e@1134 ]
-"2941
-[v _ANSELB `Vuc ~T0 @X0 0 e@397 ]
-"3957
-[v _SSP1CON `Vuc ~T0 @X0 0 e@533 ]
+"3962
+[v _SSP1CON1 `Vuc ~T0 @X0 0 e@533 ]
 "3721
 [v _SSP1BUF `Vuc ~T0 @X0 0 e@529 ]
 "8032
@@ -337,55 +335,53 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSL equ 0FEEh ;# ">
 "6837
 [; <" TOSH equ 0FEFh ;# ">
-"3 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/spi_master.c
+"4 F:/GitHub/Graduation-Project/Moduls/GAS&Flame16f1828/libs/spi_master.c
 [v _SPI_initialize `(v ~T0 @X0 1 ef ]
-"4
+"5
 {
 [e :U _SPI_initialize ]
 [f ]
-"5
-[e = _SSPEN -> -> 0 `i `b ]
 "6
-[e = _SSP1STAT -> -> 64 `i `uc ]
+[e = _SSPEN -> -> 0 `i `b ]
 "7
-[e = _TRISB4 -> -> 1 `i `b ]
+[e = _SSP1STAT -> -> 64 `i `uc ]
 "8
-[e = _TRISC7 -> -> 0 `i `b ]
+[e = _TRISB4 -> -> 1 `i `b ]
 "9
-[e = _TRISB6 -> -> 0 `i `b ]
+[e = _TRISC7 -> -> 0 `i `b ]
 "10
-[e = _ANSELB -> -> 0 `i `uc ]
+[e = _TRISB6 -> -> 0 `i `b ]
 "11
-[e = _SSP1CON -> | & -> _SSP1CON `i -> 240 `i -> 2 `i `uc ]
+[e = _SSP1CON1 -> | & -> _SSP1CON1 `i -> 240 `i -> 2 `i `uc ]
 "12
 [e = _SSPEN -> -> 1 `i `b ]
-"24
+"22
 [e :UE 365 ]
 }
-"26
+"24
 [v _SPI_exchangeByte `(uc ~T0 @X0 1 ef1`uc ]
-"27
+"25
 {
 [e :U _SPI_exchangeByte ]
-"26
+"24
 [v _byte `uc ~T0 @X0 1 r1 ]
-"27
+"25
 [f ]
-"29
+"27
 [e = _SSP1BUF _byte ]
-"30
+"28
 [e $U 367  ]
 [e :U 368 ]
-"31
+"29
 [e :U 367 ]
-"30
+"28
 [e $ == -> _SSP1IF `i -> 0 `i 368  ]
 [e :U 369 ]
-"32
+"30
 [e = _SSP1IF -> -> 0 `i `b ]
-"33
+"31
 [e ) _SSP1BUF ]
 [e $UE 366  ]
-"34
+"32
 [e :UE 366 ]
 }
