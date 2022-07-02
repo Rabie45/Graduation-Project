@@ -64,25 +64,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p i __delay ]
 "42 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\OXPacket.h
 [v _oxp_post `(uc ~T0 @X0 0 ef4`uc`uc`*S371`uc ]
-"14 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/transport.h
-[v _transport_udp_tx `(v ~T0 @X0 0 ef5`*uc`uc`uc`uc`uc ]
-"6 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\buffers.h
-[v _buffer_tx `uc ~T0 @X0 -> 0 `x e ]
-"13 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\packets.h
-[s S366 `uc 1 `uc 1 `uc 1 `uc 1 :4 `uc 1 :4 `uc 1 ]
-[n S366 . ttl protocol source destination sourcePort destinationPort ]
 "7891 C:\Program Files\Microchip\xc8\v2.35\pic\include\proc\pic16f1828.h
 [v _RC1 `Vb ~T0 @X0 0 e@113 ]
 "114 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/rf24.h
 [v _RF24_isChipConnected `(uc ~T0 @X0 0 ef ]
+"13 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\packets.h
+[s S366 `uc 1 `uc 1 `uc 1 `uc 1 :4 `uc 1 :4 `uc 1 ]
+[n S366 . ttl protocol source destination sourcePort destinationPort ]
 "20 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\OXPacket.h
 [s S372 `uc 1 :2 `uc 1 :1 `uc 1 ]
 [n S372 . rid type fin ]
 "26
 [s S373 `S366 1 `S372 1 `S371 -> 12 `i ]
 [n S373 . udpHeader oxp properties ]
+"6 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\buffers.h
+[v _buffer_tx `uc ~T0 @X0 -> 0 `x e ]
 "27 C:\Program Files\Microchip\xc8\v2.35\pic\include\c99\string.h
 [v _memcpy `(*v ~T0 @X0 0 ef3`*v`*Cv`ui ]
+"14 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/transport.h
+[v _transport_udp_tx `(v ~T0 @X0 0 ef5`*uc`uc`uc`uc`uc ]
+"57 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include\logline.h
+[v __$_logline_int `(v ~T0 @X0 0 ef1`uc ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "8 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/include/timer.h
@@ -486,7 +488,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _props
 :U ..
 :U ..
--> -> 1 `i `uc
+-> -> 0 `i `uc
 -> -> 1 `i `uc
 ..
 :U ..
@@ -631,359 +633,377 @@ Version 4.0 HI-TECH Software Intermediate Code
 "102
 [e ( _checkRF24Connection ..  ]
 "108
-[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> -> 3 `i `ui `uc -> -> 1 `i `uc -> -> 3 `i `uc -> -> 3 `i `uc ]
-"109
-[e = _startTime ( _micros ..  ]
-"111
-[e $ ! > - _startTime _stopTime -> -> -> 150 `i `l `ul 386  ]
-"112
-{
-"113
-[e = _stopTime _startTime ]
-"114
 [e = _RB7 -> . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 `b ]
-"115
+"109
+[e $ ! != -> ( _checkButton (2 , &U _btn1 -> _RC1 `uc `i -> 0 `i 386  ]
+"110
+{
+"111
+[e = . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 -> -> ! != -> . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 `i -> 0 `i `i `uc ]
+"112
+[e ( _oxp_post (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc &U *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux -> -> 2 `i `uc ]
+"113
 }
 [e :U 386 ]
-"116
-[e $ ! != -> ( _checkButton (2 , &U _btn1 -> _RC1 `uc `i -> 0 `i 387  ]
-"117
-{
-"118
-[e = . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 -> ~ -> . *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux 1 `i `uc ]
-"119
-[e ( _oxp_post (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc &U *U + &U _props * -> -> -> 0 `i `ui `ux -> -> # *U &U _props `ui `ux -> -> 2 `i `uc ]
-"120
-}
-[e :U 387 ]
-"121
+"114
 }
 [e :U 383 ]
 [e $U 384  ]
 [e :U 385 ]
-"122
+"115
 [e :UE 379 ]
 }
-"123
+"116
 [v _checkRF24Connection `(v ~T0 @X0 1 ef ]
-"124
+"117
 {
 [e :U _checkRF24Connection ]
 [f ]
-"125
-[e $ ! ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 389  ]
-"126
+"118
+[e $ ! ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 388  ]
+"119
 {
-"128
+"121
 [e ( __$_logline_str (1 :s 3C ]
 [e ( _Serial_write (1 -> -> 10 `ui `uc ]
-"129
-[e $U 390  ]
-[e :U 391 ]
-"130
+"122
+[e $U 389  ]
 [e :U 390 ]
-"129
-[e $ ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 391  ]
-[e :U 392 ]
-"131
+"123
+[e :U 389 ]
+"122
+[e $ ! != -> ( _RF24_isChipConnected ..  `i -> 0 `i 390  ]
+[e :U 391 ]
+"124
 [e ( __$_logline_str (1 :s 4C ]
 [e ( _Serial_write (1 -> -> 10 `ui `uc ]
-"132
+"125
 [e ( _Network_begin ..  ]
-"133
+"126
 [e ( _RF24_printDetails ..  ]
-"135
+"128
 }
-[e :U 389 ]
-"136
-[e :UE 388 ]
+[e :U 388 ]
+"129
+[e :UE 387 ]
 }
-"138
+"131
 [v _transport_udp_process `(v ~T0 @X0 1 ef3`*uc`uc`uc ]
-"139
+"132
 {
 [e :U _transport_udp_process ]
-"138
+"131
 [v _payload `*uc ~T0 @X0 1 r1 ]
 [v _size `uc ~T0 @X0 1 r2 ]
 [v _port `uc ~T0 @X0 1 r3 ]
-"139
+"132
 [f ]
-"141
-[e $ ! == -> _port `i -> 3 `i 394  ]
-"142
+"134
+[e $ ! == -> _port `i -> 3 `i 393  ]
+"135
 {
-"144
-[e $ ! < -> _size `ui + -> # `S366 `ui -> # `S372 `ui 395  ]
-"145
-[e $UE 393  ]
-[e :U 395 ]
-"146
+"137
+[e $ ! < -> _size `ui + -> # `S366 `ui -> # `S372 `ui 394  ]
+"138
+[e $UE 392  ]
+[e :U 394 ]
+"139
 [v _packet `*S373 ~T0 @X0 1 a ]
 [e = _packet -> _payload `*S373 ]
-"147
-[e $ ! == -> . . *U _packet 1 1 `i -> 0 `i 396  ]
-"148
+"140
+[e = . _OXPSTASTS 2 -> / - -> _size `ui + -> # `S366 `ui -> # `S372 `ui -> # `S371 `ui `uc ]
+"141
+[e $ ! == -> . . *U _packet 1 1 `i -> 0 `i 395  ]
+"142
 {
-"149
+"143
+[e ( __$_logline_str (1 :s 5C ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"144
 [v _response `*S373 ~T0 @X0 1 a ]
 [e = _response -> &U _buffer_tx `*S373 ]
-"150
+"145
 [e = . . *U _response 1 0 . . *U _packet 1 0 ]
-"151
+"146
 [e = . . *U _response 1 2 -> -> 1 `i `uc ]
-"152
+"147
 [e = . . *U _response 1 1 -> -> 2 `i `uc ]
-"153
+"148
 [e = . . *U _response 0 3 . . *U _packet 0 2 ]
-"154
+"149
 [e = . . *U _response 0 5 . . *U _packet 0 4 ]
-"155
+"150
 [e = . . *U _response 0 0 -> -> 32 `i `uc ]
-"156
+"151
 [e ( _memcpy (3 , , -> &U . *U _response 2 `*v -> &U _props `*Cv -> # _props `ui ]
-"157
+"152
 [e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + + -> # `S366 `ui -> # `S372 `ui -> # _props `ui `uc . . *U _packet 0 2 -> -> 3 `i `uc . . *U _packet 0 4 ]
-"158
+"153
 }
-[e $U 397  ]
-"159
-[e :U 396 ]
-[e $ ! == -> . . *U _packet 1 1 `i -> 1 `i 398  ]
-"160
+[e $U 396  ]
+"154
+[e :U 395 ]
+[e $ ! == -> . . *U _packet 1 1 `i -> 1 `i 397  ]
+"155
 {
-"161
+"156
+[e ( __$_logline_str (1 :s 6C ]
+"157
+[e ( __$_logline_str (1 :s 7C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_int (1 . _OXPSTASTS 2 ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
+"158
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 402  ]
-[e :U 399 ]
+[e $U 401  ]
+[e :U 398 ]
+"159
+{
+"160
+[v _prop `S371 ~T0 @X0 1 a ]
+[e = _prop *U + &U . *U _packet 2 * -> _i `ux -> -> # *U &U . *U _packet 2 `ui `ux ]
+"161
+[e $ ! < -> . _prop 0 `ui -> # _props `ui 402  ]
 "162
 {
 "163
-[v _prop `S371 ~T0 @X0 1 a ]
-[e = _prop *U + &U . *U _packet 2 * -> _i `ux -> -> # *U &U . *U _packet 2 `ui `ux ]
+[e ( __$_logline_str (1 :s 8C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_int (1 . _prop 0 ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
 "164
-[e $ ! < -> . _prop 0 `ui -> # _props `ui 403  ]
+[e ( __$_logline_str (1 :s 9C ]
+[e ( _Serial_write (1 -> -> 61 `ui `uc ]
+[e ( __$_logline_int (1 . _prop 1 ]
+[e ( _Serial_write (1 -> -> 10 `ui `uc ]
 "165
 [e = . *U + &U _props * -> . _prop 0 `ux -> -> # *U &U _props `ui `ux 1 . _prop 1 ]
-[e :U 403 ]
 "166
 }
-[e ++ _i -> -> 1 `i `uc ]
 [e :U 402 ]
-[e $ < -> _i `i -> . _OXPSTASTS 2 `i 399  ]
-[e :U 400 ]
-}
 "167
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 401 ]
+[e $ < -> _i `i -> . _OXPSTASTS 2 `i 398  ]
+[e :U 399 ]
+}
+"168
 [v _response `*S373 ~T0 @X0 1 a ]
 [e = _response -> &U _buffer_tx `*S373 ]
-"168
-[e = . . *U _response 1 0 . . *U _packet 1 0 ]
 "169
-[e = . . *U _response 1 2 -> -> 1 `i `uc ]
+[e = . . *U _response 1 0 . . *U _packet 1 0 ]
 "170
-[e = . . *U _response 1 1 -> -> 2 `i `uc ]
+[e = . . *U _response 1 2 -> -> 1 `i `uc ]
 "171
-[e = . . *U _response 0 3 . . *U _packet 0 2 ]
+[e = . . *U _response 1 1 -> -> 2 `i `uc ]
 "172
-[e = . . *U _response 0 5 . . *U _packet 0 4 ]
+[e = . . *U _response 0 3 . . *U _packet 0 2 ]
 "173
-[e = . . *U _response 0 0 -> -> 32 `i `uc ]
+[e = . . *U _response 0 5 . . *U _packet 0 4 ]
 "174
-[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> # `S372 `ui `uc . . *U _packet 0 2 -> -> 3 `i `uc . . *U _packet 0 4 ]
+[e = . . *U _response 0 0 -> -> 32 `i `uc ]
 "175
-}
-[e :U 398 ]
-[e :U 397 ]
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> # `S372 `ui `uc . . *U _packet 0 2 -> -> 3 `i `uc . . *U _packet 0 4 ]
 "176
-[e $ ! && != -> . _OXPSTASTS 0 `i -> 0 `i == -> . . *U _packet 1 0 `i -> . _OXPSTASTS 4 `i 404  ]
-"177
-{
-"178
-[e ( _memcpy (3 , , -> &U . _OXPSTASTS 5 `*v -> _payload `*Cv -> _size `ui ]
-"179
-[e = . _OXPSTASTS 0 -> -> 0 `i `uc ]
-"180
-[e = . _OXPSTASTS 1 -> -> 1 `i `uc ]
-"181
 }
-[e :U 404 ]
+[e :U 397 ]
+[e :U 396 ]
+"177
+[e $ ! && != -> . _OXPSTASTS 0 `i -> 0 `i == -> . . *U _packet 1 0 `i -> . _OXPSTASTS 4 `i 403  ]
+"178
+{
+"179
+[e ( _memcpy (3 , , -> &U . _OXPSTASTS 5 `*v -> _payload `*Cv -> _size `ui ]
+"180
+[e = . _OXPSTASTS 0 -> -> 0 `i `uc ]
+"181
+[e = . _OXPSTASTS 1 -> -> 1 `i `uc ]
 "182
 }
-[e :U 394 ]
+[e :U 403 ]
 "183
-[e $UE 393  ]
+}
+[e :U 393 ]
 "184
-[e :UE 393 ]
+[e $UE 392  ]
+"185
+[e :UE 392 ]
 }
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"186
-[v _ISR `(v ~T1 @X0 1 ef ]
 "187
+[v _ISR `(v ~T1 @X0 1 ef ]
+"188
 {
 [e :U _ISR ]
 [f ]
-"188
-[e ( _timeISR ..  ]
 "189
-[e :UE 405 ]
-}
+[e ( _timeISR ..  ]
 "190
-[v _oxp_post `(uc ~T0 @X0 1 ef4`uc`uc`*S371`uc ]
+[e :UE 404 ]
+}
 "191
+[v _oxp_post `(uc ~T0 @X0 1 ef4`uc`uc`*S371`uc ]
+"192
 {
 [e :U _oxp_post ]
-"190
+"191
 [v _destination `uc ~T0 @X0 1 r1 ]
 [v _destinationPort `uc ~T0 @X0 1 r2 ]
 [v _properties `*S371 ~T0 @X0 1 r3 ]
 [v _propertiesLength `uc ~T0 @X0 1 r4 ]
-"191
+"192
 [f ]
-"193
+"194
 [v _packet `*S373 ~T0 @X0 1 a ]
 [e = _packet -> &U _buffer_tx `*S373 ]
-"194
-[e = . . *U _packet 1 2 -> -> 1 `i `uc ]
 "195
-[e = . . *U _packet 1 0 . _OXPSTASTS 3 ]
+[e = . . *U _packet 1 2 -> -> 1 `i `uc ]
 "196
-[e = . . *U _packet 1 1 -> -> 1 `i `uc ]
+[e = . . *U _packet 1 0 . _OXPSTASTS 3 ]
 "197
-[e = . _OXPSTASTS 4 . _OXPSTASTS 3 ]
+[e = . . *U _packet 1 1 -> -> 1 `i `uc ]
 "198
-[e = . _OXPSTASTS 0 -> -> 1 `i `uc ]
+[e = . _OXPSTASTS 4 . _OXPSTASTS 3 ]
 "199
-[e = . _OXPSTASTS 1 -> -> 0 `i `uc ]
+[e = . _OXPSTASTS 0 -> -> 1 `i `uc ]
 "200
-[e ++ . _OXPSTASTS 3 -> -> 1 `i `uc ]
+[e = . _OXPSTASTS 1 -> -> 0 `i `uc ]
 "201
+[e ++ . _OXPSTASTS 3 -> -> 1 `i `uc ]
+"202
 [e ( _memcpy (3 , , -> + &U _buffer_tx * -> + -> # `S366 `ui -> # `S372 `ui `ux -> -> # *U &U _buffer_tx `ui `ux `*v -> _properties `*Cv * -> # `S371 `ui -> _propertiesLength `ui ]
-"203
-[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + + -> # `S366 `ui -> # `S372 `ui * -> _propertiesLength `ui -> # `S371 `ui `uc _destination -> -> 3 `i `uc _destinationPort ]
 "204
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + + -> # `S366 `ui -> # `S372 `ui * -> _propertiesLength `ui -> # `S371 `ui `uc _destination -> -> 3 `i `uc _destinationPort ]
+"205
 [v _timeoutTime `ul ~T0 @X0 1 a ]
 [e = _timeoutTime + ( _micros ..  -> -> 230000 `l `ul ]
-"205
-[e $U 407  ]
-[e :U 408 ]
 "206
-{
-"207
-[e ( _internet_process ..  ]
-"208
-}
+[e $U 406  ]
 [e :U 407 ]
-"205
-[e $ && < ( _micros ..  _timeoutTime ! != -> . _OXPSTASTS 1 `i -> 0 `i 408  ]
-[e :U 409 ]
-"209
-[e $ ! != -> . _OXPSTASTS 1 `i -> 0 `i 410  ]
-"210
+"207
 {
+"208
+[e ( _internet_process ..  ]
+"209
+}
+[e :U 406 ]
+"206
+[e $ && < ( _micros ..  _timeoutTime ! != -> . _OXPSTASTS 1 `i -> 0 `i 407  ]
+[e :U 408 ]
+"210
+[e $ ! != -> . _OXPSTASTS 1 `i -> 0 `i 409  ]
 "211
+{
+"212
 [v _response `*CS373 ~T0 @X0 1 a ]
 [e = _response -> -> &U . _OXPSTASTS 5 `*S373 `*CS373 ]
-"212
-[e ) -> -> == -> . . *U _response 1 1 `i -> 2 `i `i `uc ]
-[e $UE 406  ]
 "213
-}
-[e :U 410 ]
+[e ) -> -> == -> . . *U _response 1 1 `i -> 2 `i `i `uc ]
+[e $UE 405  ]
 "214
-[e ) -> -> 0 `i `uc ]
-[e $UE 406  ]
-"215
-[e :UE 406 ]
 }
+[e :U 409 ]
+"215
+[e ) -> -> 0 `i `uc ]
+[e $UE 405  ]
 "216
-[v _oxp_get `(uc ~T0 @X0 1 ef2`uc`uc ]
+[e :UE 405 ]
+}
 "217
+[v _oxp_get `(uc ~T0 @X0 1 ef2`uc`uc ]
+"218
 {
 [e :U _oxp_get ]
-"216
+"217
 [v _destination `uc ~T0 @X0 1 r1 ]
 [v _destinationPort `uc ~T0 @X0 1 r2 ]
-"217
-[f ]
 "218
+[f ]
+"219
 [v _packet `*S373 ~T0 @X0 1 a ]
 [e = _packet -> &U _buffer_tx `*S373 ]
-"219
-[e = . . *U _packet 1 2 -> -> 1 `i `uc ]
 "220
-[e = . . *U _packet 1 0 . _OXPSTASTS 3 ]
+[e = . . *U _packet 1 2 -> -> 1 `i `uc ]
 "221
-[e = . . *U _packet 1 1 -> -> 0 `i `uc ]
+[e = . . *U _packet 1 0 . _OXPSTASTS 3 ]
 "222
-[e = . _OXPSTASTS 4 . _OXPSTASTS 3 ]
+[e = . . *U _packet 1 1 -> -> 0 `i `uc ]
 "223
-[e = . _OXPSTASTS 0 -> -> 1 `i `uc ]
+[e = . _OXPSTASTS 4 . _OXPSTASTS 3 ]
 "224
-[e = . _OXPSTASTS 1 -> -> 0 `i `uc ]
+[e = . _OXPSTASTS 0 -> -> 1 `i `uc ]
 "225
+[e = . _OXPSTASTS 1 -> -> 0 `i `uc ]
+"226
 [e ++ . _OXPSTASTS 3 -> -> 1 `i `uc ]
-"227
-[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> # `S372 `ui `uc _destination -> -> 3 `i `uc _destinationPort ]
 "228
+[e ( _transport_udp_tx (4 , , , , &U _buffer_tx -> + -> # `S366 `ui -> # `S372 `ui `uc _destination -> -> 3 `i `uc _destinationPort ]
+"229
 [v _timeoutTime `ul ~T0 @X0 1 a ]
 [e = _timeoutTime + ( _micros ..  -> -> 230000 `l `ul ]
-"229
-[e $U 412  ]
-[e :U 413 ]
 "230
-{
-"231
-[e ( _internet_process ..  ]
-"232
-}
+[e $U 411  ]
 [e :U 412 ]
-"229
-[e $ && < ( _micros ..  _timeoutTime ! != -> . _OXPSTASTS 1 `i -> 0 `i 413  ]
-[e :U 414 ]
-"233
-[e $ ! != -> . _OXPSTASTS 1 `i -> 0 `i 415  ]
-"234
+"231
 {
+"232
+[e ( _internet_process ..  ]
+"233
+}
+[e :U 411 ]
+"230
+[e $ && < ( _micros ..  _timeoutTime ! != -> . _OXPSTASTS 1 `i -> 0 `i 412  ]
+[e :U 413 ]
+"234
+[e $ ! != -> . _OXPSTASTS 1 `i -> 0 `i 414  ]
 "235
+{
+"236
 [v _response `*CS373 ~T0 @X0 1 a ]
 [e = _response -> -> &U . _OXPSTASTS 5 `*S373 `*CS373 ]
-"236
-[e ) -> -> == -> . . *U _response 1 1 `i -> 2 `i `i `uc ]
-[e $UE 411  ]
 "237
-}
-[e :U 415 ]
+[e ) -> -> == -> . . *U _response 1 1 `i -> 2 `i `i `uc ]
+[e $UE 410  ]
 "238
-[e ) -> -> 0 `i `uc ]
-[e $UE 411  ]
-"239
-[e :UE 411 ]
 }
+[e :U 414 ]
+"239
+[e ) -> -> 0 `i `uc ]
+[e $UE 410  ]
 "240
-[v _internet_config_rx `(v ~T0 @X0 1 ef2`*uc`uc ]
+[e :UE 410 ]
+}
 "241
+[v _internet_config_rx `(v ~T0 @X0 1 ef2`*uc`uc ]
+"242
 {
 [e :U _internet_config_rx ]
-"240
+"241
 [v _payload `*uc ~T0 @X0 1 r1 ]
 [v _size `uc ~T0 @X0 1 r2 ]
-"241
-[f ]
 "242
+[f ]
+"243
 [v _confPacket `*S367 ~T0 @X0 1 a ]
 [e = _confPacket -> _payload `*S367 ]
-"243
-[e ( _internet_setNetworkPipe (1 &U . *U _confPacket 2 ]
 "244
-[e ( _internet_setAddress (1 . *U _confPacket 1 ]
+[e ( _internet_setNetworkPipe (1 &U . *U _confPacket 2 ]
 "245
-[e = _isConfigerd -> -> 1 `i `uc ]
+[e ( _internet_setAddress (1 . *U _confPacket 1 ]
 "246
-[e :UE 416 ]
+[e = _isConfigerd -> -> 1 `i `uc ]
+"247
+[e :UE 415 ]
 }
+[a 5C 103 101 116 0 ]
+[a 7C 114 101 113 46 112 114 111 112 46 115 105 122 101 0 ]
+[a 9C 118 97 108 117 101 0 ]
+[a 8C 105 100 0 ]
 [a 4C 82 70 50 52 32 99 111 110 110 101 99 116 101 100 0 ]
 [a 1C 119 97 105 116 105 110 103 32 102 111 114 32 99 111 110 102 105 103 117 114 97 116 105 111 110 32 109 101 115 115 97 103 101 46 46 46 0 ]
 [a 2C 35 0 ]
 [a 3C 82 70 50 52 32 100 105 115 99 111 110 110 101 99 116 101 100 33 0 ]
+[a 6C 112 111 115 116 32 0 ]

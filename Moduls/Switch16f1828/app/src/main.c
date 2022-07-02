@@ -14,7 +14,7 @@
 #include <config.h>
 #include <stdint.h>
 
-OXProperty props[] = {{.id = 1, .value = 1},
+OXProperty props[] = {{.id = 0, .value = 1},
                       {.id = 2, .value = 255}};
 
 // BEGIN CONFIG
@@ -105,17 +105,10 @@ void main()
         //     CONNECTE_LED = ~CONNECTE_LED;
         //     __delay_ms(100);
         // }
-        transport_udp_tx(buffer_tx, sizeof(UDPPacket) + 3, 1, 3, 3); // send pay load
-        startTime = micros();
-
-        if (startTime - stopTime > 150)
-        {
-            stopTime = startTime;
-            LED = props[0].value;
-        }
+        LED = props[0].value;
         if (checkButton(&btn1, SW1))
         {
-            props[0].value = ~props[0].value;
+            props[0].value = !props[0].value;
             oxp_post(1, 3, &props[0], 2);
         }
     }
@@ -144,8 +137,10 @@ void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
         if (size < OXP_MIN_SIZE)
             return; // malformed
         OXPacket *packet = (OXPacket *)payload;
+        OXPSTASTS.responsePropertyCount = (size - OXP_MIN_SIZE) / sizeof(OXProperty);
         if (packet->oxp.type == OXP_GET_REQUEST)
         {
+            logline_println("get");
             OXPacket *response = (OXPacket *)buffer_tx;
             response->oxp.rid = packet->oxp.rid;
             response->oxp.fin = 1;
@@ -158,11 +153,17 @@ void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
         }
         else if (packet->oxp.type == OXP_POST_REQUEST)
         {
+            logline_print("post ");
+            logline_prop_int("req.prop.size", OXPSTASTS.responsePropertyCount);
             for (uint8_t i = 0; i < OXPSTASTS.responsePropertyCount; i++)
             {
                 OXProperty prop = packet->properties[i];
                 if (prop.id < sizeof(props))
+                {
+                    logline_prop_int("id", prop.id);
+                    logline_prop_int("value", prop.value);
                     props[prop.id].value = prop.value;
+                }
             }
             OXPacket *response = (OXPacket *)buffer_tx;
             response->oxp.rid = packet->oxp.rid;

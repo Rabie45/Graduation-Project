@@ -16,11 +16,39 @@ pic16f1828.h
 
 ../libs/include/bitwise.h
 
+../libs/include/buffers.h
+stdint.h
+-
+
+../libs/include/internet.h
+xc.h
+-
+stdint.h
+-
+packets.h
+../libs/include/packets.h
+transport.h
+../libs/include/transport.h
+protocols.h
+../libs/include/protocols.h
+rf24.h
+../libs/include/rf24.h
+spi_master.h
+../libs/include/spi_master.h
+buffers.h
+../libs/include/buffers.h
+
 ../libs/include/logline.h
 Serial.h
 -
 
 ../libs/include/nRF24l01.h
+
+../libs/include/packets.h
+stdint.h
+-
+
+../libs/include/protocols.h
 
 ../libs/include/rf24.h
 stdint.h
@@ -44,6 +72,14 @@ xc.h
 stdint.h
 -
 
+../libs/include/transport.h
+packets.h
+../libs/include/packets.h
+protocols.h
+../libs/include/protocols.h
+stdint.h
+-
+
 ../libs/include/wait.h
 stdint.h
 -
@@ -52,6 +88,26 @@ xc.h
 timer.h
 ../libs/include/timer.h
 
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.c
+Serial.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/Serial.h
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/buffers.c
+buffers.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/buffers.h
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.c
+internet.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.h
+rf24.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.h
+string.h
+-
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/logline.c
+logline.h
+-
+
 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.c
 rf24.h
 F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/rf24.h
@@ -59,4 +115,24 @@ nRF24l01.h
 -
 bitwise.h
 -
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/spi_master.c
+spi_master.h
+-
+pic16f1828.h
+-
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.c
+timer.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/timer.h
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.c
+transport.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/transport.h
+internet.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/internet.h
+
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/wait.c
+wait.h
+F:/GitHub/Graduation-Project/Moduls/Switch16f1828/libs/wait.h
 

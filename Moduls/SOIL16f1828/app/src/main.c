@@ -93,6 +93,8 @@ void transport_udp_process(uint8_t *payload, uint8_t size, uint8_t port)
         if (size < OXP_MIN_SIZE)
             return; // malformed
         OXPacket *packet = (OXPacket *)payload;
+        OXPSTASTS.responsePropertyCount = (size - OXP_MIN_SIZE) / sizeof(OXProperty);
+
         if (packet->oxp.type == OXP_GET_REQUEST)
         {
             OXPacket *response = (OXPacket *)buffer_tx;
